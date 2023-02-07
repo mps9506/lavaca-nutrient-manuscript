@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.4)  6 FEB 2023 21:59
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.4)  7 FEB 2023 18:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1309,41 +1309,14 @@ Overfull \hbox (1.35065pt too wide) in paragraph at lines 588--597
 
 File: Schramm-Manuscript-2023_files/figure-latex/fig2-1.pdf Graphic file (type pdf)
 <use Schramm-Manuscript-2023_files/figure-latex/fig2-1.pdf>
-File: Schramm-Manuscript-2023_files/figure-latex/fig3-1.pdf Graphic file (type pdf)
-<use Schramm-Manuscript-2023_files/figure-latex/fig3-1.pdf>
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 636.
+(Font)              scaled to size 9.37807pt on input line 630.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 636.
+(Font)              scaled to size 7.29405pt on input line 630.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 636.
+(Font)              scaled to size 9.37807pt on input line 630.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 636.
-File: Schramm-Manuscript-2023_files/figure-latex/fig4-1.pdf Graphic file (type pdf)
-<use Schramm-Manuscript-2023_files/figure-latex/fig4-1.pdf>
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 650.
-(c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-Overfull \hbox (205.71802pt too wide) in paragraph at lines 654--654
-[]\T1/lmtt/m/n/10 ## Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result.[] 
- []
-
-
-Overfull \hbox (205.71802pt too wide) in paragraph at lines 654--654
-[]\T1/lmtt/m/n/10 ## Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result.[] 
- []
-
-
-Overfull \hbox (205.71802pt too wide) in paragraph at lines 654--654
-[]\T1/lmtt/m/n/10 ## Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result.[] 
- []
-
+(Font)              scaled to size 7.29405pt on input line 630.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1352,6 +1325,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [6]
+File: Schramm-Manuscript-2023_files/figure-latex/fig3-1.pdf Graphic file (type pdf)
+<use Schramm-Manuscript-2023_files/figure-latex/fig3-1.pdf>
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1360,6 +1335,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [7]
+File: Schramm-Manuscript-2023_files/figure-latex/fig4-1.pdf Graphic file (type pdf)
+<use Schramm-Manuscript-2023_files/figure-latex/fig4-1.pdf>
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1368,18 +1345,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [8]
-Overfull \hbox (69.2821pt too wide) in paragraph at lines 728--739
-[][] 
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 655.
+(c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Overfull \hbox (205.71802pt too wide) in paragraph at lines 659--659
+[]\T1/lmtt/m/n/10 ## Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result.[] 
  []
 
 
+Overfull \hbox (205.71802pt too wide) in paragraph at lines 659--659
+[]\T1/lmtt/m/n/10 ## Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result.[] 
+ []
+
+
+Overfull \hbox (205.71802pt too wide) in paragraph at lines 659--659
+[]\T1/lmtt/m/n/10 ## Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result.[] 
+ []
+
+File: Schramm-Manuscript-2023_files/figure-latex/long-smooths-1.pdf Graphic file (type pdf)
+<use Schramm-Manuscript-2023_files/figure-latex/long-smooths-1.pdf>
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
 (fancyhdr)                \setlength{\headheight}{16.18796pt}.
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[9] (./Schramm-Manuscript-2023.bbl
+[9]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1387,7 +1385,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[10]) 
+[10] (./Schramm-Manuscript-2023.bbl
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
+[11]) 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1396,20 +1402,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[11] (./Schramm-Manuscript-2023.aux)
+[12] (./Schramm-Manuscript-2023.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Schramm-Manuscript-2023.out' has not changed.
-(rerunfilecheck)             Checksum: 522088516C8580B9354243F463B529E1;2442.
+(rerunfilecheck)             Checksum: E7B521F400AAC3FD31D71ECA22714A88;1990.
  ) 
 Here is how much of TeX's memory you used:
- 36750 strings out of 478661
- 747722 string characters out of 5845121
- 1876001 words of memory out of 5000000
- 56189 multiletter control sequences out of 15000+600000
+ 36782 strings out of 478661
+ 749048 string characters out of 5845121
+ 1878001 words of memory out of 5000000
+ 56220 multiletter control sequences out of 15000+600000
  559294 words of font info for 129 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 123i,21n,120p,4642b,1081s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 123i,21n,120p,4642b,1087s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Schramm-Manuscript-2023.pdf (11 pages).
+Output written on Schramm-Manuscript-2023.pdf (12 pages).

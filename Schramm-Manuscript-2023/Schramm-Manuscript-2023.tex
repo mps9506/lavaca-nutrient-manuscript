@@ -621,26 +621,31 @@ Lavaca NO\textsubscript{3} r2 = 0.85 and 0.90 deviance explained TP r2 =
 0.27 and 0.33 Texana NO\textsubscript{3} r2 = 0.75 and 0.81 TP = 0.32
 and 0.38
 
-\begin{figure}
-\centering
-\includegraphics{Schramm-Manuscript-2023_files/figure-latex/fig2-1.pdf}
-\caption{Density plots of goodness-of-fit metrics from repeated 5-fold
-cross validation. Color indicates the tail probability calcualted from
-the empirical cumulative distribution of the goodness-of-fit metrics.}
+\begin{figure}[H]\begin{adjustwidth}{-\extralength}{0cm}
+
+{\centering \includegraphics[width=1\linewidth]{Schramm-Manuscript-2023_files/figure-latex/fig2-1} 
+
+}
+
+\end{adjustwidth}\caption[Density plots of goodness-of-fit metrics (NSE, r\textsuperscript{2}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads]{Density plots of goodness-of-fit metrics (NSE, r\textsuperscript{2}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calcualted from the empirical cumulative distribution of the goodness-of-fit metrics.}\label{fig:fig2}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics{Schramm-Manuscript-2023_files/figure-latex/fig3-1.pdf}
-\caption{Aggregated estimated annual and flow-normalized annual
-NO\textsubscript{3} and TP loads for USGS-08164000 and USGS-08164525.}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{Schramm-Manuscript-2023_files/figure-latex/fig3-1} 
+
+}
+
+\caption[Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525]{Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525.}\label{fig:fig3}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics{Schramm-Manuscript-2023_files/figure-latex/fig4-1.pdf}
-\caption{Comparison of delivered annual loads at USGS-08164000 and
-USGS-08164525.}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{Schramm-Manuscript-2023_files/figure-latex/fig4-1} 
+
+}
+
+\caption[Comparison of delivered annual loads at USGS-08164000 and USGS-08164525]{Comparison of delivered annual loads at USGS-08164000 and USGS-08164525.}\label{fig:fig4}
 \end{figure}
 
 \hypertarget{linkages-between-water-quality-and-watershed-flows-and-loads}{%
@@ -655,7 +660,7 @@ Loads}\label{linkages-between-water-quality-and-watershed-flows-and-loads}}
 
 \begin{table}[H]
 
-\caption{\label{tab:unnamed-chunk-1}Model AIC\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.}
+\caption{\label{tab:unnamed-chunk-1}Estuary GAM AIC\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.}
 \centering
 \begin{tabular}[t]{ll>{}l>{}l>{}l}
 \toprule
@@ -694,31 +699,14 @@ Parameter & Site & Temporal & Flow & Flow + Load\\
 \end{tabular}
 \end{table}
 
-\hypertarget{figures-tables-and-schemes}{%
-\subsection{Figures, Tables and
-Schemes}\label{figures-tables-and-schemes}}
+\begin{figure}[H]\begin{adjustwidth}{-\extralength}{0cm}
 
-\hypertarget{formatting-of-mathematical-components}{%
-\subsection{Formatting of Mathematical
-Components}\label{formatting-of-mathematical-components}}
+{\centering \includegraphics[width=1\linewidth]{Schramm-Manuscript-2023_files/figure-latex/long-smooths-1} 
 
-This is an example of an equation:
+}
 
-\begin{equation}
-a = 1,
-\end{equation}
-
-the text following an equation need not be a new paragraph. Please
-punctuate equations as regular text.
-
-This is the example 2 of equation:
-
-\begin{adjustwidth}{-\extralength}{0cm}
-\begin{equation}
-a = b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + 
-u + v + w + x + y + z
-\end{equation}
-\end{adjustwidth}
+\end{adjustwidth}\caption[Smoothed trend component for water quality paramaters obtained from Temporal estaury GAMs]{Smoothed trend component for water quality paramaters obtained from Temporal estaury GAMs.}\label{fig:long-smooths}
+\end{figure}
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
@@ -729,11 +717,11 @@ u + v + w + x + y + z
 \toprule
 Parameter & \makecell[c]{Reported Yield\\(kg$\cdot$km\textsuperscript{-2}$\cdot$year\textsuperscript{-1})} & Approach & Time Period & Reference\\
 \midrule
-TP & 42.9 (34.4, 54.0) & GAM & 2000-2020 & -\\
-TP & 45.2 & SPARROW & 2012 & @wiseSpatiallyReferencedModels2019\\
-TP & 42 & SWAT & 1977-2005 & @omaniEstimationSedimentNutrient2014\\
-TP & 20.81-91.58 & SPARROW & 2002 & @rebichSourcesDeliveryNutrients2011\\
-TP & 28.9 & LOADEST & 1972-1993 & @dunnTrendsNutrientInflows1996\\
+TP & 42.9 (34.4, 54.0) & GAM & 2000-2020 & This work\\
+TP & 45.2 & SPARROW & 2012 & \citet{wise_spatially_2019}\\
+TP & 42 & SWAT & 1977-2005 & \citet{omaniEstimationSedimentNutrient2014}\\
+TP & 20.81-91.58 & SPARROW & 2002 & \citet{rebich_sources_2011}\\
+TP & 28.9 & LOADEST & 1972-1993 & \citet{dunnTrendsNutrientInflows1996}\\
 \bottomrule
 \end{tabular}
 \end{table}

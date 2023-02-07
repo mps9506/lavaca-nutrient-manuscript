@@ -94,12 +94,36 @@ library(ggridges)
 library(ggtext)
 library(lubridate)
 library(units)
+library(gratia)
 
 ## this sets our default code chunk options
 knitr::opts_chunk$set(dev = "cairo_pdf",
                       echo = FALSE,
                       ## figure chunk options
-                      dpi = 300)
+                      dpi = 300,
+                      fig.pos = "H",
+                      fig.align = "center",
+                      out.width = "100%")
+
+
+## custom hook for wide figures
+
+hook_plot_wide <- function(x, options) {
+  x_out <- knitr:::hook_plot_tex(x, options)
+  if(isTRUE(options$wideplot)) {
+    x_out <- gsub(x = x_out,
+                  pattern='\\begin{figure}[H]', 
+                  replacement='\\begin{figure}[H]\\begin{adjustwidth}{-\\extralength}{0cm}',
+                  fixed=TRUE)
+    
+    x_out <- gsub(x = x_out,
+                  pattern='\\caption',
+                  replacement='\\end{adjustwidth}\\caption',
+                  fixed = TRUE)
+  }
+  x_out
+}
+knitr::knit_hooks$set(plot=hook_plot_wide)
 
 store <- "C:/Data-Analysis-Projects/lavaca-nutrients/_targets"
 ```
@@ -484,7 +508,7 @@ Texana NO~3~ r2 = 0.75 and 0.81
 TP = 0.32 and 0.38
 
 
-```{r fig2, message=FALSE, warning=FALSE, fig.height=5, fig.width=5, fig.cap="Density plots of goodness-of-fit metrics from repeated 5-fold cross validation. Color indicates the tail probability calcualted from the empirical cumulative distribution of the goodness-of-fit metrics."}
+```{r fig2, message=FALSE, warning=FALSE, fig.height=3.5, fig.width=6.5, fig.pos="H", fig.cap="Density plots of goodness-of-fit metrics (NSE, r\\textsuperscript{2}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calcualted from the empirical cumulative distribution of the goodness-of-fit metrics.", out.width="100%", wideplot=TRUE}
 
 ## some functions to overide scales in facets via dewey dunnington
 #https://dewey.dunnington.ca/post/2018/modifying-facet-scales-in-ggplot2/
@@ -590,7 +614,8 @@ p1 <- ggplot(df, aes(y = site, x = NSE,
                       n = 10000) +
   scale_fill_scico("Tail Probability", palette = "hawaii", direction = -1,
                    limit = c(0, 0.5), breaks = c(0, 0.1, 0.2, 0.3, 0.4)) +
-  guides(fill = guide_colorbar(barwidth = unit(150L, "pt"))) +
+  guides(fill = guide_colorbar(barwidth = unit(100L, "pt"),
+                               title.position = "top")) +
   facet_wrap_custom(~parameter, scales = "free_x",
                     ncol = 2,
                     scale_overrides = list(
@@ -601,10 +626,14 @@ p1 <- ggplot(df, aes(y = site, x = NSE,
                     )) +
   labs(x = "NSE", y = "") +
   theme_TWRI_print() +
-  theme(axis.text = element_text(size = 8),
+  theme(axis.text = element_text(size = 6),
+        axis.title.x = element_markdown(size = 6),
         strip.text.x = element_markdown(size = 8),
         strip.background = element_rect(fill = "white"),
-        panel.spacing.x = unit(20L, "pt"))
+        panel.spacing.x = unit(20L, "pt"),
+        legend.direction = "horizontal",
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8))
 
 
 
@@ -615,7 +644,8 @@ p2 <- ggplot(df, aes(y = site, x = r2,
                       n = 10000) +
   scale_fill_scico("Tail Probability", palette = "hawaii", direction = -1,
                    limit = c(0, 0.5), breaks = c(0, 0.1, 0.2, 0.3, 0.4)) +
-  guides(fill = guide_colorbar(barwidth = unit(150L, "pt"))) +
+  guides(fill = guide_colorbar(barwidth = unit(100L, "pt"),
+                               title.position = "top")) +
   facet_wrap_custom(~parameter, scales = "free_x",
                     ncol = 2,
                     scale_overrides = list(
@@ -626,11 +656,14 @@ p2 <- ggplot(df, aes(y = site, x = r2,
                     )) +
   labs(x = "r<sup>2</sup>", y = "") +
   theme_TWRI_print() +
-  theme(axis.text = element_text(size = 8),
-        axis.title.x = element_markdown(),
+  theme(axis.text = element_text(size = 6),
+        axis.title.x = element_markdown(size = 6),
         strip.text.x = element_markdown(size = 8),
         strip.background = element_rect(fill = "white"),
-        panel.spacing.x = unit(20L, "pt"))
+        panel.spacing.x = unit(20L, "pt"),
+        legend.direction = "horizontal",
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8))
 
 
 
@@ -641,7 +674,8 @@ p3 <- ggplot(df, aes(y = site, x = pbias,
                       n = 10000) +
   scale_fill_scico("Tail Probability", palette = "hawaii", direction = -1,
                    limit = c(0, 0.5), breaks = c(0, 0.1, 0.2, 0.3, 0.4)) +
-  guides(fill = guide_colorbar(barwidth = unit(150L, "pt"))) +
+  guides(fill = guide_colorbar(barwidth = unit(100L, "pt"),
+                               title.position = "top")) +
   facet_wrap_custom(~parameter, scales = "free_x",
                     ncol = 2,
                     scale_overrides = list(
@@ -652,22 +686,23 @@ p3 <- ggplot(df, aes(y = site, x = pbias,
                     )) +
   labs(x = "PBIAS", y = "") +
   theme_TWRI_print() +
-  theme(axis.text = element_text(size = 8),
+  theme(axis.text = element_text(size = 6),
+        axis.title.x = element_markdown(size = 6),
         strip.text.x = element_markdown(size = 8),
         strip.background = element_rect(fill = "white"),
-        panel.spacing.x = unit(20L, "pt"))
+        panel.spacing.x = unit(20L, "pt"),
+        legend.direction = "horizontal",
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8),
+        axis.text.y = element_blank())
 
 layout <- "
-AAAA
-AAAA
-AAAA
-BBBB
-BBBB
-BBBB
-CCCC
-CCCC
-CCCC
-DDDD
+AAAA####
+AAAA#DD#
+AAAA####
+BBBBCCCC
+BBBBCCCC
+BBBBCCCC
 "
 
 p1 / p2 / p3 / guide_area() + plot_layout(guides = 'collect',
@@ -677,7 +712,7 @@ p1 / p2 / p3 / guide_area() + plot_layout(guides = 'collect',
 
 
 
-```{r fig3, error=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.cap="Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525."}
+```{r fig3, error=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.pos="H", fig.cap="Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525.", out.width="100%"}
 
 load <- tar_read(daily_no3_08164000, store = store)
 fn_load <- tar_read(daily_no3_08164000_fn, store = store)
@@ -885,7 +920,7 @@ a + b + c + d + guide_area() + plot_layout(guides = 'collect', design = layout)
 ```
 
 
-```{r fig4, error=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.cap="Comparison of delivered annual loads at USGS-08164000 and USGS-08164525."}
+```{r fig4, error=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.pos="H", fig.cap="Comparison of delivered annual loads at USGS-08164000 and USGS-08164525.", out.width="100%"}
 load_lav_no3 <- tar_read(daily_no3_08164000, store = store)
 load_nav_no3 <- tar_read(daily_no3_texana, store = store)
 
@@ -1078,7 +1113,7 @@ dplyr::bind_rows(
     booktabs = TRUE,
     table.envir = "table", 
     position = "H", escape = FALSE,
-    caption = "Model AIC\\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.") |> 
+    caption = "Estuary GAM AIC\\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.") |> 
     collapse_rows(columns = 1,
                 valign = "middle", latex_hline = "major") |> 
   column_spec(3, bold = c(rep(F, 7), T, F, T, T, F, T, T, F),
@@ -1092,35 +1127,98 @@ dplyr::bind_rows(
 
 
 
-## Figures, Tables and Schemes
+```{r long-smooths, message=FALSE, warning=FALSE, fig.pos="H", fig.height=3.5, fig.pos="H", fig.width=6, fig.cap="Smoothed trend component for water quality paramaters obtained from Temporal estaury GAMs.", wideplot=list("0cm"), out.width="100%", wideplot=TRUE}
+draw_smoothed_years <- function(model1, model2, model3,
+                                ylab, subtitle) {
+  
+  `TCEQ-13563` <- model1
+  `TCEQ-13383` <- model2
+  `TCEQ-13384` <- model3
+
+  comp <- gratia::compare_smooths(
+    `TCEQ-13563`,
+    `TCEQ-13383`,
+    `TCEQ-13384`,
+    smooths = "s(ddate)") 
+
+  crit <- gratia:::coverage_normal(0.90)
+
+  comp |> 
+    unnest(data) |> 
+    mutate(lower_ci = est + (crit * se),
+           upper_ci = est - (crit * se),
+           label = if_else(ddate == max(ddate),
+                           as.character(model),
+                           NA_character_)) |> 
+    ggplot(aes(x = ddate, y = est, group = model)) +
+    geom_ribbon(aes(ymin = lower_ci,
+                    ymax = upper_ci,
+                    fill = model),
+                alpha = 0.15) +
+    geom_line(aes(color = model)) +
+    geom_hline(yintercept = 0, linetype = 2, alpha = 0.25) +
+    # geom_text_repel(aes(label = label,
+    #                     color = model), 
+    #                 nudge_x = 5,
+    #                 hjust = "left",
+    #                 size = 2) +
+    scale_x_continuous(breaks = c(2005, 2010, 2015, 2020),
+                       expand = expansion(mult = c(0.05,0.05))) +
+    colorspace::scale_fill_discrete_qualitative(name = "") +
+    colorspace::scale_color_discrete_qualitative(name = "") +
+    labs(x = "Year", y = ylab,
+         subtitle = subtitle) +
+    theme_TWRI_print() +
+    theme(axis.title.y = element_markdown(size = 8),
+          axis.title.x = element_markdown(size = 8),
+          plot.subtitle = element_markdown(size = 8),
+          legend.direction = "vertical")
+  
+  
+} 
+
+
+p_tp <- draw_smoothed_years(tar_read(tp_lavaca_13563_temporal, store = store),
+                            tar_read(tp_lavaca_13383_temporal, store = store),
+                            tar_read(tp_lavaca_13384_temporal, store = store),
+                            ylab = "TP\nSmooth<br>Estimate [mg/L]", subtitle = "TP Trend")
+
+p_no3 <- draw_smoothed_years(tar_read(no3_lavaca_13563_temporal, store = store),
+                             tar_read(no3_lavaca_13383_temporal, store = store),
+                             tar_read(no3_lavaca_13384_temporal, store = store),
+                             ylab = "NO*<sub>x</sub>* Smooth<br>Estimate [mg/L]", subtitle = "NO*<sub>x</sub>* Trend")
+
+p_tkn <- draw_smoothed_years(tar_read(tkn_lavaca_13563_temporal, store = store),
+                             tar_read(tkn_lavaca_13383_temporal, store = store),
+                             tar_read(tkn_lavaca_13384_temporal, store = store),
+                             ylab = "TKN\nSmooth<br>Estimate [mg/L]", subtitle = "TKN Trend")
+
+p_chla <- draw_smoothed_years(tar_read(chla_lavaca_13563_temporal, store = store),
+                             tar_read(chla_lavaca_13383_temporal, store = store),
+                             tar_read(chla_lavaca_13384_temporal, store = store),
+                             ylab = "Chlorophyll-*a*\nSmooth<br>Estimate [µg/L]", subtitle = "Chlorophyll-*a* Trend")
+
+p_do <- draw_smoothed_years(tar_read(do_lavaca_13563_temporal, store = store),
+                             tar_read(do_lavaca_13383_temporal, store = store),
+                             tar_read(do_lavaca_13384_temporal, store = store),
+                             ylab = "DO\nSmooth<br>Estimate [mg/L]", subtitle = "DO Trend")
+
+design <- "
+112266
+334455
+"
+
+#(p_tp + p_no3) / (p_chla + p_tkn) / (p_do)
+p_tp + p_no3 + p_chla + p_tkn + p_do + guide_area() + plot_layout(guides = "collect",
+                                                   design = design)
+```
 
 
 
 
 
 
-## Formatting of Mathematical Components
 
-This is an example of an equation:
-
-\begin{equation}
-a = 1,
-\end{equation}
-
-the text following an equation need not be a new paragraph. Please punctuate 
-equations as regular text.
-
-<!-- If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph. -->
-
-This is the example 2 of equation:
-
-
-\begin{adjustwidth}{-\extralength}{0cm}
-\begin{equation}
-a = b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + 
-u + v + w + x + y + z
-\end{equation}
-\end{adjustwidth}
 
 
 
@@ -1133,9 +1231,10 @@ df <- tibble(
   `Reported Yield (kg$\\cdot$km\\textsuperscript{-2}$\\cdot$year\\textsuperscript{-1})` = c("42.9 (34.4, 54.0)", "45.2", "42", "20.81-91.58", "28.9"),
   Approach = c("GAM", "SPARROW", "SWAT", "SPARROW", "LOADEST"),
   `Time Period` = c("2000-2020", "2012", "1977-2005", "2002", "1972-1993"),
-  Reference = c("-", "@wiseSpatiallyReferencedModels2019", 
-                "@omaniEstimationSedimentNutrient2014", "@rebichSourcesDeliveryNutrients2011",
-                "@dunnTrendsNutrientInflows1996")
+  Reference = c("This work", "\\citet{wise_spatially_2019}", 
+                "\\citet{omaniEstimationSedimentNutrient2014}", 
+                "\\citet{rebich_sources_2011}",
+                "\\citet{dunnTrendsNutrientInflows1996}")
 )
 
 kbl(df, format = "latex",
