@@ -1,0 +1,1163 @@
+---
+title: Assessing linkages between watershed nutrient loading and estuary water quality in Lavaca Bay, Texas
+author:
+  - name: Michael Schramm
+    affil: 1
+    orcid: 0000-0003-1876-6592
+affiliation:
+  - num: 1
+    address: |
+      Texas A&M AgriLife Research - 
+      Texas Water Resources Institute
+      1001 Holleman Dr. E. 
+      College Station, TX 77840-2118
+    email: michael.schramm@ag.tamu.edu
+# author citation list in chicago format
+authorcitation: |
+  Schramm, M.
+correspondence: |
+  michael.schramm@ag.tamu.edu
+# specify the mdpi cls and location of file
+# as of 2021 the template files are located in
+# a subdirectory and should be retained there 
+# since file locations are hard coded in the cls file.
+cls: Definitions/mdpi
+# class options
+classoption:
+  - water #first option is the journal name
+  - article #second option is the type of manuscript
+  - submit #do not change
+  - oneauthor #change to oneauthor for single author papers
+  #- pdftex #remove if compiling with XeLaTeX
+# front matter
+simplesummary: |
+  A Simple summary goes here.
+abstract: |
+  A single paragraph of about 200 words maximum. For research articles, 
+  abstracts should give a pertinent overview of the work. We strongly encourage
+  authors to use the following style of structured abstracts, but without 
+  headings: 1) Background: Place the question addressed in a broad context and
+  highlight the purpose of the study; 2) Methods: Describe briefly the main
+  methods or treatments applied; 3) Results: Summarize the article's main 
+  findings; and 4) Conclusion: Indicate the main conclusions or interpretations. 
+  The abstract should be an objective representation of the article, it must not 
+  contain results which are not presented and substantiated in the main text and 
+  should not exaggerate the main conclusions.
+# back matter
+keywords: |
+  keyword 1; keyword 2; keyword 3 (list three to ten pertinent keywords specific 
+  to the article, yet reasonably common within the subject discipline.).
+acknowledgement: |
+  All sources of funding of the study should be disclosed. Please clearly 
+  indicate grants that you have received in support of your research work. 
+  Clearly state if you received funds for covering the costs to publish in open 
+  access.
+funding: |
+  This paper was funded by financial assistance provided
+  by the Coastal Zone Management Act of 1972, as amended, administered by the
+  National Oceanic and Atmospheric Administration (NOAA), Office for Coastal
+  Management, pursuant to NOAA Award No. NA21NOS4190136. The views
+  expressed herein are those of the author(s) and do not necessarily 
+  reflect the views of NOAA, the U.S. Department of Commerce, or any of their 
+  subagencies.
+dataavailability: |
+  Data and code are openly available in Zenodo at 
+  https://doi.org/10.5281/zenodo.7330754.
+conflictsofinterest: |
+  The author declares no conflict of interest. The founding sponsors had no 
+  role in the design of the study; in the collection, analyses, or 
+  interpretation of data; in the writing of the manuscript, an in the decision 
+  to publish the results.
+bibliography: mybibfile.bib
+endnotes: false
+output: 
+  rticles::mdpi_article:
+    latex_engine: xelatex #pdflatex or XeLaTeX allowed
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(targets)
+#library(unitar)
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+library(patchwork)
+library(ggrepel)
+library(rcartocolor)
+library(twriTemplates)
+library(ggspatial)
+library(ragg)
+library(flextable)
+library(modelsummary)
+library(scico)
+library(ggridges)
+library(ggtext)
+library(lubridate)
+library(units)
+
+## this sets our default code chunk options
+knitr::opts_chunk$set(dev = "cairo_pdf",
+                      echo = FALSE,
+                      ## figure chunk options
+                      dpi = 300)
+
+store <- "C:/Data-Analysis-Projects/lavaca-nutrients/_targets"
+```
+
+
+# Introduction
+
+Like many estuaries globally, estuaries along the Texas Gulf coast are facing 
+pressures from increasing population, increases in point source 
+and non-point source pollution and alterations to freshwater inflows leading to
+increases in the occurrences and risks of algal blooms and eutrophication [@bricker_effects_2008; @kennicuttWaterQualityGulf2017; 
+@bugica_water_2020]. Recent studies indicate that estuary water quality
+dynamics in both agriculturally dominated and urban watersheds within Texas are
+displaying signals of conditions increasingly conducive to eutrophication 
+[@wetzWaterQualityDynamics2016; @wetz_exceptionally_2017; 
+@bugica_water_2020; @chinPhytoplanktonBiomassCommunity2022].
+
+
+
+# Materials and Methods
+
+## Study Area and Data
+
+Lavaca Bay is a secondary bay in the Matagorda Bay system located on the 
+Texas Gulf coast, roughly halfway between the cities of Houston and Corpus 
+Christi (Figure  \ref{fig:fig1}). Lavaca Bay is 190 km^2^ with the majority
+of freshwater inflow provided by the Lavaca and Navidad River systems. The 
+Garcitas-Arenosa, Placedo Creek, and Cox Bay watersheds provide additional 
+freshwater inflows. The entire watershed land area for Lavaca Bay is 8,149 km^2^. 
+The Lavaca and Navidad River watersheds are a combined 5,966 km^2^, or 
+approximately 73% of the entire Lavaca Bay watershed area. Discharge from the 
+Navidad River is regulated by Lake Texana which has been in operation since 1980.
+Lake Texana provides 170,000 acre-feet of water storage and discharges into the 
+tidal section of the Navidad River which ultimately joins the tidal section of 
+the Lavaca River 15 km upstream of the confluence with the Bay.
+
+
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering
+\includegraphics[width=15.5cm]{Schramm-Manuscript-2023_files/figure-latex/fig1-1.png}
+\end{adjustwidth}
+\caption{Map of the Lavaca Bay watershed, location of USGS gages where nutrient loads were calculated, and location of estuary water quality sampling sites.\label{fig1}}
+\end{figure}  
+
+Daily discharges for the Lavaca River (USGS-08164000) were obtained from the 
+United States Geologic Survey (USGS) National Water Information System using the 
+*dataRetrieval* R package [@deciccoDataRetrievalPackagesDiscovering2022]. Gaged
+dailly discharges from Lake Texana (USGS-0816425) were provided by the Texas
+Water Development Board (TWDB) (April 21, 2022 email from R. Neupane, TWDB).
+
+Water quality sample data for both freshwater and estuary locations were o
+btained from the Texas Commission on Environmental Quality (TCEQ) Surface Water 
+Quality Monitoring Information System. Data submitted through the system 
+are required to be collected under Quality Assurance Project Plans and lab 
+method procedures outlined by the TCEQ's procedures manual. 
+The QAPP and procedures manuals ensure the consistent collection and laboratory 
+methods are applied between samples collected by different entities and under 
+different projects. 
+For freshwater locations, total phosphorus (TP) and nitrate-nitrogen (NO~3~) 
+data were downloaded (Table \ref{tab:fwsummary}). Unfortunately, insufficient data was available for 
+assessment of total nitrogen (TN) and total Kjeldahl nitrogen (TKN) loadings, 
+so analysis was restricted to TP and NO~3~ loads. For estuary locations, we 
+obtained data for TP, Nitrite+Nitrate (NO*~x~*), TKN, chlorophyll-*a*, and
+dissolved oxygen (Table \ref{tab:estuarysummary}).
+
+
+```{r fwsummary}
+df <- tar_read(model_data, store = store)
+
+df <- df |>  
+  select(Date, site_no, Flow, original_NO3, original_TP) |>
+  mutate(site_no = case_when(
+    site_no == "lktexana_g" ~ "usgs08164525",
+    site_no != "lktexana_g" ~ site_no
+  )) |>
+  filter(site_no == "usgs08164000" |
+           site_no == "usgs08164525") |> 
+  rename(`NO\\textsubscript{3} (mg/L)` = original_NO3,
+         `TP (mg/L)` = original_TP,
+         `Station ID` = site_no,
+         `Mean Daily Streamflow (cfs)` = Flow)
+df$`Station ID` <- str_replace(df$`Station ID`, "usgs", "USGS-")
+
+
+
+datasummary(`Station ID` * (`TP (mg/L)` + `NO\\textsubscript{3} (mg/L)` + `Mean Daily Streamflow (cfs)`) ~
+               Mean*Arguments(na.rm=TRUE) + SD*Arguments(na.rm=TRUE) + N,
+            data = df, output = "kableExtra",
+            booktabs = TRUE, table.envir = "table", 
+            position = "H", escape = FALSE,
+            caption = "Summary of gauged streamflow and freshwater water quality samples between January 1, 2000 and December 31, 2020.")
+```
+
+
+
+```{r estuarysummary}
+df <- tar_read(estuary_model_data, store = store)
+
+df <- df |> 
+  filter(station_id == "13384" |
+         station_id == "13383" |
+         station_id == "13563") |>
+  filter(parameter_code == "00630" |
+           parameter_code == "00625" |
+           parameter_code =="00665" |
+           parameter_code == "70953" |
+           parameter_code == "00300") |> 
+  filter(end_date >= as.Date("2005-01-01")) |> 
+  select(end_date, station_id, station_description, parameter_description, parameter_code, value) |> 
+  mutate(parameter_description =
+           case_when(
+             parameter_code == "70953" ~ "Chlorophyll-\\emph{a} ($\\mu$g/L)",
+             parameter_code == "00625" ~ "TKN (mg/L)",
+             parameter_code == "00630" ~ "NO\\textsubscript{\\emph{x}} (mg/L)",
+             parameter_code == "00665" ~ "TP (mg/L)",
+             parameter_code == "00300" ~ "DO (mg/L)"
+           )) |>
+  mutate(station_id = paste0("TCEQ-", station_id)) |> 
+  rename(`Station ID` = station_id) |> 
+  pivot_wider(names_from = parameter_description,
+              values_from = value)
+
+
+
+ modelsummary::datasummary(`Station ID` * (`TP (mg/L)`+
+                            `NO\\textsubscript{\\emph{x}} (mg/L)` +
+                            `TKN (mg/L)` +
+                            `Chlorophyll-\\emph{a} ($\\mu$g/L)` +
+                            `DO (mg/L)`) ~
+                            Mean*Arguments(na.rm=TRUE) + SD*Arguments(na.rm=TRUE) + N,
+                          data = df, output = "dataframe") |> 
+   mutate(`Station ID` = case_when(
+     `Station ID` == "" ~ NA_character_,
+     `Station ID` != "" ~ `Station ID`
+     )) |>
+   tidyr::fill(`Station ID`, .direction = "down") |> 
+   kbl(format = "latex", booktabs = TRUE, table.envir = "table", 
+       position = "H", escape = FALSE,
+       caption = "Summary of estuary water quality samples collected between January 1, 2005 and December 31, 2020.") |> 
+   collapse_rows(columns = 1, latex_hline = "major",
+                 valign = "middle")
+   
+```
+
+
+## Estimating Watershed Based Nutrient Loads
+
+Estimates of nutrient loads were developed using Generalized Additive Models
+(GAMs) relating nutrient concentration to river discharge, season, and time.
+Separate models were fit at each station for each parameter and used to predict
+nutrient concentrations for each day in the study period. GAMs can be specified
+in a functionally similar manner to the commonly used LOADEST 
+[@cohn_validity_1992] or WRTDS 
+[@hirsch_weighted_2010] regression models and have been shown to
+produce reliable estimates of nutrient and sediment loadings 
+[@wangLoadEstimationUncertainties2011; @kroonRiverLoadsSuspended2012; 
+@kuhnert_quantifying_2012; @robson_prediction_2015-1; 
+@hagemannEstimatingNutrientOrganic2016; @mcdowell_implications_2021; 
+@biagi_novel_2022]. GAMs are a semiparametric extension of generalized linear 
+models where the linear predictor is represented as the sum of multiple unknown 
+smooth functions and parametric linear predictors [@wood_fast_2011]. Although 
+the underlying parameter estimation procedure of GAMs is substantially different 
+than WRTDS, both the functional form and results are demonstrated to be similar [@beckNumericalQualitativeContrasts2017]. The use of GAMs over other 
+regression-based approaches was (1) the ability to easily explore and 
+incorporate different model terms, (2) the ability to incorporate non-linear
+smooth function without explicit apriori knowledge of the expect shape, and (3)
+the ability to specify a link function that relates the expected value of the
+response to the linear predictors and allows use to avoid data transformations
+as much as possible.
+
+GAMs were fit using the *mgcv* package in R which makes available multiple 
+types of smooth functions with automatic smoothness selection [@wood_fast_2011]. 
+The general form of the model relating NO~3~ and TP concentration to streamflow,
+season, and time was:
+
+\begin{equation}\label{eq:1}
+\begin{aligned}
+g(\mu) &= \alpha + f_1(ddate) + f_2(yday) + f_3(log1p(Q)) + f_4(ma) + f_5(fa)  \\
+y &\sim \mathcal{N}(\mu,\,\sigma^{2}),
+\end{aligned}
+\end{equation}
+
+where $\mu$ is the conditional expected NO~3~-N or TP concentration, *g()* is the 
+log-link, $\alpha$ is the intercept, *f~n~()* are smoothing functions. *y* is the 
+response variable (NO~3~ or TP concentration) modeled as normally distributed 
+with mean $\mu$ and standard deviation $\sigma$. *ddate* is the date converted to 
+decimal notation, *yday* is numeric day of year (1-366), and *log1p(Q)* is the 
+natural log of mean daily streamflow plus 1. 
+
+Moving average (*ma*) is an exponentially smoothed moving average that attempts 
+to incorporate the influence of prior streamflow events on concentration at the 
+current time period. @wangLoadEstimationUncertainties2011, 
+@kuhnert_quantifying_2012 and @zhang_improving_2017 refer to this as averaged or 
+smoothed discounted flow and demonstrated improvements in nutrient loading 
+models by including the term. @kuhnert_quantifying_2012 expresses MA as:
+
+\begin{equation}\label{eq:2}
+ma(\delta) = d{\kappa_{i-1}}+(1-\delta)\hat{q}_{i-1}\quad\text{and}\quad \kappa_{i}=\sum_{m=1}^{i}\hat{Q}_m,
+\end{equation}
+
+where $\delta$ is the discount factor (here, set equal to 0.95), $\kappa_i$ 
+is the cumulative flow (*Q*) up to the *i*th day.
+
+Flow anomaly (*fa*) is a unitless term that represents how wet or dry the 
+current time period is from a previous time period [@vecchia_trends_2009; 
+@zhang_improving_2017]. Long-term flow anomaly (*ltfa*) is the streamflow over 
+the previous year relative to the entire period and calculated as described 
+by @zhang_improving_2017:
+
+\begin{equation}\label{eq:3}
+ltfa(t) = \bar{x}_{1\,year}(t) - \bar{x}_{entire\,period} 
+\end{equation}
+
+and the short-term flow anomaly (*stfa*) calculated as the current day flow 
+compared to the preceding 1-month streamflow:
+
+\begin{equation}\label{eq:4}
+stfa(t) = x_{current\,day}(t) - \bar{x}_{1\,month}(t) 
+\end{equation}
+
+where *x* are the averages of log-transformed streamflow over the antecedent 
+period (*1-year*, *1-month*, etc.) for time *t*.  We used *ltfa* in NO~3 models 
+and *stfa* in TP models based on results from @zhang_improving_2017 
+demonstrating major improvements in NO~x~ regression models that incorporated 
+*ltfa* and moderate improvements in TP regression models that incorporated 
+*stfa*.
+
+The calculation of model terms for the Lake Texana site were slightly modified
+because daily loads are not a function of natural stream flow processes alone,
+but of dam releases and nutrient concentrations at the discharge point of the 
+lake. *Q*, *ma*, and *fa* terms were calculated based on total gaged inflow from
+the 4 major tributaries to the lake. Thin-plate regression splines were used 
+for *ddate*, *log1p(Q)*, *fa*, and *ma*. A cyclic cubic regression spline was 
+used for *yday* to ensure the ends of the spline match 
+(day 1 and day 366 are expected to match). First order penalties were applied 
+to the smooths of flow-based variables which penalize departures from a 
+flat function to help constrain extrapolations for high flow measurements. 
+
+Left-censored data were not uncommon in this dataset. Several methods are
+available to account for censored data. We transformed left-censored nutrient 
+concentrations to one-half the detection limit. Although this simple approach 
+can introduce bias [@hornungEstimationAverageConcentration1990],  we considered 
+it acceptable because high concentrations and loadings are associated with 
+high-flow events and low-flow/low-concentration events will account for a small 
+proportion of total loadings [@mcdowell_implications_2021].
+
+Daily loads were estimated as the predicted concentration multiplied by the 
+daily streamflow. For the Lake Texana site, model terms were slightly modified
+because daily loads are a function of dam releases and nutrient concentration,
+but concentration will be a function of lake inflows and or other lake processes.
+ *Q*, *ma*, and *fa* terms were calculated based on total gaged inflow from
+the 4 major tributaries to the lake and laily loads at the dam were calculated 
+from the discrete daily concentration at the discharge point of the lake and 
+corresponding reported daily discharge from the dam.
+Flow-normalized loads were estimated similar to WRTDS by setting flow-based 
+covariates on each day of the year equal to each of the historical values for
+that day of the year over the study period [@hirsch_weighted_2010]. The 
+flow-normalized estimate was calculated as the mean of all the predictions for 
+each day considering all possible flow values.
+Standard deviations and credible intervals were obtained by 
+drawing samples from the multivariate normal posterior distribution of the 
+fitted GAM [@woodConfidenceIntervalsGeneralized2006; 
+@marraCoveragePropertiesConfidence2012; @mcdowell_implications_2021].
+Uncertainty in loads were reported as 90% credible intervals developed by 
+drawing 1000 realizations of parameter estimates from the multivariate normal 
+posterior distribution of the model parameters. GAM performance was evaluated 
+using repeated 5-fold cross validation  [@burmanComparativeStudyOrdinary1989] 
+and average Nash-Suttclifee Efficiency (NSE), r^2^ and percent bias (PBIAS) 
+metrics across folds were calculated for each model.
+
+## Linking Estuary Water Quality to Hydrology and Nutrient Loads
+
+To test if changes in freshwater inflow and nutrient loading had explanatory
+effect on changes in estuary water quality a series of GAM models were fit at
+each site relating parameter concentration to temporal trends, inflow, and 
+nutrient loads [@murphyNutrientImprovementsChesapeake2022]:
+
+\begin{equation}\label{eq:5}
+\begin{aligned}
+g(\mu) &= \alpha + f_1(ddate) + f_2(yday) \\
+y &\sim \Gamma(\mu,\lambda),
+\end{aligned}
+\end{equation}
+
+\begin{equation}\label{eq:6}
+\begin{aligned}
+g(\mu) &= \alpha + f_1(ddate) + f_2(yday) + f_3(Q) \\
+y &\sim \Gamma(\mu,\lambda),
+\end{aligned}
+\end{equation}
+
+\begin{equation}\label{eq:7}
+\begin{aligned}
+g(\mu) &= \alpha + f_1(ddate) + f_2(yday) + f_3(Q) + f_4(Load) \\
+y &\sim \Gamma(\mu,\lambda),
+\end{aligned}
+\end{equation}
+
+where $\mu$ is the conditional expected response (nutrient concentration), *g()* 
+is the log link, and response variable was modeled as Gamma distributed with 
+mean $\mu$ and scale $\lambda$. *f~1~(ddate)* is decimal date smoothed with a 
+thin-plate regression spline, *f~2~(yday)* is the numeric day of year smoothed 
+with a cyclic cubic regression spline, *f~3~(Q)* is mean daily inflow (the 
+combined measurements from Lavaca River and Lake Texana) and *f~4~(Load)* is 
+the total NO~3~ or TP watershed load. The set of models specified for each water
+quality response are in Table \ref{rab:estgammodels}.
+
+```{r estgammodels, echo=FALSE}
+df <- tibble(
+  `Water Quality Response Parameter` = c(rep("TP", 3), rep("NO\\textsubscript{\\emph{x}}", 3),
+               rep("Chlorophyll-\\emph{a}", 3), rep("Dissolved Oxygen", 3),
+               rep("TKN", 2)),
+  Model = c("Temporal", "Flow", "Flow+Load",
+            "Temporal", "Flow", "Flow+Load",
+            "Temporal", "Flow", "Flow+Load",
+            "Temporal", "Flow", "Flow+Load",
+            "Temporal", "Flow"),
+  `Model Terms` = c("s(ddate) + s(yday)",
+                    "s(ddate) + s(yday) + s(Q)",
+                    "s(ddate) + s(yday) + s(Q) + s(TP Load)",
+                    "s(ddate) + s(yday)",
+                    "s(ddate) + s(yday) + s(Q)",
+                    "s(ddate) + s(yday) + s(Q) + s(NO\\textsubscript{3} Load)",
+                    "s(ddate) + s(yday)",
+                    "s(ddate) + s(yday) + s(Q)",
+                    "s(ddate) + s(yday) + s(Q) + s(TP Load) + s(NO\\textsubscript{3} Load)",
+                    "s(ddate) + s(yday)",
+                    "s(ddate) + s(yday) + s(Q)",
+                    "s(ddate) + s(yday) + s(Q) + s(TP Load) + s(NO\\textsubscript{3}  Load)",
+                    "s(ddate) + s(yday)",
+                    "s(ddate) + s(yday) + s(Q)")
+)
+
+kbl(df, format = "latex",
+    booktabs = TRUE,
+    caption = "Set of GAM models specified for each water quality parameter response.",
+    col.names = linebreak(c("Water Quality\nResponse Parameter",
+                          "Model",
+                          "Model Terms")),
+    table.envir = "table", 
+    position = "H", escape = FALSE) |> 
+  collapse_rows(columns = 1, latex_hline = "major",
+                valign = "middle")
+
+```
+
+Because streamflow and nutrient loads are tightly correlated, freshwater inflow
+masks any potential signals from nutrient loads alone. Following the 
+methodology implemented by @murphyNutrientImprovementsChesapeake2022,
+both streamflow and nutrient loads were prepossessed to account for season
+and flow. Instead of using raw freshwater inflow and nutrient loading values, 
+these values were replaced by seasonally adjusted inflow and flow-adjusted 
+nutrient loads by fitting a GAM relating season (day of year) to log transformed
+daily freshwater inflow values:
+
+\begin{equation}\label{eq:8}
+g(\mu) = \alpha + f_1(yday),
+\end{equation}
+
+and a GAM relating log transformed NO~3~ or TP loads to log transformed daily
+inflow:
+
+\begin{equation}\label{eq:9}
+g(\mu) = \alpha + f_1(log(Q)),
+\end{equation}
+
+where the response variables were modeled as normally distributed with an 
+identity link function. Response residuals from the respective GAM models were 
+used as *Q* and *Load* in Equation \ref{eq:6} and Equation \ref{eq:7}.
+
+# Results
+
+
+## Watershed Nutrient Loads
+
+
+
+Lavaca NO~3~ r2 = 0.85 and 0.90 deviance explained
+TP r2 = 0.27 and 0.33
+Texana NO~3~ r2 = 0.75 and 0.81
+TP = 0.32 and 0.38
+
+
+```{r fig2, message=FALSE, warning=FALSE, fig.height=5, fig.width=5, fig.cap="Density plots of goodness-of-fit metrics from repeated 5-fold cross validation. Color indicates the tail probability calcualted from the empirical cumulative distribution of the goodness-of-fit metrics."}
+
+## some functions to overide scales in facets via dewey dunnington
+#https://dewey.dunnington.ca/post/2018/modifying-facet-scales-in-ggplot2/
+scale_override <- function(which, scale) {
+  if(!is.numeric(which) || (length(which) != 1) || (which %% 1 != 0)) {
+    stop("which must be an integer of length 1")
+  }
+  
+  if(is.null(scale$aesthetics) || !any(c("x", "y") %in% scale$aesthetics)) {
+    stop("scale must be an x or y position scale")
+  }
+  
+  structure(list(which = which, scale = scale), class = "scale_override")
+}
+
+CustomFacetWrap <- ggproto(
+  "CustomFacetWrap", FacetWrap,
+  init_scales = function(self, layout, x_scale = NULL, y_scale = NULL, params) {
+    # make the initial x, y scales list
+    scales <- ggproto_parent(FacetWrap, self)$init_scales(layout, x_scale, y_scale, params)
+    
+    if(is.null(params$scale_overrides)) return(scales)
+    
+    max_scale_x <- length(scales$x)
+    max_scale_y <- length(scales$y)
+    
+    # ... do some modification of the scales$x and scales$y here based on params$scale_overrides
+    for(scale_override in params$scale_overrides) {
+      which <- scale_override$which
+      scale <- scale_override$scale
+      
+      if("x" %in% scale$aesthetics) {
+        if(!is.null(scales$x)) {
+          if(which < 0 || which > max_scale_x) stop("Invalid index of x scale: ", which)
+          scales$x[[which]] <- scale$clone()
+        }
+      } else if("y" %in% scale$aesthetics) {
+        if(!is.null(scales$y)) {
+          if(which < 0 || which > max_scale_y) stop("Invalid index of y scale: ", which)
+          scales$y[[which]] <- scale$clone()
+        }
+      } else {
+        stop("Invalid scale")
+      }
+    }
+    
+    # return scales
+    scales
+  }
+)
+
+facet_wrap_custom <- function(..., scale_overrides = NULL) {
+  # take advantage of the sanitizing that happens in facet_wrap
+  facet_super <- facet_wrap(...)
+  
+  # sanitize scale overrides
+  if(inherits(scale_overrides, "scale_override")) {
+    scale_overrides <- list(scale_overrides)
+  } else if(!is.list(scale_overrides) || 
+            !all(vapply(scale_overrides, inherits, "scale_override", FUN.VALUE = logical(1)))) {
+    stop("scale_overrides must be a scale_override object or a list of scale_override objects")
+  }
+  
+  facet_super$params$scale_overrides <- scale_overrides
+  
+  ggproto(NULL, CustomFacetWrap,
+          shrink = facet_super$shrink,
+          params = facet_super$params
+  )
+}
+
+df <- tar_read(cv_no3_08164000, store = store) |> 
+  mutate(site = "USGS-08164000",
+         parameter = "NO<sub>3</sub>") |> 
+  bind_rows(
+    tar_read(cv_tp_08164000, store = store) |> 
+      mutate(site = "USGS-08164000",
+             parameter = "TP")
+  ) |> 
+  bind_rows(
+    tar_read(cv_no3_texana, store = store) |> 
+      mutate(site = "USGS-08164525",
+             parameter = "NO<sub>3</sub>")
+  ) |> 
+  bind_rows(
+    tar_read(cv_tp_texana, store = store) |> 
+      mutate(site = "USGS-08164525",
+             parameter = "TP")
+  )
+
+df_long <- df |> 
+  ungroup() |> 
+  select(NSE, r2, pbias, site, parameter) |> 
+  pivot_longer(cols = c(NSE, r2, pbias),
+               names_to = "metric")
+
+## plots the density estimates of the repeated 5-fold cross-validation goodness-of-fit metric results,
+## color indicates the tail probability calculated from the empirical cumulitive distribution of the goodness-of-fit metric values 
+p1 <- ggplot(df, aes(y = site, x = NSE,
+               fill = 0.5 - abs(0.5 - after_stat(ecdf)))) +
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      calc_ecdf = TRUE,
+                      n = 10000) +
+  scale_fill_scico("Tail Probability", palette = "hawaii", direction = -1,
+                   limit = c(0, 0.5), breaks = c(0, 0.1, 0.2, 0.3, 0.4)) +
+  guides(fill = guide_colorbar(barwidth = unit(150L, "pt"))) +
+  facet_wrap_custom(~parameter, scales = "free_x",
+                    ncol = 2,
+                    scale_overrides = list(
+                      scale_override(1, scale_x_continuous(limits = c(-1,1),
+                                                           expand = c(0,0))),
+                      scale_override(2, scale_x_continuous(limits = c(0,1),
+                                                           expand = c(0,0)))
+                    )) +
+  labs(x = "NSE", y = "") +
+  theme_TWRI_print() +
+  theme(axis.text = element_text(size = 8),
+        strip.text.x = element_markdown(size = 8),
+        strip.background = element_rect(fill = "white"),
+        panel.spacing.x = unit(20L, "pt"))
+
+
+
+p2 <- ggplot(df, aes(y = site, x = r2,
+               fill = 0.5 - abs(0.5 - after_stat(ecdf)))) +
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      calc_ecdf = TRUE,
+                      n = 10000) +
+  scale_fill_scico("Tail Probability", palette = "hawaii", direction = -1,
+                   limit = c(0, 0.5), breaks = c(0, 0.1, 0.2, 0.3, 0.4)) +
+  guides(fill = guide_colorbar(barwidth = unit(150L, "pt"))) +
+  facet_wrap_custom(~parameter, scales = "free_x",
+                    ncol = 2,
+                    scale_overrides = list(
+                      scale_override(1, scale_x_continuous(limits = c(0,1),
+                                                           expand = c(0,0))),
+                      scale_override(2, scale_x_continuous(limits = c(0,1),
+                                                           expand = c(0,0)))
+                    )) +
+  labs(x = "r<sup>2</sup>", y = "") +
+  theme_TWRI_print() +
+  theme(axis.text = element_text(size = 8),
+        axis.title.x = element_markdown(),
+        strip.text.x = element_markdown(size = 8),
+        strip.background = element_rect(fill = "white"),
+        panel.spacing.x = unit(20L, "pt"))
+
+
+
+p3 <- ggplot(df, aes(y = site, x = pbias,
+               fill = 0.5 - abs(0.5 - after_stat(ecdf)))) +
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      calc_ecdf = TRUE,
+                      n = 10000) +
+  scale_fill_scico("Tail Probability", palette = "hawaii", direction = -1,
+                   limit = c(0, 0.5), breaks = c(0, 0.1, 0.2, 0.3, 0.4)) +
+  guides(fill = guide_colorbar(barwidth = unit(150L, "pt"))) +
+  facet_wrap_custom(~parameter, scales = "free_x",
+                    ncol = 2,
+                    scale_overrides = list(
+                      scale_override(1, scale_x_continuous(limits = c(-150,200),
+                                                           expand = c(0,0))),
+                      scale_override(2, scale_x_continuous(limits = c(-75,75),
+                                                           expand = c(0,0)))
+                    )) +
+  labs(x = "PBIAS", y = "") +
+  theme_TWRI_print() +
+  theme(axis.text = element_text(size = 8),
+        strip.text.x = element_markdown(size = 8),
+        strip.background = element_rect(fill = "white"),
+        panel.spacing.x = unit(20L, "pt"))
+
+layout <- "
+AAAA
+AAAA
+AAAA
+BBBB
+BBBB
+BBBB
+CCCC
+CCCC
+CCCC
+DDDD
+"
+
+p1 / p2 / p3 / guide_area() + plot_layout(guides = 'collect',
+                                          design = layout)
+
+```
+
+
+
+```{r fig3, error=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.cap="Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525."}
+
+load <- tar_read(daily_no3_08164000, store = store)
+fn_load <- tar_read(daily_no3_08164000_fn, store = store)
+
+load_lav_tp <- tar_read(daily_tp_08164000, store = store)
+load_nav_tp <- tar_read(daily_tp_texana, store = store)
+
+a <- ggplot() +
+  geom_point(data = load$annually, aes(year, NO3_Estimate,
+                                   color = "Total Annual Load + 90% CI",
+                                   shape = "Total Annual Load + 90% CI")) +
+  geom_line(data = load$annually, aes(x = year, y = NO3_Estimate,
+                                  color = "Total Annual Load + 90% CI",
+                                  linetype = "Total Annual Load + 90% CI"),
+            alpha = 0.5) +
+  geom_linerange(data = load$annually, aes(x = year, ymin = NO3_Lower, ymax = NO3_Upper,
+                                       color = "Total Annual Load + 90% CI")) +
+  geom_point(data = fn_load$annually, aes(year, NO3_Estimate,
+                                 color = "Flow-Normalized Annual Load + 90% CI",
+                                 shape = "Flow-Normalized Annual Load + 90% CI")) +
+  geom_line(data = fn_load$annually,
+            aes(x = year, y = NO3_Estimate,
+                color = "Flow-Normalized Annual Load + 90% CI",
+                linetype = "Flow-Normalized Annual Load + 90% CI"),
+            alpha = 0.5) +
+  geom_linerange(data = fn_load$annually,
+                 aes(x = year, ymin = NO3_Lower, ymax = NO3_Upper,
+                     color = "Flow-Normalized Annual Load + 90% CI")) +
+  labs(x = "", y = "Annual NO<sub>3</sub> Load [kg]", subtitle = "USGS-08164000") +
+  scale_shape_manual(name = "values",
+                     values = c(21, 19)) +
+  scale_color_manual(name = "values",
+                     values = c("#7E1900", "#1A3399")) +
+  scale_linetype_manual(name = "values",
+                        values = c(1, 2)) +
+  scale_y_continuous(trans = "pseudo_log",
+                     breaks = c(0,1E1, 1E2, 1E3, 1E4, 1E5, 1E6, 1E7),
+                     labels = scales::label_log()) +
+  coord_cartesian(ylim = c(1000, 1E7)) +
+  theme_TWRI_print() +
+  theme(axis.title.y = element_markdown(size = 8),
+        plot.subtitle = element_text(size = 8),
+        panel.grid.major.x = element_line(color = "#d9d9d9",
+                                          linetype = "dotted"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 8))
+
+
+
+load <- tar_read(daily_no3_texana, store = store)
+fn_load <- tar_read(daily_no3_texana_fn, store = store)
+
+b <- ggplot() +
+  geom_point(data = load$annually, aes(year, NO3_Estimate,
+                                   color = "Total Annual Load + 90% CI",
+                                   shape = "Total Annual Load + 90% CI")) +
+  geom_line(data = load$annually, aes(x = year, y = NO3_Estimate,
+                                  color = "Total Annual Load + 90% CI",
+                                  linetype = "Total Annual Load + 90% CI"),
+            alpha = 0.5) +
+  geom_linerange(data = load$annually, aes(x = year, ymin = NO3_Lower, ymax = NO3_Upper,
+                                       color = "Total Annual Load + 90% CI")) +
+  geom_point(data = fn_load$annually, aes(year, NO3_Estimate,
+                                 color = "Flow-Normalized Annual Load + 90% CI",
+                                 shape = "Flow-Normalized Annual Load + 90% CI")) +
+  geom_line(data = fn_load$annually,
+            aes(x = year, y = NO3_Estimate,
+                color = "Flow-Normalized Annual Load + 90% CI",
+                linetype = "Flow-Normalized Annual Load + 90% CI"),
+            alpha = 0.5) +
+  geom_linerange(data = fn_load$annually,
+                 aes(x = year, ymin = NO3_Lower, ymax = NO3_Upper,
+                     color = "Flow-Normalized Annual Load + 90% CI")) +
+  labs(x = "", y = "Annual NO<sub>3</sub> Load [kg]", subtitle = "USGS-08164525") +
+  scale_shape_manual(name = "values",
+                     values = c(21, 19)) +
+  scale_color_manual(name = "values",
+                     values = c("#7E1900", "#1A3399")) +
+  scale_linetype_manual(name = "values",
+                        values = c(1, 2)) +
+  scale_y_continuous(trans = "pseudo_log",
+                     breaks = c(0,1E1, 1E2, 1E3, 1E4, 1E5, 1E6, 1E7),
+                     labels = scales::label_log()) +
+  coord_cartesian(ylim = c(1000, 1E7)) +
+  theme_TWRI_print() +
+  theme(axis.title.y = element_markdown(size = 8),
+        plot.subtitle = element_text(size = 8),
+        panel.grid.major.x = element_line(color = "#d9d9d9",
+                                          linetype = "dotted"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 8))
+
+load <- tar_read(daily_tp_08164000, store = store)
+fn_load <- tar_read(daily_tp_08164000_fn, store = store)
+
+load$annually <- load$annually |> 
+  filter(year >= 2005)
+
+fn_load$annually <- fn_load$annually |> 
+  filter(year >= 2005)
+
+c <- ggplot() +
+  geom_point(data = load$annually, aes(year, TP_Estimate,
+                                   color = "Total Annual Load + 90% CI",
+                                   shape = "Total Annual Load + 90% CI")) +
+  geom_line(data = load$annually, aes(x = year, y = TP_Estimate,
+                                  color = "Total Annual Load + 90% CI",
+                                  linetype = "Total Annual Load + 90% CI"),
+            alpha = 0.5) +
+  geom_linerange(data = load$annually, aes(x = year, ymin = TP_Lower, ymax = TP_Upper,
+                                       color = "Total Annual Load + 90% CI")) +
+  geom_point(data = fn_load$annually, aes(year, TP_Estimate,
+                                 color = "Flow-Normalized Annual Load + 90% CI",
+                                 shape = "Flow-Normalized Annual Load + 90% CI")) +
+  geom_line(data = fn_load$annually,
+            aes(x = year, y = TP_Estimate,
+                color = "Flow-Normalized Annual Load + 90% CI",
+                linetype = "Flow-Normalized Annual Load + 90% CI"),
+            alpha = 0.5) +
+  geom_linerange(data = fn_load$annually,
+                 aes(x = year, ymin = TP_Lower, ymax = TP_Upper,
+                     color = "Flow-Normalized Annual Load + 90% CI")) +
+  labs(x = "", y = "Annual TP Load [kg]", subtitle = "USGS-08164000") +
+  scale_shape_manual(name = "values",
+                     values = c(21, 19)) +
+  scale_color_manual(name = "values",
+                     values = c("#7E1900", "#1A3399")) +
+  scale_linetype_manual(name = "values",
+                        values = c(1, 2)) +
+  scale_y_continuous(trans = "pseudo_log",
+                     breaks = c(0,1E1, 1E2, 1E3, 1E4, 1E5, 1E6, 1E7),
+                     labels = scales::label_log()) +
+  coord_cartesian(ylim = c(1000, 1E6)) +
+  theme_TWRI_print() +
+  theme(axis.title.y = element_markdown(size = 8),
+        plot.subtitle = element_text(size = 8),
+        panel.grid.major.x = element_line(color = "#d9d9d9",
+                                          linetype = "dotted"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 8))
+
+
+load <- tar_read(daily_tp_texana, store = store) 
+fn_load <- tar_read(daily_tp_texana_fn, store = store)
+
+load$annually <- load$annually |> 
+  filter(year >= 2005)
+
+fn_load$annually <- fn_load$annually |> 
+  filter(year >= 2005)
+
+d <- ggplot() +
+  geom_point(data = load$annually, aes(year, TP_Estimate,
+                                   color = "Total Annual Load + 90% CI",
+                                   shape = "Total Annual Load + 90% CI")) +
+  geom_line(data = load$annually, aes(x = year, y = TP_Estimate,
+                                  color = "Total Annual Load + 90% CI",
+                                  linetype = "Total Annual Load + 90% CI"),
+            alpha = 0.5) +
+  geom_linerange(data = load$annually, aes(x = year, ymin = TP_Lower, ymax = TP_Upper,
+                                       color = "Total Annual Load + 90% CI")) +
+  geom_point(data = fn_load$annually, aes(year, TP_Estimate,
+                                 color = "Flow-Normalized Annual Load + 90% CI",
+                                 shape = "Flow-Normalized Annual Load + 90% CI")) +
+  geom_line(data = fn_load$annually,
+            aes(x = year, y = TP_Estimate,
+                color = "Flow-Normalized Annual Load + 90% CI",
+                linetype = "Flow-Normalized Annual Load + 90% CI"),
+            alpha = 0.5) +
+  geom_linerange(data = fn_load$annually,
+                 aes(x = year, ymin = TP_Lower, ymax = TP_Upper,
+                     color = "Flow-Normalized Annual Load + 90% CI")) +
+  labs(x = "", y = "Annual TP Load [kg]", subtitle = "USGS-08164525") +
+  scale_shape_manual(name = "values",
+                     values = c(21, 19)) +
+  scale_color_manual(name = "values",
+                     values = c("#7E1900", "#1A3399")) +
+  scale_linetype_manual(name = "values",
+                        values = c(1, 2)) +
+  scale_y_continuous(trans = "pseudo_log",
+                     breaks = c(0,1E1, 1E2, 1E3, 1E4, 1E5, 1E6, 1E7),
+                     labels = scales::label_log()) +
+  coord_cartesian(ylim = c(1000, 1E6)) +
+  theme_TWRI_print() +
+  theme(axis.title.y = element_markdown(size = 8),
+        plot.subtitle = element_text(size = 8),
+        panel.grid.major.x = element_line(color = "#d9d9d9",
+                                          linetype = "dotted"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 8))
+
+layout <- "
+11112222
+11112222
+11112222
+11112222
+33334444
+33334444
+33334444
+33334444
+55555555
+"
+
+a + b + c + d + guide_area() + plot_layout(guides = 'collect', design = layout)
+```
+
+
+```{r fig4, error=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.cap="Comparison of delivered annual loads at USGS-08164000 and USGS-08164525."}
+load_lav_no3 <- tar_read(daily_no3_08164000, store = store)
+load_nav_no3 <- tar_read(daily_no3_texana, store = store)
+
+load_lav_no3$annually |> 
+  mutate(site = "Lavaca River") -> lavaca_no3_annually
+
+load_nav_no3$annually |> 
+  mutate(site = "Navidad River") -> navidad_no3_annually
+
+
+no3_annual <- bind_rows(lavaca_no3_annually, navidad_no3_annually) |> 
+  mutate(x = as.Date(paste0(year, "-01-01"), "%Y-%m-%d"))
+
+b <- ggplot(no3_annual) +
+  geom_col(aes(year, NO3_Estimate, fill = site), width = 0.8) +
+  scale_x_continuous(expand = expansion(mult = c(0.05, 0.05)), 
+                     breaks = c(2005, 2010, 2015, 2020)) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_carto_d(palette = "Vivid", direction = -1) +
+  labs(x = "", y = "Predicted Annual<br>NO<sub>3</sub>-N Load [kg]") +
+  theme_TWRI_print() +
+  theme(axis.title.y = element_markdown(size = 8),
+        axis.text = element_text(size = 8),
+        panel.grid.major.x = element_line(color = "#d9d9d9",
+                                          linetype = "dotted"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 8))
+
+
+prop <- no3_annual |> 
+  mutate(proportion = NO3_Estimate/sum(NO3_Estimate))
+
+
+c <- ggplot() +
+  geom_col(data = prop, aes(year, proportion, fill  = site)) +
+  scale_fill_carto_d(palette = "Vivid", direction = -1) +
+  scale_x_continuous(breaks = c(2005, 2010, 2015, 2020),
+                     expand = expansion(mult = c(0.05, 0.05))) +
+  scale_y_continuous(expand = c(0,0)) +
+  labs(x = "", y = "Proportion of Annual<br>NO<sub>3</sub> Load") +
+  theme_TWRI_print() +
+  theme(axis.title.y = element_markdown(size = 8),
+        axis.text = element_text(size = 8),
+        panel.grid.major.x = element_line(color = "#d9d9d9",
+                                          linetype = "dotted"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 8))
+
+
+d <- tar_read(qdata, store = store) |> 
+  filter(site_no %in% c("8164000", "lktexana_g")) |>
+  filter(Date >= as.Date("2005-01-01")) |> 
+  mutate(site = case_when(
+    site_no == "8164000" ~ "Lavaca River",
+    site_no == "lktexana_g" ~ "Navidad River"
+  )) |> 
+  mutate(year = year(Date)) |> 
+
+  mutate(Flow = as_units(Flow, "ft^3/s")) |> 
+  mutate(Flow = set_units(Flow, "ft^3/day")) |> 
+  mutate(Flow = set_units(Flow, "1E6gallons/day")) |> 
+  group_by(year, site) |> 
+  summarise(Flow = sum(Flow, na.rm = TRUE)) |> 
+  mutate(Flow = drop_units(Flow)) |> 
+  ggplot() +
+  geom_col(aes(year, Flow, fill = site)) +
+  scale_fill_carto_d(palette = "Vivid", direction = -1) +
+  scale_x_continuous(breaks = c(2005, 2010, 2015, 2020),
+                     expand = expansion(mult = c(0.05, 0.05))) +
+  scale_y_continuous(expand = c(0,0)) +
+  labs(x = "", y = "Annual Discharge<br>[Millon Gallons]") +
+  theme_TWRI_print() +
+  theme(axis.title.y = element_markdown(size = 8),
+        axis.text = element_text(size = 8),
+        panel.grid.major.x = element_line(color = "#d9d9d9",
+                                          linetype = "dotted"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 8))
+
+
+load_lav_tp$annually |> 
+  mutate(site = "Lavaca River") -> lavaca_tp_annually
+
+load_nav_tp$annually |> 
+  mutate(site = "Navidad River") -> navidad_tp_annually
+
+
+tp_annual <- bind_rows(lavaca_tp_annually, navidad_tp_annually) |>
+  filter(year >= 2005) |> 
+  mutate(x = as.Date(paste0(year, "-01-01"), "%Y-%m-%d"))
+
+e <- ggplot(tp_annual) +
+  geom_col(aes(year, TP_Estimate, fill = site), width = 0.8) +
+  scale_x_continuous(expand = expansion(mult = c(0.05, 0.05)), 
+                     breaks = c(2005, 2010, 2015, 2020)) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_carto_d(palette = "Vivid", direction = -1) +
+  labs(x = "", y = "Predicted Annual<br>TP Load [kg]") +
+  theme_TWRI_print() +
+  theme(axis.title.y = element_markdown(size = 8),
+        axis.text = element_text(size = 8),
+        panel.grid.major.x = element_line(color = "#d9d9d9",
+                                          linetype = "dotted"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 8))
+
+
+prop <- tp_annual |> 
+  mutate(proportion = TP_Estimate/sum(TP_Estimate))
+
+
+f <- ggplot() +
+  geom_col(data = prop, aes(year, proportion, fill  = site)) +
+  scale_fill_carto_d(palette = "Vivid", direction = -1) +
+  scale_x_continuous(breaks = c(2005, 2010, 2015, 2020),
+                     expand = expansion(mult = c(0.05, 0.05))) +
+  scale_y_continuous(expand = c(0,0)) +
+  labs(x = "", y = "Proportion of Annual<br>TP Load") +
+  theme_TWRI_print() +
+  theme(axis.title.y = element_markdown(size = 8),
+        axis.text = element_text(size = 8),
+        panel.grid.major.x = element_line(color = "#d9d9d9",
+                                          linetype = "dotted"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 8))
+
+
+  
+layout <- "
+BE
+BE
+BE
+BE
+CF
+CF
+CF
+CF
+DD
+DD
+DD
+DD
+GG
+"
+
+
+b + c + d + e + f + guide_area() + 
+  plot_layout(guides = 'collect', design  = layout)
+```
+
+
+## Linkages Between Water Quality and Watershed Flows and Loads
+
+```{r}
+
+dplyr::bind_rows(
+    tar_read(tp_13563, store = store), 
+    tar_read(tp_13383, store = store),
+    tar_read(tp_13384, store = store),
+    tar_read(no3_13563, store = store), 
+    tar_read(no3_13383, store = store),
+    tar_read(no3_13384, store = store),
+    tar_read(chla_13563, store = store), 
+    tar_read(chla_13383, store = store),
+    tar_read(chla_13384, store = store),
+    tar_read(do_13563, store = store), 
+    tar_read(do_13383, store = store),
+    tar_read(do_13384, store = store),
+    tar_read(tkn_13563, store = store),
+    tar_read(tkn_13383, store = store),
+    tar_read(tkn_13384, store = store)
+    ) |> 
+  mutate(Parameter = case_when(
+    Parameter == "Nitrite+Nitrate" ~ "NO\\textsubscript{\\emph{x}}",
+    Parameter == "Chlorophyll-a" ~ "Chlorophyll-\\emph{a}",
+    TRUE ~ as.character(Parameter)
+  )) |> 
+  mutate(Parameter = fct_relevel(Parameter, "TP", "NO\\textsubscript{\\emph{x}}", "Chlorophyll-\\emph{a}","TKN", "DO"),
+         Model = fct_relevel(Model, "Temporal", "Flow", "Flow + Load")) |>
+  tidyr::complete(Site, Model, nesting(Parameter)) |>
+  mutate(model_prob = paste0(round(AICc,1), " (", round(weight,2), ")")) |> 
+  mutate(model_prob = case_when(
+    model_prob == "NA (NA)" ~ "-",
+    model_prob != "NA (NA)" ~ model_prob
+  )) |> 
+  select(-c(AICc, weight)) |> 
+  pivot_wider(names_from = Model, values_from = model_prob) |> 
+  select(Parameter, Site, Temporal, Flow, `Flow + Load`) |> 
+  arrange(Parameter, Site) |> 
+  kbl(format = "latex",
+    booktabs = TRUE,
+    table.envir = "table", 
+    position = "H", escape = FALSE,
+    caption = "Model AIC\\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.") |> 
+    collapse_rows(columns = 1,
+                valign = "middle", latex_hline = "major") |> 
+  column_spec(3, bold = c(rep(F, 7), T, F, T, T, F, T, T, F),
+              italic = c(rep(F, 7), T, F, T, T, F, T, T, F)) |> 
+  column_spec(4, bold = c(F,T,F,T,F,T,T,F,T,F,F,T,F,F,T),
+              italic = c(F,T,F,T,F,T,T,F,T,F,F,T,F,F,T)) |> 
+  column_spec(5, bold = c(T,F,T,F,T,F,F,F,F,F,F,F,F,F,F),
+              italic =c(T,F,T,F,T,F,F,F,F,F,F,F,F,F,F))
+
+```
+
+
+
+## Figures, Tables and Schemes
+
+
+
+
+
+
+## Formatting of Mathematical Components
+
+This is an example of an equation:
+
+\begin{equation}
+a = 1,
+\end{equation}
+
+the text following an equation need not be a new paragraph. Please punctuate 
+equations as regular text.
+
+<!-- If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph. -->
+
+This is the example 2 of equation:
+
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\begin{equation}
+a = b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + 
+u + v + w + x + y + z
+\end{equation}
+\end{adjustwidth}
+
+
+
+# Discussion
+
+
+```{r tpcomp}
+df <- tibble(
+  Parameter = rep("TP", 5),
+  `Reported Yield (kg$\\cdot$km\\textsuperscript{-2}$\\cdot$year\\textsuperscript{-1})` = c("42.9 (34.4, 54.0)", "45.2", "42", "20.81-91.58", "28.9"),
+  Approach = c("GAM", "SPARROW", "SWAT", "SPARROW", "LOADEST"),
+  `Time Period` = c("2000-2020", "2012", "1977-2005", "2002", "1972-1993"),
+  Reference = c("-", "@wiseSpatiallyReferencedModels2019", 
+                "@omaniEstimationSedimentNutrient2014", "@rebichSourcesDeliveryNutrients2011",
+                "@dunnTrendsNutrientInflows1996")
+)
+
+kbl(df, format = "latex",
+    booktabs = TRUE,
+    table.envir = "table", 
+    position = "H", escape = FALSE,
+    col.names = linebreak(c("Parameter", 
+                            "Reported Yield\n(kg$\\cdot$km\\textsuperscript{-2}$\\cdot$year\\textsuperscript{-1})",
+                          "Approach",
+                          "Time Period",
+                          "Reference")))
+
+
+```
+
+Authors should discuss the results and how they can be interpreted in 
+perspective of previous studies and of the working hypotheses. The findings and 
+their implications should be discussed in the broadest context possible. Future 
+research directions may also be highlighted.
+
+# Conclusion
+
+This section is not mandatory, but can be added to the manuscript if the
+discussion is unusually long or complex.
+
