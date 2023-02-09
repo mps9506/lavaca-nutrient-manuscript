@@ -586,8 +586,8 @@ response are in Table \ref{rab:estgammodels}.
 \end{table}
 
 Because streamflow and nutrient loads are tightly correlated, freshwater
-inflow masks any potential signals from nutrient loads alone. Following
-the methodology implemented by
+inflow can mask signals from nutrient loads alone. Following the
+methodology implemented by
 \citet{murphyNutrientImprovementsChesapeake2022}, both streamflow and
 nutrient loads were prepossessed to account for season and flow. Instead
 of using raw freshwater inflow and nutrient loading values, these values
@@ -617,9 +617,25 @@ Equation \ref{eq:7}.
 \hypertarget{watershed-nutrient-loads}{%
 \subsection{Watershed Nutrient Loads}\label{watershed-nutrient-loads}}
 
-Lavaca NO\textsubscript{3} r2 = 0.85 and 0.90 deviance explained TP r2 =
-0.27 and 0.33 Texana NO\textsubscript{3} r2 = 0.75 and 0.81 TP = 0.32
-and 0.38
+Based on criteria provided by \citet{moriasiHydrologicWaterQuality2015},
+GAMs ranged from ``satisfactory'' to ``very good'' based on median NSE,
+r\textsuperscript{2} and PBIAS calculated from repeated 5-fold cross
+validation on predicted and measured nutrient loads. NO\textsubscript{3}
+GAM models had median NSE values of 0.34 and 0.48 at USGS-08164000 and
+USGS-08164390 respectively. Median r\textsuperscript{2} values were 0.70
+(USGS-08164000) and 0.87 (USGS-08164525) and PBIAS values were 2.00
+(USGS-08164000) and 10.90 (USGS-08164525) for NO\textsubscript{3} loads.
+Median NSE values were 0.80 (USGS-08164000) and 0.91 (USGS-08164525) for
+TP loads. Median r\textsuperscript{2} values for TP loads were 0.93
+(USGS-08164000) and 0.99 (USGS-08164525) and median PBIAS values were
+-7.20 (USGS-08164000) and -3.30 (USGS-08164525). Density plots of
+metrics show similar distribution of values between sites for the same
+parameter, with the exception r\textsuperscript{2} values for
+NO\textsubscript{3} loads where USGS-08164000 showed a much larger
+variance in values compared to USGS-08164525 (Figure \ref{fig:fig2}).In
+addition to higher average NSE and r\textsuperscript{2} values, GAMs had
+smaller variance in metric values for TP compared to
+NO\textsubscript{3}.
 
 \begin{figure}[H]\begin{adjustwidth}{-\extralength}{0cm}
 
@@ -630,13 +646,34 @@ and 0.38
 \end{adjustwidth}\caption[Density plots of goodness-of-fit metrics (NSE, r\textsuperscript{2}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads]{Density plots of goodness-of-fit metrics (NSE, r\textsuperscript{2}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calcualted from the empirical cumulative distribution of the goodness-of-fit metrics.}\label{fig:fig2}
 \end{figure}
 
+Annual NO\textsubscript{3} and TP loads show considerable variation,
+generally following patterns in discharge (Figure \ref{fig:fig3}, Figure
+\ref{fig:fig4}). Flow-normalized TP loads at both sites and
+flow-normalized loads at USGS-08164000 indicate watershed based loads
+have not changed much over time when accounting for changes in
+streamflow (Figure \ref{fig:fig3}). Flow-normalized loads at
+USGS-08164000 show small variation over time with some decreases in
+NO\textsubscript{3} loads since 2013. Aggregated across both sites, the
+mean annual NO\textsubscript{3} load 2005 through 2020 was 205,405 kg
+(126,867 kg - 341,569 kg, 90\% CI). Annual NO\textsubscript{3} loads
+ranged from 12,574 kg in 2011 to 794,510 kg in 2007.
+
+Total annual TP loads ranged from 7,839 kg in 2011 to 595,075 kg in
+2007. Mean annual TP loading from 2005 through 2020 was 182,673 kg
+(152,227 kg - 219,310 kg, 90\% CI). On average, USGS-08164525 accounted
+for 68\% of NO\textsubscript{3} loads and 59\% of TP loads from 2005
+through 2020. However, during periods of extreme drought the Lavaca
+River (USGS-08164000) became the primary source of nutrient loading in
+the watershed with the Navidad River only accounting for 15\% and 25\%
+of NO\textsubscript{3} and TP loads in 2011 (Figure \ref{fig:fig4}).
+
 \begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth]{Schramm-Manuscript-2023_files/figure-latex/fig3-1} 
 
 }
 
-\caption[Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525]{Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525.}\label{fig:fig3}
+\caption[Aggregated estimated annual and flow-normalized annual NO  extsubscript{3} and TP loads for USGS-08164000 and USGS-08164525]{Aggregated estimated annual and flow-normalized annual NO extsubscript{3} and TP loads for USGS-08164000 and USGS-08164525.}\label{fig:fig3}
 \end{figure}
 
 \begin{figure}[H]
@@ -652,15 +689,46 @@ and 0.38
 \subsection{Linkages Between Water Quality and Watershed Flows and
 Loads}\label{linkages-between-water-quality-and-watershed-flows-and-loads}}
 
-\begin{verbatim}
-## Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result. 
-## Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result. 
-## Usually it is recommended to use column_spec before collapse_rows, especially in LaTeX, to get a desired result.
-\end{verbatim}
+\begin{figure}[H]\begin{adjustwidth}{-\extralength}{0cm}
+
+{\centering \includegraphics[width=1\linewidth]{Schramm-Manuscript-2023_files/figure-latex/fig5-1} 
+
+}
+
+\end{adjustwidth}\caption[Smoothed temporal trend component for water quality paramaters obtained from temporal estuary GAMs]{Smoothed temporal trend component for water quality paramaters obtained from temporal estuary GAMs.}\label{fig:fig5}
+\end{figure}
+
+GAMs did not identify significant changes in TP or DO concentrations at
+any of the Lavaca Bay sites from 2005 through 2020 (Figure
+\ref{fig:fig5}). The upper-bay site, TCEQ-13563, had a linear increase
+in NO\textsubscript{x} concentration and and decrease in
+chlorophyll-\emph{a} from 2005 through 2014. The mid-bay site,
+TCEQ-13383, showed a periodic pattern in NO\textsubscript{x}
+concentration that appeared similar to precipitation/inflow patterns, as
+well as a post 2011 increase in TKN concentrations. No significant
+long-term trends in concentrations were identified by GAMs for the
+lower-bay TCEQ-13384 site.
+
+Freshwater inflow provided additional explanation for changes in TP and
+NO\textsubscript{\emph{x}} concentration at all of the Lavaca Bay sites
+according to AIC\textsubscript{c} and model probability values (Table
+\ref{tab:tab4}). TCEQ-13563, the site closest to the river outlet, was
+the only site that had improvements in the explanations of DO and TKN
+concentration with the inclusion of inflow. Both TCEQ-13563 and
+TCEQ-13383, the mid-bay site, saw improvements in explanations for
+variations in chlorophyll-\emph{a} with the inclusion of freshwater
+inflow. The addition of nutrient loads (both TP and NO\textsubscript{3})
+terms did not provide additional explanation for changes in
+chlorophyll-\emph{a} or DO concentrations. Inclusion of TP loads
+provided additional explanation of TP concentrations at the upper- and
+mid-bay sites, TCEQ-13563 and TCEQ-13383. Inclusion of
+NO\textsubscript{3} loads only provided marginal improvements in the
+explanation of NO\textsubscript{\emph{X}} concentration at the lower-bay
+TCEQ-13384 site.
 
 \begin{table}[H]
 
-\caption{\label{tab:unnamed-chunk-1}Estuary GAM AIC\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.}
+\caption{\label{tab:tab4}Estuary GAM AIC\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.}
 \centering
 \begin{tabular}[t]{ll>{}l>{}l>{}l}
 \toprule
@@ -701,11 +769,40 @@ Parameter & Site & Temporal & Flow & Flow + Load\\
 
 \begin{figure}[H]\begin{adjustwidth}{-\extralength}{0cm}
 
-{\centering \includegraphics[width=1\linewidth]{Schramm-Manuscript-2023_files/figure-latex/long-smooths-1} 
+{\centering \includegraphics[width=1\linewidth]{Schramm-Manuscript-2023_files/figure-latex/fig6-1} 
 
 }
 
-\end{adjustwidth}\caption[Smoothed trend component for water quality paramaters obtained from Temporal estaury GAMs]{Smoothed trend component for water quality paramaters obtained from Temporal estaury GAMs.}\label{fig:long-smooths}
+\end{adjustwidth}\caption[Estimated effects of mean daily inflow residuals on mean TP, NO\textsubscript{\emph{x}}, chlorophyll-\emph{a}, TKN, and DO concentrations in Lavaca Bay obtained from flow estuary GAMs]{Estimated effects of mean daily inflow residuals on mean TP, NO\textsubscript{\emph{x}}, chlorophyll-\emph{a}, TKN, and DO concentrations in Lavaca Bay obtained from flow estuary GAMs.}\label{fig:fig6}
+\end{figure}
+
+GAMs show that increases in freshwater inflow result in nearly linear
+increases in TP and NO\textsubscript{\emph{x}} at all three sites
+(Figure \ref{fig:6}). At the upper-bay TCEQ-13563 site, GAMs showed
+increases in freshwater inflow initially increased chlorophyll-\emph{a}
+and DO concentration but concentrations leveled and potentially
+decreased at higher flows. The mid-bay TCEQ-13383 site showed a nearly
+linear increased in chlorophyll-\emph{a} concentration with increases in
+freshwater inflow. Freshwater flow did not have significant effects on
+chlorophyll-\emph{a}, TKN, or DO at the lower-bay TCEQ-13384 site.
+
+Increases in TP loads resulted in nearly linear increases of TP
+concentration at the upper- and mid-bay sites, TCEQ-13563 and TCEQ-13383
+respectively (Figure \ref{fig:fig7}). The relative effect size appeared
+to much smaller than the effect of freshwater inflow alone. Increases in
+NO\textsubscript{3} loads only showed an effect at the lower-bay
+TCEQ-13384 site. The effect was quite small compared to streamflow and
+provided only small improvements to the model (Table \ref{tab:tab4}). As
+noted above, nutrient loadings did not provide any explanation in
+changes in the remaining assessed water quality parameters.
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{Schramm-Manuscript-2023_files/figure-latex/fig7-1} 
+
+}
+
+\caption[Estimated effects of nutrient load residuals on TP and NO\textsubscript{\emph{x}} concentrations in Lavaca Bay obtained from flow+load estuary GAMs]{Estimated effects of nutrient load residuals on TP and NO\textsubscript{\emph{x}} concentrations in Lavaca Bay obtained from flow+load estuary GAMs.}\label{fig:fig7}
 \end{figure}
 
 \hypertarget{discussion}{%
@@ -713,17 +810,26 @@ Parameter & Site & Temporal & Flow & Flow + Load\\
 
 \begin{table}[H]
 
+\begin{threeparttable}
+\caption{\label{tab:tpcomp}Mean estimates of annual TP yield in the Lavaca River watershed in published studies.}
+\centering
 \begin{tabular}[t]{lllll}
 \toprule
 Parameter & \makecell[c]{Reported Yield\\(kg$\cdot$km\textsuperscript{-2}$\cdot$year\textsuperscript{-1})} & Approach & Time Period & Reference\\
 \midrule
-TP & 42.9 (34.4, 54.0) & GAM & 2000-2020 & This work\\
-TP & 45.2 & SPARROW & 2012 & \citet{wise_spatially_2019}\\
+TP & 35.2 (28.8, 43.3)\textsuperscript{*} & GAM & 2005-2020 & This work\\
+TP & 45.2 & SPARROW & 2000-2014 & \citet{wise_spatially_2019}\\
 TP & 42 & SWAT & 1977-2005 & \citet{omaniEstimationSedimentNutrient2014}\\
-TP & 20.81-91.58 & SPARROW & 2002 & \citet{rebich_sources_2011}\\
+TP & 20.81-91.58\textsuperscript{\dag} & SPARROW & 1980-2002 & \citet{rebich_sources_2011}\\
 TP & 28.9 & LOADEST & 1972-1993 & \citet{dunnTrendsNutrientInflows1996}\\
 \bottomrule
 \end{tabular}
+\begin{tablenotes}
+\small
+\item [*] Values represent the mean of annual point estimates, lower and upper 95\% credible intervals.
+\item [\dag] A single point estimate was not reported, these value represent the range depicted on the choropleth map provided in the report.
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 
 Authors should discuss the results and how they can be interpreted in

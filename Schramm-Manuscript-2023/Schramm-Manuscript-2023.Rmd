@@ -472,7 +472,7 @@ kbl(df, format = "latex",
 ```
 
 Because streamflow and nutrient loads are tightly correlated, freshwater inflow
-masks any potential signals from nutrient loads alone. Following the 
+can mask signals from nutrient loads alone. Following the 
 methodology implemented by @murphyNutrientImprovementsChesapeake2022,
 both streamflow and nutrient loads were prepossessed to account for season
 and flow. Instead of using raw freshwater inflow and nutrient loading values, 
@@ -501,12 +501,21 @@ used as *Q* and *Load* in Equation \ref{eq:6} and Equation \ref{eq:7}.
 ## Watershed Nutrient Loads
 
 
-
-Lavaca NO~3~ r2 = 0.85 and 0.90 deviance explained
-TP r2 = 0.27 and 0.33
-Texana NO~3~ r2 = 0.75 and 0.81
-TP = 0.32 and 0.38
-
+Based on criteria provided by @moriasiHydrologicWaterQuality2015, GAMs ranged
+from "satisfactory" to "very good" based on median NSE, r^2^ and PBIAS 
+calculated from repeated 5-fold cross validation on predicted and measured
+nutrient loads. NO~3~ GAM models had median NSE values of 0.34 and 0.48 at
+USGS-08164000 and USGS-08164390 respectively. Median r^2^ values were 0.70
+(USGS-08164000) and 0.87 (USGS-08164525) and PBIAS values were 2.00
+(USGS-08164000) and 10.90 (USGS-08164525) for NO~3~ loads. Median NSE values were
+0.80 (USGS-08164000) and 0.91 (USGS-08164525) for TP loads. Median r^2^ values 
+for TP loads were 0.93 (USGS-08164000) and 0.99 (USGS-08164525) and median PBIAS 
+values were -7.20 (USGS-08164000) and -3.30 (USGS-08164525). Density plots of
+metrics show similar distribution of values between sites for the 
+same parameter, with the exception r^2^ values for NO~3~ loads where 
+USGS-08164000 showed a much larger variance in values compared to USGS-08164525
+(Figure \ref{fig:fig2}).In addition to higher average NSE and r^2^ values, 
+GAMs had smaller variance in metric values for TP compared to NO~3~.
 
 ```{r fig2, message=FALSE, warning=FALSE, fig.height=3.5, fig.width=6.5, fig.pos="H", fig.cap="Density plots of goodness-of-fit metrics (NSE, r\\textsuperscript{2}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calcualted from the empirical cumulative distribution of the goodness-of-fit metrics.", out.width="100%", wideplot=TRUE}
 
@@ -710,10 +719,105 @@ p1 / p2 / p3 / guide_area() + plot_layout(guides = 'collect',
 
 ```
 
+```{r echo=FALSE}
+## calculates min and max load values and years
+load_lav_no3 <- tar_read(daily_no3_08164000, store = store)
+load_nav_no3 <- tar_read(daily_no3_texana, store = store)
+
+load_lav_no3$annually |> 
+  mutate(site = "Lavaca River") -> lavaca_no3_annually
+
+load_nav_no3$annually |> 
+  mutate(site = "Navidad River") -> navidad_no3_annually
+
+mean_no3 <- scales::label_comma()(mean(lavaca_no3_annually$NO3_Estimate + navidad_no3_annually$NO3_Estimate ))
+mean_no3_low <- scales::label_comma()(mean(lavaca_no3_annually$NO3_Lower + navidad_no3_annually$NO3_Lower ))
+mean_no3_upper <- scales::label_comma()(mean(lavaca_no3_annually$NO3_Upper + navidad_no3_annually$NO3_Upper ))
+
+no3 <- data.frame(lavaca = lavaca_no3_annually$NO3_Estimate,
+                  navidad = navidad_no3_annually$NO3_Estimate,
+                  year = lavaca_no3_annually$year)
+no3 <- no3 |> 
+  mutate(total = lavaca+navidad)
+
+min_no3 <- min(no3$total)
+min_no3_year <- no3[no3$total == min_no3,]$year
+min_no3 <- scales::label_comma()(min_no3)
 
 
-```{r fig3, error=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.pos="H", fig.cap="Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525.", out.width="100%"}
+max_no3 <- max(no3$total)
+max_no3_year <- no3[no3$total == max_no3,]$year
+max_no3 <- scales::label_comma()(max_no3)
 
+no3_prop <- no3 |> 
+  mutate(prop = round(navidad/total, 2)) 
+
+no3_mean_prop <- scales::label_percent()(mean(no3_prop$prop))
+
+min_no3_prop <- scales::label_percent()(min(no3_prop$prop))
+
+
+load_lav_tp <- tar_read(daily_tp_08164000, store = store)
+load_nav_tp <- tar_read(daily_tp_texana, store = store)
+
+load_lav_tp$annually |> 
+  mutate(site = "Lavaca River") |> 
+  filter(year >= 2005)-> lavaca_tp_annually
+
+load_nav_tp$annually |> 
+  mutate(site = "Navidad River") |> 
+  filter(year >= 2005) -> navidad_tp_annually
+
+mean_tp <- scales::label_comma()(mean(lavaca_tp_annually$TP_Estimate + navidad_tp_annually$TP_Estimate ))
+mean_tp_low <- scales::label_comma()(mean(lavaca_tp_annually$TP_Lower + navidad_tp_annually$TP_Lower ))
+mean_tp_upper <- scales::label_comma()(mean(lavaca_tp_annually$TP_Upper + navidad_tp_annually$TP_Upper ))
+
+tp <- data.frame(lavaca = lavaca_tp_annually$TP_Estimate,
+                  navidad = navidad_tp_annually$TP_Estimate,
+                  year = lavaca_tp_annually$year)
+tp <- tp |> 
+  mutate(total = lavaca+navidad)
+
+min_tp <- min(tp$total)
+min_tp_year <- tp[tp$total == min_tp,]$year
+min_tp <- scales::label_comma()(min_tp)
+
+
+max_tp <- max(tp$total)
+max_tp_year <- tp[tp$total == max_tp,]$year
+max_tp <- scales::label_comma()(max_tp)
+
+tp_prop <- tp |> 
+  mutate(prop = round(navidad/total, 2)) 
+
+tp_mean_prop <- scales::label_percent()(mean(tp_prop$prop))
+
+min_tp_prop <- scales::label_percent()(min(tp_prop$prop))
+```
+
+
+Annual NO~3~ and TP loads show considerable variation, generally following
+patterns in discharge (Figure \ref{fig:fig3}, Figure \ref{fig:fig4}). 
+Flow-normalized TP loads at both sites and flow-normalized loads at 
+USGS-08164000 indicate watershed based loads have not changed much over time
+when accounting for changes in streamflow (Figure \ref{fig:fig3}). 
+Flow-normalized loads at USGS-08164000 show small variation over time with 
+some decreases in NO~3~ loads since 2013. Aggregated across both sites, the mean 
+annual NO~3~ load 2005 through 2020 was `r mean_no3` kg (`r mean_no3_low` kg - 
+`r mean_no3_upper` kg, 90% CI). Annual NO~3~ loads ranged from `r min_no3` kg 
+in `r min_no3_year` to `r max_no3` kg in `r max_no3_year`.
+
+Total annual TP loads ranged from `r min_tp` kg in `r min_tp_year` to 
+`r max_tp` kg  in `r max_tp_year`. Mean annual TP loading from 2005 through 2020
+was `r mean_tp` kg (`r mean_tp_low` kg - `r mean_tp_upper` kg, 90% CI).
+On average, USGS-08164525 accounted for `r no3_mean_prop` of NO~3~ loads and 
+`r tp_mean_prop` of TP loads from 2005 through 2020. However, during periods of extreme 
+drought the Lavaca River (USGS-08164000) became the primary source of 
+nutrient loading in the watershed with the Navidad River only accounting for 
+`r min_no3_prop` and `r min_tp_prop` of NO~3~ and TP loads in 2011 (Figure 
+\ref{fig:fig4}).
+
+```{r fig3, error=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.pos="H", fig.cap="Aggregated estimated annual and flow-normalized annual NO\textsubscript{3} and TP loads for USGS-08164000 and USGS-08164525.", out.width="100%"}
 load <- tar_read(daily_no3_08164000, store = store)
 fn_load <- tar_read(daily_no3_08164000_fn, store = store)
 
@@ -1073,7 +1177,123 @@ b + c + d + e + f + guide_area() +
 
 ## Linkages Between Water Quality and Watershed Flows and Loads
 
-```{r}
+```{r fig5, message=FALSE, warning=FALSE, fig.height=3.5, fig.pos="H", fig.width=6, fig.cap="Smoothed temporal trend component for water quality paramaters obtained from temporal estuary GAMs.", out.width="100%", wideplot=TRUE}
+draw_smoothed_years <- function(model1, model2, model3,
+                                ylab, subtitle) {
+  
+  `TCEQ-13563` <- model1
+  `TCEQ-13383` <- model2
+  `TCEQ-13384` <- model3
+
+  comp <- gratia::compare_smooths(
+    `TCEQ-13563`,
+    `TCEQ-13383`,
+    `TCEQ-13384`,
+    smooths = "s(ddate)") 
+
+  crit <- gratia:::coverage_normal(0.90)
+
+  comp |> 
+    unnest(data) |> 
+    mutate(lower_ci = est + (crit * se),
+           upper_ci = est - (crit * se),
+           label = if_else(ddate == max(ddate),
+                           as.character(model),
+                           NA_character_)) |> 
+    ggplot(aes(x = ddate, y = est, group = model)) +
+    geom_ribbon(aes(ymin = lower_ci,
+                    ymax = upper_ci,
+                    fill = model),
+                alpha = 0.15) +
+    geom_line(aes(color = model)) +
+    geom_hline(yintercept = 0, linetype = 2, alpha = 0.25) +
+    # geom_text_repel(aes(label = label,
+    #                     color = model), 
+    #                 nudge_x = 5,
+    #                 hjust = "left",
+    #                 size = 2) +
+    scale_x_continuous(breaks = c(2005, 2010, 2015, 2020),
+                       expand = expansion(mult = c(0.05,0.05))) +
+    colorspace::scale_fill_discrete_qualitative(name = "") +
+    colorspace::scale_color_discrete_qualitative(name = "") +
+    labs(x = "Year", y = ylab,
+         subtitle = subtitle) +
+    theme_TWRI_print() +
+    theme(axis.title.y = element_markdown(size = 8),
+          axis.title.x = element_markdown(size = 8),
+          plot.subtitle = element_markdown(size = 8),
+          legend.direction = "vertical",
+          legend.text = element_text(size = 8))
+  
+  
+} 
+
+
+p_tp <- draw_smoothed_years(tar_read(tp_lavaca_13563_temporal, store = store),
+                            tar_read(tp_lavaca_13383_temporal, store = store),
+                            tar_read(tp_lavaca_13384_temporal, store = store),
+                            ylab = "TP Smooth<br>Estimate [mg/L]", 
+                            subtitle = "A: TP Trend")
+
+p_no3 <- draw_smoothed_years(tar_read(no3_lavaca_13563_temporal, store = store),
+                             tar_read(no3_lavaca_13383_temporal, store = store),
+                             tar_read(no3_lavaca_13384_temporal, store = store),
+                             ylab = "NO*<sub>x</sub>* Smooth<br>Estimate [mg/L]", 
+                             subtitle = "B: NO*<sub>x</sub>* Trend")
+
+p_tkn <- draw_smoothed_years(tar_read(tkn_lavaca_13563_temporal, store = store),
+                             tar_read(tkn_lavaca_13383_temporal, store = store),
+                             tar_read(tkn_lavaca_13384_temporal, store = store),
+                             ylab = "TKN Smooth<br>Estimate [mg/L]", 
+                             subtitle = "C: TKN Trend")
+
+p_chla <- draw_smoothed_years(tar_read(chla_lavaca_13563_temporal, store = store),
+                             tar_read(chla_lavaca_13383_temporal, store = store),
+                             tar_read(chla_lavaca_13384_temporal, store = store),
+                             ylab = "Chlorophyll-*a*\nSmooth<br>Estimate [µg/L]", 
+                             subtitle = "D: Chlorophyll-*a* Trend")
+
+p_do <- draw_smoothed_years(tar_read(do_lavaca_13563_temporal, store = store),
+                             tar_read(do_lavaca_13383_temporal, store = store),
+                             tar_read(do_lavaca_13384_temporal, store = store),
+                             ylab = "DO\nSmooth<br>Estimate [mg/L]", 
+                            subtitle = "E: DO Trend")
+
+design <- "
+112266
+334455
+"
+
+#(p_tp + p_no3) / (p_chla + p_tkn) / (p_do)
+p_tp + p_no3 + p_chla + p_tkn + p_do + guide_area() + plot_layout(guides = "collect",
+                                                   design = design)
+```
+
+GAMs did not identify significant changes in TP or DO concentrations at any
+of the Lavaca Bay sites from 2005 through 2020 (Figure \ref{fig:fig5}). The
+upper-bay site, TCEQ-13563, had a linear increase in NO~x~ concentration and
+and decrease in chlorophyll-*a* from 2005 through 2014. The mid-bay site,
+TCEQ-13383, showed a periodic pattern in NO~x~ concentration that appeared
+similar to precipitation/inflow patterns, as well as a post 2011 increase
+in TKN concentrations. No significant long-term trends in concentrations 
+were identified by GAMs for the lower-bay TCEQ-13384 site.
+
+Freshwater inflow provided additional explanation for changes in TP and 
+NO~*x*~ concentration at all of the Lavaca Bay sites according to AIC~c~ and 
+model probability values (Table \ref{tab:tab4}).
+TCEQ-13563, the site closest to the river outlet, was the only site that
+had improvements in the explanations of DO and TKN concentration with the inclusion 
+of inflow. Both TCEQ-13563 and TCEQ-13383, the mid-bay site, saw improvements 
+in explanations for variations in chlorophyll-*a* with the inclusion of freshwater
+inflow. The addition of nutrient loads (both TP and NO~3~) terms did not provide
+additional explanation for changes in chlorophyll-*a* or DO concentrations.
+Inclusion of TP loads provided additional explanation of TP concentrations at
+the upper- and mid-bay sites, TCEQ-13563 and TCEQ-13383. Inclusion of NO~3~
+loads only provided marginal improvements in the explanation of NO~*X*~ 
+concentration at the lower-bay TCEQ-13384 site.
+
+
+```{r tab4, echo=FALSE, message=FALSE, warning=FALSE}
 
 dplyr::bind_rows(
     tar_read(tp_13563, store = store), 
@@ -1126,126 +1346,230 @@ dplyr::bind_rows(
 ```
 
 
-
-```{r long-smooths, message=FALSE, warning=FALSE, fig.pos="H", fig.height=3.5, fig.pos="H", fig.width=6, fig.cap="Smoothed trend component for water quality paramaters obtained from Temporal estaury GAMs.", wideplot=list("0cm"), out.width="100%", wideplot=TRUE}
-draw_smoothed_years <- function(model1, model2, model3,
-                                ylab, subtitle) {
-  
-  `TCEQ-13563` <- model1
-  `TCEQ-13383` <- model2
-  `TCEQ-13384` <- model3
-
-  comp <- gratia::compare_smooths(
-    `TCEQ-13563`,
-    `TCEQ-13383`,
-    `TCEQ-13384`,
-    smooths = "s(ddate)") 
+```{r fig6, message=FALSE, warning=FALSE, fig.height=3.5, fig.pos="H", fig.cap="Estimated effects of mean daily inflow residuals on mean TP, NO\\textsubscript{\\emph{x}}, chlorophyll-\\emph{a}, TKN, and DO concentrations in Lavaca Bay obtained from flow estuary GAMs.", out.width="100%", wideplot=TRUE}
+draw_smoothed_surface <- function(comp,
+                                  x = flw_res,
+                                  xlab,
+                                  ylab, 
+                                  subtitle) {
 
   crit <- gratia:::coverage_normal(0.90)
 
-  comp |> 
-    unnest(data) |> 
+  comp |>
+    unnest(data) |>
     mutate(lower_ci = est + (crit * se),
-           upper_ci = est - (crit * se),
-           label = if_else(ddate == max(ddate),
-                           as.character(model),
-                           NA_character_)) |> 
-    ggplot(aes(x = ddate, y = est, group = model)) +
+           upper_ci = est - (crit * se)) |>
+    group_by(model) |> 
+    mutate(label = if_else(
+      {{ x }} == max( {{ x }} ),
+      as.character(model),
+      NA_character_)) |> 
+    ggplot(aes(x = {{ x }}, y = est, group = model)) +
     geom_ribbon(aes(ymin = lower_ci,
                     ymax = upper_ci,
                     fill = model),
                 alpha = 0.15) +
     geom_line(aes(color = model)) +
-    geom_hline(yintercept = 0, linetype = 2, alpha = 0.25) +
+    geom_hline(yintercept = 0, linetype = 2, alpha = 0.5) +
     # geom_text_repel(aes(label = label,
-    #                     color = model), 
+    #                     color = model),
     #                 nudge_x = 5,
     #                 hjust = "left",
     #                 size = 2) +
-    scale_x_continuous(breaks = c(2005, 2010, 2015, 2020),
-                       expand = expansion(mult = c(0.05,0.05))) +
+    scale_x_continuous(expand = expansion(mult = c(0.05,0.05))) +
     colorspace::scale_fill_discrete_qualitative(name = "") +
     colorspace::scale_color_discrete_qualitative(name = "") +
-    labs(x = "Year", y = ylab,
+    labs(x = xlab, y = ylab,
          subtitle = subtitle) +
     theme_TWRI_print() +
     theme(axis.title.y = element_markdown(size = 8),
           axis.title.x = element_markdown(size = 8),
           plot.subtitle = element_markdown(size = 8),
-          legend.direction = "vertical")
+          legend.direction = "vertical",
+          legend.text = element_text(size = 8))
   
-  
-} 
+}
+
+`TCEQ-13383` <- tar_read(tp_lavaca_13383_flow, store = store)
+
+comp <- compare_smooths(model = `TCEQ-13383`,
+                      `TCEQ-13384` = tar_read(tp_lavaca_13384_flow, store = store),
+                      `TCEQ-13563` = tar_read(tp_lavaca_13563_flow, store = store),
+                      smooths = c("s(flw_res)"))
+p_tp <- draw_smoothed_surface(comp,
+                      x = flw_res,
+                      xlab = "log(Inflow) Residuals [cfs]",
+                      ylab =  "TP Smooth<br>Estimate [mg/L]",
+                      subtitle = "A: TP")
+
+`TCEQ-13383` <- tar_read(no3_lavaca_13383_flow, store = store)
+
+comp <- compare_smooths(model = `TCEQ-13383`,
+                      `TCEQ-13384` = tar_read(no3_lavaca_13384_flow, store = store),
+                      `TCEQ-13563` = tar_read(no3_lavaca_13563_flow, store = store),
+                      smooths = c("s(flw_res)"))
+p_no3 <- draw_smoothed_surface(comp,
+                      x = flw_res,
+                      xlab = "log(Inflow) Residuals [cfs]",
+                      ylab = "NO*<sub>x</sub>* Smooth<br>Estimate [mg/L]",
+                      subtitle = "B: NO*<sub>x</sub>*")
+
+`TCEQ-13383` <- tar_read(chla_lavaca_13383_flow, store = store)
+
+comp <- compare_smooths(model = `TCEQ-13383`,
+                      `TCEQ-13384` = tar_read(chla_lavaca_13384_flow, store = store),
+                      `TCEQ-13563` = tar_read(chla_lavaca_13563_flow, store = store),
+                      smooths = c("s(flw_res)"))
+p_chla <- draw_smoothed_surface(comp,
+                      x = flw_res,
+                      xlab = "log(Inflow) Residuals [cfs]",
+                      ylab = "Chlorophyll-*a* Smooth<br>Estimate [µg/L]",
+                      subtitle = "C: Chlorophyll-*a*")
 
 
-p_tp <- draw_smoothed_years(tar_read(tp_lavaca_13563_temporal, store = store),
-                            tar_read(tp_lavaca_13383_temporal, store = store),
-                            tar_read(tp_lavaca_13384_temporal, store = store),
-                            ylab = "TP\nSmooth<br>Estimate [mg/L]", subtitle = "TP Trend")
+`TCEQ-13383` <- tar_read(tkn_lavaca_13383_flow, store = store)
 
-p_no3 <- draw_smoothed_years(tar_read(no3_lavaca_13563_temporal, store = store),
-                             tar_read(no3_lavaca_13383_temporal, store = store),
-                             tar_read(no3_lavaca_13384_temporal, store = store),
-                             ylab = "NO*<sub>x</sub>* Smooth<br>Estimate [mg/L]", subtitle = "NO*<sub>x</sub>* Trend")
+comp <- compare_smooths(model = `TCEQ-13383`,
+                      `TCEQ-13384` = tar_read(tkn_lavaca_13384_flow, store = store),
+                      `TCEQ-13563` = tar_read(tkn_lavaca_13563_flow, store = store),
+                      smooths = c("s(flw_res)"))
+p_tkn <- draw_smoothed_surface(comp,
+                      x = flw_res,
+                      xlab = "log(Inflow) Residuals [cfs]",
+                      ylab = "TKN Smooth<br>Estimate [mg/L]",
+                      subtitle = "D: TKN")
 
-p_tkn <- draw_smoothed_years(tar_read(tkn_lavaca_13563_temporal, store = store),
-                             tar_read(tkn_lavaca_13383_temporal, store = store),
-                             tar_read(tkn_lavaca_13384_temporal, store = store),
-                             ylab = "TKN\nSmooth<br>Estimate [mg/L]", subtitle = "TKN Trend")
+`TCEQ-13383` <- tar_read(do_lavaca_13383_flow, store = store)
 
-p_chla <- draw_smoothed_years(tar_read(chla_lavaca_13563_temporal, store = store),
-                             tar_read(chla_lavaca_13383_temporal, store = store),
-                             tar_read(chla_lavaca_13384_temporal, store = store),
-                             ylab = "Chlorophyll-*a*\nSmooth<br>Estimate [µg/L]", subtitle = "Chlorophyll-*a* Trend")
-
-p_do <- draw_smoothed_years(tar_read(do_lavaca_13563_temporal, store = store),
-                             tar_read(do_lavaca_13383_temporal, store = store),
-                             tar_read(do_lavaca_13384_temporal, store = store),
-                             ylab = "DO\nSmooth<br>Estimate [mg/L]", subtitle = "DO Trend")
+comp <- compare_smooths(model = `TCEQ-13383`,
+                      `TCEQ-13384` = tar_read(do_lavaca_13384_flow, store = store),
+                      `TCEQ-13563` = tar_read(do_lavaca_13563_flow, store = store),
+                      smooths = c("s(flw_res)"))
+p_do <- draw_smoothed_surface(comp,
+                      x = flw_res,
+                      xlab = "log(Inflow) Residuals [cfs]",
+                      ylab = "DO Smooth<br>Estimate [mg/L]",
+                      subtitle = "E: DO")
 
 design <- "
 112266
 334455
 "
 
-#(p_tp + p_no3) / (p_chla + p_tkn) / (p_do)
 p_tp + p_no3 + p_chla + p_tkn + p_do + guide_area() + plot_layout(guides = "collect",
                                                    design = design)
+
+
 ```
 
 
+GAMs show that increases in freshwater inflow result in nearly linear increases 
+in TP and NO~*x*~ at all three sites (Figure \ref{fig:6}). At the upper-bay
+TCEQ-13563 site, GAMs showed increases in freshwater inflow initially 
+increased chlorophyll-*a* and DO concentration but concentrations leveled and
+potentially decreased at higher flows. The mid-bay TCEQ-13383 site showed a
+nearly linear increased in chlorophyll-*a* concentration with increases in
+freshwater inflow. Freshwater flow did not have significant
+effects on chlorophyll-*a*, TKN, or DO at the lower-bay TCEQ-13384 site.
+
+Increases in TP loads resulted in nearly linear increases of TP concentration at
+the upper- and mid-bay sites, TCEQ-13563 and TCEQ-13383 respectively (Figure \ref{fig:fig7}).
+The relative effect size appeared to much smaller than the effect of freshwater
+inflow alone. Increases in NO~3~ loads only showed an effect at the 
+lower-bay TCEQ-13384 site. The effect was quite small compared to streamflow and
+provided only small improvements to the model (Table \ref{tab:tab4}). As noted
+above, nutrient loadings did not provide any explanation in changes in the
+remaining assessed water quality parameters.
 
 
 
+```{r fig7, message=FALSE, warning=FALSE, fig.height=2.25, fig.width=5.5, fig.pos="H", fig.cap="Estimated effects of nutrient load residuals on TP and NO\\textsubscript{\\emph{x}} concentrations in Lavaca Bay obtained from flow+load estuary GAMs.", out.width="100%", wideplot=FALSE}
+
+`TCEQ-13383` <- tar_read(tp_lavaca_13383_full, store = store)
+
+comp <- compare_smooths(model = `TCEQ-13383`,
+                      `TCEQ-13384` = tar_read(tp_lavaca_13384_full, store = store),
+                      `TCEQ-13563` = tar_read(tp_lavaca_13563_full, store = store),
+                      smooths = c("s(TP_resid)"))
+p_tp <- draw_smoothed_surface(comp,
+                      x = TP_resid,
+                      xlab = "TP Load Residuals [kg]",
+                      ylab = "TP [mg/L]",
+                      subtitle = "A: TP")
+
+`TCEQ-13383` <- tar_read(no3_lavaca_13383_full, store = store)
+
+comp <- compare_smooths(model = `TCEQ-13383`,
+                      `TCEQ-13384` = tar_read(no3_lavaca_13384_full, store = store),
+                      `TCEQ-13563` = tar_read(no3_lavaca_13563_full, store = store),
+                      smooths = c("s(NO3_resid)"))
+p_no3 <- draw_smoothed_surface(comp,
+                      x = NO3_resid,
+                      xlab = "NO<sub>3</sub> Load Residuals [kg]",
+                      ylab = "NO*<sub>x</sub>* [mg/L]",
+                      subtitle = "B: NO*<sub>x</sub>*")
+
+design <- "
+11223
+"
+
+p_tp + p_no3 + guide_area() + plot_layout(guides = "collect",
+                                                   design = design)
 
 
 
-
+```
 
 # Discussion
 
 
 ```{r tpcomp}
+
+load_lav_tp <- tar_read(daily_tp_08164000, store = store)
+load_nav_tp <- tar_read(daily_tp_texana, store = store)
+
+dat <- load_lav_tp$annually |> 
+  ungroup() |> 
+  filter(year >= 2005) |> 
+  summarise(annual = round(mean(TP_Estimate)/2116,1),
+            upper = round(mean(TP_Upper)/2116,1),
+            lower = round(mean(TP_Lower)/2116,1)) ## 2116 sq km
+
 df <- tibble(
   Parameter = rep("TP", 5),
-  `Reported Yield (kg$\\cdot$km\\textsuperscript{-2}$\\cdot$year\\textsuperscript{-1})` = c("42.9 (34.4, 54.0)", "45.2", "42", "20.81-91.58", "28.9"),
+  `Reported Yield (kg$\\cdot$km\\textsuperscript{-2}$\\cdot$year\\textsuperscript{-1})` = 
+    c(paste0(dat[[1,1]]," (", dat[[1,3]], ", ", dat[[1,2]], ")"), 
+      "45.2", "42", "20.81-91.58", "28.9"),
   Approach = c("GAM", "SPARROW", "SWAT", "SPARROW", "LOADEST"),
-  `Time Period` = c("2000-2020", "2012", "1977-2005", "2002", "1972-1993"),
-  Reference = c("This work", "\\citet{wise_spatially_2019}", 
-                "\\citet{omaniEstimationSedimentNutrient2014}", 
+  `Time Period` = c("2005-2020", "2000-2014", "1977-2005", "1980-2002", "1972-1993"),
+  Reference = c("This work", "\\citet{wise_spatially_2019}",
+                "\\citet{omaniEstimationSedimentNutrient2014}",
                 "\\citet{rebich_sources_2011}",
                 "\\citet{dunnTrendsNutrientInflows1996}")
 )
 
+
+df[[1,2]] <- paste0(df[[1,2]], footnote_marker_symbol(1))
+df[[4,2]] <- paste0(df[[4,2]], footnote_marker_symbol(2))
+
+
+
 kbl(df, format = "latex",
     booktabs = TRUE,
-    table.envir = "table", 
+    table.envir = "table",
     position = "H", escape = FALSE,
-    col.names = linebreak(c("Parameter", 
+    col.names = linebreak(c("Parameter",
                             "Reported Yield\n(kg$\\cdot$km\\textsuperscript{-2}$\\cdot$year\\textsuperscript{-1})",
                           "Approach",
                           "Time Period",
-                          "Reference")))
+                          "Reference")),
+    caption = "Mean estimates of annual TP yield in the Lavaca River watershed in published studies.") |>
+  add_footnote(c("Values represent the mean of annual point estimates, lower and upper 95% credible intervals.",
+                 "A single point estimate was not reported, these value represent the range depicted on the choropleth map provided in the report."),
+               notation = "symbol",
+               threeparttable = TRUE,
+               escape = TRUE)
+
 
 
 ```
