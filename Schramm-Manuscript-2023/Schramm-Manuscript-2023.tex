@@ -669,24 +669,35 @@ an identity link function. Response residuals from the respective GAM
 models were used as \emph{Q} and \emph{Load} in Equation \ref{eq:6} and
 Equation \ref{eq:7}.
 
+This study used an information theoretic approach to evaluate if
+nutrient loads and/or freshwater inflows provided evidence of effects on
+water quality concentrations in Lavaca Bay. Model probabilities were
+calculated and compared using the AIC\textsubscript{c} scores between
+each group of temporal, flow, and flow+load models
+\citep{burnhamAICModelSelection2011}. Improvements in model
+probabilities provide evidence that the terms explain additional
+variation in the response variable. If model probabilities were tied,
+there wasn't evidence the more complicated model explains additional
+variation in water quality.
+
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
 \hypertarget{watershed-nutrient-loads}{%
 \subsection{Watershed Nutrient Loads}\label{watershed-nutrient-loads}}
 
-Based on criteria provided by \citet{moriasiHydrologicWaterQuality2015},
-GAMs ranged from ``satisfactory'' to ``very good'' using median NSE,
-r\textsuperscript{2} and PBIAS calculated using repeated 5-fold cross
-validation on predicted and measured nutrient loads. NO\textsubscript{3}
-GAM models had median NSE values of 0.34 and 0.48 at USGS-08164000 and
-USGS-08164390 respectively. Median r\textsuperscript{2} values were 0.70
-(USGS-08164000) and 0.87 (USGS-08164525) and PBIAS values were 2.00
-(USGS-08164000) and 10.90 (USGS-08164525) for NO\textsubscript{3} loads.
-Median NSE values were 0.80 (USGS-08164000) and 0.91 (USGS-08164525) for
-TP loads. Median r\textsuperscript{2} values for TP loads were 0.93
-(USGS-08164000) and 0.99 (USGS-08164525) and median PBIAS values were
--7.20 (USGS-08164000) and -3.30 (USGS-08164525). Density plots of
+Using evaluation criteria from
+\citet{moriasiHydrologicWaterQuality2015}, predictive performance of
+nutrient loading GAMs ranged from ``satisfactory'' to ``very good''
+based on median NSE, r\textsuperscript{2}, and PBIAS metrics calculated
+using 5-fold cross validation. Median NSE values were 0.34 (Lavaca
+River) and 0.48 (Navidad River) for NO\textsubscript{3} loads and 0.81
+(Lavaca River) and 0.91 (Navidad River) for TP loads. Median
+r\textsuperscript{2} values were 0.70 (Lavaca River) and 0.87 (Navidad
+River) for NO\textsubscript{3} loads and 0.93 (Lavaca River) and 0.99
+(Navidad River) fopr TP loads. Median PBIAS values were 2.00 (Lavaca
+River) and 10.90 (Navidad River) for NO\textsubscript{3} loads and -7.20
+(Lavaca River) and -3.30 (Navidad River) for TP loads. Density plots of
 metrics show similar distribution of values between sites for the same
 parameter, with the exception r\textsuperscript{2} values for
 NO\textsubscript{3} loads where USGS-08164000 showed a much larger
@@ -703,26 +714,27 @@ variance in metric values compared to NO\textsubscript{3}.
 \end{adjustwidth}\caption[Density plots of goodness-of-fit metrics (NSE, r\textsuperscript{2}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads]{Density plots of goodness-of-fit metrics (NSE, r\textsuperscript{2}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calcualted from the empirical cumulative distribution of the goodness-of-fit metrics.}\label{fig:fig2}
 \end{figure}
 
-Annual NO\textsubscript{3} and TP loads show considerable variation,
-generally following patterns in discharge (Figure \ref{fig:fig3}, Figure
-\ref{fig:fig4}). Flow-normalized TP loads at both sites and
-flow-normalized loads at USGS-08164000 indicate watershed based loads
-have not changed much over time when accounting for changes in
-streamflow (Figure \ref{fig:fig3}). Flow-normalized loads at
-USGS-08164000 show small variation over time with some decreases in
-NO\textsubscript{3} loads since 2013. Aggregated across both sites, the
-mean annual NO\textsubscript{3} load 2005 through 2020 was 205,405 kg
-(126,867 kg - 341,569 kg, 90\% CI). Annual NO\textsubscript{3} loads
-ranged from 12,574 kg in 2011 to 794,510 kg in 2007.
+Predicted annual NO\textsubscript{3} and TP loads show considerable
+variation, generally following patterns in discharge (Figure
+\ref{fig:fig3}, Figure \ref{fig:fig4}). Flow-normalized TP loads at both
+sites and flow-normalized NO\textsubscript{3} loads at USGS-08164000
+indicate watershed based loads did not change much over time when
+accounting for variation driven by streamflow (Figure \ref{fig:fig3}).
+Flow-normalized loads at USGS-08164000 show small variation over time
+with some decreases in NO\textsubscript{3} loads since 2013.
 
-Total annual TP loads ranged from 7,839 kg in 2011 to 595,075 kg in
-2007. Mean annual TP loading from 2005 through 2020 was 182,673 kg
-(152,227 kg - 219,310 kg, 90\% CI). On average, USGS-08164525 accounted
-for 68\% of NO\textsubscript{3} loads and 59\% of TP loads from 2005
-through 2020. However, during periods of extreme drought the Lavaca
-River (USGS-08164000) became the primary source of nutrient loading in
-the watershed with the Navidad River only accounting for 15\% and 25\%
-of NO\textsubscript{3} and TP loads in 2011 (Figure \ref{fig:fig4}).
+Aggregated across both sites, the mean annual NO\textsubscript{3} load
+2005 through 2020 was 205,405 kg (126,867 kg - 341,569 kg, 90\% CI).
+Annual NO\textsubscript{3} loads ranged from 12,574 kg in 2011 to
+794,510 kg in 2007. Total annual TP loads ranged from 7,839 kg in 2011
+to 595,075 kg in 2007. Mean annual TP loading from 2005 through 2020 was
+182,673 kg (152,227 kg - 219,310 kg, 90\% CI). On average, USGS-08164525
+accounted for 68\% of NO\textsubscript{3} loads and 59\% of TP loads
+from 2005 through 2020. However, during periods of extreme drought the
+Lavaca River (USGS-08164000) became the primary source of nutrient
+loading in the watershed with the Navidad River only accounting for 15\%
+and 25\% of NO\textsubscript{3} and TP loads in 2011 (Figure
+\ref{fig:fig4}).
 
 \begin{figure}
 
@@ -880,19 +892,18 @@ decrease in flow-normalized NO\textsubscript{3} loads could be a
 reflection of those collective efforts but further data collection and
 research is required to support that statement.
 
-Other studies have published estimates of TP loading estimates for the
-Lavaca River (USGS-08164000) over various time periods (Table
-\ref{tab:tpcomp}). Converted to average annual yield, the estimates of
-TP loading in this study are within the ranges of previous studies
-\citep{dunnTrendsNutrientInflows1996, rebich_sources_2011, omaniEstimationSedimentNutrient2014, wise_spatially_2019},
-with the TP estimates in \citet{dunnTrendsNutrientInflows1996} being
-notably lower. Given that none of the studies identify substantially
-sized trends in TP, it is is possible that the period used in
-\citet{dunnTrendsNutrientInflows1996} was drier on average than the
-other studies. The SPARROW models used in \citet{rebich_sources_2011}
-and \citet{wise_spatially_2019} utilize a version of LOADEST in the
-underlying load estimation procedure, so a difference due to methodology
-alone is unlikely.
+Converted to average annual yield, the estimates of annual TP loads at
+Lavaca River (USGS-08164000) are within the ranges in previous published
+studies (Table \ref{tab:tpcomp};
+\citep{dunnTrendsNutrientInflows1996, rebich_sources_2011, omaniEstimationSedimentNutrient2014, wise_spatially_2019}).
+It isn't obvious why TP estimates in
+\citet{dunnTrendsNutrientInflows1996} were notably lower. Given that
+none of the studies identify substantially sized trends in TP, it is is
+possible that the period used in \citet{dunnTrendsNutrientInflows1996}
+was drier on average than the other studies. The SPARROW models used in
+\citet{rebich_sources_2011} and \citet{wise_spatially_2019} utilize a
+version of LOADEST in the underlying load estimation procedure, so a
+difference due to methodology alone is unlikely.
 
 \begin{table}[H]
 
@@ -922,11 +933,14 @@ Cross-validation of the GAM loading models indicated that GAMs performed
 well on average at predicting daily nutrient loading values. The
 variance in scores was very high indicating subsets of values were
 problematic at characterizing functional relationships between nutrients
-and predictors. All of the water quality data for the two river sites in
-the TCEQ database were ambient water quality data, collected to be
-representative of typical conditions. This results in few data collected
-at the highest portions of the flow duration curve under which the
-majority of loadings take place. Supplementary flow-biased monitoring
+and predictors. Because all of the water quality data for these two
+locations in the TCEQ databases were ambient water quality data,
+collected to be representative of typical flow conditions, there were
+few data at the highest portions of the flow-duration curve. It was
+beyond the scope of the current study to evaluate the subsets of
+cross-validation data and scores. However, the cross-validation
+procedure is indicative that more robust sampling would be beneficial
+for reducing prediction variance. Supplementary flow-biased monitoring
 targeting storm- or high-flow conditions is recommended here to improve
 the precision of GAM predictions
 \citep{horowitzEvaluationSedimentRating2003, snelderEstimationCatchmentNutrient2017}.
@@ -937,9 +951,9 @@ differed slightly from the trends identified by
 time periods, different methodology, and generally small slopes
 identified for most of the significant water quality parameters in prior
 work. The trend in DO and cholorophyll-\emph{a} concentrations are
-stable in comparison to other Texas estuaries that might be facing
-larger demands for freshwater diversions, higher population growth, and
-more intense agricultural production
+stable in comparison to other Texas estuaries that are facing larger
+demands for freshwater diversions, higher population growth, and more
+intense agricultural production
 \citep{wetzWaterQualityDynamics2016, bugica_water_2020}. The trend of
 increasing NO\textsubscript{\emph{x}} concentration at the upper-bay
 TCEQ-13563 site and recent increases in TKN concentration at the mid-bay
@@ -950,9 +964,9 @@ and the relatively low ambient concentrations observed in Lavaca Bay.
 
 The strong positive effect of freshwater inflow on
 NO\textsubscript{\emph{x}}, TKN, and TP are suggestive of nonpoint
-watershed sources, consistent with watershed uses, and consistent with
-other studies relating freshwater inflow with nutrient concentrations in
-Lavaca Bay and other estuaries
+watershed sources, consistent with watershed uses and with other studies
+relating freshwater inflow with nutrient concentrations in Lavaca Bay
+and other estuaries
 \citep{russell_effect_2006, caffreyHighNutrientPulses2007, peierlsNonmonotonicResponsesPhytoplankton2012, palmerImpactsDroughtsLow2015, ciraPhytoplanktonDynamicsLowInflow2021}.
 Inflow had a non-linear relationship with TKN at the two upstream sites,
 with TKN increasing as freshwater inflow transitioned from low to
@@ -960,18 +974,17 @@ moderate levels. At higher freshwater inflows, the effect was
 attenuated, possibly indicating a flushing effect at higher freshwater
 inflow. No relationship between TKN and freshwater inflow were observed
 at TCEQ-13384 located in the lower reach of Lavaca Bay. Tidal flushing
-from Matagorda Bay might be responsible for decreasing TKN
-concentrations and limiting the effects of freshwater inflow in lower
-reaches of Lavaca Bay. \citet{russell_effect_2006} suggested the
-processing of organic loads in the upper portions of Lavaca Bay reduces
-the transport of nutrients into the lower reaches of the Bay.
+from Matagorda Bay could be responsible for diluting TKN and acting as a
+control on the effects of freshwater inflow in lower reaches of Lavaca
+Bay. \citet{russell_effect_2006} also suggested the processing of
+organic loads in the upper portions of Lavaca Bay reduces the transport
+of nutrients into the lower reaches of the Bay.
 
-Freshwater inflow also had a strong positive effect on
-chlorophyll-\emph{a} at the upper- and mid-bay sites. The upper-bay
-site, TCEQ-13563, showed decreases in chlorophyll-\emph{a} at the
-highest freshwater inflow volumes. Freshwater flushing or increases in
-turbidity are associated with decreases in chlorophyll-\emph{a} in other
-estuaries
+Freshwater inflow had a strong positive effect on chlorophyll-\emph{a}
+at the upper- and mid-bay sites. The upper-bay site, TCEQ-13563, showed
+decreases in chlorophyll-\emph{a} at the highest freshwater inflow
+volumes. Freshwater flushing or increases in turbidity are associated
+with decreases in chlorophyll-\emph{a} in other estuaries
 \citep{peierlsNonmonotonicResponsesPhytoplankton2012, cloernPhytoplanktonPrimaryProduction2014}.
 No relationships between inorganic nitrogen or TP loadings with
 chlorophyll-\emph{a} were observed. Due to the lack of TKN loading
@@ -989,7 +1002,7 @@ evidence of changes in flow-normalized TP loads in either river, and no
 changes in flow-normalized NO\textsubscript{3} loads in the Navidad
 River. The small changes in flow-normalized NO\textsubscript{3} loads in
 the Lavaca River are probably masked under most conditions by discharge
-from the Navidad River. Given the relatively little variation in
+from the Navidad River. Given the relatively small variation in
 flow-normalized loads, it can be expected that they would contribute
 little to the variance in downstream water quality.
 
@@ -1004,26 +1017,33 @@ effect on DO suggests physical factors play an important role and should
 be included in future models. Prior work suggests that Lavaca Bay may
 not be limited by nutrients alone, with high turbidity or nutrient
 processing in upper portions of the Bay or intertidal river limiting
-production \citep{russell_effect_2006}.
+production \citep{russell_effect_2006}. Finally, it is reasonable to
+assume that fluctuations in DO may not occur immediately in response to
+nutrient pulses or freshwater inflow. Work has has shown that various
+water quality parameters may have lagged effects lasting days or even
+months following storms and large discharge events
+\citep{mooney_watershed_2012, wetzExtremeFutureEstuaries2013, bukaveckas_influence_2020, walkerTimescalesMagnitudeWater2021}.
+However, our work only evaluates responses to loading and inflows
+occuring the day of water quality observations.
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
 
 GAM models appear to provide reliable estimates of nutrient loads in the
 Lavaca Bay watershed. However, additional flow-biased data collection
-efforts would decrease the prediction variance and probably improve
-accuracy at critical high flow events. Ongoing projects will fill data
-gaps for total nitrogen and TKN loading. This study, consistent with
-others along the Texas coast, found strong effects of freshwater flow on
-nutrient and chlorophyll-\emph{a} concentrations. DO concentrations,
-dominated by seasonal effects, did not show strong direct responses to
-freshwater flow. Small variance in flow-adjusted nutrient loads
-indicates that (1) there have been limited changes in non point sources
-of nutrients and (2) that those changes have limited effect on water
-quality in Lavaca Bay to date. Although the study did not identify
-strong responses to changes in nutrient loading, this does provide a
-baseline assessment for future water quality management activities in
-the watershed.
+efforts would decrease the prediction variance and improve accuracy at
+critical high flow events. Ongoing projects will fill data gaps for
+total nitrogen and TKN loading. This study, consistent with others along
+the Texas coast, found strong effects of freshwater flow on nutrient and
+chlorophyll-\emph{a} concentrations. DO concentrations, dominated by
+seasonal effects, did not show strong direct responses to freshwater
+flow. Small variance in flow-adjusted nutrient loads indicates that (1)
+there have been limited changes in non-point sources of nutrients and
+(2) that there isn't strong evidence that those small changes have had
+effects on chlorophyll-\emph{a} or dissolved oxygen in Lavaca Bay.
+Although the study did not identify strong responses to changes in
+nutrient loading, this does provide a baseline assessment for future
+water quality management activities in the watershed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
