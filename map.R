@@ -321,11 +321,10 @@ p3 <-p1 + inset_element(p2, left = 0.7, bottom = 0.7, right = 1, top = 1,
                    align_to = "full")
 
 
-ragg::agg_png("map.png", width = 5.2, height = 6.75, units = "in", res = 300)
+ragg::agg_tiff("map.tif", width = 5.2, height = 6.75, units = "in", res = 600,
+               compression = "lzw")
 p3
 dev.off()
 
 
-img <- magick::image_read("map.png")
-img
-magick::image_write(img, path = "map.tiff", format = "tiff")
+

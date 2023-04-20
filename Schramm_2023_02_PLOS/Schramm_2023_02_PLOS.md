@@ -459,7 +459,7 @@ lower variance in metric values compared to NO~3~.
 
 ::: {.cell layout-align="center" fig.asp='0.65'}
 ::: {.cell-output-display}
-![Density plots of goodness-of-fit metrics (NSE, r^2^, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calcualted from the empirical cumulative distribution of the goodness-of-fit metrics.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig2-1.tiff){#fig-fig2 fig-align='center' width=5.2in}
+![Density plots of goodness-of-fit metrics (NSE, r^2^, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calcualted from the empirical cumulative distribution of the goodness-of-fit metrics.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig2-1.eps){#fig-fig2 fig-align='center' width=5.2in}
 :::
 :::
 
@@ -480,7 +480,7 @@ some decreases in NO~3~ loads since 2013.
 
 ::: {.cell layout-align="center" fig.asp='0.7'}
 ::: {.cell-output-display}
-![Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig3-1.tiff){#fig-fig3 fig-align='center' width=5.2in}
+![Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig3-1.eps){#fig-fig3 fig-align='center' width=5.2in}
 :::
 :::
 
@@ -504,7 +504,7 @@ nutrient loading in the watershed with the Navidad River only accounting for
 
 ::: {.cell layout-align="center" fig.asp='2'}
 ::: {.cell-output-display}
-![Comparison of delivered annual loads and annual discharge at the Lavaca (USGS-08164000) and Navidad (USGS-08164525) Rivers.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig4-1.tiff){#fig-fig4 fig-align='center' width=3in}
+![Comparison of delivered annual loads and annual discharge at the Lavaca (USGS-08164000) and Navidad (USGS-08164525) Rivers.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig4-1.eps){#fig-fig4 fig-align='center' width=3in}
 :::
 :::
 
@@ -525,7 +525,7 @@ were identified by GAMs for the lower-bay TCEQ-13384 site.
 
 ::: {.cell layout-align="center" fig.asp='0.7'}
 ::: {.cell-output-display}
-![Smoothed temporal trend component for water quality paramaters obtained from temporal estuary GAMs.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig5-1.tiff){#fig-fig5 fig-align='center' width=5.2in}
+![Smoothed temporal trend component for water quality paramaters obtained from temporal estuary GAMs.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig5-1.eps){#fig-fig5 fig-align='center' width=5.2in}
 :::
 :::
 
@@ -586,7 +586,7 @@ effects on chlorophyll-*a*, TKN, or DO at the lower-bay TCEQ-13384 site.
 
 ::: {.cell layout-align="center" fig.asp='0.7'}
 ::: {.cell-output-display}
-![Estimated effects of mean daily inflow residuals on mean TP, NO~*x*~, chlorophyll-*a*, TKN, and DO concentrations in Lavaca Bay obtained from flow estuary GAMs.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig6-1.tiff){#fig-fig6 fig-align='center' width=5.2in}
+![Estimated effects of mean daily inflow residuals on mean TP, NO~*x*~, chlorophyll-*a*, TKN, and DO concentrations in Lavaca Bay obtained from flow estuary GAMs.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig6-1.eps){#fig-fig6 fig-align='center' width=5.2in}
 :::
 :::
 
@@ -606,7 +606,7 @@ remaining assessed water quality parameters.
 
 ::: {.cell layout-align="center" fig.asp='0.45'}
 ::: {.cell-output-display}
-![Estimated effects of nutrient load residuals on TP and NO~*x*~ concentrations in Lavaca Bay obtained from flow+load estuary GAMs.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig7-1.tiff){#fig-fig7 fig-align='center' width=5.2in}
+![Estimated effects of nutrient load residuals on TP and NO~*x*~ concentrations in Lavaca Bay obtained from flow+load estuary GAMs.](Schramm_2023_02_PLOS_files/figure-docx/fig-fig7-1.eps){#fig-fig7 fig-align='center' width=5.2in}
 :::
 :::
 
