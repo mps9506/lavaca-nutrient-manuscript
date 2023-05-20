@@ -120,7 +120,7 @@ waterbody_labs <- tibble(lab = c("Lake\nTexana", "Lavaca Bay", "Matagorda Bay"),
 
 p1 <- ggplot() +
   ## watersheds
-  geom_sf(data = ws, aes(fill = label, color = label), alpha = 0.3, size = 0.2, show.legend = FALSE) +
+  geom_sf(data = ws, aes(fill = label, color = label), alpha = 0.3, linewidth = 0.2, show.legend = FALSE) +
   ## colorado, wharton, dewit, calhoun county label
   geom_sf_text(data = counties_sub |> 
                  filter(CNTY_NM == "Colorado"|CNTY_NM == "Lavaca"| 
@@ -143,12 +143,12 @@ p1 <- ggplot() +
                size = 2, family = "Atkinson Hyperlegible", 
                alpha = 0.5, fontface = "bold",
                nudge_x = -10000, nudge_y = -10000) +
-  geom_sf(data = urban, fill = "azure4", size = 0.2, alpha = 0.5) +
-  geom_sf(data = Area, color = alpha("steelblue",0.25), alpha = 0.25, fill = "steelblue", size = 0.15) +
-  geom_sf(data = counties_sub, fill = "transparent", linetype = 3, size = 0.15, show.legend = FALSE) +
-  geom_sf(data = Flowlines, alpha = 0.25, size = 0.15, color = "steelblue") +
-  geom_sf(data = rivers, color = "steelblue", size = 0.15) +
-  geom_sf(data = waterbody, alpha = 1, fill = "slategray3",color = alpha("slategray3",1), size = 0.15) +
+  geom_sf(data = urban, fill = "azure4", linewidth = 0.2, alpha = 0.5) +
+  geom_sf(data = Area, color = alpha("steelblue",0.25), alpha = 0.25, fill = "steelblue", linewidth = 0.15) +
+  geom_sf(data = counties_sub, fill = "transparent", linetype = 3, linewidth = 0.15, show.legend = FALSE) +
+  geom_sf(data = Flowlines, alpha = 0.25, linewidth = 0.15, color = "steelblue") +
+  geom_sf(data = rivers, color = "steelblue", linewidth = 0.15) +
+  geom_sf(data = waterbody, alpha = 1, fill = "slategray3",color = alpha("slategray3",1), linewidth = 0.15) +
   geom_sf(data = df_sites, aes(shape = "Freshwater Sites")) +
   geom_sf(data = tceq_sites, aes(shape = "Lavaca Bay Sites")) +
   ## city labels
@@ -306,7 +306,8 @@ p1 <- ggplot() +
   scale_shape_manual("", values = c(21, 22)) +
   labs(x = "", y = "") +
   theme_TWRI_print() +
-  theme(panel.grid = element_line(color = "grey80", size = 0.1),
+  theme(#panel.grid = element_line(color = "grey80", size = 0.1),
+        panel.grid = element_blank(),
         panel.background = element_rect(fill = "ivory1"),
         axis.text = element_text(size = 8, family = "arial"),
         legend.text = element_text(family = "arial"))
@@ -316,16 +317,20 @@ project <- st_as_sfc(st_bbox(ws))
 
 p2 <- ggplot() +
   geom_sf(data = counties, fill = "white", size = 0.1) +
-  geom_sf(data = project, fill = "transparent", color = "firebrick", size = 1) +
+  geom_sf(data = project, fill = "transparent", color = "firebrick", 
+          linewidth = 1,
+          ) +
   theme_void()
 
 
 p3 <-p1 + inset_element(p2, left = 0.7, bottom = 0.7, right = 1, top = 1,
                    align_to = "full")
 
+# 
+# ragg::agg_tiff("map_final_report.tif", width = 5.2, height = 6.75, units = "in", res = 600,
+#                compression = "lzw")
 
-ragg::agg_tiff("map_final_report.tif", width = 5.2, height = 6.75, units = "in", res = 600,
-               compression = "lzw")
+ragg::agg_png("fig1.png", width = 5.2, height = 6.75, units = "in", res = 600)
 p3
 dev.off()
 
