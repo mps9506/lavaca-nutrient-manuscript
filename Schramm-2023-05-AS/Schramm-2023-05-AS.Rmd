@@ -431,9 +431,9 @@ and percent bias (PBIAS) metrics across folds were calculated for each model.
 
 To test if changes in freshwater inflow and nutrient loading had explanatory
 effect on changes in estuary water quality a series of GAM models were fit at
-each site relating parameter concentration to temporal trends ([@eq-eq5]), 
-temporal trends and inflow (@eq-eq6), and temporal trends, inflow, and
-nutrient loads (@eq-eq7):
+each site relating parameter concentration to temporal trends (Eq.\ \ref{eq5}), 
+temporal trends and inflow (Eq.\ \ref{eq6}), and temporal trends, inflow, and
+nutrient loads (Eq.\ \ref{eq7}):
 \begin{align}
 g(\mu) &= \alpha + f_1(ddate) + f_2(yday), \label{eq5} \\
 g(\mu) &= \alpha + f_1(ddate) + f_2(yday) + f_3(Q), \label{eq6} \\
@@ -1070,7 +1070,7 @@ On average, the Navidad River accounted for `r no3_mean_prop` of NO~3~ loads and
 drought the Lavaca River became the primary source of 
 nutrient loading in the watershed with the Navidad River only accounting for 
 `r min_no3_prop` and `r min_tp_prop` of NO~3~ and TP loads in 2011 
-(Figure\ \ref{tab:fig4}).
+(Figure\ \ref{fig:fig4}).
 
 ```{r fig4, error=FALSE, message=FALSE, warning=FALSE, fig.width=3.3, fig.asp=2, fig.cap="Comparison of delivered annual loads and annual discharge at the Lavaca (USGS-08164000) and Navidad (USGS-08164525) Rivers.", out.width="0.5\\linewidth"}
 
@@ -1316,11 +1316,6 @@ draw_smoothed_years <- function(model1, model2, model3,
                 alpha = 0.15) +
     geom_line(aes(color = model)) +
     geom_hline(yintercept = 0, linetype = 2, alpha = 0.25) +
-    # geom_text_repel(aes(label = label,
-    #                     color = model), 
-    #                 nudge_x = 5,
-    #                 hjust = "left",
-    #                 size = 2) +
     scale_x_continuous(breaks = c(2005, 2010, 2015, 2020),
                        expand = expansion(mult = c(0.05,0.05))) +
     colorspace::scale_fill_discrete_qualitative(name = "") +
@@ -1328,7 +1323,7 @@ draw_smoothed_years <- function(model1, model2, model3,
     labs(x = "Year", y = ylab,
          subtitle = subtitle) +
     theme_TWRI_print(base_family = "sans") +
-    theme(axis.title.y = element_text(size = 8),
+    theme(axis.title.y = element_markdown(size = 8),
           axis.title.x = element_text(size = 8),
           axis.text.x = element_text(size = 8),
           axis.text.y = element_text(size = 8),
@@ -1349,7 +1344,7 @@ p_tp <- draw_smoothed_years(tar_read(tp_lavaca_13563_temporal, store = store),
 p_no3 <- draw_smoothed_years(tar_read(no3_lavaca_13563_temporal, store = store),
                              tar_read(no3_lavaca_13383_temporal, store = store),
                              tar_read(no3_lavaca_13384_temporal, store = store),
-                             ylab = "NOx [mg/L]", 
+                             ylab = "NO<sub>*x*</sub> [mg/L]", 
                              subtitle = "B")
 
 p_tkn <- draw_smoothed_years(tar_read(tkn_lavaca_13563_temporal, store = store),
@@ -1361,7 +1356,7 @@ p_tkn <- draw_smoothed_years(tar_read(tkn_lavaca_13563_temporal, store = store),
 p_chla <- draw_smoothed_years(tar_read(chla_lavaca_13563_temporal, store = store),
                              tar_read(chla_lavaca_13383_temporal, store = store),
                              tar_read(chla_lavaca_13384_temporal, store = store),
-                             ylab = expression("Chlorophyll-"~italic(a)~"[μg/L]"), 
+                             ylab = "Chlorophyll-*a* [μg/L]", 
                              subtitle = "D")
 
 p_do <- draw_smoothed_years(tar_read(do_lavaca_13563_temporal, store = store),
@@ -1416,16 +1411,16 @@ dplyr::bind_rows(
     tar_read(tkn_13384, store = store)
     ) |>
   mutate(Parameter = case_when(
-    Parameter == "Nitrite+Nitrate" ~ "NOx",
-    Parameter == "Chlorophyll-a" ~ "Chlorophyll-*a*",
+    Parameter == "Nitrite+Nitrate" ~ "NO\\textsubscript{x}",
+    Parameter == "Chlorophyll-a" ~ "Chlorophyll-\\textit{a}",
     TRUE ~ as.character(Parameter)
   )) |>
-  mutate(Parameter = fct_relevel(Parameter, "TP", "NOx", "Chlorophyll-*a*","TKN", "DO"),
+  mutate(Parameter = fct_relevel(Parameter, "TP", "NO\\textsubscript{x}", "Chlorophyll-\\textit{a}","TKN", "DO"),
          Model = fct_relevel(Model, "Temporal", "Flow", "Flow + Load")) |>
   tidyr::complete(Site, Model, nesting(Parameter)) |>
   mutate(model_prob = paste0(round(AICc,1), " (", round(weight,2), ")")) |>
   mutate(model_prob = case_when(
-    model_prob == "NA (NA)" ~ "NA",
+    model_prob == "NA (NA)" ~ "-",
     model_prob != "NA (NA)" ~ model_prob
   )) |>
   select(-c(AICc, weight)) |>
@@ -1433,15 +1428,10 @@ dplyr::bind_rows(
   select(Parameter, Site, Temporal, Flow, `Flow + Load`) |>
   arrange(Parameter, Site) |>
   kbl(format = "latex",
-      caption = "Estuary GAM AIC~c~ values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.",
-      booktabs = TRUE)
-  # flextable() |>   
-  # set_caption(caption = "Estuary GAM AIC~c~ values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.",
-  #             autonum = run_autonum(seq_id = "tab", bkm = "table4")) |> 
-  # style(pr_t = fp_text_default(font.size = 9), part = "body") |>
-  # style(pr_t = fp_text_default(font.size = 9, bold = TRUE), part = "header") |>
-  # set_table_properties(layout = "autofit") |>
-  # padding(padding.top = 0, padding.bottom = 0, part = "body")
+      caption = "Estuary GAM AIC\\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.",
+      booktabs = TRUE, escape = FALSE) |> 
+  collapse_rows(columns = 1, latex_hline = "major")
+
   
 
 ```
@@ -1481,11 +1471,6 @@ draw_smoothed_surface <- function(comp,
                 alpha = 0.15) +
     geom_line(aes(color = model)) +
     geom_hline(yintercept = 0, linetype = 2, alpha = 0.5) +
-    # geom_text_repel(aes(label = label,
-    #                     color = model),
-    #                 nudge_x = 5,
-    #                 hjust = "left",
-    #                 size = 2) +
     scale_x_continuous(expand = expansion(mult = c(0.05,0.05))) +
     colorspace::scale_fill_discrete_qualitative(name = "") +
     colorspace::scale_color_discrete_qualitative(name = "") +
@@ -1521,8 +1506,8 @@ comp <- compare_smooths(model = `TCEQ-13383`,
 p_no3 <- draw_smoothed_surface(comp,
                       x = flw_res,
                       xlab = "Residuals log(Inflow) [cfs]",
-                      ylab = "NO*<sub>x</sub>* Smooth<br>Estimate [mg/L]",
-                      subtitle = "B: NO*<sub>x</sub>*")
+                      ylab = "NO<sub>*x*</sub> Smooth<br>Estimate [mg/L]",
+                      subtitle = "B: NO<sub>*x*</sub>")
 
 `TCEQ-13383` <- tar_read(chla_lavaca_13383_flow, store = store)
 
@@ -1578,7 +1563,7 @@ the upper- and mid-bay sites, TCEQ-13563 and TCEQ-13383 respectively
 The relative effect size appeared to much smaller than the effect of freshwater
 inflow alone. Increased NO~3~ loads only showed an effect at the 
 lower-bay TCEQ-13384 site. The effect was quite small compared to streamflow and
-provided only small improvements to the model (@tbl-table4). As noted
+provided only small improvements to the model (Table\ \ref{tab:table4}). As noted
 above, nutrient loadings did not provide any explanation in changes in the
 remaining assessed water quality parameters.
 
@@ -1606,8 +1591,8 @@ comp <- compare_smooths(model = `TCEQ-13383`,
 p_no3 <- draw_smoothed_surface(comp,
                       x = NO3_resid,
                       xlab = "Residuals log(NO<sub>3</sub>) Load [kg]",
-                      ylab = "NO*<sub>x</sub>* [mg/L]",
-                      subtitle = "B: NO*<sub>x</sub>*")
+                      ylab = "NO<sub>*x*</sub> [mg/L]",
+                      subtitle = "B: NO<sub>*x*</sub>")
 
 design <- "
 11223
@@ -1639,7 +1624,7 @@ support that statement.
 
 Converted to average annual yield, the estimates of annual TP loads for the
 Lavaca River are within the ranges in previous published studies
-(@tbl-table5; [@dunnTrendsNutrientInflows1996; @rebichSourcesDeliveryNutrients2011; @omaniEstimationSedimentNutrient2014; @wise_spatially_2019]). It isn't obvious
+[Table\ \ref{tab:table5}, @dunnTrendsNutrientInflows1996; @rebichSourcesDeliveryNutrients2011; @omaniEstimationSedimentNutrient2014; @wise_spatially_2019]. It isn't obvious
 why TP estimates in @dunnTrendsNutrientInflows1996 were notably lower. Given that none
 of the studies identify substantially sized trends in TP, it is is possible that 
 the period used in @dunnTrendsNutrientInflows1996 was drier on average than the

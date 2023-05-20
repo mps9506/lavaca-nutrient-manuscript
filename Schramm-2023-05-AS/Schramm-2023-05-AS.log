@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.19)  20 MAY 2023 08:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.19)  20 MAY 2023 08:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -818,15 +818,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [10]
 
-Package natbib Warning: Citation `eq-eq5' on page 11 undefined on input line 491.
-
-
-Package natbib Warning: Citation `eq-eq6' on page 11 undefined on input line 492.
-
-
-Package natbib Warning: Citation `eq-eq7' on page 11 undefined on input line 493.
-
-
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 510.
 
@@ -842,7 +833,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has 
                                                   \__shipout_drop_firstpage_...
 l.596 
       ]
-<Schramm-2023-05-AS_files/figure-latex/fig2-1.png, id=349, 495.0495pt x 321.6015pt>
+<Schramm-2023-05-AS_files/figure-latex/fig2-1.png, id=351, 495.0495pt x 321.6015pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig2-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig2-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig2-1.png  used on input line 599.
@@ -856,15 +847,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has
                                                   \__shipout_drop_firstpage_...
 l.614 
        <./Schramm-2023-05-AS_files/figure-latex/fig2-1.png>]
-<Schramm-2023-05-AS_files/figure-latex/fig3-1.png, id=361, 495.0495pt x 346.4142pt>
+<Schramm-2023-05-AS_files/figure-latex/fig3-1.png, id=363, 495.0495pt x 346.4142pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig3-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig3-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig3-1.png  used on input line 617.
 (pdftex.def)             Requested size: 372.0pt x 260.31744pt.
-
-LaTeX Warning: Reference `tab:fig4' on page 14 undefined on input line 634.
-
-<Schramm-2023-05-AS_files/figure-latex/fig4-1.png, id=362, 238.491pt x 476.982pt>
+<Schramm-2023-05-AS_files/figure-latex/fig4-1.png, id=365, 238.491pt x 476.982pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig4-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig4-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig4-1.png  used on input line 638.
@@ -878,7 +866,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has
                                                   \__shipout_drop_firstpage_...
 l.659 
        <./Schramm-2023-05-AS_files/figure-latex/fig3-1.png>]
-<Schramm-2023-05-AS_files/figure-latex/fig5-1.png, id=369, 495.0495pt x 346.4142pt>
+<Schramm-2023-05-AS_files/figure-latex/fig5-1.png, id=372, 495.0495pt x 346.4142pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig5-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig5-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig5-1.png  used on input line 662.
@@ -903,20 +891,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.713 \end{table}
+l.725 \end{table}
                   <./Schramm-2023-05-AS_files/figure-latex/fig5-1.png>]
-<Schramm-2023-05-AS_files/figure-latex/fig6-1.png, id=382, 495.0495pt x 346.4142pt>
+<Schramm-2023-05-AS_files/figure-latex/fig6-1.png, id=385, 495.0495pt x 346.4142pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig6-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig6-1.png>
-Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig6-1.png  used on input line 728.
+Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig6-1.png  used on input line 740.
 (pdftex.def)             Requested size: 372.0pt x 260.31744pt.
-
-Package natbib Warning: Citation `tbl-table4' on page 17 undefined on input line 741.
-
-<Schramm-2023-05-AS_files/figure-latex/fig7-1.png, id=384, 495.0495pt x 222.5916pt>
+<Schramm-2023-05-AS_files/figure-latex/fig7-1.png, id=388, 495.0495pt x 222.5916pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig7-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig7-1.png>
-Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig7-1.png  used on input line 747.
+Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig7-1.png  used on input line 759.
 (pdftex.def)             Requested size: 372.0pt x 167.26933pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -925,7 +910,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.752 \end{figure}
+l.764 \end{figure}
                   ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -933,14 +918,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.773 C
-       onverted to average annual yield, the estimates of annual TP loads for <./Schramm-2023-05-AS_files/figure-latex/fig6-1.png>]
-
-Package natbib Warning: Citation `tbl-table5' on page 19 undefined on input line 775.
-
+l.784 
+       <./Schramm-2023-05-AS_files/figure-latex/fig6-1.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 788.
+               Default added (so using `tbp') on input line 799.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -949,16 +931,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.821 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.821 
+l.832 
        <./Schramm-2023-05-AS_files/figure-latex/fig7-1.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[20]
+[20
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.867 
+      ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [21]
@@ -967,15 +949,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [22]
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 926.
+(hyperref)                than one, level fixed on input line 937.
 
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 939.
+(hyperref)                than one, level fixed on input line 950.
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 950.
+(hyperref)                than one, level fixed on input line 961.
 
 (./Schramm-2023-05-AS.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1035,10 +1017,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [31])
-
-Package natbib Warning: There were undefined citations.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [32] (./Schramm-2023-05-AS.aux)
@@ -1046,25 +1024,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.985pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `Schramm-2023-05-AS.out' has not changed.
 (rerunfilecheck)             Checksum: 9919DEB9FC2DAC2FF7905786BFE974D1;2271.
  ) 
 Here is how much of TeX's memory you used:
- 19722 strings out of 477995
- 376540 string characters out of 5835715
+ 19721 strings out of 477995
+ 376530 string characters out of 5835715
  1870845 words of memory out of 5000000
- 39410 multiletter control sequences out of 15000+600000
+ 39409 multiletter control sequences out of 15000+600000
  530243 words of font info for 105 fonts, out of 8000000 for 9000
  46 hyphenation exceptions out of 8191
  90i,17n,90p,555b,1138s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Schramm-2023-05-AS.pdf (32 pages, 3263413 bytes).
+Output written on Schramm-2023-05-AS.pdf (32 pages, 3261961 bytes).
 PDF statistics:
- 777 PDF objects out of 1000 (max. 8388607)
- 685 compressed objects within 7 object streams
+ 783 PDF objects out of 1000 (max. 8388607)
+ 691 compressed objects within 7 object streams
  142 named destinations out of 1000 (max. 500000)
  148 words of extra memory for PDF output out of 10000 (max. 10000000)
 

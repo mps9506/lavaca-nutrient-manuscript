@@ -488,9 +488,9 @@ Loads}\label{linking-estuary-water-quality-to-hydrology-and-nutrient-loads}}
 To test if changes in freshwater inflow and nutrient loading had
 explanatory effect on changes in estuary water quality a series of GAM
 models were fit at each site relating parameter concentration to
-temporal trends (\citep{eq-eq5}), temporal trends and inflow
-(\citet{eq-eq6}), and temporal trends, inflow, and nutrient loads
-(\citet{eq-eq7}): \begin{align}
+temporal trends (Eq.~\ref{eq5}), temporal trends and inflow
+(Eq.~\ref{eq6}), and temporal trends, inflow, and nutrient loads
+(Eq.~\ref{eq7}): \begin{align}
 g(\mu) &= \alpha + f_1(ddate) + f_2(yday), \label{eq5} \\
 g(\mu) &= \alpha + f_1(ddate) + f_2(yday) + f_3(Q), \label{eq6} \\
 g(\mu) &= \alpha + f_1(ddate) + f_2(yday) + f_3(Q) + f_4(Load) \label{eq7}
@@ -631,7 +631,7 @@ River accounted for 68\% of NO\textsubscript{3} loads and 59\% of TP
 loads from 2005 through 2020. However, during periods of extreme drought
 the Lavaca River became the primary source of nutrient loading in the
 watershed with the Navidad River only accounting for 15\% and 25\% of
-NO\textsubscript{3} and TP loads in 2011 (Figure~\ref{tab:fig4}).
+NO\textsubscript{3} and TP loads in 2011 (Figure~\ref{fig:fig4}).
 
 \begin{figure}
 
@@ -685,29 +685,41 @@ TCEQ-13384 site.
 
 \begin{table}
 
-\caption{\label{tab:table4}Estuary GAM AIC~c~ values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.}
+\caption{\label{tab:table4}Estuary GAM AIC\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.}
 \centering
 \begin{tabular}[t]{lllll}
 \toprule
 Parameter & Site & Temporal & Flow & Flow + Load\\
 \midrule
-TP & TCEQ-13383 & -152.1 (0.03) & -156.1 (0.24) & -158.2 (0.72)\\
-TP & TCEQ-13384 & -194.4 (0.03) & -200.2 (0.49) & -200.2 (0.49)\\
-TP & TCEQ-13563 & -145.3 (0) & -156.6 (0.41) & -157.3 (0.59)\\
-NOx & TCEQ-13383 & -218.9 (0) & -244.8 (0.5) & -244.8 (0.5)\\
-NOx & TCEQ-13384 & -263.4 (0) & -311.7 (0.48) & -311.9 (0.52)\\
-\addlinespace
-NOx & TCEQ-13563 & -175.1 (0) & -190.2 (0.5) & -190.2 (0.5)\\
-Chlorophyll-*a* & TCEQ-13383 & 279.7 (0.18) & 278.1 (0.41) & 278.1 (0.41)\\
-Chlorophyll-*a* & TCEQ-13384 & 268.2 (0.33) & 268.2 (0.33) & 268.2 (0.33)\\
-Chlorophyll-*a* & TCEQ-13563 & 289.5 (0.08) & 286.1 (0.46) & 286.1 (0.46)\\
-TKN & TCEQ-13383 & 42.2 (0.66) & 43.5 (0.34) & NA\\
-\addlinespace
-TKN & TCEQ-13384 & 34.3 (0.57) & 34.8 (0.43) & NA\\
-TKN & TCEQ-13563 & 31.1 (0.22) & 28.7 (0.78) & NA\\
-DO & TCEQ-13383 & 146.4 (0.34) & 146.4 (0.34) & 146.5 (0.32)\\
-DO & TCEQ-13384 & 135.9 (0.47) & 137 (0.27) & 137 (0.27)\\
-DO & TCEQ-13563 & 138.3 (0.25) & 137.2 (0.43) & 137.8 (0.32)\\
+ & TCEQ-13383 & -152.1 (0.03) & -156.1 (0.24) & -158.2 (0.72)\\
+
+ & TCEQ-13384 & -194.4 (0.03) & -200.2 (0.49) & -200.2 (0.49)\\
+
+\multirow{-3}{*}{\raggedright\arraybackslash TP} & TCEQ-13563 & -145.3 (0) & -156.6 (0.41) & -157.3 (0.59)\\
+\cmidrule{1-5}
+ & TCEQ-13383 & -218.9 (0) & -244.8 (0.5) & -244.8 (0.5)\\
+
+ & TCEQ-13384 & -263.4 (0) & -311.7 (0.48) & -311.9 (0.52)\\
+
+\multirow{-3}{*}{\raggedright\arraybackslash NO\textsubscript{x}} & TCEQ-13563 & -175.1 (0) & -190.2 (0.5) & -190.2 (0.5)\\
+\cmidrule{1-5}
+ & TCEQ-13383 & 279.7 (0.18) & 278.1 (0.41) & 278.1 (0.41)\\
+
+ & TCEQ-13384 & 268.2 (0.33) & 268.2 (0.33) & 268.2 (0.33)\\
+
+\multirow{-3}{*}{\raggedright\arraybackslash Chlorophyll-\textit{a}} & TCEQ-13563 & 289.5 (0.08) & 286.1 (0.46) & 286.1 (0.46)\\
+\cmidrule{1-5}
+ & TCEQ-13383 & 42.2 (0.66) & 43.5 (0.34) & -\\
+
+ & TCEQ-13384 & 34.3 (0.57) & 34.8 (0.43) & -\\
+
+\multirow{-3}{*}{\raggedright\arraybackslash TKN} & TCEQ-13563 & 31.1 (0.22) & 28.7 (0.78) & -\\
+\cmidrule{1-5}
+ & TCEQ-13383 & 146.4 (0.34) & 146.4 (0.34) & 146.5 (0.32)\\
+
+ & TCEQ-13384 & 135.9 (0.47) & 137 (0.27) & 137 (0.27)\\
+
+\multirow{-3}{*}{\raggedright\arraybackslash DO} & TCEQ-13563 & 138.3 (0.25) & 137.2 (0.43) & 137.8 (0.32)\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -738,8 +750,8 @@ respectively (Figure~\ref{fig:fig7}). The relative effect size appeared
 to much smaller than the effect of freshwater inflow alone. Increased
 NO\textsubscript{3} loads only showed an effect at the lower-bay
 TCEQ-13384 site. The effect was quite small compared to streamflow and
-provided only small improvements to the model (\citet{tbl-table4}). As
-noted above, nutrient loadings did not provide any explanation in
+provided only small improvements to the model (Table~\ref{tab:table4}).
+As noted above, nutrient loadings did not provide any explanation in
 changes in the remaining assessed water quality parameters.
 
 \begin{figure}
@@ -772,8 +784,7 @@ research is required to support that statement.
 
 Converted to average annual yield, the estimates of annual TP loads for
 the Lavaca River are within the ranges in previous published studies
-(\citet{tbl-table5};
-\citep{dunnTrendsNutrientInflows1996, rebichSourcesDeliveryNutrients2011, omaniEstimationSedimentNutrient2014, wise_spatially_2019}).
+\citep[Table~\ref{tab:table5},][]{dunnTrendsNutrientInflows1996, rebichSourcesDeliveryNutrients2011, omaniEstimationSedimentNutrient2014, wise_spatially_2019}.
 It isn't obvious why TP estimates in
 \citet{dunnTrendsNutrientInflows1996} were notably lower. Given that
 none of the studies identify substantially sized trends in TP, it is is
