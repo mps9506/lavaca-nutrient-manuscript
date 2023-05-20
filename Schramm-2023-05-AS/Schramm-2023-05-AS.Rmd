@@ -839,7 +839,7 @@ when accounting for variation driven by streamflow (Figure\ \ref{fig:fig3}).
 Flow-normalized loads in the Lavaca River showed small variation over time with 
 some decreases in NO~3~ loads since 2013. 
 
-```{r fig3, error=FALSE, warning=FALSE, message=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Aggregated estimated annual and flow-normalized annual NO~3~ and TP loads for USGS-08164000 and USGS-08164525."}
+```{r fig3, error=FALSE, warning=FALSE, message=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Aggregated estimated annual and flow-normalized annual NO\\textsubscript{3} and TP loads for USGS-08164000 and USGS-08164525."}
 
 load <- tar_read(daily_no3_08164000, store = store)
 fn_load <- tar_read(daily_no3_08164000_fn, store = store)
@@ -1445,7 +1445,7 @@ nearly linear increased in chlorophyll-*a* concentration in response to increase
 freshwater inflow. Freshwater flow did not have significant
 effects on chlorophyll-*a*, TKN, or DO at the lower-bay TCEQ-13384 site.
 
-```{r fig6, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Estimated effects of mean daily inflow residuals on mean TP, NO~*x*~, chlorophyll-*a*, TKN, and DO concentrations in Lavaca Bay obtained from flow estuary GAMs."}
+```{r fig6, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Estimated effects of mean daily inflow residuals on mean TP, NO\\textsubscript{\\textit{x}}, chlorophyll-\\textit{a}, TKN, and DO concentrations in Lavaca Bay obtained from flow estuary GAMs."}
 
 draw_smoothed_surface <- function(comp,
                                   x = flw_res,
@@ -1567,7 +1567,7 @@ provided only small improvements to the model (Table\ \ref{tab:table4}). As note
 above, nutrient loadings did not provide any explanation in changes in the
 remaining assessed water quality parameters.
 
-```{r fig7, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.45, fig.cap="Estimated effects of nutrient load residuals on TP and NO~*x*~ concentrations in Lavaca Bay obtained from flow+load estuary GAMs."}
+```{r fig7, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.45, fig.cap="Estimated effects of nutrient load residuals on TP and NO\\textsubscript{\\textit{x}} concentrations in Lavaca Bay obtained from flow+load estuary GAMs."}
 
 
 `TCEQ-13383` <- tar_read(tp_lavaca_13383_full, store = store)
