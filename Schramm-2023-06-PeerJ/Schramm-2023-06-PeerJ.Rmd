@@ -1,60 +1,27 @@
 ---
-# Supported options: 
-#   sn-nature:       Style for submissions to Nature Portfolio journals
-#   sn-basic:        Basic Springer Nature Reference Style/Chemistry Reference Style
-#   sn-mathphys:     Math and Physical Sciences Reference Style
-#   sn-aps:          American Physical Society (APS) Reference Style
-#   sn-vancouver:    Vancouver Reference Style
-#   sn-apa:          APA Reference Style 
-#   sn-chicago:      Chicago-based Humanities Reference Style
-#   default:         Default
-
-classoptions: 
-  - sn-basic      
-  # - Numbered      # Optional: Use numbered references instead of namedate references (only for sn-nature, sn-basic, sn-vancouver, sn-chicago, sn-mathphys or sn-nature)
-  - referee       # Optional: Use double line spacing 
-  - lineno        # Optional: Add line numbers
-  # - iicol         # Optional: Double column layour
-
-title: Assessing linkages between watershed nutrient loading and water quality in a subtropical estuary with semiparametric models.
-titlerunning: Watershed nutrient loading and water quality in a subtropical estuary
-
-authors: 
-  - firstname: Michael
-    lastname: Schramm
+title: Linking watershed nutrient loading to estuary water quality with semiparametric models
+preprint: false
+author: 
+  - name: Michael Schramm
+    affiliation: 1
+    corresponding: true
     email: michael.schramm@ag.tamu.edu
-    affiliation: [1]
-    corresponding: TRUE
-    
-
-
-affiliations:
-  - number: 1
-    corresponding: TRUE
-    info:
-      orgdiv: Texas Water Resources Institute
-      orgname: Texas A&M AgriLife Research
-    address:
-        street: 1001 Holleman Dr. E.
-        city: College Station
-        postcode: 77840
-        state: TX
-        country: United States
-
-keywords:
-  - key
-  - dictionary
-  - word
-
-
-# Sample for unstructured abstract 
-abstract: |
-  Lavaca Bay is a secondary embayment on the Texas coast displaying early signals of water quality degradation. This study applied a semiparametric approach to assess both watershed nutrient loads and responses in estuary water quality to nutrient loading and streamflow. Cross-validation indicated that, despite data constraints, semiparametric models performed well at nutrient load prediction. Based on these models, delivered annual nutrient loads varied substantially from year to year. In contrast, minimal changes in flow-normalized loads indicate that nutrient loadings were driven by natural variation in precipitation and runoff as opposed to changes in management of nonpoint sources. Models indicated there was no evidence of long-term changes in dissolved oxygen or chlorophyll-*a* within Lavaca Bay. However, site specific long-term increases in both organic and inorganic nitrogen are concerning. Further analysis found freshwater inflow was a strong driver of nutrient and chlorophyll-*a* concentrations within Lavaca Bay but there was no evidence that changes in watershed nutrient loading explained variation in dissolved oxygen or chlorophyll-*a* concentrations. In addition to providing a baseline assessment of watershed nutrient loading and water quality responses in the Lavaca Bay watershed, this study provides methodological support for the use of semiparametric methods in load regression models and estuary assessments.
-
-
+affiliation:
+  - code: 1
+    address: Texas Water Resources Institute, Texas A\&M AgriLife Research, College Station, Texas, United States
+abstract: >
+  Evaluating estuary water quality responses to reductions (or increases) in nutrient loading attributed to on the ground management actions can be challenging due to the strong influence of environmental drivers on nutrient loads and non-linear relationships. This study applied semiparametric approaches to calculate watershed nutrient loads and assess responses in estuary water quality to seasonally-adjusted freshwater inflow and flow-adjusted nutrient loads in Lavaca Bay, Texas. Lavaca Bay is a secondary embayment on the Texas coast displaying early potential for eutrophication and water quality degredation. Use of flow-adjusted nutrient loads allowed the study to evaluate the response in water quality to changes in nutrient loads driven by non-natural variation. Cross-validation indicated that, despite data constraints, semiparametric models performed well at nutrient load prediction. Based on these models, delivered annual nutrient loads varied substantially from year to year. In contrast, minimal changes in flow-normalized loads indicate that nutrient loadings were driven by natural variation in precipitation and runoff as opposed to changes in management of nonpoint sources. Models indicated no evidence of long-term changes in dissolved oxygen or chlorophyll-*a* within Lavaca Bay. However, site specific long-term increases in both organic and inorganic nitrogen are causes of concern as potential causes of future eutrophication. Further analysis found freshwater inflow was a strong driver of nutrient and chlorophyll-*a* concentrations within Lavaca Bay but there was no evidence that changes in watershed nutrient loading explained additional variation in dissolved oxygen or chlorophyll-*a* concentrations. In addition to providing a baseline assessment of watershed nutrient loading and water quality responses in the Lavaca Bay watershed, this study provides methodological support for the use of semiparametric methods in load regression models and estuary assessments.
 bibliography: bibliography.bib
-output: rticles::springer_article
+output:
+  rticles::peerj_article:
+    citation_package: biblatex
+biblio-style: apa
+header-includes:
+    - \usepackage{csquotes}
+
 ---
+
+
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
@@ -92,15 +59,9 @@ knitr::opts_chunk$set(echo = FALSE,
 store <- "C:/Data-Analysis-Projects/lavaca-nutrients/_targets"
 ```
 
-*Remaining Items*
 
-- keywords
-- discussion
-- formalize language (reduce first person active?)
-- final language review
-- springer doesn't want figures in subdirectory, need to knit to same directory as tex file.
 
-# Introduction {#sec1}
+# Introduction {.unnumbered}
 
 Similar to many coastal areas globally, the coastal watersheds along the Texas Gulf coast 
 are facing pressures from increasing population, increases in point source 
@@ -117,14 +78,14 @@ With identification of several localized areas of estuary water quality concern 
 the Texas coast [@bugica_water_2020], localized studies are being prioritized 
 to better inform management actions.
 
-This project aims to provide an assessment of watershed nutrient loading and resulting water quality
-responses in Lavaca Bay, Texas. Lavaca Bay is a secondary bay in the larger
+This goal of this project is to assess watershed nutrient loading and the 
+resulting water quality responses in Lavaca Bay, Texas. Lavaca Bay is a secondary bay in the larger
 Matagorda Bay system located roughly halfway between Houston, Texas and Corpus
 Christi, Texas. Lavaca Bay faces substantial challenges associated with
 legacy contamination but general water quality parameters such as dissolved oxygen 
 (DO), nutrients, and biological parameters have been well within state
 water quality standards. Despite largely meeting statewide water quality standards,
-there have been concerning recently identified declines in abundance, biomass, and diversity of 
+there have been concerning declines in abundance, biomass, and diversity of 
 benthic fauna in Lavaca Bay [@beserespollackLongtermTrendsResponse2011]. These declines
 are partially attributed to reductions in freshwater inflow and changes in estuary salinity
 and are indicative of an already stressed system 
@@ -174,48 +135,49 @@ GAMs are a broadly applicable statistical method. GAMs are a semiparametric
 extension of generalized linear models where the linear predictor is represented
 as the sum of multiple unknown smooth functions and parametric linear predictors
 [@woodFastStableRestricted2011]. Although the underlying parameter estimation 
-procedure of GAMs is substantially different than WRTDS, both the functional 
+procedure of GAMs are substantially different than WRTDS, both the functional 
 form and results have been demonstrated to be similar when assessing nutrient
 concentration trends [@beckNumericalQualitativeContrasts2017]. 
-Water quality applications of GAMs have included include river and catchment 
+Water quality applications of GAMs have included river and catchment 
 nutrient concentration and load estimation
 [@wangLoadEstimationUncertainties2011;@kroonRiverLoadsSuspended2012;
 @kuhnertQuantifyingTotalSuspended2012;@robson_prediction_2015-1;
 @hagemannEstimatingNutrientOrganic2016;@mcdowell_implications_2021;
-@biagi_novel_2022], assessment of temporal trends of nutrients
+@biagi_novel_2022], and assessment of temporal trends of nutrients
 [@beckNumericalQualitativeContrasts2017; @murphyGeneralizedAdditiveModel2019],
 phytoplankton [@bergbuschUnexpectedShiftPhytoplankton2021], 
 and cyanobacteria [@hayesEffectsLakeWarming2020]. 
 Recently GAMs have also been used to link water quality responses in 
 receiving water bodies to changes in nonpoint source nutrient inputs 
-[@murphyNutrientImprovementsChesapeake2022]. @beckNumericalQualitativeContrasts2017
-provides a substantial discussion on the differences (and similarities) between 
-GAMs and WRTDS for water quality applications.
+[@murphyNutrientImprovementsChesapeake2022]. For a substantial discussion on the 
+differences (and similarities) between GAMs and WRTDS for water quality 
+applications reders are referred to @beckNumericalQualitativeContrasts2017.
 
 
 To provide actionable information for resource managers in Lavaca Bay, 
 water quality conditions must be evaluated relative to changes in natural 
 environmental drivers to better understand and manage potential human impacts.
 This study utilizes GAMs to develop estimates of delivered 
-and flow-normalized nutrient loads and assess changes in loads delivered to 
+and flow-normalized nutrient loads and assess estuary water quality responses
+to changes in loads delivered to 
 Lavaca Bay. GAMs were chosen over other regression-based
 approached for use in this study due to; (1) the ability to easily explore and 
-incorporate different model terms; (2) the incorporation of non-liner smooth
+incorporate different model terms; (2) the incorporation of non-linear smooth
 functions that do not require explicit a priori knowledge of the expected
 shape; and (3) inclusion of a link function that related the expected value of
 the response to linear predictors thus avoiding unneeded data transformations
-and bias corrections. The exploratory study also assesses the response of water quality parameters in
-Lavaca Bay over time and in response to freshwater inflow controlled
-for seasonality and to watershed nutrient loads that are controlled for
-environmentally driven variation.
+and bias corrections. The exploratory study also assesses the response of water 
+quality parameters in Lavaca Bay over time and in response to freshwater inflow 
+controlled for seasonality and to watershed nutrient loads that are controlled 
+for environmentally driven variation.
 
-# Methods {#sec2}
+# Methods and Materials {.unnumbered}
 
-## Location and Data
-Lavaca Bay is 190 km^2^ with the majority of freshwater inflow provided by the 
-Lavaca and Navidad River systems (Figure\ \ref{fig:fig1}). The Garcitas-Arenosa, 
-Placedo Creek, and Cox Bay watersheds provide additional freshwater inflows. 
-The entire watershed land area is 8,149 km^2^ and primarily rural. Watershed 
+## Location and Data {.unnumbered}
+Lavaca Bay is a 190 km^2^ estuary with the majority of freshwater inflow provided by the 
+Lavaca and Navidad River systems (Fig.\ \ref{fig:fig1}). The Garcitas-Arenosa, 
+Placedo Creek, and Cox Bay subwatersheds provide additional freshwater inflows. 
+The entire watershed area is 8,149 km^2^ and primarily rural. Watershed 
 land cover and land use is 50% grazed pasture and rangeland, 20% cultivated 
 cropland (primarily rows crops such as corn, cotton, and sorghum), and 5% 
 suburban/urban. Pasture and rangeland is concentrated in the Lavaca River 
@@ -235,7 +197,7 @@ knitr::include_graphics("../fig1.png")
 
 ```
 
-Daily discharges for the Lavaca River (USGS-08164000, Figure\ \ref{fig:fig1}) 
+Daily discharges for the Lavaca River (USGS-08164000, Fig.\ \ref{fig:fig1}) 
 were obtained from the United States Geologic Survey (USGS) National Water 
 Information System using the *dataRetrieval* R package 
 [@deciccoDataRetrievalPackagesDiscovering2022]. Gaged daily discharges from 
@@ -243,7 +205,7 @@ the outlet of Lake Texana on the Navidad River (USGS-0816425) were provided by
 the Texas Water Development Board (TWDB) 
 (April 21, 2022 email from R. Neupane, TWDB).
 
-Water quality sample data for the two freshwater and three estuary locations were 
+Water quality data for the two freshwater and three estuary locations were 
 obtained from the Texas Commission on Environmental Quality (TCEQ) Surface Water 
 Quality Monitoring Information System. Data submitted through the system 
 are required to be collected under Quality Assurance Project Plans and lab 
@@ -260,7 +222,7 @@ deemed insufficient to develop load estimation models
 The three estuary sites included an upper Lavaca Bay site near the outlet of the
 Lavaca River system (TCEQ-13563), a mid-Lavaca Bay site (TCEQ-13383), and the 
 lower Lavaca Bay site near the mouth of the Bay (TCEQ-13384). 
-For estuary locations, we obtained data for TP, Nitrite+Nitrate (NO*~x~*), TKN, 
+For estuary locations, we obtained data for TP, Nitrite+Nitrate (NO~*X*~), TKN, 
 chlorophyll-*a*, and DO concentrations from January 2005 through December 2020 
 (Table\ \ref{tab:table2}).
 
@@ -351,7 +313,7 @@ modelsummary::datasummary(`Station ID` * (`TP (mg/L)`+
 #                          caption = "Summary of estuary water quality samples collected between January 1, 2005 and December 31, 2020.")
 ```
 
-## Estimating Watershed Based Nutrient Loads
+## Estimating Watershed Based Nutrient Loads {.unnumbered}
 
 Estimates of NO~3~ and TP loads at the Lavaca River (USGS-08164000) and the 
 outlet of Lake Texana on the Navidad River (USGS-08164525) were developed using 
@@ -382,39 +344,33 @@ to incorporate the influence of prior streamflow events on concentration at the
 current time period [@wangLoadEstimationUncertainties2011;  
 @kuhnertQuantifyingTotalSuspended2012; @zhang_improving_2017], using Eq. \ref{eq2}:
 
-\begin{align}
-ma(\delta) &= d{\kappa_{i-1}}+(1-\delta)\hat{q}_{i-1}, \nonumber \\
-\kappa_{i} &=\sum_{m=1}^{i}\hat{Q}_m
+\begin{equation}
+ma(t) = \frac{\sum^{J}_{j=1}{d^{t-t_j}Q_{t_{j}}}}{\sum^{J}_{j=1}d^{t-t_j}}
 \label{eq2}
-\end{align}
+\end{equation}
 
-where $\delta$ is the discount factor (here, set equal to 0.95), $\kappa_i$
-is the cumulative flow (*Q*) up to the *i*th day.
+where *t* is the day of estimation, *d* is the discount factor (set to 0.95),
+*J* is the total number of daily discharge observations, $t-t_j$ is the lag time
+between the current day and some historical day of observation ($t_j$). Here,
+as *d* approaches zero, the time series becomes the daily observed values and 
+as *d* gets closer to one, the time series becomes the mean flow.
 
 Flow anomaly (*fa*) is a unitless term that represents how wet or dry the 
 current time period is from a previous time period [@vecchiaTrendsConcentrationsUse2009; 
 @zhang_improving_2017]. Long-term flow anomaly (*ltfa*) is the streamflow over 
-the previous year relative to the entire period [@zhang_improving_2017] and 
-calculated using Eq. \ref{eq3}:
-
-\begin{equation}
-ltfa(t) = \bar{x}_{1\,year}(t) - \bar{x}_{entire\,period}
-\label{eq3}
-\end{equation}
-
-
+the previous year relative to the entire period [Eq.\ \ref{eq3}, @zhang_improving_2017] and 
 and the short-term flow anomaly (*stfa*) calculated as the current day flow 
-compared to the preceding 1-month streamflow using \ref{eq4}:
+compared to the preceding 1-month streamflow [Eq.\ \ref{eq4}, @zhang_improving_2017]:
 
-\begin{equation}
-stfa(t) = x_{current\,day}(t) - \bar{x}_{1\,month}(t)
-\label{eq4}
-\end{equation}
+\begin{align}
+ltfa(t) &= \bar{x}_{1\,year}(t) - \bar{x}_{entire\,period}, \label{eq3}\\
+stfa(t) &= x_{current\,day}(t) - \bar{x}_{1\,month}(t) \label{eq4}
+\end{align}
 
 where $x$ are the averages of log-transformed streamflow over the antecedent 
 period (*1-year*, *1-month*, etc.) for time *t*.  We used *ltfa* in NO~3~ models 
 and *stfa* in TP models based on previous work demonstrating major improvements 
-in NO~x~ regression models that incorporated 
+in NO~*X*~ regression models that incorporated 
 *ltfa* and moderate improvements in TP regression models that incorporated 
 *stfa* [@zhang_improving_2017]. Moving averages and flow anomalies were calculated
 with the *adc* R package [@schrammAdcCalculateAntecedant2023].
@@ -457,7 +413,7 @@ using repeated 5-fold cross validation  [@burmanComparativeStudyOrdinary1989]
 and average Nash-Sutcliffe Efficiency (NSE), Pearson sample correlation (*r*) 
 and percent bias (PBIAS) metrics across folds were calculated for each model.
 
-## Linking Estuary Water Quality to Hydrology and Nutrient Loads 
+## Linking Estuary Water Quality to Hydrology and Nutrient Loads {.unnumbered}
 
 To test if changes in freshwater inflow and nutrient loading had explanatory
 effect on changes in estuary water quality a series of GAM models were fit at
@@ -524,7 +480,7 @@ kbl(df, format = "latex",
 ```
 
 Because streamflow and nutrient loads are tightly correlated, freshwater inflow
-can mask signals from nutrient loads alone. Following the 
+can mask signals due to chnages in nutrient loads alone. Following the 
 methodology implemented by @murphyNutrientImprovementsChesapeake2022,
 both freshwater inflow and nutrient loads were prepossessed to account for season
 and streamflow respectively. Raw freshwater inflow values were replaced by 
@@ -544,9 +500,9 @@ inflow+load models [@burnhamAICModelSelection2011]. Improvements in model
 probabilities provide evidence that the terms explain additional variation in 
 the response variable.
 
-# Results {#sec3}
+# Results {.unnumbered}
 
-## Watershed Nutrient Loads
+## Watershed Nutrient Loads {.unnumbered}
 
 Predictive performance of nutrient loads ranged from "satisfactory" to "very good"
 based on standardized evaluation metrics of NSE, *r*, and PBIAS 
@@ -561,7 +517,7 @@ with 0.91 NSE, 0.99 *r*, and -3.30 PBIAS. Density plots of
 metrics show similar distribution of values between sites for the 
 same parameter, with the exception *r* values for NO~3~ loads where 
 Lavaca River had a much larger variance in values compared to the Navidad River
-(Figure\ \ref{fig:fig2}). TP GAMS had higher average NSE and *r* values and 
+(Fig.\ \ref{fig:fig2}). TP GAMS had higher average NSE and *r* values and 
 lower variance in metric values compared to NO~3~.
 
 ```{r fig2, warning=FALSE, message=FALSE, fig.width=6.85, fig.asp=0.65, fig.cap="Density plots of goodness-of-fit metrics (NSE, \\textit{r}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calculated from the empirical cumulative distribution of the goodness-of-fit metrics."}
@@ -862,10 +818,10 @@ min_tp_prop <- scales::label_percent()(min(tp_prop$prop))
 
 
 Annual NO~3~ and TP loads show considerable variation, generally following
-patterns in discharge (Figures\ \ref{fig:fig3}, \ref{fig:fig4}). 
+patterns in discharge (Fig.\ \ref{fig:fig3}, Fig. \ref{fig:fig4}). 
 Flow-normalized TP loads at both sites and flow-normalized NO~3~ loads in the Lavaca River
 indicated watershed based loads did not change much over time
-when accounting for variation driven by streamflow (Figure\ \ref{fig:fig3}). 
+when accounting for variation driven by streamflow (Fig.\ \ref{fig:fig3}). 
 Flow-normalized loads in the Lavaca River showed small variation over time with 
 some decreases in NO~3~ loads since 2013. 
 
@@ -1100,7 +1056,7 @@ On average, the Navidad River accounted for `r no3_mean_prop` of NO~3~ loads and
 drought the Lavaca River became the primary source of 
 nutrient loading in the watershed with the Navidad River only accounting for 
 `r min_no3_prop` and `r min_tp_prop` of NO~3~ and TP loads in 2011 
-(Figure\ \ref{fig:fig4}).
+(Fig.\ \ref{fig:fig4}).
 
 ```{r fig4, error=FALSE, message=FALSE, warning=FALSE, fig.width=3.3, fig.asp=2, fig.cap="Comparison of delivered annual loads and annual discharge at the Lavaca (USGS-08164000) and Navidad (USGS-08164525) Rivers.", out.width="0.5\\linewidth"}
 
@@ -1299,19 +1255,19 @@ c + d + f + guide_area() +
 
 ```
 
-## Linkages Between Water Quality and Watershed Flows and Loads
+## Linkages Between Water Quality and Watershed Flows and Loads {.unnumbered}
 
-There is no evidence of long-term changes in TP or DO concentrations at any
-Lavaca Bay site (Figure\ \ref{fig:fig5}). The upper-bay site, TCEQ-13563, shows
-evidence of a long-term linear increase in NO~x~ while chlorophyll-*a*
-decreased from 2005 through 2014 (Figure\ \ref{fig:fig5}). NO~x~ concentration
+There was no evidence of long-term changes in TP or DO concentrations at any
+Lavaca Bay site (Fig.\ \ref{fig:fig5}). The upper-bay site, TCEQ-13563, had
+evidence of a long-term linear increase in NO~*X*~ while chlorophyll-*a*
+decreased from 2005 through 2014 (Fig.\ \ref{fig:fig5}). NO~*X*~ concentration
 at the mid-bay site, TCEQ-13383, displayed an unusual periodic pattern that is
 indicative of a strong influence from inflow or precipitation. The temporal GAMs
 did not provide evidence of long-term trends in any of the water quality constituents
 at the lower-bay TCEQ-13384 site.
 
 
-```{r fig5, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Fitted splines (shaded regions indicate 90\\% confidence intervals) from the temporal estuary GAM display the marginal smoothed effect of date on TP (A), NO\\textit{\\textsubscript{x}} (B), chlorophyll-\\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay."}
+```{r fig5, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Fitted splines (shaded regions indicate 90\\% confidence intervals) from the temporal estuary GAM display the marginal smoothed effect of date on TP (A), NO\\textit{\\textsubscript{X}} (B), chlorophyll-\\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay."}
 
 draw_smoothed_years <- function(model1, model2, model3,
                                 ylab, subtitle) {
@@ -1408,7 +1364,7 @@ p_tp + p_no3 + p_chla + p_tkn + p_do + guide_area() + plot_layout(guides = "coll
 ```
 
 Freshwater inflow provided additional explanation for changes in TP and 
-NO~*x*~ concentration at all of the Lavaca Bay sites according to AIC~c~ and 
+NO~*X*~ concentration at all of the Lavaca Bay sites according to AIC~c~ and 
 model probability values (Table\ \ref{tab:table4}).
 TCEQ-13563, the site closest to the river outlet, was the only site that
 had improvements in the explanations of DO and TKN concentration with the inclusion 
@@ -1482,17 +1438,17 @@ dplyr::bind_rows(
 
 ```
 
-GAMs showed that increases in freshwater inflow resulted in nearly linear increases 
-in TP and NO~*x*~ concentration at all three sites (Figure\ \ref{fig:fig6}). 
-At the upper-bay TCEQ-13563 site, GAMs showed that increases in freshwater inflow initially 
+Increases in freshwater inflow resulted in nearly linear increases 
+in TP and NO~*X*~ concentration at all three sites (Fig.\ \ref{fig:fig6}). 
+At the upper-bay TCEQ-13563 site, increases in freshwater inflow initially 
 increased chlorophyll-*a* and DO concentration but concentrations leveled and
-potentially decreased at higher flows. The mid-bay TCEQ-13383 site showed a
-nearly linear increased in chlorophyll-*a* concentration in response to increases
-freshwater inflow. Freshwater flow did not have significant
-effects on chlorophyll-*a*, TKN, or DO at the lower-bay TCEQ-13384 site.
+potentially decreased at higher flows. The mid-bay TCEQ-13383 site had
+nearly linear increases in chlorophyll-*a* concentration in response to increased
+freshwater inflow. There was no evidence of freshwater inflow effects on 
+chlorophyll-*a*, TKN, or DO at the lower-bay TCEQ-13384 site.
 
 
-```{r fig6, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Fitted splines from estuary GAMs display the marginal smoothed effect of freshwater inflow (controlled for season) on TP (A), NO\\textit{\\textsubscript{x}} (B), chlorophyll-\\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay."}
+```{r fig6, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Fitted splines from estuary GAMs display the marginal smoothed effect of freshwater inflow (controlled for season) on TP (A), NO\\textit{\\textsubscript{X}} (B), chlorophyll-\\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay."}
 
 draw_smoothed_surface <- function(comp,
                                   x = flw_res,
@@ -1615,15 +1571,15 @@ p_tp + p_no3 + p_chla + p_tkn + p_do + guide_area() + plot_layout(guides = "coll
 
 Increased TP loads resulted in nearly linear increases of TP concentration at
 the upper- and mid-bay sites, TCEQ-13563 and TCEQ-13383 respectively 
-(Figure\ \ref{fig:fig7}).
-The relative effect size appeared to much smaller than the effect of freshwater
+(Fig.\ \ref{fig:fig7}).
+The relative effect size appeared much smaller than the effect of freshwater
 inflow alone. Increased NO~3~ loads only showed an effect at the 
 lower-bay TCEQ-13384 site. The effect was quite small compared to streamflow and
 provided only small improvements to the model (Table\ \ref{tab:table4}). As noted
 above, nutrient loadings did not provide any explanation in changes in the
 remaining assessed water quality parameters.
 
-```{r fig7, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.4, fig.cap="Fitted splines from the nutrient loading GAMs display the marginal smoothed effect of TP and NO\\textsubscript{3} loads on TP (A) and NO\\textsubscript{\\textit{x}} (B) concentrations at each site in Lavaca Bay."}
+```{r fig7, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.4, fig.cap="Fitted splines from the nutrient loading GAMs display the marginal smoothed effect of TP and NO\\textsubscript{3} loads on TP (A) and NO\\textsubscript{\\textit{X}} (B) concentrations at each site in Lavaca Bay."}
 
 
 `TCEQ-13383` <- tar_read(tp_lavaca_13383_full, store = store)
@@ -1664,19 +1620,22 @@ p_tp + p_no3 + guide_area() + plot_layout(guides = "collect",
 ```
 
 
-# Discussion {#sec4}
+# Discussion {.unnumbered}
 
-
+## Nutrient Loads {.unnumbered}
 
 TP and NO~3~ loadings from the Lavaca Bay watershed showed high inter-annual
 variability driven primarily by fluctuations in discharge. Notably, there were
 no indications of trends in flow-normalized NO~3~ and TP loads in the Navidad River.
-Freshwater discharges in the Navidad River are regulated by the Palmetto Dam forming
-Lake Texana at the lower extent of the river. While the dominant agricultural land uses
-differ between the Lavaca (primarily grazed pasture and rangeland) and Navidad 
-(mix of pasture and row crops) catchments, we did not have a reason to expect 
-different flow normalized trends between the two systems from land use alone.
-Lentic nitrogen uptake and cycling may have regulating effects that mask changes
+In comparison, there was weak evidence of more recent decreases in flow-normalized NO~3~ 
+(but not TP) loads in the Lavaca River watershed. While the dominant agricultural
+land uses differ between the Lavaca (primarily 
+grazed pasture and rangeland) and Navidad (mix of pasture and row crops) 
+catchments, we did not have a reason to expect different flow normalized trends 
+between the two systems from land use alone. Freshwater discharges in the 
+Navidad River are regulated by the Palmetto Bend Dam forming
+Lake Texana at the lower extent of the river. Lentic nitrogen uptake and 
+cycling may have regulating effects that mask changes
 in upstream nitrogen loadings. Additional nutrient data collection in the contributing 
 tributaries of Lake Texana is needed to fully assess the role of Lake Texana
 in regulating nutrient delivery to the Lavaca Bay system. However, these results
@@ -1684,27 +1643,21 @@ suggest that there have been no changes in the NO~3~ or TP loading from the
 Navidad River system at the Lake Texana discharge point when accounting for 
 variations in year to year discharge.
 
-There is some evidence of recent decreases in flow-normalized NO~3~ loads in 
-the Lavaca River. Although there is no work directly correlating water quality 
-planning and implementation efforts in the watershed to water quality outcomes, 
-efforts to increase agricultural producer participation in the watershed have 
-been ongoing since 2016 [@schrammLavacaRiverWatershed2018; 
-@bertholdDirectMailingEducation2021]. The decrease in flow-normalized NO~3~ 
+The evidence of decreased Lavaca River NO~3~ loading, although weak, is a 
+potential positive sign for water quality managers working to implement 
+practices that improve water quality in the freshwater sections of the Lavaca 
+River watershed. Planning and implementation efforts to increase agricultural 
+producer participation in water quality protection practices have 
+been ongoing in the watershed since 2016 [@schrammLavacaRiverWatershed2018; 
+@bertholdDirectMailingEducation2021], however little work has been conducted
+to directly link these efforts with water quality outcomes. The decrease in 
+flow-normalized NO~3~ 
 loads could be a reflection of those collective efforts but the lack of evidence
 for similar changes in flow-normalized TP loads provide contrary support. The
 inconsistent flow-normalized trends may also reflect some of the weakness of 
 the water quality dataset that is primarily composed of ambient water quality
-measurements.
-
-Cross-validation of the nutrient loading models highlights that predictions are
-prone to high bias, owing to the lack of targeted storm or flow biased measurements.
-The high biases are indicative that subsets of values were unable to capture the
-functional relationships with the flow based dependent variables. It was beyond the scope
-of the current study to evaluate the subsets of cross-validation data and scores.
-However, the cross-validation procedure is indicative that more robust sampling
-would be beneficial for reducing prediction variance. Supplementary flow-biased 
-monitoring targeting storm- or high-flow conditions is critical to
-improve model performance and strength of evidence produced by these models [@horowitzEvaluationSedimentRating2003; @snelderEstimationCatchmentNutrient2017].
+measurements. The issues associated with the lack of flow-biased measurements 
+is further discussed later in this section.
 
 
 Some prior studies have generated estimates of mean annual TP yields in the 
@@ -1718,19 +1671,38 @@ used the LOADEST model to develop an estimated mean annual yield of 28.9 kg/km^2
 LOADEST is a multiple linear regression model that fits log transformed pollutant concentrations
 to long term, seasonal, and flow based predictors and includes methods for bias correction
 when exponentiating the response variable. While the annual yield estimated in 
-@dunnTrendsNutrientInflows1996 is substantially lower than the estimate of 35.2 kg/km^2^
-in this study, it is important to note that both hydrology and land use was substantially
+@dunnTrendsNutrientInflows1996 is lower than the estimate of 35.2 kg/km^2^
+in this study, it is important to note that both hydrology and land use was
 different for a proportion of the study period. For almost the first ten years of the study period
 in @dunnTrendsNutrientInflows1996, the Navidad River was still undammed. More recently
 the eastern portion of the watershed has seen large conversions of rice fields to
-more traditional row crop production [@kulatHolisticWaterEnergyFoodNexus2019]. Studies of
+more traditional row crop production [@kulatHolisticWaterEnergyFoodNexus2019]. 
+The apparent increase in mean TP yield might be suggestive of wetter recent conditions.
+To evaluate long-term trends in discharge, we fit a GAM relating log-transformed daily
+discharges on the Lavaca and Navidad Rivers to season and time (Fig.\ \ref{fig:fig8}).
+The long-term trends in discharge indicate watershed discharges were at or above average
+from 1972 though the early and mid-1980s. In comparison watershed discharges
+since the mid-2000s are at or below average. The trend in mean streamflow alone
+is counter to expectations based on changes in nutrient yeild estimates. Studies of
 long-term precipitation patterns indicate both the total amount [@dixonTrendDetectionTexas2011] 
 and variability of rainfall [@mishraChangesExtremePrecipitation2010;
 @fagnantCharacterizingSpatiotemporalTrends2020] has increased in the region 
 which provide plausible reasons for increased runoff driven nutrient loading.
+Further assessments of the frequency and occurrence of periodic high flow events 
+that mobilize sediments and are responsible for the bulk of loading volume would
+provide further insight to this discrepancy.
+
+
+
+```{r fig8, fig.width=6.85, fig.asp=0.75, fig.cap="Measured daily discharges (log-transformed) and smoothed long-term trends for the Lavaca and Navidad Rivers form 1972 though 2001."}
+
+
+knitr::include_graphics("../fig8.png")
+
+```
 
 @rebichSourcesDeliveryNutrients2011 and @wise_spatially_2019 used SPARROW to provide
-recent assessments of regional catchment based loadings to the Gulf of Mexico
+a more recent assessment of regional catchment based loadings to the Gulf of Mexico
 (Table\ \ref{tab:table5}).
 SPARROW is a hybrid statistical-process model with the underlying nutrient
 load estimation methods based on the previously described LOADEST 
@@ -1742,10 +1714,12 @@ nutrient loadings in the Lavaca River watershed
 similar to the two SPARROW models. The base periods used by 
 @rebichSourcesDeliveryNutrients2011, @omaniEstimationSedimentNutrient2014 and
 @wise_spatially_2019 differ from the current study, making direct comparisons 
-difficult. However, the ranges of estimated yields suggest the current estimates
-of TP loading are reasonable. Similar results would be expected given all of the 
-previous studies have also relied primarily on ambient water quality measurements
-instead of flow and storm biased measurements.
+difficult. It is probable that the lower than average discharges observed from 2010 
+through 2021 (Fig.\ \ref{fig:fig8}) bias our estimates downward compared to other studies which included
+higher than average streamflow periods. Overall, the ranges of estimated yields
+among different studies along with the apparent large variability in 
+streamflow driven loadings (Fig.\ \ref{fig:fig3}, Fig. \ref{fig:fig4}) suggest that the current estimates
+of TP loading are reasonable.
 
 
 
@@ -1779,12 +1753,13 @@ df <- tibble(
 
 kbl(df, format = "latex", booktabs = TRUE, escape = FALSE,
     caption = "Comparisons of previously published estimates of mean annual TP yield at the Lavaca River site.") |>
-  footnote(alphabet = c("Mean of the annual point estimates and the lower and upper 95% credible intervals.",
+  footnote(alphabet = c("Mean of the annual point estimates and the lower and upper 90% credible intervals.",
                         "Represents a binned value range from a choropleth map.")) 
 
 ```
 
 
+## Estuary Water Quality {.unnumbered}
 
 The non-linear estuary water quality trends identified in the current
 study differed slightly from previously identified trends [@bugica_water_2020]. 
@@ -1797,7 +1772,7 @@ freshwater diversions, higher population growth, and more intense agricultural
 production which have resulted in more direct signs of eutrophication
 [@wetzWaterQualityDynamics2016; @bugica_water_2020]. Despite the stability of 
 DO and cholorophyll-*a*, there are concerning site specific increases in 
-NO~*x*~ and TKN concentration over the same time period. These trends are espcially
+NO~*X*~ and TKN concentration over the same time period. These trends are espcially
 concerning due to the nitrogen limitation identified in many Texas 
 estuaries [@gardnerNitrogenFixationDissimilatory2006; 
 @houTransformationFateNitrate2012; @doradoUnderstandingInteractionsFreshwater2015; 
@@ -1805,7 +1780,7 @@ estuaries [@gardnerNitrogenFixationDissimilatory2006;
 and the relatively low ambient concentrations observed in Lavaca Bay.
 
 
-The strong positive effect of freshwater inflow on NO~*x*~, TKN, and TP concentration
+The strong positive effect of freshwater inflow on NO~*X*~, TKN, and TP concentration
 are suggestive of nonpoint watershed sources, consistent with watershed uses and
 with other studies relating freshwater inflow with nutrient 
 concentrations in Lavaca Bay and other estuaries [@russell_effect_2006; 
@@ -1869,28 +1844,64 @@ storms and large discharge events [@mooneyWatershedExportEvents2012a;
 However, this study only evaluated responses to
 loading and inflows occurring the day of water quality observations.
 
+Overall, this study suggests that DO and chlorophyll-*a* concentrations
+have been relatively stable in Lavaca Bay. 
+Site-specific increases in TKN and NO~*X*~ concentrations are
+a cause of concern for increasing risks of eutrophication within Lavaca Bay
+which might be currently attenuated by changes in freshwater flow, turbidity,
+and other physical processes. While loading models indicate that there are
+large annual fluctuations in NO~3~ loads, these changes have been largely driven
+environmental conditions (changes in runoff and river discharge). These models
+also provide evidence that estuary NO~*X*~ and TP
+concentrations are strongly driven by freshwater inflow and to a lesser extent
+fluctuation in flow-adjusted riverine loadings. Site-specific changes in the
+relationships between freshwater inflow and responses in both chlorophyll-*a* 
+and TKN concentrations are indicative nutrient processing and or tidal flushing
+effects moving from the river discharge point to the mouth of Lavaca Bay.
+This study does not completely
+explain site specific increases in NO~*X*~ and TKN concentrations in Lavaca Bay.
+The freshwater study sites did not quantify nutrient loadings from tidal
+contribution areas or ungauaged watersheds. Nutrient contributions from wastewater
+facility discharges, septic systems, and stormwater could be considerable
+contributors to nutrient loadings in Lavaca Bay since they are not processed by
+a tidal river reach prior to entering the Bay.
+The Garcitas-Arenosa Creek, Placedo Creek, and Cox Bay subwatersheds are currently undersampled
+but compose approximately 27% of the watershed area. The contribution of nutrient
+loadings from these undersampled areas is unknown. 
+
+
+## Limitations {.unnumbered}
+
 The GAM approach proved useful for both estimating loads and assessing downstream
 responses in water quality. Although we did not compare other models, it is likely similar
 estimates of loadings would be obtained by methods suggest as LOADEST, WRTDS, or SPARROW
 given the functionally similar dependent variable structures. The underlying weakness 
 in the estimates of loading in the current study is the
 reliance on ambient water quality data used for statewide water quality assessments.
-These data do not frequently include storm or flow biased samples which is needed to
-improve model performance. Although there is existing work on the samples sizes required
+Cross-validation of the nutrient loading models highlights that predictions are
+prone to high bias, owing to the lack of targeted storm or flow biased measurements.
+The high biases are indicative that subsets of values were unable to capture the
+functional relationships with the flow based dependent variables. It was beyond the scope
+of the current study to evaluate the subsets of cross-validation data and scores.
+However, the cross-validation procedure is indicative that more robust sampling
+is needed. Supplementary flow-biased 
+monitoring targeting storm- or high-flow conditions is critical to
+improve model performance and strength of evidence produced by these models [@horowitzEvaluationSedimentRating2003; @snelderEstimationCatchmentNutrient2017].
+Although there is existing work on the samples sizes and sample design required
 for reliable performance of both LOADEST [@parkUsePollutantLoad2014] and WRTDS 
 [@kumarValueIntensiveSampling2019] models, similar work does not appear to
-have been extended to water quality applications of GAMs.  Due to the 
+have been extended to water quality applications of GAMs.  
+
+Due to the 
 concerning increases in eutrophication associated parameters in Lavaca Bay and 
 other Texas estuaries [@bugica_water_2020], 
-and the increasing need to better link environmental outcomes
-with on the ground management actions [@schrammTotalMaximumDaily2022]
-there is a strong requirement for reliable estimates of pollutant loadings and 
-responses along the Texas coast. 
-
-To date, state wide water quality monitoring programs have focused on 
+and the desire to quantify linkages between environmental outcomes
+and on the ground management actions [@schrammTotalMaximumDaily2022]
+there is a strong need for reliable estimates of pollutant loadings and 
+responses along the Texas coast. Within Texas, state wide water quality monitoring programs have focused on 
 collection of ambient condition data. A framework for establishing pollutant 
 load monitoring programs across catchments that explicitly incorporate
-flow biased data is needed for assessing estuary health along the Texas coast. 
+flow biased data is needed for assessing nutrient loading and estuary health along the Texas coast. 
 Additional efforts focused on identifying relevant effect sizes, sampling 
 designs, and funding mechanisms that can support long term efforts are also 
 needed to adequately design such a framework. Large long-term monitoring programs 
@@ -1902,39 +1913,39 @@ useful for resource management efforts intended to protect biological and water
 quality integrity of Texas's estuaries.
 
 
-# Conclusion
+# Conclusions {.unnumbered}
 
-Reliable estimates of nutrient loads for the Lavaca Bay were obtained using GAMs.
+The primary purpose of this study was to provide estimates of watershed
+nutrient loadings and assess water quality responses to changes in nutrient loads.
+GAMs provided reliable estimates of watershed NO~3~ and TP loads.
 However, additional flow-biased data collection efforts is needed to
 decrease the prediction variance and improve accuracy at critical 
 high-flow loading events. While some ongoing projects will fill data gaps for 
 total nitrogen and TKN loading, additional efforts are needed to coordinate data 
-collection efforts specifically for load estimation across Texas estuaries. 
+collection efforts specifically for load estimation across Texas estuaries. Despite
+these data gaps, this study identified high annual fluctuations in nutrient loads
+driven primarily by discharge. No evidence was identified to indicate that on the
+ground management had changed nutrient loading in the Navidad River subwatershed.
+There was weak evidence for recent reductions in flow-normalized NO~3~ loading in the Lavaca
+River subwatershed although the results are at odds with flow-normalized trends in TP loads.
+
 This study, consistent with others along the Texas coast, found
 strong effects of freshwater flow on nutrient and chlorophyll-*a* 
 concentrations. DO concentrations, dominated by seasonal effects, did not show
-strong direct responses to freshwater flow. Small variance in flow-adjusted
-nutrient loads indicates that (1) there have been limited changes in non-point
+strong direct responses to freshwater flow. Small variances in flow-adjusted
+nutrient loads indicate that (1) there have been limited changes in non-point
 sources of nutrients and (2) that there isn't strong evidence that those small 
-changes have had effects on chlorophyll-*a* or dissolved oxygen in Lavaca Bay. 
-Although the study did not identify strong responses to changes in nutrient 
-loading, this does provide a baseline assessment for future water quality 
-management activities in the watershed.
+changes have had effects on chlorophyll-*a* or dissolved oxygen in Lavaca Bay.
+Althogh this study did not identify changes in DO or chlorophyll-*a* concentrations
+in Lavaca Bay, site specific increases in NO~*X*~ and TKN are a cause for water 
+quality concern. The study provides a baseline assessment for future water quality 
+management activities in the watershed. In order to effectively track and link 
+improvements or degradation of water quality conditions in Lavaca Bay and other coastal
+Texas watersheds with on the ground effort more robust sampling networks are needed
+to improve spatial coverage of undersampled areas and explicitly incorporate
+flow-biased sampling.
 
-\backmatter
-
-\bmhead{Acknowledgments}
-The author extends thanks to Dr. Mike Wetz (Harte Research Institute, 
-Texas A&M Corpus Christi), Chad Kinsfather and Partick Brzozowski 
-(Lavaca-Navidad River Authority), Brian Koch (Texas State Soil and Water 
-Conservation Board), Bill Balboa (Matagorda Bay Foundation), Jason Pinchbeck 
-(Texas General Land Office) and the Lavaca Bay Foundation for supporting 
-development of this project and providing valuable feedback. 
-
-
-# Declarations {.unnumbered}
-
-\bmhead{Funding}
+# Funding {.unnumbered}
 This project was funded in part by a Texas Coastal Management Program grant 
 approved by the Texas Land Commissioner, providing financial assistance under 
 the Coastal Zone Management Act of 1972, as amended, awarded by the National 
@@ -1943,6 +1954,8 @@ pursuant to NOAA Award No. NA21NOS4190136. The views expressed herein are those
 of the author(s) and do not necessarily reflect the views of NOAA, the U.S. 
 Department of Commerce, or any of their subagencies.
 
-\bmhead{Data Availability}
+# Data Availability {.unnumbered}
 Reproducible code and datasets generated during this study are available in
 the Zenodo repository, https://doi.org/10.5281/zenodo.733075.
+
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.19)  23 MAY 2023 14:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.19)  24 MAY 2023 14:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -710,7 +710,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [4]
-<../fig1.png, id=242, 375.804pt x 487.8225pt>
+<../fig1.png, id=234, 375.804pt x 487.8225pt>
 File: ../fig1.png Graphic file (type png)
 <use ../fig1.png>
 Package pdftex.def Info: ../fig1.png  used on input line 294.
@@ -796,12 +796,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has 
                                                   \__shipout_drop_firstpage_...
 l.599 
       ]
-<Schramm-2023-05-AS_files/figure-latex/fig2-1.png, id=369, 495.0495pt x 321.6015pt>
+<Schramm-2023-05-AS_files/figure-latex/fig2-1.png, id=361, 495.0495pt x 321.6015pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig2-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig2-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig2-1.png  used on input line 627.
 (pdftex.def)             Requested size: 372.0pt x 241.67162pt.
-<Schramm-2023-05-AS_files/figure-latex/fig3-1.png, id=373, 495.0495pt x 346.4142pt>
+<Schramm-2023-05-AS_files/figure-latex/fig3-1.png, id=365, 495.0495pt x 346.4142pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig3-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig3-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig3-1.png  used on input line 645.
@@ -810,7 +810,7 @@ Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig3-1.png  used 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [13]
-<Schramm-2023-05-AS_files/figure-latex/fig4-1.png, id=387, 238.491pt x 476.982pt>
+<Schramm-2023-05-AS_files/figure-latex/fig4-1.png, id=379, 238.491pt x 476.982pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig4-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig4-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig4-1.png  used on input line 666.
@@ -824,7 +824,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has
                                                   \__shipout_drop_firstpage_...
 l.686 
        <./Schramm-2023-05-AS_files/figure-latex/fig2-1.png>]
-<Schramm-2023-05-AS_files/figure-latex/fig5-1.png, id=395, 495.0495pt x 346.4142pt>
+<Schramm-2023-05-AS_files/figure-latex/fig5-1.png, id=387, 495.0495pt x 346.4142pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig5-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig5-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig5-1.png  used on input line 689.
@@ -851,7 +851,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has
                                                   \__shipout_drop_firstpage_...
 l.752 \end{table}
                   <./Schramm-2023-05-AS_files/figure-latex/fig4-1.png>]
-<Schramm-2023-05-AS_files/figure-latex/fig6-1.png, id=408, 495.0495pt x 346.4142pt>
+<Schramm-2023-05-AS_files/figure-latex/fig6-1.png, id=400, 495.0495pt x 346.4142pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig6-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig6-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig6-1.png  used on input line 767.
@@ -878,7 +878,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has
                                                   \__shipout_drop_firstpage_...
 l.783 
        <./Schramm-2023-05-AS_files/figure-latex/fig6-1.png>]
-<Schramm-2023-05-AS_files/figure-latex/fig7-1.png, id=422, 495.0495pt x 198.0198pt>
+<Schramm-2023-05-AS_files/figure-latex/fig7-1.png, id=414, 495.0495pt x 198.0198pt>
 File: Schramm-2023-05-AS_files/figure-latex/fig7-1.png Graphic file (type png)
 <use Schramm-2023-05-AS_files/figure-latex/fig7-1.png>
 Package pdftex.def Info: Schramm-2023-05-AS_files/figure-latex/fig7-1.png  used on input line 786.
@@ -890,95 +890,89 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.815 C
-       onverted to average annual yield, the estimates of annual TP loads for <./Schramm-2023-05-AS_files/figure-latex/fig7-1.png>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 829.
-
-
+l.814 
+       <./Schramm-2023-05-AS_files/figure-latex/fig7-1.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[20
-pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.865 ...}\label{estuary-water-quality-responses}}
-                                                  ]
+[20]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 892.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [21]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[22]
-
-Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 971.
-
-
+[22
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.947 
+      ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [23]
-
-Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 984.
-
-
-Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 995.
-
-(./Schramm-2023-05-AS.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [24]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [25]
+
+Package hyperref Warning: Difference (4) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1056.
+
+
+Package hyperref Warning: Difference (4) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1069.
+
+
+Package hyperref Warning: Difference (3) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1080.
+
+(./Schramm-2023-05-AS.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [26]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [27]
-Underfull \hbox (badness 3240) in paragraph at lines 88--89
-[]\OT1/cmr/m/n/10 Jain S, Schramm MP (2021) Tech-ni-cal Sup-port Doc-u-ment for One Total
- []
-
-
-Underfull \hbox (badness 8056) in paragraph at lines 88--89
-\OT1/cmr/m/n/10 Max-i-mum Daily Load for Indi-ca-tor Bac-te-ria in Lavaca River Above
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-\OT1/cmr/m/n/10 Tidal. Tech-ni-cal Report AS-221, Texas Com-mis-sion on Envi-ron-men-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-\OT1/cmr/m/n/10 tal Qual-ity, Austin, Texas, URL [][]$https : / / www . tceq . texas . gov / downloads /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-\OT1/cmr/m/n/10 water-[]quality / tmdl / lavaca-[]river-[]above-[]tidal-[]rocky-[]creek-[]recreational-[]108 /
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [29]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[30]
-Underfull \hbox (badness 1694) in paragraph at lines 166--167
-[]\OT1/cmr/m/n/10 Stackpoole S, Sabo R, Fal-cone J, et al (2021) Long-term Mis-sis-sippi River
+Underfull \hbox (badness 3240) in paragraph at lines 94--95
+[]\OT1/cmr/m/n/10 Jain S, Schramm MP (2021) Tech-ni-cal Sup-port Doc-u-ment for One Total
  []
 
 
+Underfull \hbox (badness 8056) in paragraph at lines 94--95
+\OT1/cmr/m/n/10 Max-i-mum Daily Load for Indi-ca-tor Bac-te-ria in Lavaca River Above
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+\OT1/cmr/m/n/10 Tidal. Tech-ni-cal Report AS-221, Texas Com-mis-sion on Envi-ron-men-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+\OT1/cmr/m/n/10 tal Qual-ity, Austin, Texas, URL [][]$https : / / www . tceq . texas . gov / downloads /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+\OT1/cmr/m/n/10 water-[]quality / tmdl / lavaca-[]river-[]above-[]tidal-[]rocky-[]creek-[]recreational-[]108 /
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [31]
@@ -987,30 +981,44 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[33])
+[33]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[34] (./Schramm-2023-05-AS.aux)
+[34]
+Underfull \hbox (badness 1694) in paragraph at lines 187--188
+[]\OT1/cmr/m/n/10 Stackpoole S, Sabo R, Fal-cone J, et al (2021) Long-term Mis-sis-sippi River
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[35]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[36])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[37] (./Schramm-2023-05-AS.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.985pt have occurred.
 
 Package rerunfilecheck Info: File `Schramm-2023-05-AS.out' has not changed.
-(rerunfilecheck)             Checksum: D1320F2AB98887883333471DA09BC661;2675.
+(rerunfilecheck)             Checksum: 9919DEB9FC2DAC2FF7905786BFE974D1;2271.
  ) 
 Here is how much of TeX's memory you used:
- 16222 strings out of 477995
- 266563 string characters out of 5835715
+ 16245 strings out of 477995
+ 267565 string characters out of 5835715
  1872845 words of memory out of 5000000
- 35911 multiletter control sequences out of 15000+600000
+ 35928 multiletter control sequences out of 15000+600000
  533208 words of font info for 117 fonts, out of 8000000 for 9000
  46 hyphenation exceptions out of 8191
- 90i,17n,90p,555b,706s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,90p,555b,716s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Schramm-2023-05-AS.pdf (34 pages, 3223619 bytes).
+Output written on Schramm-2023-05-AS.pdf (37 pages, 3232389 bytes).
 PDF statistics:
- 828 PDF objects out of 1000 (max. 8388607)
- 732 compressed objects within 8 object streams
- 151 named destinations out of 1000 (max. 500000)
- 164 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 884 PDF objects out of 1000 (max. 8388607)
+ 785 compressed objects within 8 object streams
+ 157 named destinations out of 1000 (max. 500000)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
