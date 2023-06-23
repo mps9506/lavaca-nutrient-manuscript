@@ -265,7 +265,8 @@ p1 <- bind_rows(lv_preds, lt_preds) |>
                 y = log(Flow),
                 color = "Measured Discharge",
                 alpha = "Measured Discharge",
-                linetype = "Measured Discharge")) +
+                linetype = "Measured Discharge"),
+            linewidth = 0.25) +
   geom_ribbon(aes(x = ddate,
                   ymin = ci_low,
                   ymax = ci_hi),
@@ -273,12 +274,14 @@ p1 <- bind_rows(lv_preds, lt_preds) |>
   geom_line(aes(x = ddate, y = preds,
                 color = "Smoothed Long-term Trend",
                 alpha = "Smoothed Long-term Trend",
-                linetype = "Smoothed Long-term Trend")) +
+                linetype = "Smoothed Long-term Trend"),
+            linewidth = 0.25) +
   geom_hline(data = intercepts_df,
              aes(yintercept = intercept,
                  color = "Intercept",
                  alpha = "Intercept",
-                 linetype = "Intercept")) +
+                 linetype = "Intercept"),
+             linewidth = 0.25) +
   scale_color_manual(name = "", values = c("black", "steelblue", "black")) +
   scale_alpha_manual(name = "", values = c(0.5, 0.2, 1)) +
   scale_linetype_manual(name = "", values = c(2, 1, 1)) +
@@ -293,17 +296,25 @@ p1 <- bind_rows(lv_preds, lt_preds) |>
         plot.subtitle = element_text(size = 8),
         legend.text = element_text(size = 8),
         legend.key.width = unit(25, "points"),
-        strip.background = element_rect(fill = "white",
-                                        color = "black",
-                                        linewidth = .5),
+        strip.background = element_rect(fill = "white", color = NULL),
         strip.text = element_text(size = 8))
 
+p1
+# ragg::agg_png(filename = "fig8.png",
+#               width = 6.85,
+#               height = 6.85*0.65,
+#               units = "in",
+#               res = 600)
+# Cairo::CairoPDF(file = "fig8.pdf",
+#                 width = 6.85*0.65,
+#                 height = 3,
+#                 pointsize = 8,
+#                 family = "Arial")
+cairo_pdf(file = "fig8.pdf",
+    width = 6.85,
+    height = 6.85*0.65,
+    family = "Arial")
 
-ragg::agg_png(filename = "fig8.png",
-              width = 6.85,
-              height = 6.85*0.65,
-              units = "in",
-              res = 600)
 p1
 
 dev.off()
