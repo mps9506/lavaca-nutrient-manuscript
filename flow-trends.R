@@ -153,6 +153,54 @@ p1 <- ggplot() +
 
 
 
+p1 <- ggplot(lv_preds) +
+  geom_line(aes(x = ddate,
+                y = log(Flow),
+                color = "Measured Discharge",
+                alpha = "Measured Discharge",
+                linetype = "Measured Discharge"),
+            linewidth = 0.5) +
+  geom_ribbon(aes(x = ddate,
+                  ymin = ci_low,
+                  ymax = ci_hi),
+              alpha = 0.25) +
+  geom_line(aes(x = ddate, y = preds,
+                color = "Smoothed Long-term Trend",
+                alpha = "Smoothed Long-term Trend",
+                linetype = "Smoothed Long-term Trend"),
+            linewidth = 0.5) +
+  geom_hline(data = as.data.frame(lv_int),
+             aes(yintercept = lv_int,
+                 color = "Intercept",
+                 alpha = "Intercept",
+                 linetype = "Intercept"),
+             linewidth = 0.5) +
+  scale_color_manual(name = "", values = c("black", "steelblue", "black")) +
+  scale_alpha_manual(name = "", values = c(0.5, 0.2, 1)) +
+  scale_linetype_manual(name = "", values = c(2, 1, 1)) +
+  labs(x = "", y = "log(Discharge) [cfs]") +
+  theme_TWRI_print(base_family = "Arial") +
+  theme(axis.title.y = element_text(size = 11),
+        axis.title.x = element_text(size = 11),
+        axis.text.x = element_text(size = 9),
+        axis.text.y = element_text(size = 9),
+        panel.grid = element_blank(),
+        plot.subtitle = element_text(size = 14),
+        legend.text = element_text(size = 7),
+        legend.key.width = unit(25, "points"),
+        strip.background = element_rect(fill = "white", color = NULL),
+        strip.text = element_text(size = 9))
+
+cairo_pdf(file = "fig8.pdf",
+          width = 11*0.4,
+          height = 8.5*0.4,
+          family = "Arial",
+          antialias = "subpixel")
+
+p1
+
+dev.off()
+
 df |> 
   filter(site_no == "lktexana_g") |> 
   mutate(year = lubridate::year(Date),
@@ -285,7 +333,7 @@ p1 <- bind_rows(lv_preds, lt_preds) |>
   scale_color_manual(name = "", values = c("black", "steelblue", "black")) +
   scale_alpha_manual(name = "", values = c(0.5, 0.2, 1)) +
   scale_linetype_manual(name = "", values = c(2, 1, 1)) +
-  facet_wrap(~site_no, ncol = 1) +
+  #facet_wrap(~site_no, ncol = 1) +
   labs(x = "", y = "log(Discharge) [cfs]") +
   theme_TWRI_print(base_family = "Arial") +
   theme(axis.title.y = element_text(size = 8),

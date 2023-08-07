@@ -1,4 +1,7 @@
 %% Submissions for peer-review must enable line-numbering
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL C:/Data-Analysis-Projects/lavaca-nutrient-manuscript/Schramm-2023-06-PeerJ/Schramm-2023-06-PeerJ.tex   Sun Aug  6 16:35:20 2023
+%DIF ADD C:/Data-Analysis-Projects/lavaca-nutrient-manuscript/Schramm-2023-06-PeerJ/Schramm-2023-08-PeerJ.tex   Mon Aug  7 11:58:59 2023
 %% using the lineno option in the \documentclass command.
 %%
 %% Preprints and camera-ready submissions do not need
@@ -85,8 +88,13 @@ freshwater inflow and flow-adjusted nutrient loads in Lavaca Bay, Texas.
 Lavaca Bay is a secondary embayment on the Texas coast displaying early
 potential for eutrophication and water quality degradation. Use of
 flow-adjusted nutrient loads allowed the study to evaluate the response
-in water quality to changes in nutrient loads driven by non-natural
-variation. Cross-validation indicated that, despite data constraints,
+%DIF 88-89c88-89
+%DIF < in water quality to changes in nutrient loads driven by non-natural
+%DIF < variation. Cross-validation indicated that, despite data constraints,
+%DIF -------
+in water quality to changes in nutrient loads driven by anthropogenic %DIF > 
+sources. Cross-validation indicated that, despite data constraints, %DIF > 
+%DIF -------
 semiparametric models performed well at nutrient load prediction. Based
 on these models, delivered annual nutrient loads varied substantially
 from year to year. In contrast, minimal changes in flow-normalized loads
@@ -106,6 +114,46 @@ methodological support for the use of semiparametric models in load
 regression models and estuary assessments.
 % Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text.
 \end{abstract}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+  moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+	language=DIFcode, %DIF PREAMBLE
+	basicstyle=\ttfamily, %DIF PREAMBLE
+	columns=fullflexible, %DIF PREAMBLE
+	keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 
@@ -167,12 +215,14 @@ Lavaca Bay watershed
 However, on a statewide scale, these approaches have shown limited
 success and emphasize a need for improved methods to assess and link
 management actions with downstream water quality
-\autocite{schrammTotalMaximumDaily2022}.\\
-Such methods could help identify and replicate effective water quality
-management actions across the state . The identification and
-communication of changes and trends in water quality is complicated by
-the fact that trends are often non-linear and confounded by
-precipitation and runoff that hinder traditional analysis
+\autocite{schrammTotalMaximumDaily2022}. \DIFdelbegin %DIFDELCMD < \\
+%DIFDELCMD < %%%
+\DIFdelend Such methods could help
+identify and replicate effective water quality management actions across
+the state . The identification and communication of changes and trends
+in water quality is complicated by the fact that trends are often
+non-linear and confounded by precipitation and runoff that hinder
+traditional analysis
 \autocite{wazniakLinkingWaterQuality2007,lloydMethodsDetectingChange2014}.
 The development and application of flexible statistical methods such as
 Weighted Regressions on Time, Discharge and Season
@@ -195,8 +245,8 @@ water quality concentrations \autocite{beckFourDecadesWater2018}.
 While WRTDS is a statistical approach developed specifically for water
 quality applications, GAMs are a broadly applicable statistical method.
 GAMs are a semiparametric extension of generalized linear models where
-the linear predictor is represented as the sum of multiple unknown
-smooth functions and parametric linear predictors
+the \DIFdelbegin \DIFdel{linear predictor is represented }\DIFdelend \DIFaddbegin \DIFadd{response variable is modeled }\DIFaddend as the sum of multiple unknown smooth
+functions and parametric linear predictors
 \autocite{woodFastStableRestricted2011}. Although the underlying
 parameter estimation procedure of GAMs are substantially different than
 WRTDS, both the functional form and results have been demonstrated to be
@@ -244,37 +294,48 @@ driven variation.
 
 Lavaca Bay is a 190 km\textsuperscript{2} estuary with the majority of
 freshwater inflow provided by the Lavaca and Navidad River systems
-(Fig.~\ref{fig:fig1}). The Garcitas-Arenosa, Placedo Creek, and Cox Bay
-subwatersheds provide additional freshwater inflows. The entire
-watershed area is 8,149 km\textsuperscript{2} and primarily rural.
-Watershed land cover and land use is 50\% grazed pasture and rangeland,
-20\% cultivated cropland (primarily rows crops such as corn, cotton, and
-sorghum), and 5\% suburban/urban. Pasture and rangeland is concentrated
-in the Lavaca River watershed, while cultivated crops are generally
-located along the eastern tributaries of the Navidad river. The Lavaca
-and Navidad River watersheds are a combined 5,966 km\textsuperscript{2},
-or approximately 73\% of the entire Lavaca Bay watershed area. Discharge
-from the Navidad River is regulated by Lake Texana which has been in
-operation since 1980. Lake Texana provides 0.210 km\textsuperscript{3}
-of water storage and discharges into the tidal section of the Navidad
-River which ultimately joins the tidal section of the Lavaca River 15 km
-upstream of the confluence with the Lavaca Bay.
+(Fig.~\ref{fig:fig1}). \DIFaddbegin \DIFadd{Lavaca Bay is relatively shallow with an average
+depth of 1.2 m and a generally well mixed and turbid water column
+}\autocite{beserespollackLongtermTrendsResponse2011,montagnaAssessmentRelationshipFreshwater2020}\DIFadd{.
+}\DIFaddend The Garcitas-Arenosa, Placedo Creek, and Cox Bay subwatersheds provide
+additional freshwater inflows. The \DIFaddbegin \DIFadd{proximity to freshwater inputs in the
+upper Lavaca Bay results in a strong mean salinity and variance gradient
+}\autocite{montagnaAssessmentRelationshipFreshwater2020}\DIFadd{. Average
+salinity ranges from 12 psu near the Lavaca River mouth to 23 psu at the
+mouth of Lavaca Bay. The variance is inversely correlated with mean
+salinity. The }\DIFaddend entire watershed area is 8,149 km\textsuperscript{2} and
+primarily rural. Watershed land cover and land use is 50\% grazed
+pasture and rangeland, 20\% cultivated cropland (primarily rows crops
+such as corn, cotton, and sorghum), and 5\% suburban/urban. Pasture and
+rangeland is concentrated in the Lavaca River watershed, while
+cultivated crops are generally located along the eastern tributaries of
+the Navidad river. The Lavaca and Navidad River watersheds are a
+combined 5,966 km\textsuperscript{2}, or approximately 73\% of the
+entire Lavaca Bay watershed area. Discharge from the Navidad River is
+regulated by Lake Texana which has been in operation since 1980. Lake
+Texana provides 0.210 km\textsuperscript{3} of water storage and
+discharges into the tidal section of the Navidad River which ultimately
+joins the tidal section of the Lavaca River 15 km upstream of the
+confluence with the Lavaca Bay.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.2in,]{Schramm-2023-06-PeerJ_files/figure-latex/fig1} 
+{\centering \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=5.2in,]{Schramm-2023-06-PeerJ_files/figure-latex/fig1} 
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=5.2in,]{Schramm-2023-08-PeerJ_files/figure-latex/fig1} 
+\DIFaddendFL 
 
 }
 
-\caption{Map of Lavaca Bay and the contribution watershed. The freshwater sites are the most downstream freshwater stream locations with water quality and streamflow data used for nutrient load models. Water quality concentration data at the three Lavaca Bay sites were used to assess relationships between freshwater flows, loads and estuary water quality.}\label{fig:fig1}
+\caption{Map of Lavaca Bay \DIFdelbeginFL \DIFdelFL{and the contribution }\DIFdelendFL watershed. The freshwater sites are the most downstream freshwater stream locations with water quality and streamflow data used for nutrient load models. Water quality concentration data at the three Lavaca Bay sites were used to assess relationships between freshwater flows, loads and estuary water quality.}\label{fig:fig1}
 \end{figure}
 
 Daily discharges for the Lavaca River (USGS-08164000,
 Fig.~\ref{fig:fig1}) were obtained from the United States Geologic
-Survey (USGS) National Water Information System using the
-\emph{dataRetrieval} R package
-\autocite{deciccoDataRetrievalPackagesDiscovering2022}. Gaged daily
-discharges from the outlet of Lake Texana on the Navidad River
+Survey (USGS) National Water Information System
+\DIFaddbegin \DIFadd{(}\url{https://waterdata.usgs.gov/nwis}\DIFadd{) }\DIFaddend using the \emph{dataRetrieval} R
+package \autocite{deciccoDataRetrievalPackagesDiscovering2022}. Gaged
+daily discharges from the outlet of Lake Texana on the Navidad River
 (USGS-0816425) were provided by the Texas Water Development Board (TWDB)
 (April 21, 2022 email from R. Neupane, TWDB).
 
@@ -306,65 +367,89 @@ and DO concentrations from January 2005 through December 2020
 
 \caption{\label{tab:table1}Summary of gauged streamflow and freshwater water quality samples between January 1, 2000 and December 31, 2020.}
 \centering
-\begin{tabular}[t]{lllll}
-\toprule
-Station ID & Parameter & Mean & SD & N\\
+\DIFdelbeginFL %DIFDELCMD < \begin{tabular}[t]{lllll}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \begin{threeparttable}
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{2.5cm}llllrr}
+\DIFaddendFL \toprule
+Station ID \DIFaddbeginFL \DIFaddFL{and Watershed }\DIFaddendFL & Parameter & Mean & SD & N \DIFaddbeginFL & \DIFaddFL{Method }& \DIFaddFL{AWRL\textsuperscript{a} }& \DIFaddFL{Criteria\textsuperscript{b}}\DIFaddendFL \\
 \midrule
- & TP (mg/L) & 0.21 & 0.09 & 80\\
+ & TP (mg/L) & 0.21 & 0.09 & 80 \DIFaddbeginFL & \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.69}\DIFaddendFL \\
 
- & NO\textsubscript{3} (mg/L) & 0.18 & 0.24 & 74\\
+ & NO\textsubscript{3} (mg/L) & 0.18 & 0.24 & 74 \DIFaddbeginFL & \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddFL{1.95}\DIFaddendFL \\
 
-\multirow{-3}{*}{\raggedright\arraybackslash USGS-08164000} & Mean Daily Streamflow (cfs) & 332.78 & 1667.47 & 7671\\
-\cmidrule{1-5}
- & TP (mg/L) & 0.20 & 0.08 & 81\\
+\DIFdelbeginFL %DIFDELCMD < \multirow{-3}{*}{\raggedright\arraybackslash USGS-08164000} %%%
+\DIFdelendFL \DIFaddbeginFL \multirow{-3}{2.5cm}{\raggedright\arraybackslash USGS-08164000, Lavaca River} \DIFaddendFL & Mean Daily Streamflow (cfs) & 332.78 & 1667.47 & 7671 \DIFaddbeginFL &  &  & \DIFaddendFL \\
+\DIFdelbeginFL %DIFDELCMD < \cmidrule{1-5}
+%DIFDELCMD <  %%%
+\DIFdelendFL \DIFaddbeginFL \cmidrule{1-8}
+ \DIFaddendFL & TP (mg/L) & 0.20 & 0.08 & 81 \DIFaddbeginFL & \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.20}\DIFaddendFL \\
 
- & NO\textsubscript{3} (mg/L) & 0.29 & 0.26 & 62\\
+ & NO\textsubscript{3} (mg/L) & 0.29 & 0.26 & 62 \DIFaddbeginFL & \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddFL{0.37}\DIFaddendFL \\
 
-\multirow{-3}{*}{\raggedright\arraybackslash USGS-08164525} & Mean Daily Streamflow (cfs) & 666.14 & 2957.79 & 7671\\
+\DIFdelbeginFL %DIFDELCMD < \multirow{-3}{*}{\raggedright\arraybackslash USGS-08164525} %%%
+\DIFdelendFL \DIFaddbeginFL \multirow{-3}{2.5cm}{\raggedright\arraybackslash USGS-08164525, Navidad River} \DIFaddendFL & Mean Daily Streamflow (cfs) & 666.14 & 2957.79 & 7671 \DIFaddbeginFL &  &  & \DIFaddendFL \\
 \bottomrule
 \end{tabular}
-\end{table}
+\DIFaddbeginFL \begin{tablenotes}
+\item[\DIFaddFL{a}] \DIFaddFL{Ambient water reporting limit (AWRL) represents the highest concentration that can be used as a reporting limit by a laboratory for inclusion in the state's monitoring data.
+}\item[\DIFaddFL{b}] \DIFaddFL{The state of Texas has not adopted numeric criteria for nutrients, these criteria represent screening levels used by the state for assessment purposes.
+}\end{tablenotes}
+\end{threeparttable}
+\DIFaddendFL \end{table}
 
 \begin{table}
 
 \caption{\label{tab:table2}Summary of estuary water quality samples collected between January 1, 2005 and December 31, 2020.}
 \centering
-\begin{tabular}[t]{lllll}
-\toprule
-Station ID & Parameter & Mean & SD & N\\
+\DIFdelbeginFL %DIFDELCMD < \begin{tabular}[t]{lllll}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \begin{threeparttable}
+\begin{tabular}[t]{lllll>{\raggedright\arraybackslash}p{3cm}rr}
+\DIFaddendFL \toprule
+Station ID & Parameter & Mean & SD & N \DIFaddbeginFL & \DIFaddFL{Method }& \DIFaddFL{AWRL\textsuperscript{a} }& \DIFaddFL{Criteria\textsuperscript{b}}\DIFaddendFL \\
 \midrule
- & TP (mg/L) & 0.11 & 0.05 & 47\\
+ & TP (mg/L) & 0.11 & 0.05 & 47 \DIFaddbeginFL & \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.21}\DIFaddendFL \\
 
- & NO\textsubscript{x} (mg/L) & 0.07 & 0.15 & 51\\
+ & NO\textsubscript{x} (mg/L) & 0.07 & 0.15 & 51 \DIFaddbeginFL & \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddendFL \\
 
- & TKN (mg/L) & 0.94 & 0.49 & 45\\
+ & TKN (mg/L) & 0.94 & 0.49 & 45 \DIFaddbeginFL & \DIFaddFL{EPA 351.2 }& \DIFaddFL{0.20 }& \DIFaddendFL \\
 
- & Chlorophyll-\textit{a} (ug/L) & 9.43 & 5.31 & 47\\
+ & Chlorophyll-\textit{a} (ug/L) & 9.43 & 5.31 & 47 \DIFaddbeginFL & \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
 
-\multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13383} & DO (mg/L) & 7.22 & 1.35 & 55\\
-\cmidrule{1-5}
- & TP (mg/L) & 0.08 & 0.03 & 51\\
+\multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13383} & DO (mg/L) & 7.22 & 1.35 & 55 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
+\DIFdelbeginFL %DIFDELCMD < \cmidrule{1-5}
+%DIFDELCMD <  %%%
+\DIFdelendFL \DIFaddbeginFL \cmidrule{1-8}
+ \DIFaddendFL & TP (mg/L) & 0.08 & 0.03 & 51 \DIFaddbeginFL & \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.21}\DIFaddendFL \\
 
- & NO\textsubscript{x} (mg/L) & 0.06 & 0.08 & 52\\
+ & NO\textsubscript{x} (mg/L) & 0.06 & 0.08 & 52 \DIFaddbeginFL & \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddendFL \\
 
- & TKN (mg/L) & 0.76 & 0.40 & 48\\
+ & TKN (mg/L) & 0.76 & 0.40 & 48 \DIFaddbeginFL & \DIFaddFL{EPA 351.2 }& \DIFaddFL{0.20 }& \DIFaddendFL \\
 
- & Chlorophyll-\textit{a} (ug/L) & 8.22 & 6.44 & 46\\
+ & Chlorophyll-\textit{a} (ug/L) & 8.22 & 6.44 & 46 \DIFaddbeginFL & \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
 
-\multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13384} & DO (mg/L) & 7.51 & 1.32 & 54\\
-\cmidrule{1-5}
- & TP (mg/L) & 0.13 & 0.06 & 50\\
+\multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13384} & DO (mg/L) & 7.51 & 1.32 & 54 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
+\DIFdelbeginFL %DIFDELCMD < \cmidrule{1-5}
+%DIFDELCMD <  %%%
+\DIFdelendFL \DIFaddbeginFL \cmidrule{1-8}
+ \DIFaddendFL & TP (mg/L) & 0.13 & 0.06 & 50 \DIFaddbeginFL & \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.21}\DIFaddendFL \\
 
- & NO\textsubscript{x} (mg/L) & 0.09 & 0.13 & 53\\
+ & NO\textsubscript{x} (mg/L) & 0.09 & 0.13 & 53 \DIFaddbeginFL & \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddendFL \\
 
- & TKN (mg/L) & 0.94 & 0.37 & 49\\
+ & TKN (mg/L) & 0.94 & 0.37 & 49 \DIFaddbeginFL & \DIFaddFL{EPA 351.2 }& \DIFaddFL{0.20 }& \DIFaddendFL \\
 
- & Chlorophyll-\textit{a} (ug/L) & 9.67 & 5.33 & 49\\
+ & Chlorophyll-\textit{a} (ug/L) & 9.67 & 5.33 & 49 \DIFaddbeginFL & \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
 
-\multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13563} & DO (mg/L) & 7.91 & 1.34 & 56\\
+\multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13563} & DO (mg/L) & 7.91 & 1.34 & 56 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
 \bottomrule
 \end{tabular}
-\end{table}
+\DIFaddbeginFL \begin{tablenotes}
+\item[\DIFaddFL{a}] \DIFaddFL{Ambient water reporting limit (AWRL) represents the highest concentration that can be used as a reporting limit by a laboratory for inclusion in the state's monitoring data.
+}\item[\DIFaddFL{b}] \DIFaddFL{The state of Texas has not adopted numeric criteria for nutrients, these criteria represent screening levels used by the state for assessment purposes. NO\textsubscript{x} and TKN parameters are not currently screened by the state and do not have an associated screening level.
+}\end{tablenotes}
+\end{threeparttable}
+\DIFaddendFL \end{table}
 
 \hypertarget{estimating-watershed-based-nutrient-loads}{%
 \subsection*{Estimating Watershed Based Nutrient
@@ -381,7 +466,7 @@ concentrations for each day in the study period. GAMs were fit using the
 \emph{mgcv} package in R which makes available multiple types of smooth
 functions with automatic smoothness selection
 \autocite{woodFastStableRestricted2011}. The general form of the model
-related NO\textsubscript{3} or TP concentration to a long term tend,
+related NO\textsubscript{3} or TP concentration to a long term \DIFdelbegin \DIFdel{tend}\DIFdelend \DIFaddbegin \DIFadd{trend}\DIFaddend ,
 season, streamflow, and two different antecedent discharge terms, shown
 in Eq. \ref{eq1}:
 
@@ -448,7 +533,7 @@ alone, but of dam releases and nutrient concentrations at the discharge
 point of the lake. \emph{Q}, \emph{ma}, and \emph{fa} terms were
 calculated based on total gaged inflow from the 4 major tributaries to
 the lake. Thin-plate regression splines were used for \emph{ddate},
-\emph{log1p(Q)}, \emph{fa}, and \emph{ma}. A cyclic cubic regression
+\emph{\DIFdelbegin \DIFdel{log1p}\DIFdelend \DIFaddbegin \DIFadd{log}\DIFaddend (\DIFaddbegin \DIFadd{1+}\DIFaddend Q)}, \emph{fa}, and \emph{ma}. A cyclic cubic regression
 spline was used for \emph{yday} to ensure the ends of the spline match
 (day 1 and day 366 are expected to match). First order penalties were
 applied to the smooths of flow-based variables which penalize departures
@@ -600,7 +685,10 @@ NO\textsubscript{3}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig2} 
+{\centering \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig2} 
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\linewidth,]{Schramm-2023-08-PeerJ_files/figure-latex/fig2} 
+\DIFaddendFL 
 
 }
 
@@ -618,7 +706,10 @@ decreases in NO\textsubscript{3} loads since 2013.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig3} 
+{\centering \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig3} 
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\linewidth,]{Schramm-2023-08-PeerJ_files/figure-latex/fig3} 
+\DIFaddendFL 
 
 }
 
@@ -639,7 +730,10 @@ NO\textsubscript{3} and TP loads in 2011 (Fig.~\ref{fig:fig4}).
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig4} 
+{\centering \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.5\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig4} 
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.5\linewidth,]{Schramm-2023-08-PeerJ_files/figure-latex/fig4} 
+\DIFaddendFL 
 
 }
 
@@ -665,7 +759,10 @@ TCEQ-13384 site.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig5} 
+{\centering \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig5} 
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\linewidth,]{Schramm-2023-08-PeerJ_files/figure-latex/fig5} 
+\DIFaddendFL 
 
 }
 
@@ -742,7 +839,10 @@ chlorophyll-\emph{a}, TKN, or DO at the lower-bay TCEQ-13384 site.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig6} 
+{\centering \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig6} 
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\linewidth,]{Schramm-2023-08-PeerJ_files/figure-latex/fig6} 
+\DIFaddendFL 
 
 }
 
@@ -761,7 +861,10 @@ changes in the remaining assessed water quality parameters.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig7} 
+{\centering \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig7} 
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\linewidth,]{Schramm-2023-08-PeerJ_files/figure-latex/fig7} 
+\DIFaddendFL 
 
 }
 
@@ -827,15 +930,20 @@ develop an estimated mean annual yield of 28.9 kg/km\textsuperscript{2}.
 LOADEST is a multiple linear regression model that fits log transformed
 pollutant concentrations to long term, seasonal, and flow based
 predictors and includes methods for bias correction when exponentiating
-the response variable. While the annual yield estimated in
-\textcite{dunnTrendsNutrientInflows1996} is lower than the estimate of
+the response variable. \DIFdelbegin \DIFdel{While the annual yield estimated in
+\mbox{%DIFAUXCMD
+\textcite{dunnTrendsNutrientInflows1996} }\hskip0pt%DIFAUXCMD
+is lower than the estimate of
 35.2 kg/km\textsuperscript{2} in this study, it is important to note
 that both hydrology and land use was different for a proportion of the
 study period. For almost the first ten years of the study period in
-\textcite{dunnTrendsNutrientInflows1996}, the Navidad River was still
+\mbox{%DIFAUXCMD
+\textcite{dunnTrendsNutrientInflows1996}}\hskip0pt%DIFAUXCMD
+, the Navidad River was still
 undammed. More recently the eastern portion of the watershed has seen
 large conversions of rice fields to more traditional row crop production
-\autocite{kulatHolisticWaterEnergyFoodNexus2019}. The apparent increase
+}%DIFDELCMD < \autocite{kulatHolisticWaterEnergyFoodNexus2019}%%%
+\DIFdel{. The apparent increase
 in mean TP yield might be suggestive of wetter recent conditions. To
 evaluate long-term trends in discharge, we fit a GAM relating
 log-transformed daily discharges on the Lavaca and Navidad Rivers to
@@ -845,25 +953,37 @@ the early and mid-1980s. In comparison watershed discharges since the
 mid-2000s are at or below average. The trend in mean streamflow alone is
 counter to expectations based on changes in nutrient yeild estimates.
 Studies of long-term precipitation patterns indicate both the total
-amount \autocite{dixonTrendDetectionTexas2011} and variability of
+amount }%DIFDELCMD < \autocite{dixonTrendDetectionTexas2011} %%%
+\DIFdel{and variability of
 rainfall
-\autocite{mishraChangesExtremePrecipitation2010,fagnantCharacterizingSpatiotemporalTrends2020}
-has increased in the region which provide plausible reasons for
+}%DIFDELCMD < \autocite{mishraChangesExtremePrecipitation2010,fagnantCharacterizingSpatiotemporalTrends2020}
+%DIFDELCMD < %%%
+\DIFdel{has increased in the region which provide plausible reasons for
 increased runoff driven nutrient loading. Further assessments of the
 frequency and occurrence of periodic high flow events that mobilize
 sediments and are responsible for the bulk of loading volume would
 provide further insight to this discrepancy.
+}%DIFDELCMD < 
 
-\begin{figure}
+%DIFDELCMD < \begin{figure}
+%DIFDELCMD < 
 
-{\centering \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig8} 
+%DIFDELCMD < {\centering \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig8} 
+%DIFDELCMD < 
 
-}
+%DIFDELCMD < }
+%DIFDELCMD < 
 
-\caption{Measured daily discharges (log-transformed) and smoothed long-term trends for the Lavaca and Navidad Rivers form 1972 though 2001.}\label{fig:fig8}
-\end{figure}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Measured daily discharges (log-transformed) and smoothed long-term trends for the Lavaca and Navidad Rivers form 1972 though 2001.}}%DIFAUXCMD
+%DIFDELCMD < \label{fig:fig8}
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < 
 
-\textcite{rebichSourcesDeliveryNutrients2011} and
+%DIFDELCMD < %%%
+\DIFdelend \textcite{rebichSourcesDeliveryNutrients2011} and
 \textcite{wise_spatially_2019} used SPARROW to provide a more recent
 assessment of regional catchment based loadings to the Gulf of Mexico
 (Table~\ref{tab:table5}). SPARROW is a hybrid statistical-process model
@@ -875,19 +995,41 @@ used in the current study. The only study to apply a mechanistic
 watershed model (SWAT) to estimate nutrient loadings in the Lavaca River
 watershed \textcite{omaniEstimationSedimentNutrient2014} developed
 estimated yields (42 kg/km\textsuperscript{2}) similar to the two
-SPARROW models. The base periods used by
-\textcite{rebichSourcesDeliveryNutrients2011},
-\textcite{omaniEstimationSedimentNutrient2014} and
-\textcite{wise_spatially_2019} differ from the current study, making
-direct comparisons difficult. It is probable that the lower than average
+SPARROW models. \DIFdelbegin \DIFdel{The base periods used by \mbox{%DIFAUXCMD
+\textcite{rebichSourcesDeliveryNutrients2011}}\hskip0pt%DIFAUXCMD
+, \mbox{%DIFAUXCMD
+\textcite{omaniEstimationSedimentNutrient2014} }\hskip0pt%DIFAUXCMD
+and
+\mbox{%DIFAUXCMD
+\textcite{wise_spatially_2019} }\hskip0pt%DIFAUXCMD
+differ from the current study , making
+direct comparisons difficult.}\DIFdelend \DIFaddbegin \DIFadd{Although direct comparisons are complicated by varying
+time periods, the estimates in this study do fall within the range of of
+previously developed estimates. To evaluate changes in long-term trends
+in discharge might be associated with the nutrient yield estimates
+covering different time periods, we fit a GAM relating log-transformed
+daily discharges on the Lavaca River to season and time
+(Fig.~\ref{fig:fig8}). The long-term trends in discharge indicate
+watershed discharges were at or above average from 1972 though the early
+and mid-1980s. In comparison watershed discharges since the mid-2000s
+are at or below average. }\DIFaddend It is probable that the lower than average
 discharges observed from 2010 through 2021 (Fig.~\ref{fig:fig8}) bias
-our estimates downward compared to other studies which included higher
-than average streamflow periods. Overall, the ranges of estimated yields
-among different studies along with the apparent large variability in
-streamflow driven loadings (Fig.~\ref{fig:fig3}, Fig. \ref{fig:fig4})
+our estimates downward compared to \DIFdelbegin \DIFdel{other studies which }\DIFdelend \DIFaddbegin \DIFadd{studies that }\DIFaddend included higher than
+average streamflow periods \DIFaddbegin \DIFadd{(1995-2005)}\DIFaddend . Overall, the ranges of estimated
+yields among different studies along with the apparent large variability
+in streamflow driven loadings (Fig.~\ref{fig:fig3}, Fig. \ref{fig:fig4})
 suggest that the current estimates of TP loading are reasonable.
 
-\begin{table}
+\DIFaddbegin \begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,]{Schramm-2023-08-PeerJ_files/figure-latex/fig8} 
+
+}
+
+\caption{\DIFaddFL{Measured daily discharges (log-transformed) and smoothed long-term trends for the Lavaca River form 1972 though 2001.}}\label{fig:fig8}
+\end{figure}
+
+\DIFaddend \begin{table}
 
 \caption{\label{tab:table5}Comparisons of previously published estimates of mean annual TP yield at the Lavaca River site.}
 \centering
@@ -989,7 +1131,7 @@ be limited by nutrients alone, with high turbidity or nutrient
 processing in upper portions of the Bay or intertidal river limiting
 production \autocite{russell_effect_2006}. Finally, it is reasonable to
 assume that fluctuations in DO may not occur immediately in response to
-nutrient pulses or freshwater inflow. Work has has shown that many water
+nutrient pulses or freshwater inflow. Work \DIFdelbegin \DIFdel{has }\DIFdelend has shown that many water
 quality parameters may have lagged effects lasting days or even months
 following storms and large discharge events
 \autocite{mooneyWatershedExportEvents2012a,wetzExtremeFutureEstuaries2013,bukaveckasInfluenceStormEvents2020,walkerTimescalesMagnitudeWater2021}.
