@@ -1,5 +1,5 @@
 ---
-title: Linking watershed nutrient loading to estuary water quality with semiparametric models
+title: Linking watershed nutrient loading to estuary water quality with Generalized Additive Models
 preprint: false
 author: 
   - name: Michael Schramm
@@ -334,12 +334,21 @@ modelsummary::datasummary(`Station ID` * (`TP (mg/L)`+
   mutate(`Station ID` = c(rep("TCEQ-13383", 5), rep("TCEQ-13384", 5),
                           rep("TCEQ-13563", 5))) |> 
   rename("Parameter" = " ") |> 
-  mutate(Method = rep(c("EPA 365.1", "EPA 353.2", "EPA 351.2", "EPA 445.0", "ASTM D888-09(C) and TCEQ SOP V1"),3),
+  mutate(`Station ID` = case_when(
+    `Station ID` == "TCEQ-13383" ~ "TCEQ-13383, Upper-Bay",
+    `Station ID` == "TCEQ-13384" ~ "TCEQ-13384, Lower-Bay",
+    `Station ID` == "TCEQ-13563" ~ "TCEQ-13563, Mid-Bay"),
+         Method = rep(c("EPA 365.1", "EPA 353.2", "EPA 351.2", "EPA 445.0", "ASTM D888-09(C) and TCEQ SOP V1"),3),
          `AWRL\\textsuperscript{a}`= rep(c(0.06, 0.05, 0.2, 3, NA),3),
-         `Criteria\\textsuperscript{b}` = rep(c(0.21,NA,NA,11.6,5),3)) |> 
+         `Criteria\\textsuperscript{b}` = rep(c(0.21,NA,NA,11.6,5),3)) |>
+  mutate(`Station ID` = fct_relevel(`Station ID`,
+                                    "TCEQ-13383, Upper-Bay",
+                                    "TCEQ-13563, Mid-Bay",
+                                    "TCEQ-13384, Lower-Bay")) |> 
   kbl(format = "latex", booktabs = TRUE, escape = FALSE,
       caption = "Summary of estuary water quality samples collected between January 1, 2005 and December 31, 2020.") |> 
-  column_spec(6, width = "3cm") |> 
+  column_spec(1, width = "2cm") |>
+  column_spec(6, width = "2.5cm") |> 
   collapse_rows(columns = 1, latex_hline = "major") |> 
   footnote(alphabet = c("Ambient water reporting limit (AWRL) represents the highest concentration that can be used as a reporting limit by a laboratory for inclusion in the state's monitoring data.",
                         "The state of Texas has not adopted numeric criteria for nutrients, these criteria represent screening levels used by the state for assessment purposes. NO\\\\textsubscript{x} and TKN parameters are not currently screened by the state and do not have an associated screening level."),
@@ -476,9 +485,19 @@ where $\mu$ is the conditional expected response (nutrient concentration), $g()$
 is the log link, and response variable was modeled as Gamma distributed with 
 mean $\mu$ and scale $\lambda$. $f_1(ddate)$ is decimal date smoothed with a 
 thin-plate regression spline, $f_2(yday)$ is the numeric day of year smoothed 
-with a cyclic cubic regression spline, $f_3(Q)$ is mean daily inflow (the 
-combined measurements from Lavaca River and Navidad River) and $f_4(Load)$ is 
-the total NO~3~ or TP watershed load. The set of models specified for each water
+with a cyclic cubic regression spline.
+Prior work has shown that many water quality parameters may have lagged effects 
+lasting days or even months following storms and large discharge events [@mooneyWatershedExportEvents2012a; 
+@wetzExtremeFutureEstuaries2013; @bukaveckasInfluenceStormEvents2020; 
+@walkerTimescalesMagnitudeWater2021]. @walkerTimescalesMagnitudeWater2021 showed
+the impact of large flow events like Hurricane Harvey had somewhat short
+water quality impacts in Lavaca Bay and adjacent estuary systems, ranging 
+somewhere around 20 days to a few months. We incorporate this lag effect by using
+cumulative totals for $f_3(Q)$ and $f_4(Load)$. $f_3(Q)$ is the cumulative of the 
+previous 20 days of inflow (combined measurements from Lavaca River and 
+Navidad River) and $f_4(Load)$ is the cumulative of the previous 20 days 
+total NO~3~ or TP watershed load, both smoothed with thin plate regression 
+splines. The set of models specified for each water
 quality response are in Table\ \ref{tab:table3}.
 
 
@@ -529,14 +548,10 @@ Because streamflow and nutrient loads are tightly correlated, freshwater inflow
 can mask signals due to changes in nutrient loads alone. Following the 
 methodology implemented by @murphyNutrientImprovementsChesapeake2022,
 both freshwater inflow and nutrient loads were prepossessed to account for season
-and streamflow respectively. Raw freshwater inflow values were replaced by 
-seasonally adjusted log transformed inflow obtained from the residuals of a GAM model 
-fit between season(day of year) and log transformed daily freshwater inflow. Raw nutrient
-loads were replaced with flow-adjusted values obtained from the residuals of a
-GAM model relating log transformed NO~3~ or TP loads to log transformed daily
-inflow. Response residuals from the respective GAM models were 
-used as *Q* and *Load* in Eq.\ \ref{eq6} and Eq.\ \ref{eq7}.
-
+and streamflow respectively. Cumulative inflow values were replaced by 
+seasonally adjusted cumulative inflow obtained from the residuals of a GAM model 
+fit between season(day of year) and log transformed cumulative inflow. Nutrient
+loads utilized the flow-normalized loads estimated in the previous section.
 
 This study used an information theoretic approach to evaluate 
 evidence of model covariate effects on Lavaca Bay water quality.
@@ -1452,10 +1467,15 @@ dplyr::bind_rows(
       Model == "Temporal" ~ "Temporal",
       Model == "Flow" ~ "Inflow",
       Model == "Flow + Load" ~ "Inflow + Load",
-      TRUE ~ as.character(Model)
+      TRUE ~ as.character(Model)),
+    Site = case_when(
+      Site == "TCEQ-13563" ~ "Mid-Bay",
+      Site == "TCEQ-13383" ~ "Upper-Bay",
+      Site == "TCEQ-13384" ~ "Lower-Bay"
     )) |>
   mutate(Parameter = fct_relevel(Parameter, "TP", "NO\\textsubscript{x}", "Chlorophyll-\\textit{a}","TKN", "DO"),
-         Model = fct_relevel(Model, "Temporal", "Inflow", "Inflow + Load")) |>
+         Model = fct_relevel(Model, "Temporal", "Inflow", "Inflow + Load"),
+         Site = fct_relevel(Site, "Upper-Bay", "Mid-Bay", "Lower-Bay")) |>
   tidyr::complete(Site, Model, nesting(Parameter)) |>
   mutate(model_prob = paste0(round(AICc,1), " (", round(weight,2), ")")) |>
   mutate(model_prob = case_when(
@@ -1468,16 +1488,16 @@ dplyr::bind_rows(
   arrange(Parameter, Site) |>
   kbl(format = "latex",
       caption = "Estuary GAM AIC\\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.",
-      booktabs = TRUE, escape = FALSE) |> 
-  column_spec(column = 3, 
-              bold = c(F,F,F,F,F,F,F,T,F,T,T,F,T,T,F),
-              italic = c(F,F,F,F,F,F,F,T,F,T,T,F,T,T,F)) |> 
-  column_spec(column = 4, 
-              bold = c(F,T,F,T,F,T,T,F,T,F,F,T,F,F,T),
-              italic = c(F,T,F,T,F,T,T,F,T,F,F,T,F,F,T)) |> 
+      booktabs = TRUE, escape = FALSE) |>
+  column_spec(column = 3,
+              bold = c(F,F,F,F,F,F,F,F,T,T,F,T,T,F,T),
+              italic = c(F,F,F,F,F,F,F,F,T,T,F,T,T,F,T)) |>
+  column_spec(column = 4,
+              bold = c(F,F,T,T,T,F,T,T,F,F,T,F,F,T,F),
+              italic = c(F,F,T,T,T,F,T,T,F,F,T,F,F,T,F)) |>
   column_spec(column = 5,
-              bold = c(T,F,T,F,T,F,F,F,F,F,F,F,F,F,F),
-              italic = c(T,F,T,F,T,F,F,F,F,F,F,F,F,F,F)) |> 
+              bold = c(T,T,F,F,F,T,F,F,F,F,F,F,F,F,F),
+              italic = c(T,T,F,F,F,T,F,F,F,F,F,F,F,F,F)) |>
   collapse_rows(columns = 1, latex_hline = "major")
 
   
@@ -1633,10 +1653,10 @@ remaining assessed water quality parameters.
 comp <- compare_smooths(model = `TCEQ-13383`,
                       `TCEQ-13384` = tar_read(tp_lavaca_13384_full, store = store),
                       `TCEQ-13563` = tar_read(tp_lavaca_13563_full, store = store),
-                      smooths = c("s(TP_resid)"),
+                      smooths = c("s(sum_TP_FN)"),
                       overall_uncertainty = FALSE)
 p_tp <- draw_smoothed_surface(comp,
-                      x = TP_resid,
+                      x = sum_TP_FN,
                       xlab = "Residuals log(TP) Load [kg]",
                       ylab = "TP [mg/L]",
                       subtitle = "A")
@@ -1646,10 +1666,10 @@ p_tp <- draw_smoothed_surface(comp,
 comp <- compare_smooths(model = `TCEQ-13383`,
                       `TCEQ-13384` = tar_read(no3_lavaca_13384_full, store = store),
                       `TCEQ-13563` = tar_read(no3_lavaca_13563_full, store = store),
-                      smooths = c("s(NO3_resid)"),
+                      smooths = c("s(sum_NO3_FN)"),
                       overall_uncertainty = FALSE)
 p_no3 <- draw_smoothed_surface(comp,
-                      x = NO3_resid,
+                      x = sum_NO3_FN,
                       xlab = "Residuals log(NO<sub>3</sub>) Load [kg]",
                       ylab = "NO<sub>*x*</sub> [mg/L]",
                       subtitle = "B")

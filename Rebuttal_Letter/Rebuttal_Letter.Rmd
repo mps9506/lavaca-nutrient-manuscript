@@ -19,7 +19,12 @@ signature: Michael Schramm
 output: komaletter::komaletter
 ---
 
-Thank you for the prompt and thorough review of my submitted manuscript, "Linking watershed nutrient loading to estuary water quality with semiparametric models." I really appreciate the substantive and helpful comments from all the reviewers. Line by line comments and responses are included below (reviewer comments are italicized).
+Thank you for the prompt and thorough review of my manuscript, "Linking watershed nutrient loading to estuary water quality with semiparametric models." I really appreciate the substantive and helpful comments from each of the reviewers. The final draft and
+draft with differences marked are attached. Please note that the latexdiff tool
+did not highlight the very minor changes in the abstract or references. I also would like to note the updated title based on comments from one reviewer.
+
+Line by line comments and responses are included below (reviewer comments are italicized).
+I have incorporated nearly all of the requested changes from the reviewers.
 
 **Reviewer 1**
 
@@ -71,6 +76,9 @@ Thank you for the prompt and thorough review of my submitted manuscript, "Linkin
 
 *Lines 194-201: Some discussion is needed of how you dealt with temporal matching of flow and loads to concentrations in the estuary. I see in the discussion (line 373-374) that you matched flow and load estimated for the day of each sample. This approach should be explained in the methods, and I think you need some explanation is needed as to why that would be appropriate and/or how it may impact the results. As you discuss below, you might get better relationships (for Table 4, Lines 244-248) if you either lagged the match or matched an average load and flow from some reasonable period before the estuary sample date. If you had the ability to try some models like that, I think it may be a useful addition.*
 
+**Response:** Dr. Marcus Beck made a similar comment in his review. This is now addressed
+by incorporating cumulative flows and loads into the estuary models. **need to address this and justify it in the manuscript now**.
+
 
 *Line 296: Would damming of the Navidad River impact the loads through the Lavaca River watershed? I don’t see why if the data was from the USGS-08164000 site.*
 
@@ -88,10 +96,26 @@ I've removed this and incorporated your statement below. Thank you very much for
 
 
 **Reviewer: Marcus Beck**
+*This article describes the use of Generalized Additive Models (GAMs) to estimate nutrient loads entering Lavica Bay from the main inflows. The author uses these models to evaluate the anthropogenic contribution of nutrients to the bay through flow-normalization and to evaluate if these loads are related to long-term variation in estuarine water quality. Overall, this is a valuable paper that further validates the use of GAMs for long-term trend analysis and will have particular value for the management of this system. My comments below relate to either clarification or adjustment of the methods that authors should consider. If pursued, I consider these changes appropriate for a major revision.*
+
+**Response:** I'm highly appreciative of these comments, they have substantially improved the manuscript.
 
 *I have some concerns about the methods starting on line 184 that describe how the load estimates are related to the estuarine data. First, I strongly encourage the authors to develop these models using cumulative or lagged estimates for the flow and load variables. It appears that these are currently modeled as the estimates for the same day the water quality parameter was sampled. I would not expect much of a relationship between water quality and the independent variables at that time scale. I suspect that the relationships the author shows regarding flow/load with the response reflects some level of temporal autocorrelation between the daily estimates and preceding conditions/loads, where the latter may be a truly causative relationship. I see two potential approaches to remedy the issue. One, the author could test different lagged values for flow and load, although this would require a bit of trial and error. A potentially better solution is to use the aggregate flow volume and load between the sample dates as a sum of the volume and mass, respectively, between each observation of the time series for the response variable. I would expect these aggregate measurements to be much more strongly correlated to the response variables than the daily values that are currently used. This limitation is noted on lines 371-374, so I’m curious why the authors did not use this approach.*
 
 *My second concern about the models in eqns. 5-7 also relates to the flow and load variables. It’s stated on line 199-201 that flow-adjusted load values were used, which makes sense, but I don’t understand how this additional analysis differs from the flow-normalization in the previous section (lines 176 – 179). Why not just use the flow-adjusted loads from the previous models? Once this is clarified (or corrected), it might make more sense to change eqn 6 to include smoothers for ddate, yday, and flow-normalized load, and eqn 7 to included smoothers for ddate, yday, and load. These wouldn’t be “nested” models for AIC comparison, but would perhaps provide a better approach to evaluate loads related to natural or non-natural variation. I don’t see the value in including flow as a separate variable since it’s basically a surrogate for total load.*
+
+**Response:** I am combining my response to both these comments since they are related. These are valid concerns and related to a comment made by Reviewer 3 (probably indicative that I better make a change here). 
+
+(1) I agree that it makes more sense to utilize the flow normalized loading estimates generated in the previous section. The methodology and results have been adjusted to correct this. 
+
+(2) I struggled with the concept of incorporating lag effects while developing these models, it didn't occur to me to utilize aggregated loads/flows. I believe this is an appropriate approach and will incorporate it into the models. However, since the estuary water quality data is not measured at equal intervals, the suggested aggregation method is potentially inappropriate. For example, if a quarterly measurement was missed you can end up aggregating 6 months of loads for a given data point instead of 3 months. Walker et al. (2021) found that after Hurricane Harvey (a massive magnitude storm) water quality impacts in Lavaca Bay and adjacent estuaries were restricted to a relatively short period, somewhere between 20 days and a few months. Based on this info, I am incorporating 1-day lagged, 20-day cumulative loads and flows into this set of models instead of the same day measures.  
+
+(3) In regard to the suggestion for changing equations 6 and 7 to utilize loads and flow-normalized loads instead of flow: I suspect there are a number of different approaches available here. While it is correct that the flow variable is essentially a surrogate for total load, inclusion does allow us to assess the relative contribution of "natural" or streamflow/load driven variation compared to the variation driven by flow-normalized loads or human activities. The lack of co-variation between flow normalized loads (in particular the aggregated loads) and the flow variable (shown below)
+
+```{r out.width="75%"}
+knitr::include_graphics("TP_plots.png")
+```
+
 
 *I also strongly encourage the author to consider replacing “semiparametric models” with “Generalized Additive Models” in the title. It’s a more accurate description of what’s included in the paper.*
 
@@ -149,3 +173,8 @@ I've removed this and incorporated your statement below. Thank you very much for
 *Line 395: Replace “suggest” with “such as”.*
 
 *Line 420: Replace “provide” with “prove” or “be”.*
+
+
+## References
+
+Walker, Lily M., Paul A. Montagna, Xinping Hu, and Michael S. Wetz. 2021. “Timescales and Magnitude of Water Quality Change in Three Texas Estuaries Induced by Passage of Hurricane Harvey.” Estuaries and Coasts 44 (4): 960–71. https://doi.org/10.1007/s12237-020-00846-6.

@@ -1,7 +1,7 @@
 %% Submissions for peer-review must enable line-numbering
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL C:/Data-Analysis-Projects/lavaca-nutrient-manuscript/Schramm-2023-06-PeerJ/Schramm-2023-06-PeerJ.tex   Sun Aug  6 16:35:20 2023
-%DIF ADD C:/Data-Analysis-Projects/lavaca-nutrient-manuscript/Schramm-2023-06-PeerJ/Schramm-2023-08-PeerJ.tex   Mon Aug  7 11:58:59 2023
+%DIF ADD C:/Data-Analysis-Projects/lavaca-nutrient-manuscript/Schramm-2023-06-PeerJ/Schramm-2023-08-PeerJ.tex   Tue Aug  8 11:37:24 2023
 %% using the lineno option in the \documentclass command.
 %%
 %% Preprints and camera-ready submissions do not need
@@ -55,7 +55,11 @@
 \usepackage{xcolor}
 
 \title{Linking watershed nutrient loading to estuary water quality with
-semiparametric models}
+%DIF 55c55
+%DIF < semiparametric models}
+%DIF -------
+Generalized Additive Models} %DIF > 
+%DIF -------
 
 \author[1]{Michael Schramm}
 
@@ -405,7 +409,7 @@ Station ID \DIFaddbeginFL \DIFaddFL{and Watershed }\DIFaddendFL & Parameter & Me
 \DIFdelbeginFL %DIFDELCMD < \begin{tabular}[t]{lllll}
 %DIFDELCMD < %%%
 \DIFdelendFL \DIFaddbeginFL \begin{threeparttable}
-\begin{tabular}[t]{lllll>{\raggedright\arraybackslash}p{3cm}rr}
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{2cm}llll>{\raggedright\arraybackslash}p{2.5cm}rr}
 \DIFaddendFL \toprule
 Station ID & Parameter & Mean & SD & N \DIFaddbeginFL & \DIFaddFL{Method }& \DIFaddFL{AWRL\textsuperscript{a} }& \DIFaddFL{Criteria\textsuperscript{b}}\DIFaddendFL \\
 \midrule
@@ -417,7 +421,8 @@ Station ID & Parameter & Mean & SD & N \DIFaddbeginFL & \DIFaddFL{Method }& \DIF
 
  & Chlorophyll-\textit{a} (ug/L) & 9.43 & 5.31 & 47 \DIFaddbeginFL & \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
 
-\multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13383} & DO (mg/L) & 7.22 & 1.35 & 55 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
+\DIFdelbeginFL %DIFDELCMD < \multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13383} %%%
+\DIFdelendFL \DIFaddbeginFL \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13383, Upper-Bay} \DIFaddendFL & DO (mg/L) & 7.22 & 1.35 & 55 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
 \DIFdelbeginFL %DIFDELCMD < \cmidrule{1-5}
 %DIFDELCMD <  %%%
 \DIFdelendFL \DIFaddbeginFL \cmidrule{1-8}
@@ -429,7 +434,8 @@ Station ID & Parameter & Mean & SD & N \DIFaddbeginFL & \DIFaddFL{Method }& \DIF
 
  & Chlorophyll-\textit{a} (ug/L) & 8.22 & 6.44 & 46 \DIFaddbeginFL & \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
 
-\multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13384} & DO (mg/L) & 7.51 & 1.32 & 54 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
+\DIFdelbeginFL %DIFDELCMD < \multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13384} %%%
+\DIFdelendFL \DIFaddbeginFL \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13384, Lower-Bay} \DIFaddendFL & DO (mg/L) & 7.51 & 1.32 & 54 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
 \DIFdelbeginFL %DIFDELCMD < \cmidrule{1-5}
 %DIFDELCMD <  %%%
 \DIFdelendFL \DIFaddbeginFL \cmidrule{1-8}
@@ -441,7 +447,8 @@ Station ID & Parameter & Mean & SD & N \DIFaddbeginFL & \DIFaddFL{Method }& \DIF
 
  & Chlorophyll-\textit{a} (ug/L) & 9.67 & 5.33 & 49 \DIFaddbeginFL & \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
 
-\multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13563} & DO (mg/L) & 7.91 & 1.34 & 56 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
+\DIFdelbeginFL %DIFDELCMD < \multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13563} %%%
+\DIFdelendFL \DIFaddbeginFL \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13563, Mid-Bay} \DIFaddendFL & DO (mg/L) & 7.91 & 1.34 & 56 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
 \bottomrule
 \end{tabular}
 \DIFaddbeginFL \begin{tablenotes}
@@ -590,10 +597,22 @@ concentration), \(g()\) is the log link, and response variable was
 modeled as Gamma distributed with mean \(\mu\) and scale \(\lambda\).
 \(f_1(ddate)\) is decimal date smoothed with a thin-plate regression
 spline, \(f_2(yday)\) is the numeric day of year smoothed with a cyclic
-cubic regression spline, \(f_3(Q)\) is mean daily inflow (the combined
-measurements from Lavaca River and Navidad River) and \(f_4(Load)\) is
-the total NO\textsubscript{3} or TP watershed load. The set of models
-specified for each water quality response are in Table~\ref{tab:table3}.
+cubic regression spline\DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{. Prior work has shown that many water quality
+parameters may have lagged effects lasting days or even months following
+storms and large discharge events
+}\autocite{mooneyWatershedExportEvents2012a,wetzExtremeFutureEstuaries2013,bukaveckasInfluenceStormEvents2020,walkerTimescalesMagnitudeWater2021}\DIFadd{.
+\mbox{%DIFAUXCMD
+\textcite{walkerTimescalesMagnitudeWater2021} }\hskip0pt%DIFAUXCMD
+showed the impact of large
+flow events like Hurricane Harvey had somewhat short water quality
+impacts in Lavaca Bay and adjacent estuary systems, ranging somewhere
+around 20 days to a few months. We incorporate this lag effect by using
+cumulative totals for }\DIFaddend \(f_3(Q)\) \DIFdelbegin \DIFdel{is mean daily inflow (the }\DIFdelend \DIFaddbegin \DIFadd{and \(f_4(Load)\). \(f_3(Q)\) is the
+cumulative of the previous 20 days of inflow (}\DIFaddend combined measurements from
+Lavaca River and Navidad River) and \(f_4(Load)\) is the \DIFaddbegin \DIFadd{cumulative of
+the previous 20 days }\DIFaddend total NO\textsubscript{3} or TP watershed load. The
+set of models specified for each water quality response are in
+Table~\ref{tab:table3}.
 
 \begin{table}
 
@@ -639,14 +658,22 @@ inflow can mask signals due to changes in nutrient loads alone.
 Following the methodology implemented by
 \textcite{murphyNutrientImprovementsChesapeake2022}, both freshwater
 inflow and nutrient loads were prepossessed to account for season and
-streamflow respectively. Raw freshwater inflow values were replaced by
-seasonally adjusted log transformed inflow obtained from the residuals
-of a GAM model fit between season(day of year) and log transformed daily
+streamflow respectively. \DIFdelbegin \DIFdel{Raw freshwater }\DIFdelend \DIFaddbegin \DIFadd{Cumulative }\DIFaddend inflow values were replaced by
+seasonally adjusted \DIFdelbegin \DIFdel{log transformed }\DIFdelend \DIFaddbegin \DIFadd{cumulative }\DIFaddend inflow obtained from the residuals of a
+GAM model fit between season(day of year) and log transformed \DIFdelbegin \DIFdel{daily
 freshwater inflow. Raw nutrient loads were replaced with flow-adjusted
 values obtained from the residuals of a GAM model relating log
 transformed NO\textsubscript{3} or TP loads to log transformed daily
 inflow. Response residuals from the respective GAM models were used as
-\emph{Q} and \emph{Load} in Eq.~\ref{eq6} and Eq.~\ref{eq7}.
+}\emph{\DIFdel{Q}} %DIFAUXCMD
+\DIFdel{and }\emph{\DIFdel{Load}} %DIFAUXCMD
+\DIFdel{in
+Eq.
+~\ref{eq6} and Eq.~\ref{eq7}.
+}\DIFdelend \DIFaddbegin \DIFadd{cumulative
+inflow. Nutrient loads utilized the flow-normalized loads estimated in
+the previous section.
+}\DIFaddend 
 
 This study used an information theoretic approach to evaluate evidence
 of model covariate effects on Lavaca Bay water quality. Model
@@ -794,35 +821,50 @@ TCEQ-13384 site.
 \toprule
 Parameter & Site & Temporal & Inflow & Inflow + Load\\
 \midrule
- & TCEQ-13383 & -152.1 (0.03) & -156.1 (0.24) & \em{\textbf{-158.2 (0.72)}}\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & -152.1 (\DIFdelbeginFL \DIFdelFL{0.03}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.02}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{-156.1 (0.24}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-155.1 (0.07}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-158.2 (0.72)}}%%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{-160.2 (0.91)}}\DIFaddendFL \\
 
- & TCEQ-13384 & -194.4 (0.03) & \em{\textbf{-200.2 (0.49)}} & -200.2 (0.49)\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-194.4 (0.03}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-145.3 (0.01}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-200.2 (0.49)}} %%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-150 (0.12) }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-200.2 (0.49) }\DIFdelendFL \DIFaddbeginFL \em{\textbf{-154 (0.87)}}\DIFaddendFL \\
 
-\multirow{-3}{*}{\raggedright\arraybackslash TP} & TCEQ-13563 & -145.3 (0) & -156.6 (0.41) & \em{\textbf{-157.3 (0.59)}}\\
+\multirow{-3}{*}{\raggedright\arraybackslash TP} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-145.3 (0}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-194.4 (0.39}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{-156.6 (0.41)}\DIFdelendFL \DIFaddbeginFL \em{\textbf{-194 (0.31)}} \DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-157.3 (0.59)}}%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-194 (0.31)}\DIFaddendFL \\
 \cmidrule{1-5}
- & TCEQ-13383 & -218.9 (0) & \em{\textbf{-244.8 (0.5)}} & -244.8 (0.5)\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & -218.9 (0) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-244.8 (0.5)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{-241.7 (0.5)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-244.8 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-241.7 }\DIFaddendFL (0.5)\\
 
- & TCEQ-13384 & -263.4 (0) & -311.7 (0.48) & \em{\textbf{-311.9 (0.52)}}\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-263.4 (0}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-175.1 (0.01}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{-311.7 (0.48)}\DIFdelendFL \DIFaddbeginFL \em{\textbf{-183.8 (0.5)}} \DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-311.9 (0.52)}}%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-183.8 (0.5)}\DIFaddendFL \\
 
-\multirow{-3}{*}{\raggedright\arraybackslash NO\textsubscript{x}} & TCEQ-13563 & -175.1 (0) & \em{\textbf{-190.2 (0.5)}} & -190.2 (0.5)\\
+\multirow{-3}{*}{\raggedright\arraybackslash NO\textsubscript{x}} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-175.1 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-263.4 }\DIFaddendFL (0) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-190.2 (0.5)}} & %%%
+\DIFdelFL{-190.2 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-298.1 }\DIFaddendFL (0.5) \DIFaddbeginFL & \em{\textbf{-298.1 (0.5)}}\DIFaddendFL \\
 \cmidrule{1-5}
- & TCEQ-13383 & 279.7 (0.18) & \em{\textbf{278.1 (0.41)}} & 278.1 (0.41)\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & 279.7 (\DIFdelbeginFL \DIFdelFL{0.18}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.24}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{278.1 (0.41)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{279.6 (0.26)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{278.1 (0.41}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{278.2 (0.5}\DIFaddendFL )\\
 
- & TCEQ-13384 & \em{\textbf{268.2 (0.33)}} & 268.2 (0.33) & 268.2 (0.33)\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{268.2 (0.33)}} & %%%
+\DIFdelFL{268.2 (0.33}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{289.5 (0.37}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{268.2 (0.33}\DIFdelendFL \DIFaddbeginFL \em{\textbf{289.5 (0.38)}} & \DIFaddFL{290.3 (0.25}\DIFaddendFL )\\
 
-\multirow{-3}{*}{\raggedright\arraybackslash Chlorophyll-\textit{a}} & TCEQ-13563 & 289.5 (0.08) & \em{\textbf{286.1 (0.46)}} & 286.1 (0.46)\\
+\multirow{-3}{*}{\raggedright\arraybackslash Chlorophyll-\textit{a}} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{289.5 (0.08}\DIFdelendFL \DIFaddbeginFL \em{\textbf{268.2 (0.03)}} & \DIFaddFL{262.7 (0.48}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{286.1 (0.46)}} & %%%
+\DIFdelFL{286.1 (0.46}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{262.7 (0.48}\DIFaddendFL )\\
 \cmidrule{1-5}
- & TCEQ-13383 & \em{\textbf{42.2 (0.66)}} & 43.5 (0.34) & -\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{42.2 (0.66)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{42.2 (0.5)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{43.5 (0.34}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{42.2 (0.5}\DIFaddendFL ) & -\\
 
- & TCEQ-13384 & \em{\textbf{34.3 (0.57)}} & 34.8 (0.43) & -\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{34.3 (0.57)}} & %%%
+\DIFdelFL{34.8 (0.43}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{31.1 (0.5}\DIFaddendFL ) & \DIFaddbeginFL \em{\textbf{31.1 (0.5)}} & \DIFaddendFL -\\
 
-\multirow{-3}{*}{\raggedright\arraybackslash TKN} & TCEQ-13563 & 31.1 (0.22) & \em{\textbf{28.7 (0.78)}} & -\\
+\multirow{-3}{*}{\raggedright\arraybackslash TKN} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{31.1 (0.22}\DIFdelendFL \DIFaddbeginFL \em{\textbf{34.3 (0.5)}} & \DIFaddFL{34.3 (0.5}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{28.7 (0.78)}} & %%%
+\DIFdelendFL -\\
 \cmidrule{1-5}
- & TCEQ-13383 & \em{\textbf{146.4 (0.34)}} & 146.4 (0.34) & 146.5 (0.32)\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{146.4 (0.34)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{146.4 (0.37)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{146.4 (0.34}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{146.8 (0.29}\DIFaddendFL ) & 146.5 (\DIFdelbeginFL \DIFdelFL{0.32}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.34}\DIFaddendFL )\\
 
- & TCEQ-13384 & \em{\textbf{135.9 (0.47)}} & 137 (0.27) & 137 (0.27)\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{135.9 (0.47)}} & %%%
+\DIFdelFL{137 (0.27}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{138.3 (0.17}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{137 (0.27}\DIFdelendFL \DIFaddbeginFL \em{\textbf{136.4 (0.42)}} & \DIFaddFL{136.4 (0.42}\DIFaddendFL )\\
 
-\multirow{-3}{*}{\raggedright\arraybackslash DO} & TCEQ-13563 & 138.3 (0.25) & \em{\textbf{137.2 (0.43)}} & 137.8 (0.32)\\
+\multirow{-3}{*}{\raggedright\arraybackslash DO} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{138.3 (0.25}\DIFdelendFL \DIFaddbeginFL \em{\textbf{135.9 (0.04)}} & \DIFaddFL{130.6 (0.48}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{137.2 (0.43)}} & %%%
+\DIFdelFL{137.8 (0.32}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{130.6 (0.48}\DIFaddendFL )\\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.6)  7 AUG 2023 12:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.6)  8 AUG 2023 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -890,30 +890,30 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 158.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 162.
  (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (./diff.aux)
 \openout1 = `diff.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
  (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -965,26 +965,26 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 158.
-Package microtype Info: Applying patch `item' on input line 158.
-Package microtype Info: Applying patch `toc' on input line 158.
-Package microtype Info: Applying patch `eqnum' on input line 158.
-Package microtype Info: Applying patch `footnote' on input line 158.
-Package microtype Info: Applying patch `verbatim' on input line 158.
+LaTeX Info: Redefining \microtypecontext on input line 162.
+Package microtype Info: Applying patch `item' on input line 162.
+Package microtype Info: Applying patch `toc' on input line 162.
+Package microtype Info: Applying patch `eqnum' on input line 162.
+Package microtype Info: Applying patch `footnote' on input line 162.
+Package microtype Info: Applying patch `verbatim' on input line 162.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 158.
+LaTeX Info: Redefining \showhyphens on input line 162.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
  (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 158.
+Package hyperref Info: Link coloring OFF on input line 162.
  (./diff.out) (./diff.out)
 \@outlinefile=\write4
 \openout4 = `diff.out'.
@@ -1019,10 +1019,10 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'diff.bbl' found.
  (./diff.bbl)
-Package biblatex Info: Reference section=0 on input line 158.
-Package biblatex Info: Reference segment=0 on input line 158.
+Package biblatex Info: Reference section=0 on input line 162.
+Package biblatex Info: Reference segment=0 on input line 162.
 \c@lstlisting=\count484
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 164.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 168.
  (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
@@ -1030,7 +1030,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 164.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 168.
  (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
@@ -1038,37 +1038,37 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 164.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 168.
  (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 164.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 168.
  (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 164.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 168.
  (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
  (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 ) (c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 164.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 168.
  [1
 
 {c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}]
@@ -1077,75 +1077,87 @@ Underfull \vbox (badness 1005) has occurred while \output is active []
  [2]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 293.
+(hyperref)                be the same. Added a new anchor on input line 297.
 
 <Schramm-2023-08-PeerJ_files/figure-latex/fig1.png, id=164, 375.804pt x 487.8225pt>
 File: Schramm-2023-08-PeerJ_files/figure-latex/fig1.png Graphic file (type png)
 <use Schramm-2023-08-PeerJ_files/figure-latex/fig1.png>
-Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig1.png  used on input line 325.
+Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig1.png  used on input line 329.
 (pdftex.def)             Requested size: 375.80377pt x 487.84363pt.
 
-Overfull \hbox (18.18286pt too wide) in paragraph at lines 373--399
+Overfull \hbox (18.18286pt too wide) in paragraph at lines 377--403
  [] 
  []
 
 
-Overfull \hbox (25.18636pt too wide) in paragraph at lines 408--452
+Overfull \hbox (13.42566pt too wide) in paragraph at lines 412--459
  [] 
  []
 
-[3] [4 <./Schramm-2023-08-PeerJ_files/figure-latex/fig1.png>] [5] [6] [7]
+[3] [4 <./Schramm-2023-08-PeerJ_files/figure-latex/fig1.png>] [5] [6]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 665.
+(hyperref)                be the same. Added a new anchor on input line 692.
 
-<Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf, id=259, 494.84875pt x 321.2pt>
+[7]
+<Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf, id=270, 494.84875pt x 321.2pt>
 File: Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf Graphic file (type pdf)
 <use Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf>
-Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf  used on input line 690.
+Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf  used on input line 717.
 (pdftex.def)             Requested size: 415.12572pt x 269.45328pt.
-[8 <./Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf>]
-<Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf, id=296, 494.84875pt x 346.29375pt>
+<Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf, id=274, 494.84875pt x 346.29375pt>
 File: Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf Graphic file (type pdf)
 <use Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf>
-Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf  used on input line 711.
+Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf  used on input line 738.
 (pdftex.def)             Requested size: 415.12572pt x 290.5043pt.
-<Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf, id=298, 237.88875pt x 476.78125pt>
+<Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf, id=276, 237.88875pt x 476.78125pt>
 File: Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf Graphic file (type pdf)
 <use Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf>
-Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf  used on input line 735.
+Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf  used on input line 762.
 (pdftex.def)             Requested size: 207.56285pt x 416.01854pt.
-<Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf, id=301, 494.84875pt x 346.29375pt>
+<Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf, id=279, 494.84875pt x 346.29375pt>
 File: Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf Graphic file (type pdf)
 <use Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf>
-Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf  used on input line 764.
+Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf  used on input line 791.
 (pdftex.def)             Requested size: 415.12572pt x 290.5043pt.
- [9 <./Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf>] [10 <./Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf>] [11 <./Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf>]
-<Schramm-2023-08-PeerJ_files/figure-latex/fig6.pdf, id=378, 494.84875pt x 346.29375pt>
+ [8] [9 <./Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf> <./Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] [10 <./Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf>] [11 <./Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf>]
+Overfull \hbox (109.30269pt too wide) in paragraph at lines 820--870
+ [][] 
+ []
+
+<Schramm-2023-08-PeerJ_files/figure-latex/fig6.pdf, id=385, 494.84875pt x 346.29375pt>
 File: Schramm-2023-08-PeerJ_files/figure-latex/fig6.pdf Graphic file (type pdf)
 <use Schramm-2023-08-PeerJ_files/figure-latex/fig6.pdf>
-Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig6.pdf  used on input line 844.
+Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig6.pdf  used on input line 886.
 (pdftex.def)             Requested size: 415.12572pt x 290.5043pt.
-<Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf, id=381, 494.84875pt x 217.81375pt>
+<Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf, id=388, 494.84875pt x 217.81375pt>
 File: Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf Graphic file (type pdf)
 <use Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf>
-Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf  used on input line 866.
+Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf  used on input line 908.
 (pdftex.def)             Requested size: 415.12572pt x 182.72299pt.
 
-
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 880.
+(hyperref)                be the same. Added a new anchor on input line 922.
 
 [12] [13 <./Schramm-2023-08-PeerJ_files/figure-latex/fig6.pdf> <./Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<Schramm-2023-08-PeerJ_files/figure-latex/fig8.pdf, id=447, 317.185pt x 244.915pt>
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+ [14]
+<Schramm-2023-08-PeerJ_files/figure-latex/fig8.pdf, id=467, 317.185pt x 244.915pt>
 File: Schramm-2023-08-PeerJ_files/figure-latex/fig8.pdf Graphic file (type pdf)
 <use Schramm-2023-08-PeerJ_files/figure-latex/fig8.pdf>
-Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig8.pdf  used on input line 1025.
+Package pdftex.def Info: Schramm-2023-08-PeerJ_files/figure-latex/fig8.pdf  used on input line 1067.
 (pdftex.def)             Requested size: 290.58673pt x 224.39398pt.
- [14] [15 <./Schramm-2023-08-PeerJ_files/figure-latex/fig8.pdf>] [16] [17] [18] [19] [20] [21] [22] 
+ [15 <./Schramm-2023-08-PeerJ_files/figure-latex/fig8.pdf>]
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+ [16] [17] [18] [19] [20] [21] [22] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./diff.aux)
  ***********
@@ -1159,18 +1171,18 @@ Package logreq Info: Writing requests to 'diff.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29361 strings out of 477128
- 530008 string characters out of 5809661
- 2013248 words of memory out of 5000000
- 49446 multiletter control sequences out of 15000+600000
+ 29366 strings out of 477128
+ 530066 string characters out of 5809661
+ 2006248 words of memory out of 5000000
+ 49451 multiletter control sequences out of 15000+600000
  625582 words of font info for 383 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,17n,107p,1001b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy6.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on diff.pdf (22 pages, 3876933 bytes).
+Output written on diff.pdf (22 pages, 3885966 bytes).
 PDF statistics:
- 763 PDF objects out of 1000 (max. 8388607)
- 665 compressed objects within 7 object streams
+ 767 PDF objects out of 1000 (max. 8388607)
+ 669 compressed objects within 7 object streams
  131 named destinations out of 1000 (max. 500000)
  93337 words of extra memory for PDF output out of 106986 (max. 10000000)
 
