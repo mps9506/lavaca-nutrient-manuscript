@@ -302,13 +302,14 @@ December 2020 were downloaded (Table~\ref{tab:table1}). Less than
 the freshwater sites and deemed insufficient to develop load estimation
 models
 \autocite{horowitzEvaluationSedimentRating2003,snelderEstimationCatchmentNutrient2017}.
-The three estuary sites included an upper Lavaca Bay site near the
-outlet of the Lavaca River system (TCEQ-13563), a mid-Lavaca Bay site
-(TCEQ-13383), and the lower Lavaca Bay site near the mouth of the Bay
-(TCEQ-13384). For estuary locations, we obtained data for TP,
-Nitrite+Nitrate (NO\textsubscript{\emph{X}}), TKN, chlorophyll-\emph{a},
-and DO concentrations from January 2005 through December 2020
-(Table~\ref{tab:table2}).
+The three estuary sites included an upper-bay site near the outlet of
+the Lavaca River system (TCEQ-13563), a mid-bay site (TCEQ-13383), and
+the lower-bay site near the mouth of the Bay (TCEQ-13384). For estuary
+locations, we obtained data for TP, Nitrite+Nitrate
+(NO\textsubscript{\emph{X}}), TKN, chlorophyll-\emph{a}, and DO
+concentrations from January 2005 through December 2020
+(Table~\ref{tab:table2}). All water quality data was collected
+approximately quarterly.
 
 \begin{table}
 
@@ -348,6 +349,16 @@ Station ID and Watershed & Parameter & Mean & SD & N & Method & AWRL\textsupersc
 \toprule
 Station ID & Parameter & Mean & SD & N & Method & AWRL\textsuperscript{a} & Criteria\textsuperscript{b}\\
 \midrule
+ & TP (mg/L) & 0.13 & 0.06 & 50 & EPA 365.1 & 0.06 & 0.21\\
+
+ & NO\textsubscript{x} (mg/L) & 0.09 & 0.13 & 53 & EPA 353.2 & 0.05 & \\
+
+ & TKN (mg/L) & 0.94 & 0.37 & 49 & EPA 351.2 & 0.20 & \\
+
+ & Chlorophyll-\textit{a} (ug/L) & 9.67 & 5.33 & 49 & EPA 445.0 & 3.00 & 11.60\\
+
+\multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13563, Upper-Bay} & DO (mg/L) & 7.91 & 1.34 & 56 & ASTM D888-09(C) and TCEQ SOP V1 &  & 5.00\\
+\cmidrule{1-8}
  & TP (mg/L) & 0.11 & 0.05 & 47 & EPA 365.1 & 0.06 & 0.21\\
 
  & NO\textsubscript{x} (mg/L) & 0.07 & 0.15 & 51 & EPA 353.2 & 0.05 & \\
@@ -356,7 +367,7 @@ Station ID & Parameter & Mean & SD & N & Method & AWRL\textsuperscript{a} & Crit
 
  & Chlorophyll-\textit{a} (ug/L) & 9.43 & 5.31 & 47 & EPA 445.0 & 3.00 & 11.60\\
 
-\multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13383, Upper-Bay} & DO (mg/L) & 7.22 & 1.35 & 55 & ASTM D888-09(C) and TCEQ SOP V1 &  & 5.00\\
+\multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13383, Mid-Bay} & DO (mg/L) & 7.22 & 1.35 & 55 & ASTM D888-09(C) and TCEQ SOP V1 &  & 5.00\\
 \cmidrule{1-8}
  & TP (mg/L) & 0.08 & 0.03 & 51 & EPA 365.1 & 0.06 & 0.21\\
 
@@ -367,16 +378,6 @@ Station ID & Parameter & Mean & SD & N & Method & AWRL\textsuperscript{a} & Crit
  & Chlorophyll-\textit{a} (ug/L) & 8.22 & 6.44 & 46 & EPA 445.0 & 3.00 & 11.60\\
 
 \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13384, Lower-Bay} & DO (mg/L) & 7.51 & 1.32 & 54 & ASTM D888-09(C) and TCEQ SOP V1 &  & 5.00\\
-\cmidrule{1-8}
- & TP (mg/L) & 0.13 & 0.06 & 50 & EPA 365.1 & 0.06 & 0.21\\
-
- & NO\textsubscript{x} (mg/L) & 0.09 & 0.13 & 53 & EPA 353.2 & 0.05 & \\
-
- & TKN (mg/L) & 0.94 & 0.37 & 49 & EPA 351.2 & 0.20 & \\
-
- & Chlorophyll-\textit{a} (ug/L) & 9.67 & 5.33 & 49 & EPA 445.0 & 3.00 & 11.60\\
-
-\multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13563, Mid-Bay} & DO (mg/L) & 7.91 & 1.34 & 56 & ASTM D888-09(C) and TCEQ SOP V1 &  & 5.00\\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}
@@ -422,23 +423,29 @@ numeric day of year (1-366), and \emph{Q} is the mean daily streamflow.
 Moving average (\emph{ma}) is an exponentially smoothed moving average
 that attempts to incorporate the influence of prior streamflow events on
 concentration at the current time period
-\autocite{wangLoadEstimationUncertainties2011,kuhnertQuantifyingTotalSuspended2012,zhang_improving_2017},
+\autocite{wangLoadEstimationUncertainties2011,kuhnertQuantifyingTotalSuspended2012,wangSedimentConcentrationPrediction2013a,zhang_improving_2017},
 using Eq. \ref{eq2}:
 
 \begin{equation}
-ma(t) = \frac{\sum^{J}_{j=1}{d^{t-t_j}Q_{t_{j}}}}{\sum^{J}_{j=1}d^{t-t_j}}
+ma(d) = \frac{Q_j + dQ_{j-1} + \mathellipsis + d^{j-1}Q_1}{1+d+...+d^{j-1}}
 \label{eq2}
 \end{equation}
 
-where \emph{t} is the day of estimation, \emph{d} is the discount factor
-(set to 0.95), \emph{J} is the total number of daily discharge
-observations, \(t-t_j\) is the lag time between the current day and some
-historical day of observation (\(t_j\)). Here, as \emph{d} approaches
-zero, the time series becomes the daily observed values and as \emph{d}
-gets closer to one, the time series becomes the mean flow.
+where \emph{ma} at discount factor \emph{d} is calculated using flows
+\((Q_1,Q_2,...,Q_j)\) for days 1 through \emph{j}. Here, as \emph{d}
+approaches zero, the time series becomes the daily observed values and
+as \emph{d} gets closer to one, the time series becomes the mean flow.
+Although \textcite{kuhnertQuantifyingTotalSuspended2012} and
+\textcite{wangSedimentConcentrationPrediction2013a} suggest using
+multiple covariates with \emph{d} set at different values from 0.75 to
+0.99, \textcite{robson_prediction_2015-1} and
+\textcite{zhang_improving_2017} found substantial improvements in
+statistical nutrient models with \emph{d} equal to 0.95 which was
+adopted in this study.
 
-Flow anomaly (\emph{fa}) is a unitless term that represents how wet or
-dry the current time period is from a previous time period
+Flow anomaly (\emph{fa}) is a dimensionless term that represents how wet
+or dry (or how anomalous) the current time period is from previous time
+periods
 \autocite{vecchiaTrendsConcentrationsUse2009,zhang_improving_2017}.
 Long-term flow anomaly (\emph{ltfa}) is the streamflow over the previous
 year relative to the entire period
@@ -536,9 +543,9 @@ around 20 days to a few months. We incorporate this lag effect by using
 cumulative totals for \(f_3(Q)\) and \(f_4(Load)\). \(f_3(Q)\) is the
 cumulative of the previous 20 days of inflow (combined measurements from
 Lavaca River and Navidad River) and \(f_4(Load)\) is the cumulative of
-the previous 20 days total NO\textsubscript{3} or TP watershed load. The
-set of models specified for each water quality response are in
-Table~\ref{tab:table3}.
+the previous 20 days total NO\textsubscript{3} or TP watershed load,
+both smoothed with thin plate regression splines. The set of models
+specified for each water quality response are in Table~\ref{tab:table3}.
 
 \begin{table}
 
@@ -631,7 +638,7 @@ NO\textsubscript{3}.
 
 }
 
-\caption{Density plots of goodness-of-fit metrics (NSE, \textit{r}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calculated from the empirical cumulative distribution of the goodness-of-fit metrics.}\label{fig:fig2}
+\caption{Density plots of goodness-of-fit metrics (NSE, \textit{r}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calculated from the empirical cumulative distribution of the goodness-of-fit metrics. Values closer to 1 for NSE and r and values closer to 0 for PBIAS represent more ideal goodness-of-fit assessments.}\label{fig:fig2}
 \end{figure}
 
 Annual NO\textsubscript{3} and TP loads show considerable variation,
@@ -684,8 +691,8 @@ any Lavaca Bay site (Fig.~\ref{fig:fig5}). The upper-bay site,
 TCEQ-13563, had evidence of a long-term linear increase in
 NO\textsubscript{\emph{X}} while chlorophyll-\emph{a} decreased from
 2005 through 2014 (Fig.~\ref{fig:fig5}). NO\textsubscript{\emph{X}}
-concentration at the mid-bay site, TCEQ-13383, displayed an unusual
-periodic pattern that is indicative of a strong influence from inflow or
+concentration at the mid-bay site, TCEQ-13383, displayed a periodic
+pattern that is indicative of a strong influence from inflow or
 precipitation. The temporal GAMs did not provide evidence of long-term
 trends in any of the water quality constituents at the lower-bay
 TCEQ-13384 site.
@@ -696,7 +703,7 @@ TCEQ-13384 site.
 
 }
 
-\caption{Fitted splines (shaded regions indicate 90\% confidence intervals) from the temporal estuary GAM display the marginal smoothed effect of date on TP (A), NO\textit{\textsubscript{X}} (B), chlorophyll-\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.}\label{fig:fig5}
+\caption{Fitted splines (shaded regions indicate 90\% confidence intervals) from the temporal estuary GAM (Table \ref{tab:table3}) display the marginal smoothed effect of date on TP (A), NO\textit{\textsubscript{X}} (B), chlorophyll-\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.}\label{fig:fig5}
 \end{figure}
 
 Freshwater inflow provided additional explanation for changes in TP and
@@ -724,35 +731,35 @@ TCEQ-13384 site.
 \toprule
 Parameter & Site & Temporal & Inflow & Inflow + Load\\
 \midrule
- & Upper-Bay & -152.1 (0.02) & -155.1 (0.07) & \em{\textbf{-160.2 (0.91)}}\\
+ & Upper-Bay & -145.3 (0.01) & -150 (0.12) & \em{\textbf{-154 (0.87)}}\\
 
- & Mid-Bay & -145.3 (0.01) & -150 (0.12) & \em{\textbf{-154 (0.87)}}\\
+ & Mid-Bay & -152.1 (0.02) & -155.1 (0.07) & \em{\textbf{-160.2 (0.91)}}\\
 
-\multirow{-3}{*}{\raggedright\arraybackslash TP} & Lower-Bay & -194.4 (0.39) & \em{\textbf{-194 (0.31)}} & -194 (0.31)\\
+\multirow{-3}{*}{\raggedright\arraybackslash TP} & Lower-Bay & \em{\textbf{-194.4 (0.39)}} & -194 (0.31) & -194 (0.31)\\
 \cmidrule{1-5}
- & Upper-Bay & -218.9 (0) & \em{\textbf{-241.7 (0.5)}} & -241.7 (0.5)\\
+ & Upper-Bay & -175.1 (0.01) & \em{\textbf{-183.8 (0.5)}} & -183.8 (0.5)\\
 
- & Mid-Bay & -175.1 (0.01) & \em{\textbf{-183.8 (0.5)}} & -183.8 (0.5)\\
+ & Mid-Bay & -218.9 (0) & \em{\textbf{-241.7 (0.5)}} & -241.7 (0.5)\\
 
-\multirow{-3}{*}{\raggedright\arraybackslash NO\textsubscript{x}} & Lower-Bay & -263.4 (0) & -298.1 (0.5) & \em{\textbf{-298.1 (0.5)}}\\
+\multirow{-3}{*}{\raggedright\arraybackslash NO\textsubscript{x}} & Lower-Bay & -263.4 (0) & \em{\textbf{-298.1 (0.5)}} & -298.1 (0.5)\\
 \cmidrule{1-5}
- & Upper-Bay & 279.7 (0.24) & \em{\textbf{279.6 (0.26)}} & 278.2 (0.5)\\
+ & Upper-Bay & 289.5 (0.37) & \em{\textbf{289.5 (0.38)}} & 290.3 (0.25)\\
 
- & Mid-Bay & 289.5 (0.37) & \em{\textbf{289.5 (0.38)}} & 290.3 (0.25)\\
+ & Mid-Bay & 279.7 (0.24) & 279.6 (0.26) & \em{\textbf{278.2 (0.5)}}\\
 
-\multirow{-3}{*}{\raggedright\arraybackslash Chlorophyll-\textit{a}} & Lower-Bay & \em{\textbf{268.2 (0.03)}} & 262.7 (0.48) & 262.7 (0.48)\\
+\multirow{-3}{*}{\raggedright\arraybackslash Chlorophyll-\textit{a}} & Lower-Bay & 268.2 (0.03) & \em{\textbf{262.7 (0.48)}} & 262.7 (0.48)\\
 \cmidrule{1-5}
- & Upper-Bay & \em{\textbf{42.2 (0.5)}} & 42.2 (0.5) & -\\
+ & Upper-Bay & \em{\textbf{31.1 (0.5)}} & 31.1 (0.5) & -\\
 
- & Mid-Bay & 31.1 (0.5) & \em{\textbf{31.1 (0.5)}} & -\\
+ & Mid-Bay & \em{\textbf{42.2 (0.5)}} & 42.2 (0.5) & -\\
 
 \multirow{-3}{*}{\raggedright\arraybackslash TKN} & Lower-Bay & \em{\textbf{34.3 (0.5)}} & 34.3 (0.5) & -\\
 \cmidrule{1-5}
- & Upper-Bay & \em{\textbf{146.4 (0.37)}} & 146.8 (0.29) & 146.5 (0.34)\\
+ & Upper-Bay & 138.3 (0.17) & \em{\textbf{136.4 (0.42)}} & 136.4 (0.42)\\
 
- & Mid-Bay & 138.3 (0.17) & \em{\textbf{136.4 (0.42)}} & 136.4 (0.42)\\
+ & Mid-Bay & \em{\textbf{146.4 (0.37)}} & 146.8 (0.29) & 146.5 (0.34)\\
 
-\multirow{-3}{*}{\raggedright\arraybackslash DO} & Lower-Bay & \em{\textbf{135.9 (0.04)}} & 130.6 (0.48) & 130.6 (0.48)\\
+\multirow{-3}{*}{\raggedright\arraybackslash DO} & Lower-Bay & 135.9 (0.04) & \em{\textbf{130.6 (0.48)}} & 130.6 (0.48)\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -817,12 +824,12 @@ land use alone. Freshwater discharges in the Navidad River are regulated
 by the Palmetto Bend Dam forming Lake Texana at the lower extent of the
 river. Lentic nitrogen uptake and cycling may have regulating effects
 that mask changes in upstream nitrogen loadings. Additional nutrient
-data collection in the contributing tributaries of Lake Texana is needed
-to fully assess the role of Lake Texana in regulating nutrient delivery
-to the Lavaca Bay system. However, these results suggest that there have
-been no changes in the NO\textsubscript{3} or TP loading from the
-Navidad River system at the Lake Texana discharge point when accounting
-for variations in year to year discharge.
+data collection in the tributaries of Lake Texana is needed to fully
+assess the role of Lake Texana in regulating nutrient delivery to the
+Lavaca Bay system. However, these results suggest that there have been
+no changes in the NO\textsubscript{3} or TP loading from the Navidad
+River system at the Lake Texana discharge point when accounting for
+variations in year to year discharge.
 
 The evidence of decreased Lavaca River NO\textsubscript{3} loading,
 although weak, is a potential positive sign for water quality managers
@@ -944,7 +951,7 @@ Inflow had a non-linear relationship with TKN at the two upstream sites,
 with TKN increasing as freshwater inflow transitioned from low to
 moderate levels. At higher freshwater inflows, the effect was
 attenuated, possibly indicating a flushing effect at higher freshwater
-inflow. No relationship between TKN and freshwater inflow were observed
+inflow. No relationship between TKN and freshwater inflow was observed
 at TCEQ-13384 located in the lower reach of Lavaca Bay. The results
 suggest that tidal flushing might dilute TKN and act as a control on the
 effects of freshwater inflow in the lower reaches of Lavaca Bay. The
@@ -1035,7 +1042,7 @@ nutrient loadings from these undersampled areas is unknown.
 The GAM approach proved useful for both estimating loads and assessing
 downstream responses in water quality. Although we did not compare other
 models, it is likely similar estimates of loadings would be obtained by
-methods suggest as LOADEST, WRTDS, or SPARROW given the functionally
+methods such as LOADEST, WRTDS, or SPARROW given the functionally
 similar dependent variable structures. The underlying weakness in the
 estimates of loading in the current study is the reliance on ambient
 water quality data used for statewide water quality assessments.
@@ -1074,7 +1081,7 @@ long-term monitoring programs in and around the Chesapeake Bay, San
 Francisco Bay, and along the Mississippi River have proven extremely
 effective at informing management actions and tracking progress towards
 long-term pollutant reduction goals. Similar coordinated efforts across
-Texas coastal watersheds would provide useful for resource management
+Texas coastal watersheds would prove useful for resource management
 efforts intended to protect the biological and water quality integrity
 of Texas's estuaries.
 

@@ -48,7 +48,7 @@ I have incorporated nearly all of the requested changes from the reviewers.
 
 *Line 371 “has” repeated twice*
 
-**Response:** Thank you, this is fixed.
+**Response:** This is fixed.
 
 *The author adequately answered the research questions and fulfilled all the stated objectives. The results from the GAM model provided estimates of watershed nutrient loadings and an outlook of nutrient loading's influence on water quality.*
 *The whole of the paper was well structured, easy to read, and contributes sufficiently to the existing body of knowledge on estuary anthropogenic pollution and water quality monitoring.*
@@ -104,7 +104,7 @@ I've removed this and incorporated your statement below. Thank you very much for
 
 *My second concern about the models in eqns. 5-7 also relates to the flow and load variables. It’s stated on line 199-201 that flow-adjusted load values were used, which makes sense, but I don’t understand how this additional analysis differs from the flow-normalization in the previous section (lines 176 – 179). Why not just use the flow-adjusted loads from the previous models? Once this is clarified (or corrected), it might make more sense to change eqn 6 to include smoothers for ddate, yday, and flow-normalized load, and eqn 7 to included smoothers for ddate, yday, and load. These wouldn’t be “nested” models for AIC comparison, but would perhaps provide a better approach to evaluate loads related to natural or non-natural variation. I don’t see the value in including flow as a separate variable since it’s basically a surrogate for total load.*
 
-**Response:** I am combining my response to both these comments since they are related. These are valid concerns and related to a comment made by Reviewer 3 (probably indicative that I better make a change here). 
+**Response:** I am combining my response to both these comments since they are related. These are valid concerns and related to a comment made by Reviewer 3 (indicative that I better make a change here). 
 
 (1) I agree that it makes more sense to utilize the flow normalized loading estimates generated in the previous section. The methodology and results have been adjusted to correct this. 
 
@@ -118,6 +118,8 @@ knitr::include_graphics("TP_plots.png")
 
 
 *I also strongly encourage the author to consider replacing “semiparametric models” with “Generalized Additive Models” in the title. It’s a more accurate description of what’s included in the paper.*
+
+**Response:** Title has been updated.
 
 *Line 18: Maybe replace “non-natural variation” with “anthropogenic sources”.*
 
@@ -133,6 +135,8 @@ knitr::include_graphics("TP_plots.png")
 **Response:** Suggested change made.
 
 *Tables 1 and 2: It would be useful to indicate the approximate sampling interval for the water quality parameters. It looks like quarterly. *
+
+**Response:** I'm out of space in the tables, but include this in the text **(addline number)**.
 
 *Line 102: Some more information about the Bay would be helpful. What is the average depth? Any information on residence time? Is the water column mixed, stratified, or seasonally-stratified?*
 
@@ -152,29 +156,71 @@ knitr::include_graphics("TP_plots.png")
 
 *Eqn 2: I think some additional details are needed in the text below this equation. Why was d set at 0.95? Based on the text, this seems awfully close to 1 or the “mean flow”. Also, the equation includes a lag term, t – t_j, but the size of this lag is not stated, i.e., “some historical day of observation”. Was this set explicitly by the author, and if so, is there a justification? *
 
+**Response:** (1) I have updated the equation to (hopefully) be more clear about
+the calculation. For each day in the record, the full record of flows is utilized (an admittedly not efficient calculation, but not an issue for a period of record the size of this data set). (2) I set *d* to 0.95 based on results from Robson and Dourdet (2015) and Zhang and Ball (2017), which is now discussed in **lines ...**
+
 *Line 151: It’s not clear to me how fa is a unitless term. The equations show these as simple differences of average streamflow, so wouldn’t the units be in log-cfs? *
+
+**Response:** I worded this incorrectly. I should have phrased this "dimensionless." This is fixed in **lines ...**
 
 *Line 169: What percentage of the observations for each parameter were non-detects? I realize that setting the values as ½ the limit can introduce bias, but this may not be a big deal if there aren’t many non-detects. There does appear to be a GAM package that handles non-detects with Tobit models, but it is quite old (by software standards). It may be worth exploring. https://cran.r-project.org/web/packages/cenGAM/index.html*
 
+**Response:** 4% of TP samples were below detection limits and 20% of NO~3~ 
+samples fell below detection limits.
+Early in this project 
+I explored the use of the Tobit I family using the linked cenGAM package and 
+unfortunately found the models result in large overestimation of concentrations.
+I similarly explored the use of censored Gamma models in brms with similar 
+results. Bergbusch et al. (2021) report similar findings. Conversely, Hayes 
+et al. (2020) apply a censored GAM using brms without issue on microcystin 
+concentration in lakes. brms appears promising for fitting censored water 
+quality data, but I was frankly unable to fit reasonable models for this project
+which might be due to sample size or my misunderstanding of model application.
+
 *Line 236: This might be a personal preference, but “unusual periodic pattern” seems like regular periodicity and not a more random periodicity as one would expect with rain events. Consider rephrasing this text. *
 
+**Response:** Rephrased to simply "periodic pattern." 
+
 *Figure 2 caption: Consider adding a sentence like “Values closer to 1 for NSE and r and values closer to 0 for PBIAS represent more ideal goodness-of-fit assessments.”*
+
+**Response:** Incorporated the suggested sentence.
 
 *Figure 3 caption: Consider adding Lavaca and Navidad with the station name, as in the caption for figure 4. *
 
 *Figure 5 caption: Consider including a reference to Table 3, as it wasn’t immediately clear to me that these models didn’t include flow or load. *
 
+**Response:** Added a reference to Table 3.
+
 *Table 4: As for my previous comment, I’d replace the site names with “upper”, “mid”, and “lower” and arrange them accordingly. The current arrangement is “mid”, “lower”, and “upper”. Also, it looks like several of the statistical summaries are identical, e.g. the inflow and inflow+load model for TP at TCEQ-13384. Are these simply rounding issues? And if so, are these models really all that different in terms of explained variance? *
+
+**Respones:** I've replaced the site names and reordered the table based on location.
+You are correct, the statistical summaries for several models are identical indicating that the more complicated models are not explaining additional variance.
 
 *Line 272: The text “contributing tributaries” seems redundant. Maybe remove “contributing”. *
 
+**Response:** Removed "contributing."
+
 *Line 341: Replace “were” with “was”. *
+
+**Response:** Fixed.
 
 *Line 395: Replace “suggest” with “such as”.*
 
+**Response:** Fixed.
+
 *Line 420: Replace “provide” with “prove” or “be”.*
+
+**Response:** Fixed.
 
 
 ## References
 
+Hayes, Nicole M., Heather A. Haig, Gavin L. Simpson, and Peter R. Leavitt. 2020. “Effects of Lake Warming on the Seasonal Risk of Toxic Cyanobacteria Exposure.” Limnology and Oceanography Letters 5 (6): 393–402. https://doi.org/10.1002/lol2.10164.
+
+Robson, Barbara J., and Vincent Dourdet. 2015. “Prediction of Sediment, Particulate Nutrient and Dissolved Nutrient Concentrations in a Dry Tropical River to Provide Input to a Mechanistic Coastal Water Quality Model.” Environmental Modelling & Software 63 (January): 97–108. https://doi.org/10.1016/j.envsoft.2014.08.009.
+
 Walker, Lily M., Paul A. Montagna, Xinping Hu, and Michael S. Wetz. 2021. “Timescales and Magnitude of Water Quality Change in Three Texas Estuaries Induced by Passage of Hurricane Harvey.” Estuaries and Coasts 44 (4): 960–71. https://doi.org/10.1007/s12237-020-00846-6.
+
+Zhang, Qian, and William P. Ball. 2017. “Improving Riverine Constituent Concentration and Flux Estimation by Accounting for Antecedent Discharge Conditions.” Journal of Hydrology 547 (April): 387–402. https://doi.org/10.1016/j.jhydrol.2016.12.052.
+
+

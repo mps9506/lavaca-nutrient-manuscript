@@ -249,12 +249,13 @@ downloaded (Table\ \ref{tab:table1}). Less than 5-years of total
 nitrogen and TKN concentration data were available at the freshwater sites and
 deemed insufficient to develop load estimation models 
 [@horowitzEvaluationSedimentRating2003; @snelderEstimationCatchmentNutrient2017]. 
-The three estuary sites included an upper Lavaca Bay site near the outlet of the
-Lavaca River system (TCEQ-13563), a mid-Lavaca Bay site (TCEQ-13383), and the 
-lower Lavaca Bay site near the mouth of the Bay (TCEQ-13384). 
+The three estuary sites included an upper-bay site near the outlet of the
+Lavaca River system (TCEQ-13563), a mid-bay site (TCEQ-13383), and the 
+lower-bay site near the mouth of the Bay (TCEQ-13384). 
 For estuary locations, we obtained data for TP, Nitrite+Nitrate (NO~*X*~), TKN, 
 chlorophyll-*a*, and DO concentrations from January 2005 through December 2020 
-(Table\ \ref{tab:table2}).
+(Table\ \ref{tab:table2}). All water quality data was collected approximately 
+quarterly.
 
 ```{r table1}
 
@@ -335,37 +336,26 @@ modelsummary::datasummary(`Station ID` * (`TP (mg/L)`+
                           rep("TCEQ-13563", 5))) |> 
   rename("Parameter" = " ") |> 
   mutate(`Station ID` = case_when(
-    `Station ID` == "TCEQ-13383" ~ "TCEQ-13383, Upper-Bay",
+    `Station ID` == "TCEQ-13383" ~ "TCEQ-13383, Mid-Bay",
     `Station ID` == "TCEQ-13384" ~ "TCEQ-13384, Lower-Bay",
-    `Station ID` == "TCEQ-13563" ~ "TCEQ-13563, Mid-Bay"),
+    `Station ID` == "TCEQ-13563" ~ "TCEQ-13563, Upper-Bay"),
          Method = rep(c("EPA 365.1", "EPA 353.2", "EPA 351.2", "EPA 445.0", "ASTM D888-09(C) and TCEQ SOP V1"),3),
          `AWRL\\textsuperscript{a}`= rep(c(0.06, 0.05, 0.2, 3, NA),3),
          `Criteria\\textsuperscript{b}` = rep(c(0.21,NA,NA,11.6,5),3)) |>
   mutate(`Station ID` = fct_relevel(`Station ID`,
-                                    "TCEQ-13383, Upper-Bay",
-                                    "TCEQ-13563, Mid-Bay",
+                                    "TCEQ-13563, Upper-Bay",
+                                    "TCEQ-13383, Mid-Bay",
                                     "TCEQ-13384, Lower-Bay")) |> 
+  arrange(`Station ID`) |> 
   kbl(format = "latex", booktabs = TRUE, escape = FALSE,
-      caption = "Summary of estuary water quality samples collected between January 1, 2005 and December 31, 2020.") |> 
+      caption = "Summary of estuary water quality samples collected between January 1, 2005 and December 31, 2020.") |>
   column_spec(1, width = "2cm") |>
-  column_spec(6, width = "2.5cm") |> 
-  collapse_rows(columns = 1, latex_hline = "major") |> 
+  column_spec(6, width = "2.5cm") |>
+  collapse_rows(columns = 1, latex_hline = "major") |>
   footnote(alphabet = c("Ambient water reporting limit (AWRL) represents the highest concentration that can be used as a reporting limit by a laboratory for inclusion in the state's monitoring data.",
                         "The state of Texas has not adopted numeric criteria for nutrients, these criteria represent screening levels used by the state for assessment purposes. NO\\\\textsubscript{x} and TKN parameters are not currently screened by the state and do not have an associated screening level."),
            threeparttable = T,
            escape = F)
-  
-
-
-# modelsummary::datasummary(`Station ID` * (`TP (mg/L)`+
-#                            `NO\\textsubscript{x} (mg/L)` +
-#                            `TKN (mg/L)` +
-#                            `Chlorophyll-\\textit{a} (ug/L)` +
-#                            `DO (mg/L)`) ~
-#                            Mean*Arguments(na.rm=TRUE) + SD*Arguments(na.rm=TRUE) + N,
-#                          data = df, output = "kableExtra", format = "latex",
-#                          escape = FALSE,
-#                          caption = "Summary of estuary water quality samples collected between January 1, 2005 and December 31, 2020.")
 ```
 
 ## Estimating Watershed Based Nutrient Loads {.unnumbered}
@@ -397,23 +387,28 @@ mean daily streamflow.
 Moving average (*ma*) is an exponentially smoothed moving average that attempts 
 to incorporate the influence of prior streamflow events on concentration at the 
 current time period [@wangLoadEstimationUncertainties2011;  
-@kuhnertQuantifyingTotalSuspended2012; @zhang_improving_2017], using Eq. \ref{eq2}:
+@kuhnertQuantifyingTotalSuspended2012; @wangSedimentConcentrationPrediction2013a; @zhang_improving_2017], using Eq. \ref{eq2}:
 
 \begin{equation}
-ma(t) = \frac{\sum^{J}_{j=1}{d^{t-t_j}Q_{t_{j}}}}{\sum^{J}_{j=1}d^{t-t_j}}
+ma(d) = \frac{Q_j + dQ_{j-1} + \mathellipsis + d^{j-1}Q_1}{1+d+...+d^{j-1}}
 \label{eq2}
 \end{equation}
 
-where *t* is the day of estimation, *d* is the discount factor (set to 0.95),
-*J* is the total number of daily discharge observations, $t-t_j$ is the lag time
-between the current day and some historical day of observation ($t_j$). Here,
-as *d* approaches zero, the time series becomes the daily observed values and 
-as *d* gets closer to one, the time series becomes the mean flow.
+where *ma* at discount factor *d* is calculated using flows $(Q_1,Q_2,...,Q_j)$
+for days 1 through *j*. Here, as *d* approaches zero, the time series 
+becomes the daily observed values and as *d* gets closer to one, the time series 
+becomes the mean flow. Although @kuhnertQuantifyingTotalSuspended2012 and 
+@wangSedimentConcentrationPrediction2013a suggest using multiple covariates with
+*d* set at different values from 0.75 to 0.99, @robson_prediction_2015-1 and 
+@zhang_improving_2017 found substantial improvements in statistical nutrient 
+models with *d*  equal to 0.95 which was adopted in this study.
 
-Flow anomaly (*fa*) is a unitless term that represents how wet or dry the 
-current time period is from a previous time period [@vecchiaTrendsConcentrationsUse2009; 
-@zhang_improving_2017]. Long-term flow anomaly (*ltfa*) is the streamflow over 
-the previous year relative to the entire period [Eq.\ \ref{eq3}, @zhang_improving_2017] and 
+Flow anomaly (*fa*) is a dimensionless term that represents how wet or dry 
+(or how anomalous) the current time period is from previous time periods
+[@vecchiaTrendsConcentrationsUse2009; @zhang_improving_2017]. 
+Long-term flow anomaly (*ltfa*) is the streamflow over 
+the previous year relative to the entire period 
+[Eq.\ \ref{eq3}, @zhang_improving_2017] and 
 and the short-term flow anomaly (*stfa*) calculated as the current day flow 
 compared to the preceding 1-month streamflow [Eq.\ \ref{eq4}, @zhang_improving_2017]:
 
@@ -534,14 +529,6 @@ kbl(df, format = "latex",
     escape = FALSE) |> 
   collapse_rows(columns = 1, latex_hline = "major")
 
-# flextable::flextable(df) |> 
-#   set_caption(caption = "Set of GAM models specified for each water quality parameter response.",
-#               autonum = run_autonum(seq_id = "tab", bkm = "table3")) |> 
-#   style(pr_t = fp_text_default(font.size = 9), part = "body") |>
-#   style(pr_t = fp_text_default(font.size = 9, bold = TRUE), part = "header") |>
-#   set_table_properties(layout = "autofit") |>
-#   padding(padding.top = 0, padding.bottom = 0, part = "body")
-
 ```
 
 Because streamflow and nutrient loads are tightly correlated, freshwater inflow
@@ -581,7 +568,7 @@ Lavaca River had a much larger variance in values compared to the Navidad River
 (Fig.\ \ref{fig:fig2}). TP GAMS had higher average NSE and *r* values and 
 lower variance in metric values compared to NO~3~.
 
-```{r fig2, warning=FALSE, message=FALSE, fig.width=6.85, fig.asp=0.65, fig.cap="Density plots of goodness-of-fit metrics (NSE, \\textit{r}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calculated from the empirical cumulative distribution of the goodness-of-fit metrics.", dev='cairo_pdf'}
+```{r fig2, warning=FALSE, message=FALSE, fig.width=6.85, fig.asp=0.65, fig.cap="Density plots of goodness-of-fit metrics (NSE, \\textit{r}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calculated from the empirical cumulative distribution of the goodness-of-fit metrics. Values closer to 1 for NSE and r and values closer to 0 for PBIAS represent more ideal goodness-of-fit assessments.", dev='cairo_pdf'}
 
 
 ## some functions to overide scales in facets via dewey dunnington
@@ -1322,27 +1309,27 @@ There was no evidence of long-term changes in TP or DO concentrations at any
 Lavaca Bay site (Fig.\ \ref{fig:fig5}). The upper-bay site, TCEQ-13563, had
 evidence of a long-term linear increase in NO~*X*~ while chlorophyll-*a*
 decreased from 2005 through 2014 (Fig.\ \ref{fig:fig5}). NO~*X*~ concentration
-at the mid-bay site, TCEQ-13383, displayed an unusual periodic pattern that is
+at the mid-bay site, TCEQ-13383, displayed a periodic pattern that is
 indicative of a strong influence from inflow or precipitation. The temporal GAMs
 did not provide evidence of long-term trends in any of the water quality constituents
 at the lower-bay TCEQ-13384 site.
 
 
-```{r fig5, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Fitted splines (shaded regions indicate 90\\% confidence intervals) from the temporal estuary GAM display the marginal smoothed effect of date on TP (A), NO\\textit{\\textsubscript{X}} (B), chlorophyll-\\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.", dev='cairo_pdf'}
+```{r fig5, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Fitted splines (shaded regions indicate 90\\% confidence intervals) from the temporal estuary GAM (Table \\ref{tab:table3}) display the marginal smoothed effect of date on TP (A), NO\\textit{\\textsubscript{X}} (B), chlorophyll-\\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.", dev='cairo_pdf'}
 
 draw_smoothed_years <- function(model1, model2, model3,
                                 ylab, subtitle) {
   
-  `TCEQ-13563` <- model1
-  `TCEQ-13383` <- model2
-  `TCEQ-13384` <- model3
+  `Upper-Bay` <- model1
+  `Mid-Bay` <- model2
+  `Lower-Bay` <- model3
   
   newdata <- data_slice(model1, ddate = evenly(2005:2020, n = 200))
 
   comp <- gratia::compare_smooths(
-    `TCEQ-13563`,
-    `TCEQ-13383`,
-    `TCEQ-13384`,
+    `Upper-Bay`,
+    `Mid-Bay`,
+    `Lower-Bay`,
     smooths = "s(ddate)",
     data = newdata,
     overall_uncertainty = FALSE) 
@@ -1355,7 +1342,8 @@ draw_smoothed_years <- function(model1, model2, model3,
            upper_ci = est - (crit * se),
            label = if_else(ddate == max(ddate),
                            as.character(model),
-                           NA_character_)) |> 
+                           NA_character_),
+           model = forcats::fct_relevel(model, "Upper-Bay", "Mid-Bay", "Lower-Bay")) |> 
     ggplot(aes(x = ddate, y = est, group = model)) +
     geom_line(aes(color = model, linetype = model), alpha = 0.75) +
     geom_ribbon(aes(ymin = lower_ci,
@@ -1364,9 +1352,12 @@ draw_smoothed_years <- function(model1, model2, model3,
                 alpha = 0.25) +
     scale_x_continuous(breaks = c(2005, 2010, 2015, 2020),
                        expand = expansion(mult = c(0.05,0.05))) +
-    scale_fill_manual(name = "", values = unname(palette.colors(palette = "Okabe-Ito")[2:4])) +
-    scale_color_manual(name = "", values = unname(palette.colors(palette = "Okabe-Ito")[2:4])) +
-    scale_linetype_manual(name = "", values = c("solid","twodash","dashed")) +
+    scale_fill_manual(name = "", 
+                      values = unname(palette.colors(palette = "Okabe-Ito")[2:4])) +
+    scale_color_manual(name = "", 
+                       values = unname(palette.colors(palette = "Okabe-Ito")[2:4])) +
+    scale_linetype_manual(name = "", 
+                          values = c("solid","twodash","dashed")) +
     labs(x = "Year", y = ylab,
          subtitle = subtitle) +
     theme_TWRI_print(base_family = "Arial") +
@@ -1469,8 +1460,8 @@ dplyr::bind_rows(
       Model == "Flow + Load" ~ "Inflow + Load",
       TRUE ~ as.character(Model)),
     Site = case_when(
-      Site == "TCEQ-13563" ~ "Mid-Bay",
-      Site == "TCEQ-13383" ~ "Upper-Bay",
+      Site == "TCEQ-13563" ~ "Upper-Bay",
+      Site == "TCEQ-13383" ~ "Mid-Bay",
       Site == "TCEQ-13384" ~ "Lower-Bay"
     )) |>
   mutate(Parameter = fct_relevel(Parameter, "TP", "NO\\textsubscript{x}", "Chlorophyll-\\textit{a}","TKN", "DO"),
@@ -1490,14 +1481,14 @@ dplyr::bind_rows(
       caption = "Estuary GAM AIC\\textsubscript{c} values and associated model probabilities (in parenthesis). Models with the highest probability for each site and water quality parameter combination are bolded and italicized for emphasis.",
       booktabs = TRUE, escape = FALSE) |>
   column_spec(column = 3,
-              bold = c(F,F,F,F,F,F,F,F,T,T,F,T,T,F,T),
-              italic = c(F,F,F,F,F,F,F,F,T,T,F,T,T,F,T)) |>
+              bold = c(F,F,T,F,F,F,F,F,F,T,T,T,F,T,F),
+              italic = c(F,F,T,F,F,F,F,F,F,T,T,T,F,T,F)) |>
   column_spec(column = 4,
-              bold = c(F,F,T,T,T,F,T,T,F,F,T,F,F,T,F),
-              italic = c(F,F,T,T,T,F,T,T,F,F,T,F,F,T,F)) |>
+              bold = c(F,F,F,T,T,T,T,F,T,F,F,F,T,F,T),
+              italic = c(F,F,F,T,T,T,T,F,T,F,F,F,T,F,T)) |>
   column_spec(column = 5,
-              bold = c(T,T,F,F,F,T,F,F,F,F,F,F,F,F,F),
-              italic = c(T,T,F,F,F,T,F,F,F,F,F,F,F,F,F)) |>
+              bold = c(T,T,F,F,F,F,F,T,F,F,F,F,F,F,F),
+              italic = c(T,T,F,F,F,F,F,T,F,F,F,F,F,F,F)) |>
   collapse_rows(columns = 1, latex_hline = "major")
 
   
@@ -1540,9 +1531,12 @@ draw_smoothed_surface <- function(comp,
                     fill = model),
                 alpha = 0.25) +
     scale_x_continuous(expand = expansion(mult = c(0.05,0.05))) +
-    scale_fill_manual(name = "", values = unname(palette.colors(palette = "Okabe-Ito")[2:4])) +
-    scale_color_manual(name = "", values = unname(palette.colors(palette = "Okabe-Ito")[2:4])) +
-    scale_linetype_manual(name = "", values = c("solid","twodash","dashed")) +
+    scale_fill_manual(name = "", 
+                      values = unname(palette.colors(palette = "Okabe-Ito")[2:4])) +
+    scale_color_manual(name = "", 
+                       values = unname(palette.colors(palette = "Okabe-Ito")[2:4])) +
+    scale_linetype_manual(name = "", 
+                          values = c("solid","twodash","dashed")) +
     labs(x = xlab, y = ylab,
          subtitle = subtitle) +
     theme_TWRI_print(base_family = "Arial") +
@@ -1702,7 +1696,7 @@ between the two systems from land use alone. Freshwater discharges in the
 Navidad River are regulated by the Palmetto Bend Dam forming
 Lake Texana at the lower extent of the river. Lentic nitrogen uptake and 
 cycling may have regulating effects that mask changes
-in upstream nitrogen loadings. Additional nutrient data collection in the contributing 
+in upstream nitrogen loadings. Additional nutrient data collection in the 
 tributaries of Lake Texana is needed to fully assess the role of Lake Texana
 in regulating nutrient delivery to the Lavaca Bay system. However, these results
 suggest that there have been no changes in the NO~3~ or TP loading from the
@@ -1842,7 +1836,7 @@ had a non-linear relationship with TKN at the two upstream sites, with TKN
 increasing as freshwater inflow transitioned from low to moderate levels. 
 At higher freshwater inflows, the effect was attenuated, possibly indicating a 
 flushing effect at higher freshwater inflow. No relationship between TKN and 
-freshwater inflow were observed at TCEQ-13384 located in the lower reach of 
+freshwater inflow was observed at TCEQ-13384 located in the lower reach of 
 Lavaca Bay. The results suggest that tidal flushing might dilute TKN and act as 
 a control on the effects of freshwater inflow in the lower reaches of Lavaca Bay.
 The results are also consistent with previous work that suggest processing of
@@ -1926,7 +1920,7 @@ loadings from these undersampled areas is unknown.
 
 The GAM approach proved useful for both estimating loads and assessing downstream
 responses in water quality. Although we did not compare other models, it is likely similar
-estimates of loadings would be obtained by methods suggest as LOADEST, WRTDS, or SPARROW
+estimates of loadings would be obtained by methods such as LOADEST, WRTDS, or SPARROW
 given the functionally similar dependent variable structures. The underlying weakness 
 in the estimates of loading in the current study is the
 reliance on ambient water quality data used for statewide water quality assessments.
@@ -1963,7 +1957,7 @@ needed to adequately design such a framework. Large long-term monitoring program
 in and around the Chesapeake Bay, San Francisco Bay, and along the Mississippi 
 River have proven extremely effective at informing management actions and 
 tracking progress towards long-term pollutant reduction 
-goals. Similar coordinated efforts across Texas coastal watersheds would provide
+goals. Similar coordinated efforts across Texas coastal watersheds would prove
 useful for resource management efforts intended to protect the biological and 
 water quality integrity of Texas's estuaries.
 
