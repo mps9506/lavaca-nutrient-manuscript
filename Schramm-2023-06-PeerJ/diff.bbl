@@ -872,6 +872,85 @@
       \verb 10.5194/bg-11-2477-2014
       \endverb
     \endentry
+    \entry{conleyControllingEutrophicationNitrogen2009}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=bc13700b788d5253b3a9573bb91e9c47}{%
+           family={Conley},
+           familyi={C\bibinitperiod},
+           given={Daniel\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0344288970001771eb28ebbcba8acfb7}{%
+           family={Paerl},
+           familyi={P\bibinitperiod},
+           given={Hans\bibnamedelima W.},
+           giveni={H\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4f1d1f0bbebf58d54a1e59e523c1322d}{%
+           family={Howarth},
+           familyi={H\bibinitperiod},
+           given={Robert\bibnamedelima W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=515069d61b6f5f0d0b4e0d38f060a17f}{%
+           family={Boesch},
+           familyi={B\bibinitperiod},
+           given={Donald\bibnamedelima F.},
+           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=777585a32468d07cc26a0037d8f2184b}{%
+           family={Seitzinger},
+           familyi={S\bibinitperiod},
+           given={Sybil\bibnamedelima P.},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=54d49ba8fe2d91fbaca7db12e07429fa}{%
+           family={Havens},
+           familyi={H\bibinitperiod},
+           given={Karl\bibnamedelima E.},
+           giveni={K\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2ab8b49647697bec4ace4fd74a223c99}{%
+           family={Lancelot},
+           familyi={L\bibinitperiod},
+           given={Christiane},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1b7f092ca46531c35059dc9a6ba6a63a}{%
+           family={Likens},
+           familyi={L\bibinitperiod},
+           given={Gene\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2016c0f1f5639c35d72158cba21c47b6}
+      \strng{fullhash}{00810023c5432b9a96db17c55b76ae35}
+      \strng{bibnamehash}{00810023c5432b9a96db17c55b76ae35}
+      \strng{authorbibnamehash}{00810023c5432b9a96db17c55b76ae35}
+      \strng{authornamehash}{2016c0f1f5639c35d72158cba21c47b6}
+      \strng{authorfullhash}{00810023c5432b9a96db17c55b76ae35}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{issn}{0036-8075, 1095-9203}
+      \field{journaltitle}{Science}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{number}{5917}
+      \field{shorttitle}{Controlling {{Eutrophication}}}
+      \field{title}{Controlling {{Eutrophication}}: {{Nitrogen}} and {{Phosphorus}}}
+      \field{volume}{323}
+      \field{year}{2009}
+      \field{pages}{1014\bibrangedash 1015}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1126/science.1167755
+      \endverb
+    \endentry
     \entry{deciccoDataRetrievalPackagesDiscovering2022}{misc}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=3f98837fa565f6bf60e805e8fcc29175}{%
@@ -1069,6 +1148,95 @@
       \field{year}{1996}
       \verb{doi}
       \verb 10.3133/wri964113
+      \endverb
+    \endentry
+    \entry{elserGlobalAnalysisNitrogen2007}{article}{}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=322b8dfaf423c4277d4642a837d2eb73}{%
+           family={Elser},
+           familyi={E\bibinitperiod},
+           given={James\bibnamedelima J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d8f9e41245b23fd1351b28aaf63d6983}{%
+           family={Bracken},
+           familyi={B\bibinitperiod},
+           given={Matthew\bibnamedelima E.S.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=153be9b20d8df36e4fdf0dc39da6c28c}{%
+           family={Cleland},
+           familyi={C\bibinitperiod},
+           given={Elsa\bibnamedelima E.},
+           giveni={E\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e1907e1b29e76fde336d33a67cf006ca}{%
+           family={Gruner},
+           familyi={G\bibinitperiod},
+           given={Daniel\bibnamedelima S.},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a764c03411fc762a9ab2b28d2881c52b}{%
+           family={Harpole},
+           familyi={H\bibinitperiod},
+           given={W.\bibnamedelimi Stanley},
+           giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=209ba9275707bb15037811ce283979ce}{%
+           family={Hillebrand},
+           familyi={H\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c27841d881482b5fd4b908f109eb0543}{%
+           family={Ngai},
+           familyi={N\bibinitperiod},
+           given={Jacqueline\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f3fbe4d444429ce1cc5b06839eea24d5}{%
+           family={Seabloom},
+           familyi={S\bibinitperiod},
+           given={Eric\bibnamedelima W.},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2852bd6098bf96f0ee12c2d0342fc093}{%
+           family={Shurin},
+           familyi={S\bibinitperiod},
+           given={Jonathan\bibnamedelima B.},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=82688ac293580e3180f057cfebae7a87}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Jennifer\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{36fd1bfa139243ccc5c01f7b8b2299d3}
+      \strng{fullhash}{2579cc9cba4e76a2079075d881555d56}
+      \strng{bibnamehash}{2579cc9cba4e76a2079075d881555d56}
+      \strng{authorbibnamehash}{2579cc9cba4e76a2079075d881555d56}
+      \strng{authornamehash}{36fd1bfa139243ccc5c01f7b8b2299d3}
+      \strng{authorfullhash}{2579cc9cba4e76a2079075d881555d56}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1461-023X, 1461-0248}
+      \field{journaltitle}{Ecology Letters}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{Global Analysis of Nitrogen and Phosphorus Limitation of Primary Producers in Freshwater, Marine and Terrestrial Ecosystems}
+      \field{volume}{10}
+      \field{year}{2007}
+      \field{pages}{1135\bibrangedash 1142}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1111/j.1461-0248.2007.01113.x
       \endverb
     \endentry
     \entry{gardnerNitrogenFixationDissimilatory2006}{article}{}
@@ -1488,6 +1656,88 @@
       \endverb
       \verb{url}
       \verb https://www.tceq.texas.gov/downloads/water-quality/tmdl/lavaca-river-above-tidal-rocky-creek-recreational-108/108-lavaca-river-addendum-tsd-2021-october-as-221.pdf
+      \endverb
+    \endentry
+    \entry{jessenMarineEutrophication2015}{inbook}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=e1b4bf85ae5e2794515b149b8dee23d5}{%
+           family={Jessen},
+           familyi={J\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6d0571df6e2b5f78edc09199dcf5488}{%
+           family={Bednarz},
+           familyi={B\bibinitperiod},
+           given={Vanessa\bibnamedelima N.},
+           giveni={V\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1077251f1d021c50264cbcf05231d4ad}{%
+           family={Rix},
+           familyi={R\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a12fc1dface1e8f46dafe93ae2ecf24b}{%
+           family={Teichberg},
+           familyi={T\bibinitperiod},
+           given={Mirta},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65e9d96e47afce610d29aa51ed902525}{%
+           family={Wild},
+           familyi={W\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=31867598ebad7c3f22d0f00c1b47ebca}{%
+           family={Armon},
+           familyi={A\bibinitperiod},
+           given={Robert\bibnamedelima H.},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=0600c80713953d8f70bd39a18ac0e4b0}{%
+           family={Hänninen},
+           familyi={H\bibinitperiod},
+           given={Osmo},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Dordrecht}%
+      }
+      \list{publisher}{1}{%
+        {Springer Netherlands}%
+      }
+      \strng{namehash}{fd880b0cea335bdf0bf2365dcdae799a}
+      \strng{fullhash}{0b12083693b9d46986a549873754ccb5}
+      \strng{bibnamehash}{0b12083693b9d46986a549873754ccb5}
+      \strng{authorbibnamehash}{0b12083693b9d46986a549873754ccb5}
+      \strng{authornamehash}{fd880b0cea335bdf0bf2365dcdae799a}
+      \strng{authorfullhash}{0b12083693b9d46986a549873754ccb5}
+      \strng{editorbibnamehash}{18999c4bf2f4254d337dd6b02a565afd}
+      \strng{editornamehash}{18999c4bf2f4254d337dd6b02a565afd}
+      \strng{editorfullhash}{18999c4bf2f4254d337dd6b02a565afd}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Environmental {{Indicators}}}
+      \field{isbn}{978-94-017-9498-5 978-94-017-9499-2}
+      \field{langid}{english}
+      \field{title}{Marine {{Eutrophication}}}
+      \field{urlday}{11}
+      \field{urlmonth}{8}
+      \field{urlyear}{2023}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \field{pages}{177\bibrangedash 203}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1007/978-94-017-9499-2_11
       \endverb
     \endentry
     \entry{kennicuttWaterQualityGulf2017}{inbook}{}
@@ -3289,6 +3539,51 @@
       \range{pages}{12}
       \verb{doi}
       \verb 10.1007/s12237-020-00846-6
+      \endverb
+    \endentry
+    \entry{wangSedimentConcentrationPrediction2013a}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=67cc57e1241958aa55b82f7becf5c154}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={You-Gan},
+           giveni={Y\bibinithyphendelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6226210501ca63ba19b6003c6ece6506}{%
+           family={Tian},
+           familyi={T\bibinitperiod},
+           given={Ting},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9073006d70af06b402344e33721e5db3}
+      \strng{fullhash}{9073006d70af06b402344e33721e5db3}
+      \strng{bibnamehash}{9073006d70af06b402344e33721e5db3}
+      \strng{authorbibnamehash}{9073006d70af06b402344e33721e5db3}
+      \strng{authornamehash}{9073006d70af06b402344e33721e5db3}
+      \strng{authorfullhash}{9073006d70af06b402344e33721e5db3}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{00221694}
+      \field{journaltitle}{Journal of Hydrology}
+      \field{langid}{english}
+      \field{shortjournal}{Journal of Hydrology}
+      \field{title}{Sediment Concentration Prediction and Statistical Evaluation for Annual Load Estimation}
+      \field{urlday}{8}
+      \field{urlmonth}{8}
+      \field{urlyear}{2023}
+      \field{volume}{482}
+      \field{year}{2013}
+      \field{urldateera}{ce}
+      \field{pages}{69\bibrangedash 78}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.jhydrol.2012.12.043
       \endverb
     \endentry
     \entry{wangLoadEstimationUncertainties2011}{article}{}
@@ -4623,6 +4918,85 @@
       \verb 10.5194/bg-11-2477-2014
       \endverb
     \endentry
+    \entry{conleyControllingEutrophicationNitrogen2009}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=bc13700b788d5253b3a9573bb91e9c47}{%
+           family={Conley},
+           familyi={C\bibinitperiod},
+           given={Daniel\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0344288970001771eb28ebbcba8acfb7}{%
+           family={Paerl},
+           familyi={P\bibinitperiod},
+           given={Hans\bibnamedelima W.},
+           giveni={H\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4f1d1f0bbebf58d54a1e59e523c1322d}{%
+           family={Howarth},
+           familyi={H\bibinitperiod},
+           given={Robert\bibnamedelima W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=515069d61b6f5f0d0b4e0d38f060a17f}{%
+           family={Boesch},
+           familyi={B\bibinitperiod},
+           given={Donald\bibnamedelima F.},
+           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=777585a32468d07cc26a0037d8f2184b}{%
+           family={Seitzinger},
+           familyi={S\bibinitperiod},
+           given={Sybil\bibnamedelima P.},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=54d49ba8fe2d91fbaca7db12e07429fa}{%
+           family={Havens},
+           familyi={H\bibinitperiod},
+           given={Karl\bibnamedelima E.},
+           giveni={K\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2ab8b49647697bec4ace4fd74a223c99}{%
+           family={Lancelot},
+           familyi={L\bibinitperiod},
+           given={Christiane},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1b7f092ca46531c35059dc9a6ba6a63a}{%
+           family={Likens},
+           familyi={L\bibinitperiod},
+           given={Gene\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2016c0f1f5639c35d72158cba21c47b6}
+      \strng{fullhash}{00810023c5432b9a96db17c55b76ae35}
+      \strng{bibnamehash}{00810023c5432b9a96db17c55b76ae35}
+      \strng{authorbibnamehash}{00810023c5432b9a96db17c55b76ae35}
+      \strng{authornamehash}{2016c0f1f5639c35d72158cba21c47b6}
+      \strng{authorfullhash}{00810023c5432b9a96db17c55b76ae35}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{issn}{0036-8075, 1095-9203}
+      \field{journaltitle}{Science}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{number}{5917}
+      \field{shorttitle}{Controlling {{Eutrophication}}}
+      \field{title}{Controlling {{Eutrophication}}: {{Nitrogen}} and {{Phosphorus}}}
+      \field{volume}{323}
+      \field{year}{2009}
+      \field{pages}{1014\bibrangedash 1015}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1126/science.1167755
+      \endverb
+    \endentry
     \entry{deciccoDataRetrievalPackagesDiscovering2022}{misc}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=3f98837fa565f6bf60e805e8fcc29175}{%
@@ -4820,6 +5194,95 @@
       \field{year}{1996}
       \verb{doi}
       \verb 10.3133/wri964113
+      \endverb
+    \endentry
+    \entry{elserGlobalAnalysisNitrogen2007}{article}{}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=322b8dfaf423c4277d4642a837d2eb73}{%
+           family={Elser},
+           familyi={E\bibinitperiod},
+           given={James\bibnamedelima J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d8f9e41245b23fd1351b28aaf63d6983}{%
+           family={Bracken},
+           familyi={B\bibinitperiod},
+           given={Matthew\bibnamedelima E.S.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=153be9b20d8df36e4fdf0dc39da6c28c}{%
+           family={Cleland},
+           familyi={C\bibinitperiod},
+           given={Elsa\bibnamedelima E.},
+           giveni={E\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e1907e1b29e76fde336d33a67cf006ca}{%
+           family={Gruner},
+           familyi={G\bibinitperiod},
+           given={Daniel\bibnamedelima S.},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a764c03411fc762a9ab2b28d2881c52b}{%
+           family={Harpole},
+           familyi={H\bibinitperiod},
+           given={W.\bibnamedelimi Stanley},
+           giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=209ba9275707bb15037811ce283979ce}{%
+           family={Hillebrand},
+           familyi={H\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c27841d881482b5fd4b908f109eb0543}{%
+           family={Ngai},
+           familyi={N\bibinitperiod},
+           given={Jacqueline\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f3fbe4d444429ce1cc5b06839eea24d5}{%
+           family={Seabloom},
+           familyi={S\bibinitperiod},
+           given={Eric\bibnamedelima W.},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2852bd6098bf96f0ee12c2d0342fc093}{%
+           family={Shurin},
+           familyi={S\bibinitperiod},
+           given={Jonathan\bibnamedelima B.},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=82688ac293580e3180f057cfebae7a87}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Jennifer\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{36fd1bfa139243ccc5c01f7b8b2299d3}
+      \strng{fullhash}{2579cc9cba4e76a2079075d881555d56}
+      \strng{bibnamehash}{2579cc9cba4e76a2079075d881555d56}
+      \strng{authorbibnamehash}{2579cc9cba4e76a2079075d881555d56}
+      \strng{authornamehash}{36fd1bfa139243ccc5c01f7b8b2299d3}
+      \strng{authorfullhash}{2579cc9cba4e76a2079075d881555d56}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1461-023X, 1461-0248}
+      \field{journaltitle}{Ecology Letters}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{Global Analysis of Nitrogen and Phosphorus Limitation of Primary Producers in Freshwater, Marine and Terrestrial Ecosystems}
+      \field{volume}{10}
+      \field{year}{2007}
+      \field{pages}{1135\bibrangedash 1142}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1111/j.1461-0248.2007.01113.x
       \endverb
     \endentry
     \entry{gardnerNitrogenFixationDissimilatory2006}{article}{}
@@ -5239,6 +5702,88 @@
       \endverb
       \verb{url}
       \verb https://www.tceq.texas.gov/downloads/water-quality/tmdl/lavaca-river-above-tidal-rocky-creek-recreational-108/108-lavaca-river-addendum-tsd-2021-october-as-221.pdf
+      \endverb
+    \endentry
+    \entry{jessenMarineEutrophication2015}{inbook}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=e1b4bf85ae5e2794515b149b8dee23d5}{%
+           family={Jessen},
+           familyi={J\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6d0571df6e2b5f78edc09199dcf5488}{%
+           family={Bednarz},
+           familyi={B\bibinitperiod},
+           given={Vanessa\bibnamedelima N.},
+           giveni={V\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1077251f1d021c50264cbcf05231d4ad}{%
+           family={Rix},
+           familyi={R\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a12fc1dface1e8f46dafe93ae2ecf24b}{%
+           family={Teichberg},
+           familyi={T\bibinitperiod},
+           given={Mirta},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65e9d96e47afce610d29aa51ed902525}{%
+           family={Wild},
+           familyi={W\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=31867598ebad7c3f22d0f00c1b47ebca}{%
+           family={Armon},
+           familyi={A\bibinitperiod},
+           given={Robert\bibnamedelima H.},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=0600c80713953d8f70bd39a18ac0e4b0}{%
+           family={Hänninen},
+           familyi={H\bibinitperiod},
+           given={Osmo},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Dordrecht}%
+      }
+      \list{publisher}{1}{%
+        {Springer Netherlands}%
+      }
+      \strng{namehash}{fd880b0cea335bdf0bf2365dcdae799a}
+      \strng{fullhash}{0b12083693b9d46986a549873754ccb5}
+      \strng{bibnamehash}{0b12083693b9d46986a549873754ccb5}
+      \strng{authorbibnamehash}{0b12083693b9d46986a549873754ccb5}
+      \strng{authornamehash}{fd880b0cea335bdf0bf2365dcdae799a}
+      \strng{authorfullhash}{0b12083693b9d46986a549873754ccb5}
+      \strng{editorbibnamehash}{18999c4bf2f4254d337dd6b02a565afd}
+      \strng{editornamehash}{18999c4bf2f4254d337dd6b02a565afd}
+      \strng{editorfullhash}{18999c4bf2f4254d337dd6b02a565afd}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Environmental {{Indicators}}}
+      \field{isbn}{978-94-017-9498-5 978-94-017-9499-2}
+      \field{langid}{english}
+      \field{title}{Marine {{Eutrophication}}}
+      \field{urlday}{11}
+      \field{urlmonth}{8}
+      \field{urlyear}{2023}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \field{pages}{177\bibrangedash 203}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1007/978-94-017-9499-2_11
       \endverb
     \endentry
     \entry{kennicuttWaterQualityGulf2017}{inbook}{}
@@ -7092,6 +7637,51 @@
       \range{pages}{10}
       \verb{doi}
       \verb 10.1016/j.jhydrol.2010.11.003
+      \endverb
+    \endentry
+    \entry{wangSedimentConcentrationPrediction2013a}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=67cc57e1241958aa55b82f7becf5c154}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={You-Gan},
+           giveni={Y\bibinithyphendelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6226210501ca63ba19b6003c6ece6506}{%
+           family={Tian},
+           familyi={T\bibinitperiod},
+           given={Ting},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9073006d70af06b402344e33721e5db3}
+      \strng{fullhash}{9073006d70af06b402344e33721e5db3}
+      \strng{bibnamehash}{9073006d70af06b402344e33721e5db3}
+      \strng{authorbibnamehash}{9073006d70af06b402344e33721e5db3}
+      \strng{authornamehash}{9073006d70af06b402344e33721e5db3}
+      \strng{authorfullhash}{9073006d70af06b402344e33721e5db3}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{00221694}
+      \field{journaltitle}{Journal of Hydrology}
+      \field{langid}{english}
+      \field{shortjournal}{Journal of Hydrology}
+      \field{title}{Sediment Concentration Prediction and Statistical Evaluation for Annual Load Estimation}
+      \field{urlday}{8}
+      \field{urlmonth}{8}
+      \field{urlyear}{2023}
+      \field{volume}{482}
+      \field{year}{2013}
+      \field{urldateera}{ce}
+      \field{pages}{69\bibrangedash 78}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.jhydrol.2012.12.043
       \endverb
     \endentry
     \entry{wazniakLinkingWaterQuality2007}{article}{}

@@ -79,7 +79,7 @@ Evaluating estuary water quality responses to reductions (or increases)
 in nutrient loading attributed to on the ground management actions can
 be challenging due to the strong influence of environmental drivers on
 nutrient loads and non-linear relationships. This study applied
-semiparametric approaches to calculate watershed nutrient loads and
+generalized additive models to calculate watershed nutrient loads and
 assess responses in estuary water quality to seasonally-adjusted
 freshwater inflow and flow-adjusted nutrient loads in Lavaca Bay, Texas.
 Lavaca Bay is a secondary embayment on the Texas coast displaying early
@@ -99,9 +99,10 @@ concerning for their potential to fuel eutrophication. Further analysis
 found freshwater inflow had strong influences on nutrient and
 chlorophyll-\emph{a} concentrations but there was no evidence that
 changes in watershed nutrient loading explained additional variation in
-dissolved oxygen or chlorophyll-\emph{a} concentrations. In addition to
-providing a baseline assessment of watershed nutrient loading and water
-quality responses in the Lavaca Bay watershed, this study provides
+dissolved oxygen and limited evidence that watershed nutrient loadings
+explained chlorophyll-\emph{a} concentrations. In addition to providing
+a baseline assessment of watershed nutrient loading and water quality
+responses in the Lavaca Bay watershed, this study provides
 methodological support for the use of semiparametric models in load
 regression models and estuary assessments.
 % Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text.
@@ -153,12 +154,17 @@ estuary salinity and are indicative of an already stressed system
 More recently, significant linear increases in total phosphorus (TP),
 orthophosphate, total Kjeldahl nitrogen (TKN), and chlorophyll-\emph{a}
 concentrations were identified at monitoring sites within Lavaca Bay
-\autocite{bugica_water_2020}. These trends in nutrient concentrations
-are concerning due to the role of nitrogen as a limiting factor for
-primary production in many Texas estuaries
-\autocite{gardnerNitrogenFixationDissimilatory2006,houTransformationFateNitrate2012,doradoUnderstandingInteractionsFreshwater2015,paudelRelationshipSuspendedSolids2019,wetz_exceptionally_2017}
-and the ramifications that changes in nitrogen loadings could have for
-productivity and eutrophication in Lavaca Bay.
+\autocite{bugica_water_2020}. While significant nitrogen increases were
+only identified in TKN, both organic and inorganic forms of nitrogen can
+serve as potential indicators of eutrophication status and estuary
+health \autocite{jessenMarineEutrophication2015}. Nitrogen is generally
+considered the limiting factor for primary production in many Texas
+estuaries
+\autocite{gardnerNitrogenFixationDissimilatory2006,houTransformationFateNitrate2012,doradoUnderstandingInteractionsFreshwater2015,paudelRelationshipSuspendedSolids2019,wetz_exceptionally_2017}.
+However, estuaries can display nitrogen and phosphorus co-limitation
+that may vary temporally and spatially
+\autocite{elserGlobalAnalysisNitrogen2007,conleyControllingEutrophicationNitrogen2009},
+emphasizing a need to assess a variety of nutrient species.
 
 There are ongoing efforts between local, state, and federal agencies to
 address water quality impairments in the freshwater portions of the
@@ -308,8 +314,12 @@ the lower-bay site near the mouth of the Bay (TCEQ-13384). For estuary
 locations, we obtained data for TP, Nitrite+Nitrate
 (NO\textsubscript{\emph{X}}), TKN, chlorophyll-\emph{a}, and DO
 concentrations from January 2005 through December 2020
-(Table~\ref{tab:table2}). All water quality data was collected
-approximately quarterly.
+(Table~\ref{tab:table2}). Freshwater nutrient samples were collect 0.3
+meters below the surface or halfway between the surface and bottom if
+depth was insufficient. Estuary nutrient samples were all collected 0.3
+meters below the surface. Estuary DO measurements were made at 3
+locations along the water column (0.3 meters, mid-depth, and bottom) and
+averaged. All water quality data was collected approximately quarterly.
 
 \begin{table}
 
@@ -482,10 +492,11 @@ applied to the smooths of flow-based variables which penalize departures
 from a flat function to help constrain extrapolations for high flow
 measurements.
 
-Left-censored data were not uncommon in this dataset. Several methods
-are available to account for censored data. We transformed left-censored
-nutrient concentrations to one-half the detection limit. Although this
-simple approach can introduce bias
+Left-censored data were not uncommon in this dataset (4\% of TP samples
+and 20\% of NO\textsubscript{3} samples). Several methods are available
+to account for censored data. We transformed left-censored nutrient
+concentrations to one-half the detection limit. Although this simple
+approach can introduce bias
 \autocite{hornungEstimationAverageConcentration1990}, we considered it
 acceptable because high concentrations and loadings are associated with
 high-flow events and low-flow/low-concentration events will account for
@@ -656,7 +667,7 @@ decreases in NO\textsubscript{3} loads since 2013.
 
 }
 
-\caption{Aggregated estimated annual and flow-normalized annual NO\textsubscript{3} and TP loads for USGS-08164000 and USGS-08164525.}\label{fig:fig3}
+\caption{Aggregated estimated annual and flow-normalized annual NO\textsubscript{3} and TP loads for the Lavaca (USGS-08164000) and and Navidad (USGS-08164525) Rivers.}\label{fig:fig3}
 \end{figure}
 
 Aggregated across both sites, the mean annual NO\textsubscript{3} load
@@ -687,15 +698,15 @@ Loads}\label{linkages-between-water-quality-and-watershed-flows-and-loads}}
 Watershed Flows and Loads}
 
 There was no evidence of long-term changes in TP or DO concentrations at
-any Lavaca Bay site (Fig.~\ref{fig:fig5}). The upper-bay site,
-TCEQ-13563, had evidence of a long-term linear increase in
+any Lavaca Bay site (Fig.~\ref{fig:fig5}). The upper-bay site
+(TCEQ-13563) had evidence of a long-term linear increase in
 NO\textsubscript{\emph{X}} while chlorophyll-\emph{a} decreased from
 2005 through 2014 (Fig.~\ref{fig:fig5}). NO\textsubscript{\emph{X}}
-concentration at the mid-bay site, TCEQ-13383, displayed a periodic
+concentration at the mid-bay site (TCEQ-13383) displayed a periodic
 pattern that is indicative of a strong influence from inflow or
 precipitation. The temporal GAMs did not provide evidence of long-term
-trends in any of the water quality constituents at the lower-bay
-TCEQ-13384 site.
+trends in any of the water quality constituents at the lower-bay site
+(TCEQ-13384).
 
 \begin{figure}
 
@@ -706,22 +717,39 @@ TCEQ-13384 site.
 \caption{Fitted splines (shaded regions indicate 90\% confidence intervals) from the temporal estuary GAM (Table \ref{tab:table3}) display the marginal smoothed effect of date on TP (A), NO\textit{\textsubscript{X}} (B), chlorophyll-\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.}\label{fig:fig5}
 \end{figure}
 
-Freshwater inflow provided additional explanation for changes in TP and
-NO\textsubscript{\emph{X}} concentration at all of the Lavaca Bay sites
-according to AIC\textsubscript{c} and model probability values
-(Table~\ref{tab:table4}). TCEQ-13563, the site closest to the river
-outlet, was the only site that had improvements in the explanations of
-DO and TKN concentration with the inclusion of inflow. Both TCEQ-13563
-and TCEQ-13383, the mid-bay site, saw improvements in explanations for
-variations in chlorophyll-\emph{a} with the inclusion of freshwater
-inflow. The addition of nutrient loads (both TP and NO\textsubscript{3})
-terms did not provide additional explanation for changes in
-chlorophyll-\emph{a} or DO concentrations. Inclusion of TP loads
-provided additional explanation of TP concentrations at the upper- and
-mid-bay sites, TCEQ-13563 and TCEQ-13383. Inclusion of
-NO\textsubscript{3} loads only provided marginal improvements in the
-explanation of NO\textsubscript{\emph{X}} concentration at the lower-bay
-TCEQ-13384 site.
+Freshwater inflow provided additional explanation for changes in
+NO\textsubscript{x} and chlorophyll-\emph{a} at all of the Lavaca Bay
+sites according to AIC\textsubscript{c} and model probability values
+(Table~\ref{tab:table4}). Freshwater inflow also explained additional
+variation in TP at the upper- and mid-bay sites but not the lower-bay
+site. Freshwater inflow did not explain additional variation in TKN
+concentrations at any of the sites. The upper- and lower-bay sites saw
+improvements in explanation of DO concentration with the inclusion of
+inflow.
+
+Inclusion of TP loads provided additional explanation of TP
+concentrations at the upper- and mid-bay sites. Inclusion of
+NO\textsubscript{3} loads did not provide model explanatory improvements
+at any of the sites. The addition of nutrient loads (both TP and
+NO\textsubscript{3}) terms did not provide additional explanation for
+changes in DO concentrations but did provide model improvement for the
+chlorophyll-\emph{a} model at the mid-bay site.
+
+Increases in aggregated freshwater inflow resulted in increases in TP at
+the upper- and mid-bay sites and increases in NO\textsubscript{\emph{X}}
+and chlorophyll-\emph{a}concentration at all three sites
+(Fig.~\ref{fig:fig6}). Linear increases in DO concentration were
+observed with increasing flow at the upper- and lower-bay sites. TKN
+showed no response to changes in inflow at any of the sites.
+
+Increased TP loads resulted in nearly linear increases of TP
+concentration at the upper- and mid-bay sites (Fig.~\ref{fig:fig7}). The
+relative effect size appeared much smaller than the effect of freshwater
+inflow alone. Increased NO\textsubscript{3} loads did effect
+NO\textsubscript{x} concentrations at any site. Linear increases in
+chlorophyll-\emph{a} were observed in response to increased TP loads at
+the mid-bay site, but not the other sites or in response to
+NO\textsubscript{3} loads.
 
 \begin{table}
 
@@ -764,16 +792,6 @@ Parameter & Site & Temporal & Inflow & Inflow + Load\\
 \end{tabular}
 \end{table}
 
-Increases in freshwater inflow resulted in nearly linear increases in TP
-and NO\textsubscript{\emph{X}} concentration at all three sites
-(Fig.~\ref{fig:fig6}). At the upper-bay TCEQ-13563 site, increases in
-freshwater inflow initially increased chlorophyll-\emph{a} and DO
-concentration but concentrations leveled and potentially decreased at
-higher flows. The mid-bay TCEQ-13383 site had nearly linear increases in
-chlorophyll-\emph{a} concentration in response to increased freshwater
-inflow. There was no evidence of freshwater inflow effects on
-chlorophyll-\emph{a}, TKN, or DO at the lower-bay TCEQ-13384 site.
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth,]{Schramm-2023-08-PeerJ_files/figure-latex/fig6} 
@@ -783,23 +801,13 @@ chlorophyll-\emph{a}, TKN, or DO at the lower-bay TCEQ-13384 site.
 \caption{Fitted splines from estuary GAMs display the marginal smoothed effect of freshwater inflow (controlled for season) on TP (A), NO\textit{\textsubscript{X}} (B), chlorophyll-\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.}\label{fig:fig6}
 \end{figure}
 
-Increased TP loads resulted in nearly linear increases of TP
-concentration at the upper- and mid-bay sites, TCEQ-13563 and TCEQ-13383
-respectively (Fig.~\ref{fig:fig7}). The relative effect size appeared
-much smaller than the effect of freshwater inflow alone. Increased
-NO\textsubscript{3} loads only showed an effect at the lower-bay
-TCEQ-13384 site. The effect was quite small compared to streamflow and
-provided only small improvements to the model (Table~\ref{tab:table4}).
-As noted above, nutrient loadings did not provide any explanation in
-changes in the remaining assessed water quality parameters.
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth,]{Schramm-2023-08-PeerJ_files/figure-latex/fig7} 
 
 }
 
-\caption{Fitted splines from the nutrient loading GAMs display the marginal smoothed effect of TP and NO\textsubscript{3} loads on TP (A) and NO\textsubscript{\textit{X}} (B) concentrations at each site in Lavaca Bay.}\label{fig:fig7}
+\caption{Fitted splines from the nutrient loading GAMs display the marginal smoothed effect of 20-day aggregated TP and NO\textsubscript{3} flow-normalized loads on (A) TP, (B) NO\textsubscript{\textit{X}}, and (C,D) chlorophyll-\textit{a} concentrations at each site in Lavaca Bay.}\label{fig:fig7}
 \end{figure}
 
 \hypertarget{discussion}{%
@@ -942,35 +950,38 @@ the nitrogen limitation identified in many Texas estuaries
 and the relatively low ambient concentrations observed in Lavaca Bay.
 
 The strong positive effect of freshwater inflow on
-NO\textsubscript{\emph{X}}, TKN, and TP concentration are suggestive of
+NO\textsubscript{\emph{X}} and TP concentration are suggestive of
 nonpoint watershed sources, consistent with watershed uses and with
 other studies relating freshwater inflow with nutrient concentrations in
 Lavaca Bay and other estuaries
 \autocite{russell_effect_2006,caffreyHighNutrientPulses2007,peierlsNonmonotonicResponsesPhytoplankton2012,palmerImpactsDroughtsLow2015,ciraPhytoplanktonDynamicsLowinflow2021}.
-Inflow had a non-linear relationship with TKN at the two upstream sites,
-with TKN increasing as freshwater inflow transitioned from low to
-moderate levels. At higher freshwater inflows, the effect was
-attenuated, possibly indicating a flushing effect at higher freshwater
-inflow. No relationship between TKN and freshwater inflow was observed
-at TCEQ-13384 located in the lower reach of Lavaca Bay. The results
-suggest that tidal flushing might dilute TKN and act as a control on the
-effects of freshwater inflow in the lower reaches of Lavaca Bay. The
-results are also consistent with previous work that suggest processing
-of organic loads in the upper Lavaca Bay or tidal portions of the Lavaca
-River reduce transport of nutrients to the lower reaches of Lavaca Bay
+Inflow had a non-linear relationship with NO\textsubscript{x}, with
+NO\textsubscript{x} increasing as freshwater inflow transitioned from
+low to moderate levels. At higher freshwater inflows, the
+NO\textsubscript{x} decreased at the mid- and lower-bay sites, possibly
+indicating a flushing effect at higher freshwater inflow. No
+relationship between TKN and freshwater inflow was observed at any of
+the sites. The results coincide with previous work that suggest
+processing of organic loads in the tidal portions of the Lavaca River
+reduce transport of nutrients to the lower reaches of Lavaca Bay
 \autocite{russell_effect_2006}.
 
-Freshwater inflow also displayed a strong positive effect on
-chlorophyll-\emph{a} at the upper- and mid-bay sites. The upper-bay
-site, TCEQ-13563, showed decreases in chlorophyll-\emph{a} at the
-highest freshwater inflow volumes. Freshwater flushing or increases in
-turbidity are associated with decreases in chlorophyll-\emph{a} in other
-estuaries
+Freshwater inflow also displayed positive effects on
+chlorophyll-\emph{a} at each site, with the largest effect at the
+lower-bay site. The lower-bay site also showed an attenuation in in
+chlorophyll-\emph{a} at the highest freshwater inflow volumes.
+Freshwater flushing or increases in turbidity are associated with
+limitations or decreases in chlorophyll-\emph{a} in other estuaries
 \autocite{peierlsNonmonotonicResponsesPhytoplankton2012,cloernPhytoplanktonPrimaryProduction2014}.
-No relationships between inorganic nitrogen or TP loadings with
-chlorophyll-\emph{a} were observed. Due to the lack of TKN loading
-information, no assessment between organic nitrogen loads and
-chlorophyll-\emph{a} were possible.
+No relationships between inorganic nitrogen and chlorophyll-\emph{a}
+were observed. However, a small positive effect between flow-normalized
+TP loads and chlorophyll-\emph{a} concentrations were detected at the
+mid-bay site. Although, this is not suggestive of a phosphorus
+limitation in the Bay, it is supportive of prior work emphasizing the
+importance of controlling both nitrogen and phosphorus runoff to protect
+water quality \autocite{conleyControllingEutrophicationNitrogen2009}.
+Due to the lack of TKN loading information, no assessment between
+organic nitrogen loads and chlorophyll-\emph{a} were possible.
 
 Although other studies have identified complex relationships between
 estuary nutrient concentrations, nutrient loading and
@@ -1019,25 +1030,27 @@ these changes have been largely driven environmental conditions (changes
 in runoff and river discharge). These models also provide evidence that
 estuary NO\textsubscript{\emph{X}} and TP concentrations are strongly
 driven by freshwater inflow and to a lesser extent fluctuation in
-flow-adjusted riverine loadings. Site-specific changes in the
+flow-normalized riverine loadings. Site-specific changes in the
 relationships between freshwater inflow and responses in both
-chlorophyll-\emph{a} and TKN concentrations are indicative nutrient
-processing and or tidal flushing effects moving from the river discharge
-point to the mouth of Lavaca Bay. This study does not completely explain
-site specific increases in NO\textsubscript{\emph{X}} and TKN
-concentrations in Lavaca Bay. The freshwater study sites did not
-quantify nutrient loadings from tidal contribution areas or ungauaged
-watersheds. Nutrient contributions from wastewater facility discharges,
-septic systems, and stormwater could be considerable contributors to
-nutrient loadings in Lavaca Bay since they are not processed by a tidal
-river reach prior to entering the Bay. The Garcitas-Arenosa Creek,
-Placedo Creek, and Cox Bay subwatersheds are currently undersampled but
-compose approximately 27\% of the watershed area. The contribution of
-nutrient loadings from these undersampled areas is unknown.
+chlorophyll-\emph{a} and NO\textsubscript{x} concentrations are
+indicative of nutrient processing and or tidal flushing effects moving
+from the river discharge point to the mouth of Lavaca Bay. This study
+does not completely explain site specific increases in
+NO\textsubscript{\emph{X}} and TKN concentrations in Lavaca Bay. The
+freshwater study sites did not quantify nutrient loadings from tidal
+contribution areas or ungauaged watersheds. Nutrient contributions from
+wastewater facility discharges, septic systems, and stormwater could be
+considerable contributors to nutrient loadings in Lavaca Bay since they
+are not processed by a tidal river reach prior to entering the Bay. The
+Garcitas-Arenosa Creek, Placedo Creek, and Cox Bay subwatersheds are
+currently undersampled but compose approximately 27\% of the watershed
+area. The contribution of nutrient loadings from these undersampled
+areas is unknown.
 
-\hypertarget{limitations}{%
-\subsection*{Limitations}\label{limitations}}
-\addcontentsline{toc}{subsection}{Limitations}
+\hypertarget{future-management-and-research-needs}{%
+\subsection*{Future Management and Research
+Needs}\label{future-management-and-research-needs}}
+\addcontentsline{toc}{subsection}{Future Management and Research Needs}
 
 The GAM approach proved useful for both estimating loads and assessing
 downstream responses in water quality. Although we did not compare other
@@ -1112,7 +1125,7 @@ concentrations. DO concentrations, dominated by seasonal effects, did
 not show strong direct responses to freshwater flow. Small variances in
 flow-adjusted nutrient loads indicate that (1) there have been limited
 changes in non-point sources of nutrients and (2) that there is not
-strong evidence that those small changes have had effects on
+strong evidence that those small changes have had extensive effects on
 chlorophyll-\emph{a} or dissolved oxygen in Lavaca Bay. Although this
 study did not identify changes in DO or chlorophyll-\emph{a}
 concentrations in Lavaca Bay, site specific increases in

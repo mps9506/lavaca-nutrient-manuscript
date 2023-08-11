@@ -10,7 +10,7 @@ affiliation:
   - code: 1
     address: Texas Water Resources Institute, Texas A\&M AgriLife Research, College Station, Texas, United States
 abstract: >
-  Evaluating estuary water quality responses to reductions (or increases) in nutrient loading attributed to on the ground management actions can be challenging due to the strong influence of environmental drivers on nutrient loads and non-linear relationships. This study applied semiparametric approaches to calculate watershed nutrient loads and assess responses in estuary water quality to seasonally-adjusted freshwater inflow and flow-adjusted nutrient loads in Lavaca Bay, Texas. Lavaca Bay is a secondary embayment on the Texas coast displaying early potential for eutrophication and water quality degradation. Use of flow-adjusted nutrient loads allowed the study to evaluate the response in water quality to changes in nutrient loads driven by anthropogenic sources. Cross-validation indicated that, despite data constraints, semiparametric models performed well at nutrient load prediction. Based on these models, delivered annual nutrient loads varied substantially from year to year. In contrast, minimal changes in flow-normalized loads indicate that nutrient loadings were driven by natural variation in precipitation and runoff as opposed to changes in management of nonpoint sources. Models indicated no evidence of long-term changes in dissolved oxygen or chlorophyll-*a* within Lavaca Bay. However, site specific long-term increases in both organic and inorganic nitrogen are concerning for their potential to fuel eutrophication. Further analysis found freshwater inflow had strong influences on nutrient and chlorophyll-*a* concentrations but there was no evidence that changes in watershed nutrient loading explained additional variation in dissolved oxygen or chlorophyll-*a* concentrations. In addition to providing a baseline assessment of watershed nutrient loading and water quality responses in the Lavaca Bay watershed, this study provides methodological support for the use of semiparametric models in load regression models and estuary assessments.
+  Evaluating estuary water quality responses to reductions (or increases) in nutrient loading attributed to on the ground management actions can be challenging due to the strong influence of environmental drivers on nutrient loads and non-linear relationships. This study applied generalized additive models to calculate watershed nutrient loads and assess responses in estuary water quality to seasonally-adjusted freshwater inflow and flow-adjusted nutrient loads in Lavaca Bay, Texas. Lavaca Bay is a secondary embayment on the Texas coast displaying early potential for eutrophication and water quality degradation. Use of flow-adjusted nutrient loads allowed the study to evaluate the response in water quality to changes in nutrient loads driven by anthropogenic sources. Cross-validation indicated that, despite data constraints, semiparametric models performed well at nutrient load prediction. Based on these models, delivered annual nutrient loads varied substantially from year to year. In contrast, minimal changes in flow-normalized loads indicate that nutrient loadings were driven by natural variation in precipitation and runoff as opposed to changes in management of nonpoint sources. Models indicated no evidence of long-term changes in dissolved oxygen or chlorophyll-*a* within Lavaca Bay. However, site specific long-term increases in both organic and inorganic nitrogen are concerning for their potential to fuel eutrophication. Further analysis found freshwater inflow had strong influences on nutrient and chlorophyll-*a* concentrations but there was no evidence that changes in watershed nutrient loading explained additional variation in dissolved oxygen and limited evidence that watershed nutrient loadings explained chlorophyll-*a* concentrations. In addition to providing a baseline assessment of watershed nutrient loading and water quality responses in the Lavaca Bay watershed, this study provides methodological support for the use of semiparametric models in load regression models and estuary assessments.
 bibliography: bibliography.bib
 output:
   rticles::peerj_article:
@@ -116,14 +116,19 @@ changes in estuary salinity and are indicative of an already stressed system
 @montagnaAssessmentRelationshipFreshwater2020]. More recently, significant
 linear increases in total phosphorus (TP), orthophosphate, 
 total Kjeldahl nitrogen (TKN), and chlorophyll-*a* concentrations were identified
-at monitoring sites within Lavaca Bay [@bugica_water_2020]. These trends in 
-nutrient concentrations are concerning due to the role of nitrogen as a 
+at monitoring sites within Lavaca Bay [@bugica_water_2020]. While significant
+nitrogen increases were only identified in TKN, both organic and
+inorganic forms of nitrogen can serve as potential indicators of eutrophication
+status and estuary health [@jessenMarineEutrophication2015]. Nitrogen is 
+generally considered the 
 limiting factor for primary production in many Texas estuaries 
 [@gardnerNitrogenFixationDissimilatory2006; @houTransformationFateNitrate2012;
 @doradoUnderstandingInteractionsFreshwater2015; 
-@paudelRelationshipSuspendedSolids2019; @wetz_exceptionally_2017] and the 
-ramifications that changes in nitrogen loadings could have for 
-productivity and eutrophication in Lavaca Bay.
+@paudelRelationshipSuspendedSolids2019; @wetz_exceptionally_2017]. However, 
+estuaries can display nitrogen and phosphorus co-limitation that may vary
+temporally and spatially [@elserGlobalAnalysisNitrogen2007;
+@conleyControllingEutrophicationNitrogen2009], 
+emphasizing a need to assess a variety of nutrient species.
 
 There are ongoing efforts between local, state, and federal agencies to 
 address water quality impairments in the freshwater portions of the 
@@ -254,8 +259,12 @@ Lavaca River system (TCEQ-13563), a mid-bay site (TCEQ-13383), and the
 lower-bay site near the mouth of the Bay (TCEQ-13384). 
 For estuary locations, we obtained data for TP, Nitrite+Nitrate (NO~*X*~), TKN, 
 chlorophyll-*a*, and DO concentrations from January 2005 through December 2020 
-(Table\ \ref{tab:table2}). All water quality data was collected approximately 
-quarterly.
+(Table\ \ref{tab:table2}). Freshwater nutrient samples were collect 0.3 meters 
+below the surface or halfway between the surface and bottom if depth was 
+insufficient. Estuary nutrient samples were all collected 0.3 meters below the 
+surface. Estuary DO measurements were made at 3 locations along the water column 
+(0.3 meters, mid-depth, and bottom) and averaged. All water quality data was 
+collected approximately quarterly.
 
 ```{r table1}
 
@@ -436,7 +445,8 @@ used for *yday* to ensure the ends of the spline match
 to the smooths of flow-based variables which penalize departures from a 
 flat function to help constrain extrapolations for high flow measurements. 
 
-Left-censored data were not uncommon in this dataset. Several methods are
+Left-censored data were not uncommon in this dataset (4% of TP samples and 20%
+of NO~3~ samples). Several methods are
 available to account for censored data. We transformed left-censored nutrient 
 concentrations to one-half the detection limit. Although this simple approach 
 can introduce bias [@hornungEstimationAverageConcentration1990],  we considered 
@@ -873,7 +883,7 @@ when accounting for variation driven by streamflow (Fig.\ \ref{fig:fig3}).
 Flow-normalized loads in the Lavaca River showed small variation over time with 
 some decreases in NO~3~ loads since 2013. 
 
-```{r fig3, error=FALSE, warning=FALSE, message=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Aggregated estimated annual and flow-normalized annual NO\\textsubscript{3} and TP loads for USGS-08164000 and USGS-08164525.", dev='cairo_pdf'}
+```{r fig3, error=FALSE, warning=FALSE, message=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Aggregated estimated annual and flow-normalized annual NO\\textsubscript{3} and TP loads for the Lavaca (USGS-08164000) and and Navidad (USGS-08164525) Rivers.", dev='cairo_pdf'}
 
 load <- tar_read(daily_no3_08164000, store = store)
 fn_load <- tar_read(daily_no3_08164000_fn, store = store)
@@ -1306,13 +1316,13 @@ c + d + f + guide_area() +
 ## Linkages Between Water Quality and Watershed Flows and Loads {.unnumbered}
 
 There was no evidence of long-term changes in TP or DO concentrations at any
-Lavaca Bay site (Fig.\ \ref{fig:fig5}). The upper-bay site, TCEQ-13563, had
+Lavaca Bay site (Fig.\ \ref{fig:fig5}). The upper-bay site (TCEQ-13563) had
 evidence of a long-term linear increase in NO~*X*~ while chlorophyll-*a*
 decreased from 2005 through 2014 (Fig.\ \ref{fig:fig5}). NO~*X*~ concentration
-at the mid-bay site, TCEQ-13383, displayed a periodic pattern that is
+at the mid-bay site (TCEQ-13383) displayed a periodic pattern that is
 indicative of a strong influence from inflow or precipitation. The temporal GAMs
 did not provide evidence of long-term trends in any of the water quality constituents
-at the lower-bay TCEQ-13384 site.
+at the lower-bay site (TCEQ-13384).
 
 
 ```{r fig5, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Fitted splines (shaded regions indicate 90\\% confidence intervals) from the temporal estuary GAM (Table \\ref{tab:table3}) display the marginal smoothed effect of date on TP (A), NO\\textit{\\textsubscript{X}} (B), chlorophyll-\\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.", dev='cairo_pdf'}
@@ -1415,19 +1425,33 @@ p_tp + p_no3 + p_chla + p_tkn + p_do + guide_area() + plot_layout(guides = "coll
                                                    design = design)
 ```
 
-Freshwater inflow provided additional explanation for changes in TP and 
-NO~*X*~ concentration at all of the Lavaca Bay sites according to AIC~c~ and 
-model probability values (Table\ \ref{tab:table4}).
-TCEQ-13563, the site closest to the river outlet, was the only site that
-had improvements in the explanations of DO and TKN concentration with the inclusion 
-of inflow. Both TCEQ-13563 and TCEQ-13383, the mid-bay site, saw improvements 
-in explanations for variations in chlorophyll-*a* with the inclusion of freshwater
-inflow. The addition of nutrient loads (both TP and NO~3~) terms did not provide
-additional explanation for changes in chlorophyll-*a* or DO concentrations.
+Freshwater inflow provided additional explanation for changes in NO~x~ and 
+chlorophyll-*a* at all of the Lavaca Bay sites according to AIC~c~ and model 
+probability values (Table\ \ref{tab:table4}). Freshwater inflow also explained 
+additional variation in TP at the upper- and mid-bay sites but not the lower-bay 
+site. Freshwater inflow did not explain additional variation in TKN concentrations
+at any of the sites. The upper- and lower-bay sites saw improvements in explanation
+of DO concentration with the inclusion of inflow.
+
 Inclusion of TP loads provided additional explanation of TP concentrations at
-the upper- and mid-bay sites, TCEQ-13563 and TCEQ-13383. Inclusion of NO~3~
-loads only provided marginal improvements in the explanation of NO~*X*~ 
-concentration at the lower-bay TCEQ-13384 site.
+the upper- and mid-bay sites. Inclusion of NO~3~ loads did not provide model
+explanatory improvements at any of the sites. The addition of nutrient loads 
+(both TP and NO~3~) terms did not provide additional explanation for changes in 
+DO concentrations but did provide model improvement for the chlorophyll-*a* model
+at the mid-bay site.
+
+Increases in aggregated freshwater inflow resulted in increases 
+in TP at the upper- and mid-bay sites and increases in NO~*X*~ and 
+chlorophyll-*a*concentration at all three sites (Fig.\ \ref{fig:fig6}). Linear
+increases in DO concentration were observed with increasing flow at the upper-
+and lower-bay sites. TKN showed no response to changes in inflow at any of the sites.
+
+Increased TP loads resulted in nearly linear increases of TP concentration at
+the upper- and mid-bay sites (Fig.\ \ref{fig:fig7}).
+The relative effect size appeared much smaller than the effect of freshwater
+inflow alone. Increased NO~3~ loads did effect NO~x~ concentrations at any site.
+Linear increases in chlorophyll-*a* were observed in response to increased TP
+loads at the mid-bay site, but not the other sites or in response to NO~3~ loads. 
 
 
 ```{r table4, message=FALSE, warning=FALSE}
@@ -1495,14 +1519,6 @@ dplyr::bind_rows(
 
 ```
 
-Increases in freshwater inflow resulted in nearly linear increases 
-in TP and NO~*X*~ concentration at all three sites (Fig.\ \ref{fig:fig6}). 
-At the upper-bay TCEQ-13563 site, increases in freshwater inflow initially 
-increased chlorophyll-*a* and DO concentration but concentrations leveled and
-potentially decreased at higher flows. The mid-bay TCEQ-13383 site had
-nearly linear increases in chlorophyll-*a* concentration in response to increased
-freshwater inflow. There was no evidence of freshwater inflow effects on 
-chlorophyll-*a*, TKN, or DO at the lower-bay TCEQ-13384 site.
 
 
 ```{r fig6, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Fitted splines from estuary GAMs display the marginal smoothed effect of freshwater inflow (controlled for season) on TP (A), NO\\textit{\\textsubscript{X}} (B), chlorophyll-\\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.", dev='cairo_pdf'}
@@ -1518,7 +1534,8 @@ draw_smoothed_surface <- function(comp,
   comp |>
     unnest(data) |>
     mutate(lower_ci = est + (crit * se),
-           upper_ci = est - (crit * se)) |>
+           upper_ci = est - (crit * se),
+           model = forcats::fct_relevel(model, "Upper-Bay", "Mid-Bay", "Lower-Bay")) |>
     group_by(model) |> 
     mutate(label = if_else(
       {{ x }} == max( {{ x }} ),
@@ -1552,11 +1569,11 @@ draw_smoothed_surface <- function(comp,
   
 }
 
-`TCEQ-13383` <- tar_read(tp_lavaca_13383_flow, store = store)
+`Mid-Bay` <- tar_read(tp_lavaca_13383_flow, store = store)
 
-comp <- compare_smooths(model = `TCEQ-13383`,
-                      `TCEQ-13384` = tar_read(tp_lavaca_13384_flow, store = store),
-                      `TCEQ-13563` = tar_read(tp_lavaca_13563_flow, store = store),
+comp <- compare_smooths(model = `Mid-Bay`,
+                      `Lower-Bay` = tar_read(tp_lavaca_13384_flow, store = store),
+                      `Upper-Bay` = tar_read(tp_lavaca_13563_flow, store = store),
                       smooths = c("s(flw_res)"),
                       overall_uncertainty = FALSE)
 p_tp <- draw_smoothed_surface(comp,
@@ -1565,11 +1582,11 @@ p_tp <- draw_smoothed_surface(comp,
                       ylab =  "TP Smooth<br>Estimate [mg/L]",
                       subtitle = "A")
 
-`TCEQ-13383` <- tar_read(no3_lavaca_13383_flow, store = store)
+`Mid-Bay` <- tar_read(no3_lavaca_13383_flow, store = store)
 
-comp <- compare_smooths(model = `TCEQ-13383`,
-                      `TCEQ-13384` = tar_read(no3_lavaca_13384_flow, store = store),
-                      `TCEQ-13563` = tar_read(no3_lavaca_13563_flow, store = store),
+comp <- compare_smooths(model = `Mid-Bay`,
+                      `Lower-Bay` = tar_read(no3_lavaca_13384_flow, store = store),
+                      `Upper-Bay` = tar_read(no3_lavaca_13563_flow, store = store),
                       smooths = c("s(flw_res)"),
                       overall_uncertainty = FALSE)
 p_no3 <- draw_smoothed_surface(comp,
@@ -1578,11 +1595,11 @@ p_no3 <- draw_smoothed_surface(comp,
                       ylab = "NO<sub>*x*</sub> Smooth<br>Estimate [mg/L]",
                       subtitle = "B")
 
-`TCEQ-13383` <- tar_read(chla_lavaca_13383_flow, store = store)
+`Mid-Bay` <- tar_read(chla_lavaca_13383_flow, store = store)
 
-comp <- compare_smooths(model = `TCEQ-13383`,
-                      `TCEQ-13384` = tar_read(chla_lavaca_13384_flow, store = store),
-                      `TCEQ-13563` = tar_read(chla_lavaca_13563_flow, store = store),
+comp <- compare_smooths(model = `Mid-Bay`,
+                      `Lower-Bay` = tar_read(chla_lavaca_13384_flow, store = store),
+                      `Upper-Bay` = tar_read(chla_lavaca_13563_flow, store = store),
                       smooths = c("s(flw_res)"),
                       overall_uncertainty = FALSE)
 p_chla <- draw_smoothed_surface(comp,
@@ -1592,11 +1609,11 @@ p_chla <- draw_smoothed_surface(comp,
                       subtitle = "C")
 
 
-`TCEQ-13383` <- tar_read(tkn_lavaca_13383_flow, store = store)
+`Mid-Bay` <- tar_read(tkn_lavaca_13383_flow, store = store)
 
-comp <- compare_smooths(model = `TCEQ-13383`,
-                      `TCEQ-13384` = tar_read(tkn_lavaca_13384_flow, store = store),
-                      `TCEQ-13563` = tar_read(tkn_lavaca_13563_flow, store = store),
+comp <- compare_smooths(model = `Mid-Bay`,
+                      `Lower-Bay` = tar_read(tkn_lavaca_13384_flow, store = store),
+                      `Upper-Bay` = tar_read(tkn_lavaca_13563_flow, store = store),
                       smooths = c("s(flw_res)"),
                       overall_uncertainty = FALSE)
 p_tkn <- draw_smoothed_surface(comp,
@@ -1605,11 +1622,11 @@ p_tkn <- draw_smoothed_surface(comp,
                       ylab = "TKN Smooth<br>Estimate [mg/L]",
                       subtitle = "D")
 
-`TCEQ-13383` <- tar_read(do_lavaca_13383_flow, store = store)
+`Mid-Bay` <- tar_read(do_lavaca_13383_flow, store = store)
 
-comp <- compare_smooths(model = `TCEQ-13383`,
-                      `TCEQ-13384` = tar_read(do_lavaca_13384_flow, store = store),
-                      `TCEQ-13563` = tar_read(do_lavaca_13563_flow, store = store),
+comp <- compare_smooths(model = `Mid-Bay`,
+                      `Lower-Bay` = tar_read(do_lavaca_13384_flow, store = store),
+                      `Upper-Bay` = tar_read(do_lavaca_13563_flow, store = store),
                       smooths = c("s(flw_res)"),
                       overall_uncertainty = FALSE)
 p_do <- draw_smoothed_surface(comp,
@@ -1629,50 +1646,67 @@ p_tp + p_no3 + p_chla + p_tkn + p_do + guide_area() + plot_layout(guides = "coll
 
 ```
 
-Increased TP loads resulted in nearly linear increases of TP concentration at
-the upper- and mid-bay sites, TCEQ-13563 and TCEQ-13383 respectively 
-(Fig.\ \ref{fig:fig7}).
-The relative effect size appeared much smaller than the effect of freshwater
-inflow alone. Increased NO~3~ loads only showed an effect at the 
-lower-bay TCEQ-13384 site. The effect was quite small compared to streamflow and
-provided only small improvements to the model (Table\ \ref{tab:table4}). As noted
-above, nutrient loadings did not provide any explanation in changes in the
-remaining assessed water quality parameters.
-
-```{r fig7, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.44, fig.cap="Fitted splines from the nutrient loading GAMs display the marginal smoothed effect of TP and NO\\textsubscript{3} loads on TP (A) and NO\\textsubscript{\\textit{X}} (B) concentrations at each site in Lavaca Bay.",  dev='cairo_pdf'}
 
 
-`TCEQ-13383` <- tar_read(tp_lavaca_13383_full, store = store)
+```{r fig7, message=FALSE, warning=FALSE, fig.width=6.85, fig.asp=0.7, fig.cap="Fitted splines from the nutrient loading GAMs display the marginal smoothed effect of 20-day aggregated TP and NO\\textsubscript{3} flow-normalized loads on (A) TP, (B) NO\\textsubscript{\\textit{X}}, and (C,D) chlorophyll-\\textit{a} concentrations at each site in Lavaca Bay.",  dev='cairo_pdf'}
 
-comp <- compare_smooths(model = `TCEQ-13383`,
-                      `TCEQ-13384` = tar_read(tp_lavaca_13384_full, store = store),
-                      `TCEQ-13563` = tar_read(tp_lavaca_13563_full, store = store),
+
+`Mid-Bay` <- tar_read(tp_lavaca_13383_full, store = store)
+
+comp <- compare_smooths(model = `Mid-Bay`,
+                      `Lower-Bay` = tar_read(tp_lavaca_13384_full, store = store),
+                      `Upper-Bay` = tar_read(tp_lavaca_13563_full, store = store),
                       smooths = c("s(sum_TP_FN)"),
                       overall_uncertainty = FALSE)
 p_tp <- draw_smoothed_surface(comp,
                       x = sum_TP_FN,
-                      xlab = "Residuals log(TP) Load [kg]",
+                      xlab = "Flow normalized TP Load [kg]",
                       ylab = "TP [mg/L]",
                       subtitle = "A")
 
-`TCEQ-13383` <- tar_read(no3_lavaca_13383_full, store = store)
+`Mid-Bay` <- tar_read(no3_lavaca_13383_full, store = store)
 
-comp <- compare_smooths(model = `TCEQ-13383`,
-                      `TCEQ-13384` = tar_read(no3_lavaca_13384_full, store = store),
-                      `TCEQ-13563` = tar_read(no3_lavaca_13563_full, store = store),
+comp <- compare_smooths(model = `Mid-Bay`,
+                      `Lower-Bay` = tar_read(no3_lavaca_13384_full, store = store),
+                      `Upper-Bay` = tar_read(no3_lavaca_13563_full, store = store),
                       smooths = c("s(sum_NO3_FN)"),
                       overall_uncertainty = FALSE)
 p_no3 <- draw_smoothed_surface(comp,
                       x = sum_NO3_FN,
-                      xlab = "Residuals log(NO<sub>3</sub>) Load [kg]",
+                      xlab = "Flow normalized NO<sub>3</sub> Load [kg]",
                       ylab = "NO<sub>*x*</sub> [mg/L]",
                       subtitle = "B")
 
+`Mid-Bay` <- tar_read(chla_lavaca_13383_full, store = store)
+comp <- compare_smooths(model = `Mid-Bay`,
+                      `Lower-Bay` = tar_read(chla_lavaca_13384_full, store = store),
+                      `Upper-Bay` = tar_read(chla_lavaca_13563_full, store = store),
+                      smooths = c("s(sum_TP_FN)"),
+                      overall_uncertainty = FALSE)
+p_chla_tp <- draw_smoothed_surface(comp,
+                      x = sum_TP_FN,
+                      xlab = "Flow-normalized TP Load [kg]",
+                      ylab = "Chlorophyll-*a* [µg/L]",
+                      subtitle = "C")
+
+comp <- compare_smooths(model = `Mid-Bay`,
+                      `Lower-Bay` = tar_read(chla_lavaca_13384_full, store = store),
+                      `Upper-Bay` = tar_read(chla_lavaca_13563_full, store = store),
+                      smooths = c("s(sum_NO3_FN)"),
+                      overall_uncertainty = FALSE)
+p_chla_no3 <- draw_smoothed_surface(comp,
+                      x = sum_NO3_FN,
+                      xlab = "Flow-normalized NO<sub>3</sub> Load [kg]",
+                      ylab = "Chlorophyll-*a* [µg/L]",
+                      subtitle = "D")
+
+
 design <- "
-11223
+11225
+3344#
 "
 
-p_tp + p_no3 + guide_area() + plot_layout(guides = "collect",
+p_tp + p_no3 + p_chla_tp + p_chla_no3 + guide_area() + plot_layout(guides = "collect",
                                                    design = design)
 
 
@@ -1826,31 +1860,36 @@ estuaries [@gardnerNitrogenFixationDissimilatory2006;
 and the relatively low ambient concentrations observed in Lavaca Bay.
 
 
-The strong positive effect of freshwater inflow on NO~*X*~, TKN, and TP concentration
+The strong positive effect of freshwater inflow on NO~*X*~ and TP concentration
 are suggestive of nonpoint watershed sources, consistent with watershed uses and
 with other studies relating freshwater inflow with nutrient 
 concentrations in Lavaca Bay and other estuaries [@russell_effect_2006; 
 @caffreyHighNutrientPulses2007; @peierlsNonmonotonicResponsesPhytoplankton2012; 
 @palmerImpactsDroughtsLow2015; @ciraPhytoplanktonDynamicsLowinflow2021]. Inflow 
-had a non-linear relationship with TKN at the two upstream sites, with TKN 
+had a non-linear relationship with NO~x~, with NO~x~ 
 increasing as freshwater inflow transitioned from low to moderate levels. 
-At higher freshwater inflows, the effect was attenuated, possibly indicating a 
-flushing effect at higher freshwater inflow. No relationship between TKN and 
-freshwater inflow was observed at TCEQ-13384 located in the lower reach of 
-Lavaca Bay. The results suggest that tidal flushing might dilute TKN and act as 
-a control on the effects of freshwater inflow in the lower reaches of Lavaca Bay.
-The results are also consistent with previous work that suggest processing of
-organic loads in the upper Lavaca Bay or tidal portions of the Lavaca River reduce
+At higher freshwater inflows, the NO~x~ decreased at the mid- and lower-bay sites, 
+possibly indicating a flushing effect at higher freshwater inflow. 
+No relationship between TKN and freshwater inflow was observed 
+at any of the sites. 
+The results coincide with previous work that suggest processing of
+organic loads in the tidal portions of the Lavaca River reduce
 transport of nutrients to the lower reaches of Lavaca Bay [@russell_effect_2006].
 
 
-Freshwater inflow also displayed a strong positive effect on chlorophyll-*a* at 
-the upper- and mid-bay sites. The upper-bay site, TCEQ-13563, showed decreases
+Freshwater inflow also displayed positive effects on chlorophyll-*a* at 
+each site, with the largest effect at the lower-bay site. 
+The lower-bay site also showed an attenuation in
 in chlorophyll-*a* at the highest freshwater inflow volumes. Freshwater flushing
-or increases in turbidity are associated with decreases in chlorophyll-*a* in
-other estuaries [@peierlsNonmonotonicResponsesPhytoplankton2012; 
+or increases in turbidity are associated with limitations or decreases in 
+chlorophyll-*a* in other estuaries [@peierlsNonmonotonicResponsesPhytoplankton2012; 
 @cloernPhytoplanktonPrimaryProduction2014]. No relationships between inorganic
-nitrogen or TP loadings with chlorophyll-*a* were observed. Due to the lack
+nitrogen and chlorophyll-*a* were observed. However, a small positive effect between
+flow-normalized TP loads and chlorophyll-*a* concentrations were detected at the
+mid-bay site. Although, this is not suggestive of a phosphorus limitation in the
+Bay, it is supportive of prior work emphasizing the importance of controlling both
+nitrogen and phosphorus runoff to protect water quality 
+[@conleyControllingEutrophicationNitrogen2009]. Due to the lack
 of TKN loading information, no assessment between organic nitrogen loads and
 chlorophyll-*a* were possible.
 
@@ -1900,9 +1939,9 @@ large annual fluctuations in NO~3~ loads, these changes have been largely driven
 environmental conditions (changes in runoff and river discharge). These models
 also provide evidence that estuary NO~*X*~ and TP
 concentrations are strongly driven by freshwater inflow and to a lesser extent
-fluctuation in flow-adjusted riverine loadings. Site-specific changes in the
+fluctuation in flow-normalized riverine loadings. Site-specific changes in the
 relationships between freshwater inflow and responses in both chlorophyll-*a* 
-and TKN concentrations are indicative nutrient processing and or tidal flushing
+and NO~x~ concentrations are indicative of nutrient processing and or tidal flushing
 effects moving from the river discharge point to the mouth of Lavaca Bay.
 This study does not completely
 explain site specific increases in NO~*X*~ and TKN concentrations in Lavaca Bay.
@@ -1916,7 +1955,7 @@ but compose approximately 27% of the watershed area. The contribution of nutrien
 loadings from these undersampled areas is unknown. 
 
 
-## Limitations {.unnumbered}
+## Future Management and Research Needs {.unnumbered}
 
 The GAM approach proved useful for both estimating loads and assessing downstream
 responses in water quality. Although we did not compare other models, it is likely similar
@@ -1984,7 +2023,7 @@ concentrations. DO concentrations, dominated by seasonal effects, did not show
 strong direct responses to freshwater flow. Small variances in flow-adjusted
 nutrient loads indicate that (1) there have been limited changes in non-point
 sources of nutrients and (2) that there is not strong evidence that those small 
-changes have had effects on chlorophyll-*a* or dissolved oxygen in Lavaca Bay.
+changes have had extensive effects on chlorophyll-*a* or dissolved oxygen in Lavaca Bay.
 Although this study did not identify changes in DO or chlorophyll-*a* concentrations
 in Lavaca Bay, site specific increases in NO~*X*~ and TKN are a cause for water 
 quality concern. The study provides a baseline assessment for future water quality 

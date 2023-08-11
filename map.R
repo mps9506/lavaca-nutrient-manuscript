@@ -41,6 +41,13 @@ tceq_sites <- st_as_sf(tceq_sites, coords = c("LongitudeMeasure", "LatitudeMeasu
 
 tceq_sites$MonitoringLocationIdentifier <- stringr::str_replace_all(tceq_sites$MonitoringLocationIdentifier, "MAIN", "")
 
+tceq_sites <- tceq_sites |> 
+  mutate(MonitoringLocationIdentifier = case_when(
+    MonitoringLocationIdentifier == "TCEQ-13563" ~ "TCEQ-13563\nUpper-Bay",
+    MonitoringLocationIdentifier == "TCEQ-13384" ~ "TCEQ-13384\nLower-Bay",
+    MonitoringLocationIdentifier == "TCEQ-13383" ~ "TCEQ-13383\nMid-Bay"
+  ))
+
 ## read rivers spatial data
 rivers <- read_sf("data/Spatial/lavaca.gpkg",
                   layer = "rivers")
@@ -211,7 +218,10 @@ p1 <- ggplot() +
                   hjust = 1,
                   min.segment.length = 10000,
                   color = "grey30",
-                  bg.color = "white") +
+                  bg.color = "white",
+                  nudge_x = 10000,
+                  nudge_y = -5000,
+                  ylim = c(-Inf, Inf)) +
   ## Lavaca Bay Label
   geom_text_repel(data = waterbody_labs |> filter(lab == "Lavaca Bay"), 
                   aes(label = lab, geometry = geometry), 

@@ -1,7 +1,7 @@
 %% Submissions for peer-review must enable line-numbering
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL C:/Data-Analysis-Projects/lavaca-nutrient-manuscript/Schramm-2023-06-PeerJ/Schramm-2023-06-PeerJ.tex   Sun Aug  6 16:35:20 2023
-%DIF ADD C:/Data-Analysis-Projects/lavaca-nutrient-manuscript/Schramm-2023-06-PeerJ/Schramm-2023-08-PeerJ.tex   Tue Aug  8 11:37:24 2023
+%DIF ADD C:/Data-Analysis-Projects/lavaca-nutrient-manuscript/Schramm-2023-06-PeerJ/Schramm-2023-08-PeerJ.tex   Fri Aug 11 16:44:17 2023
 %% using the lineno option in the \documentclass command.
 %%
 %% Preprints and camera-ready submissions do not need
@@ -86,7 +86,11 @@ Evaluating estuary water quality responses to reductions (or increases)
 in nutrient loading attributed to on the ground management actions can
 be challenging due to the strong influence of environmental drivers on
 nutrient loads and non-linear relationships. This study applied
-semiparametric approaches to calculate watershed nutrient loads and
+%DIF 82c82
+%DIF < semiparametric approaches to calculate watershed nutrient loads and
+%DIF -------
+generalized additive models to calculate watershed nutrient loads and %DIF > 
+%DIF -------
 assess responses in estuary water quality to seasonally-adjusted
 freshwater inflow and flow-adjusted nutrient loads in Lavaca Bay, Texas.
 Lavaca Bay is a secondary embayment on the Texas coast displaying early
@@ -111,9 +115,16 @@ concerning for their potential to fuel eutrophication. Further analysis
 found freshwater inflow had strong influences on nutrient and
 chlorophyll-\emph{a} concentrations but there was no evidence that
 changes in watershed nutrient loading explained additional variation in
-dissolved oxygen or chlorophyll-\emph{a} concentrations. In addition to
-providing a baseline assessment of watershed nutrient loading and water
-quality responses in the Lavaca Bay watershed, this study provides
+%DIF 102-104c102-105
+%DIF < dissolved oxygen or chlorophyll-\emph{a} concentrations. In addition to
+%DIF < providing a baseline assessment of watershed nutrient loading and water
+%DIF < quality responses in the Lavaca Bay watershed, this study provides
+%DIF -------
+dissolved oxygen and limited evidence that watershed nutrient loadings %DIF > 
+explained chlorophyll-\emph{a} concentrations. In addition to providing %DIF > 
+a baseline assessment of watershed nutrient loading and water quality %DIF > 
+responses in the Lavaca Bay watershed, this study provides %DIF > 
+%DIF -------
 methodological support for the use of semiparametric models in load
 regression models and estuary assessments.
 % Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text. Dummy abstract text.
@@ -205,12 +216,19 @@ estuary salinity and are indicative of an already stressed system
 More recently, significant linear increases in total phosphorus (TP),
 orthophosphate, total Kjeldahl nitrogen (TKN), and chlorophyll-\emph{a}
 concentrations were identified at monitoring sites within Lavaca Bay
-\autocite{bugica_water_2020}. These trends in nutrient concentrations
-are concerning due to the role of nitrogen as a limiting factor for
-primary production in many Texas estuaries
-\autocite{gardnerNitrogenFixationDissimilatory2006,houTransformationFateNitrate2012,doradoUnderstandingInteractionsFreshwater2015,paudelRelationshipSuspendedSolids2019,wetz_exceptionally_2017}
-and the ramifications that changes in nitrogen loadings could have for
-productivity and eutrophication in Lavaca Bay.
+\autocite{bugica_water_2020}. \DIFdelbegin \DIFdel{These trends in nutrient concentrations
+are concerning due to the role of nitrogen as a }\DIFdelend \DIFaddbegin \DIFadd{While significant nitrogen increases were
+only identified in TKN, both organic and inorganic forms of nitrogen can
+serve as potential indicators of eutrophication status and estuary
+health }\autocite{jessenMarineEutrophication2015}\DIFadd{. Nitrogen is generally
+considered the }\DIFaddend limiting factor for primary production in many Texas
+estuaries
+\autocite{gardnerNitrogenFixationDissimilatory2006,houTransformationFateNitrate2012,doradoUnderstandingInteractionsFreshwater2015,paudelRelationshipSuspendedSolids2019,wetz_exceptionally_2017}\DIFdelbegin \DIFdel{and the ramifications that changes in nitrogen loadings could have for
+productivity and eutrophication in Lavaca Bay}\DIFdelend \DIFaddbegin \DIFadd{.
+However, estuaries can display nitrogen and phosphorus co-limitation
+that may vary temporally and spatially
+}\autocite{elserGlobalAnalysisNitrogen2007,conleyControllingEutrophicationNitrogen2009}\DIFadd{,
+emphasizing a need to assess a variety of nutrient species}\DIFaddend .
 
 There are ongoing efforts between local, state, and federal agencies to
 address water quality impairments in the freshwater portions of the
@@ -359,13 +377,19 @@ December 2020 were downloaded (Table~\ref{tab:table1}). Less than
 the freshwater sites and deemed insufficient to develop load estimation
 models
 \autocite{horowitzEvaluationSedimentRating2003,snelderEstimationCatchmentNutrient2017}.
-The three estuary sites included an upper Lavaca Bay site near the
-outlet of the Lavaca River system (TCEQ-13563), a mid-Lavaca Bay site
-(TCEQ-13383), and the lower Lavaca Bay site near the mouth of the Bay
-(TCEQ-13384). For estuary locations, we obtained data for TP,
-Nitrite+Nitrate (NO\textsubscript{\emph{X}}), TKN, chlorophyll-\emph{a},
-and DO concentrations from January 2005 through December 2020
-(Table~\ref{tab:table2}).
+The three estuary sites included an \DIFdelbegin \DIFdel{upper Lavaca Bay }\DIFdelend \DIFaddbegin \DIFadd{upper-bay }\DIFaddend site near the outlet of
+the Lavaca River system (TCEQ-13563), a \DIFdelbegin \DIFdel{mid-Lavaca Bay }\DIFdelend \DIFaddbegin \DIFadd{mid-bay }\DIFaddend site (TCEQ-13383), and
+the \DIFdelbegin \DIFdel{lower Lavaca Bay }\DIFdelend \DIFaddbegin \DIFadd{lower-bay }\DIFaddend site near the mouth of the Bay (TCEQ-13384). For estuary
+locations, we obtained data for TP, Nitrite+Nitrate
+(NO\textsubscript{\emph{X}}), TKN, chlorophyll-\emph{a}, and DO
+concentrations from January 2005 through December 2020
+(Table~\ref{tab:table2}). \DIFaddbegin \DIFadd{Freshwater nutrient samples were collect 0.3
+meters below the surface or halfway between the surface and bottom if
+depth was insufficient. Estuary nutrient samples were all collected 0.3
+meters below the surface. Estuary DO measurements were made at 3
+locations along the water column (0.3 meters, mid-depth, and bottom) and
+averaged. All water quality data was collected approximately quarterly.
+}\DIFaddend 
 
 \begin{table}
 
@@ -413,42 +437,42 @@ Station ID \DIFaddbeginFL \DIFaddFL{and Watershed }\DIFaddendFL & Parameter & Me
 \DIFaddendFL \toprule
 Station ID & Parameter & Mean & SD & N \DIFaddbeginFL & \DIFaddFL{Method }& \DIFaddFL{AWRL\textsuperscript{a} }& \DIFaddFL{Criteria\textsuperscript{b}}\DIFaddendFL \\
 \midrule
- & TP (mg/L) & 0.11 & 0.05 & 47 \DIFaddbeginFL & \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.21}\DIFaddendFL \\
+ & TP (mg/L) & \DIFdelbeginFL \DIFdelFL{0.11 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.13 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.05 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.06 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{47}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{50 }& \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.21}\DIFaddendFL \\
 
- & NO\textsubscript{x} (mg/L) & 0.07 & 0.15 & 51 \DIFaddbeginFL & \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddendFL \\
+ & NO\textsubscript{x} (mg/L) & \DIFdelbeginFL \DIFdelFL{0.07 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.09 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.15 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.13 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{51}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{53 }& \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddendFL \\
 
- & TKN (mg/L) & 0.94 & 0.49 & 45 \DIFaddbeginFL & \DIFaddFL{EPA 351.2 }& \DIFaddFL{0.20 }& \DIFaddendFL \\
+ & TKN (mg/L) & 0.94 & \DIFdelbeginFL \DIFdelFL{0.49 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.37 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{45}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{49 }& \DIFaddFL{EPA 351.2 }& \DIFaddFL{0.20 }& \DIFaddendFL \\
 
- & Chlorophyll-\textit{a} (ug/L) & 9.43 & 5.31 & 47 \DIFaddbeginFL & \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
+ & Chlorophyll-\textit{a} (ug/L) & \DIFdelbeginFL \DIFdelFL{9.43 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{9.67 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{5.31 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{5.33 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{47}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{49 }& \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
 
 \DIFdelbeginFL %DIFDELCMD < \multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13383} %%%
-\DIFdelendFL \DIFaddbeginFL \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13383, Upper-Bay} \DIFaddendFL & DO (mg/L) & 7.22 & 1.35 & 55 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
+\DIFdelendFL \DIFaddbeginFL \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13563, Upper-Bay} \DIFaddendFL & DO (mg/L) & \DIFdelbeginFL \DIFdelFL{7.22 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{7.91 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{1.35 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1.34 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{55}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{56 }& \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
 \DIFdelbeginFL %DIFDELCMD < \cmidrule{1-5}
 %DIFDELCMD <  %%%
 \DIFdelendFL \DIFaddbeginFL \cmidrule{1-8}
- \DIFaddendFL & TP (mg/L) & 0.08 & 0.03 & 51 \DIFaddbeginFL & \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.21}\DIFaddendFL \\
+ \DIFaddendFL & TP (mg/L) & \DIFdelbeginFL \DIFdelFL{0.08 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.11 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.03 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.05 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{51}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{47 }& \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.21}\DIFaddendFL \\
 
- & NO\textsubscript{x} (mg/L) & 0.06 & 0.08 & 52 \DIFaddbeginFL & \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddendFL \\
+ & NO\textsubscript{x} (mg/L) & \DIFdelbeginFL \DIFdelFL{0.06 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.07 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.08 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.15 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{52}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{51 }& \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddendFL \\
 
- & TKN (mg/L) & 0.76 & 0.40 & 48 \DIFaddbeginFL & \DIFaddFL{EPA 351.2 }& \DIFaddFL{0.20 }& \DIFaddendFL \\
+ & TKN (mg/L) & \DIFdelbeginFL \DIFdelFL{0.76 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.94 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.40 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.49 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{48}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{45 }& \DIFaddFL{EPA 351.2 }& \DIFaddFL{0.20 }& \DIFaddendFL \\
 
- & Chlorophyll-\textit{a} (ug/L) & 8.22 & 6.44 & 46 \DIFaddbeginFL & \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
+ & Chlorophyll-\textit{a} (ug/L) & \DIFdelbeginFL \DIFdelFL{8.22 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{9.43 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{6.44 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{5.31 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{46}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{47 }& \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
 
 \DIFdelbeginFL %DIFDELCMD < \multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13384} %%%
-\DIFdelendFL \DIFaddbeginFL \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13384, Lower-Bay} \DIFaddendFL & DO (mg/L) & 7.51 & 1.32 & 54 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
+\DIFdelendFL \DIFaddbeginFL \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13383, Mid-Bay} \DIFaddendFL & DO (mg/L) & \DIFdelbeginFL \DIFdelFL{7.51 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{7.22 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{1.32 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1.35 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{54}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{55 }& \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
 \DIFdelbeginFL %DIFDELCMD < \cmidrule{1-5}
 %DIFDELCMD <  %%%
 \DIFdelendFL \DIFaddbeginFL \cmidrule{1-8}
- \DIFaddendFL & TP (mg/L) & 0.13 & 0.06 & 50 \DIFaddbeginFL & \DIFaddFL{EPA 365.1 }& \DIFaddFL{0.06 }& \DIFaddFL{0.21}\DIFaddendFL \\
+ \DIFaddendFL & TP (mg/L) & \DIFdelbeginFL \DIFdelFL{0.13 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.08 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{0.03 }& \DIFaddFL{51 }& \DIFaddFL{EPA 365.1 }& \DIFaddendFL 0.06 & \DIFdelbeginFL \DIFdelFL{50}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.21}\DIFaddendFL \\
 
- & NO\textsubscript{x} (mg/L) & 0.09 & 0.13 & 53 \DIFaddbeginFL & \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddendFL \\
+ & NO\textsubscript{x} (mg/L) & \DIFdelbeginFL \DIFdelFL{0.09 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.06 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.13 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.08 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{53}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{52 }& \DIFaddFL{EPA 353.2 }& \DIFaddFL{0.05 }& \DIFaddendFL \\
 
- & TKN (mg/L) & 0.94 & 0.37 & 49 \DIFaddbeginFL & \DIFaddFL{EPA 351.2 }& \DIFaddFL{0.20 }& \DIFaddendFL \\
+ & TKN (mg/L) & \DIFdelbeginFL \DIFdelFL{0.94 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.76 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.37 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.40 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{49}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{48 }& \DIFaddFL{EPA 351.2 }& \DIFaddFL{0.20 }& \DIFaddendFL \\
 
- & Chlorophyll-\textit{a} (ug/L) & 9.67 & 5.33 & 49 \DIFaddbeginFL & \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
+ & Chlorophyll-\textit{a} (ug/L) & \DIFdelbeginFL \DIFdelFL{9.67 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{8.22 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{5.33 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{6.44 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{49}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{46 }& \DIFaddFL{EPA 445.0 }& \DIFaddFL{3.00 }& \DIFaddFL{11.60}\DIFaddendFL \\
 
 \DIFdelbeginFL %DIFDELCMD < \multirow{-5}{*}{\raggedright\arraybackslash TCEQ-13563} %%%
-\DIFdelendFL \DIFaddbeginFL \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13563, Mid-Bay} \DIFaddendFL & DO (mg/L) & 7.91 & 1.34 & 56 \DIFaddbeginFL & \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
+\DIFdelendFL \DIFaddbeginFL \multirow{-5}{2cm}{\raggedright\arraybackslash TCEQ-13384, Lower-Bay} \DIFaddendFL & DO (mg/L) & \DIFdelbeginFL \DIFdelFL{7.91 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{7.51 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{1.34 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1.32 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{56}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{54 }& \DIFaddFL{ASTM D888-09(C) and TCEQ SOP V1 }&  & \DIFaddFL{5.00}\DIFaddendFL \\
 \bottomrule
 \end{tabular}
 \DIFaddbeginFL \begin{tablenotes}
@@ -494,24 +518,46 @@ numeric day of year (1-366), and \emph{Q} is the mean daily streamflow.
 Moving average (\emph{ma}) is an exponentially smoothed moving average
 that attempts to incorporate the influence of prior streamflow events on
 concentration at the current time period
-\autocite{wangLoadEstimationUncertainties2011,kuhnertQuantifyingTotalSuspended2012,zhang_improving_2017},
+\DIFdelbegin %DIFDELCMD < \autocite{wangLoadEstimationUncertainties2011,kuhnertQuantifyingTotalSuspended2012,zhang_improving_2017}%%%
+\DIFdelend \DIFaddbegin \autocite{wangLoadEstimationUncertainties2011,kuhnertQuantifyingTotalSuspended2012,wangSedimentConcentrationPrediction2013a,zhang_improving_2017}\DIFaddend ,
 using Eq. \ref{eq2}:
 
 \begin{equation}
-ma(t) = \frac{\sum^{J}_{j=1}{d^{t-t_j}Q_{t_{j}}}}{\sum^{J}_{j=1}d^{t-t_j}}
-\label{eq2}
+ma(\DIFdelbegin \DIFdel{t}\DIFdelend \DIFaddbegin \DIFadd{d}\DIFaddend ) = \DIFdelbegin \DIFdel{\frac{\sum^{J}_{j=1}{d^{t-t_j}Q_{t_{j}}}}{\sum^{J}_{j=1}d^{t-t_j}}
+}\DIFdelend \DIFaddbegin \DIFadd{\frac{Q_j + dQ_{j-1} + \mathellipsis + d^{j-1}Q_1}{1+d+...+d^{j-1}}
+}\DIFaddend \label{eq2}
 \end{equation}
 
-where \emph{t} is the day of estimation, \emph{d} is the discount factor
-(set to 0.95), \emph{J} is the total number of daily discharge
+where \emph{\DIFdelbegin \DIFdel{t}\DIFdelend \DIFaddbegin \DIFadd{ma}\DIFaddend } \DIFdelbegin \DIFdel{is the day of estimation, }\emph{\DIFdel{d}} %DIFAUXCMD
+\DIFdel{is the discount factor (set to 0.95), }\DIFdelend \DIFaddbegin \DIFadd{at discount factor }\DIFaddend \emph{\DIFdelbegin \DIFdel{J}\DIFdelend \DIFaddbegin \DIFadd{d}\DIFaddend } is \DIFdelbegin \DIFdel{the total number of daily discharge
 observations, \(t-t_j\) is the lag time between the current day and some
-historical day of observation (\(t_j\)). Here, as \emph{d} approaches
-zero, the time series becomes the daily observed values and as \emph{d}
-gets closer to one, the time series becomes the mean flow.
+historical day of observation (\(t_j\))}\DIFdelend \DIFaddbegin \DIFadd{calculated using flows
+\((Q_1,Q_2,...,Q_j)\) for days 1 through }\emph{\DIFadd{j}}\DIFaddend . Here, as \emph{d}
+approaches zero, the time series becomes the daily observed values and
+as \emph{d} gets closer to one, the time series becomes the mean flow.
+\DIFaddbegin \DIFadd{Although \mbox{%DIFAUXCMD
+\textcite{kuhnertQuantifyingTotalSuspended2012} }\hskip0pt%DIFAUXCMD
+and
+\mbox{%DIFAUXCMD
+\textcite{wangSedimentConcentrationPrediction2013a} }\hskip0pt%DIFAUXCMD
+suggest using
+multiple covariates with }\emph{\DIFadd{d}} \DIFadd{set at different values from 0.75 to
+0.99, \mbox{%DIFAUXCMD
+\textcite{robson_prediction_2015-1} }\hskip0pt%DIFAUXCMD
+and
+\mbox{%DIFAUXCMD
+\textcite{zhang_improving_2017} }\hskip0pt%DIFAUXCMD
+found substantial improvements in
+statistical nutrient models with }\emph{\DIFadd{d}} \DIFadd{equal to 0.95 which was
+adopted in this study.
+}\DIFaddend 
 
-Flow anomaly (\emph{fa}) is a unitless term that represents how wet or
-dry the current time period is from a previous time period
-\autocite{vecchiaTrendsConcentrationsUse2009,zhang_improving_2017}.
+Flow anomaly (\emph{fa}) is a \DIFdelbegin \DIFdel{unitless }\DIFdelend \DIFaddbegin \DIFadd{dimensionless }\DIFaddend term that represents how wet
+or dry \DIFaddbegin \DIFadd{(or how anomalous) }\DIFaddend the current time period is from \DIFdelbegin \DIFdel{a previous time
+period
+}\DIFdelend \DIFaddbegin \DIFadd{previous time
+periods
+}\DIFaddend \autocite{vecchiaTrendsConcentrationsUse2009,zhang_improving_2017}.
 Long-term flow anomaly (\emph{ltfa}) is the streamflow over the previous
 year relative to the entire period
 \autocite[Eq.~\ref{eq3},][]{zhang_improving_2017} and and the short-term
@@ -547,10 +593,11 @@ applied to the smooths of flow-based variables which penalize departures
 from a flat function to help constrain extrapolations for high flow
 measurements.
 
-Left-censored data were not uncommon in this dataset. Several methods
-are available to account for censored data. We transformed left-censored
-nutrient concentrations to one-half the detection limit. Although this
-simple approach can introduce bias
+Left-censored data were not uncommon in this dataset \DIFaddbegin \DIFadd{(4\% of TP samples
+and 20\% of NO\textsubscript{3} samples)}\DIFaddend . Several methods are available
+to account for censored data. We transformed left-censored nutrient
+concentrations to one-half the detection limit. Although this simple
+approach can introduce bias
 \autocite{hornungEstimationAverageConcentration1990}, we considered it
 acceptable because high concentrations and loadings are associated with
 high-flow events and low-flow/low-concentration events will account for
@@ -610,9 +657,9 @@ around 20 days to a few months. We incorporate this lag effect by using
 cumulative totals for }\DIFaddend \(f_3(Q)\) \DIFdelbegin \DIFdel{is mean daily inflow (the }\DIFdelend \DIFaddbegin \DIFadd{and \(f_4(Load)\). \(f_3(Q)\) is the
 cumulative of the previous 20 days of inflow (}\DIFaddend combined measurements from
 Lavaca River and Navidad River) and \(f_4(Load)\) is the \DIFaddbegin \DIFadd{cumulative of
-the previous 20 days }\DIFaddend total NO\textsubscript{3} or TP watershed load. The
-set of models specified for each water quality response are in
-Table~\ref{tab:table3}.
+the previous 20 days }\DIFaddend total NO\textsubscript{3} or TP watershed load\DIFaddbegin \DIFadd{,
+both smoothed with thin plate regression splines}\DIFaddend . The set of models
+specified for each water quality response are in Table~\ref{tab:table3}.
 
 \begin{table}
 
@@ -719,7 +766,7 @@ NO\textsubscript{3}.
 
 }
 
-\caption{Density plots of goodness-of-fit metrics (NSE, \textit{r}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calculated from the empirical cumulative distribution of the goodness-of-fit metrics.}\label{fig:fig2}
+\caption{Density plots of goodness-of-fit metrics (NSE, \textit{r}, and PBIAS) from repeated 5-fold cross validation between predicted nutrient loads from GAM models and measured nutrient loads. Color indicates the tail probability calculated from the empirical cumulative distribution of the goodness-of-fit metrics. \DIFaddbeginFL \DIFaddFL{Values closer to 1 for NSE and r and values closer to 0 for PBIAS represent more ideal goodness-of-fit assessments.}\DIFaddendFL }\label{fig:fig2}
 \end{figure}
 
 Annual NO\textsubscript{3} and TP loads show considerable variation,
@@ -740,7 +787,7 @@ decreases in NO\textsubscript{3} loads since 2013.
 
 }
 
-\caption{Aggregated estimated annual and flow-normalized annual NO\textsubscript{3} and TP loads for USGS-08164000 and USGS-08164525.}\label{fig:fig3}
+\caption{Aggregated estimated annual and flow-normalized annual NO\textsubscript{3} and TP loads for \DIFaddbeginFL \DIFaddFL{the Lavaca (}\DIFaddendFL USGS-08164000\DIFaddbeginFL \DIFaddFL{) }\DIFaddendFL and \DIFaddbeginFL \DIFaddFL{and Navidad (}\DIFaddendFL USGS-08164525\DIFaddbeginFL \DIFaddFL{) Rivers}\DIFaddendFL .}\label{fig:fig3}
 \end{figure}
 
 Aggregated across both sites, the mean annual NO\textsubscript{3} load
@@ -774,15 +821,18 @@ Loads}\label{linkages-between-water-quality-and-watershed-flows-and-loads}}
 Watershed Flows and Loads}
 
 There was no evidence of long-term changes in TP or DO concentrations at
-any Lavaca Bay site (Fig.~\ref{fig:fig5}). The upper-bay site,
-TCEQ-13563, had evidence of a long-term linear increase in
+any Lavaca Bay site (Fig.~\ref{fig:fig5}). The upper-bay site
+\DIFdelbegin \DIFdel{,
+}\DIFdelend \DIFaddbegin \DIFadd{(}\DIFaddend TCEQ-13563\DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{) }\DIFaddend had evidence of a long-term linear increase in
 NO\textsubscript{\emph{X}} while chlorophyll-\emph{a} decreased from
 2005 through 2014 (Fig.~\ref{fig:fig5}). NO\textsubscript{\emph{X}}
-concentration at the mid-bay site, TCEQ-13383, displayed an unusual
-periodic pattern that is indicative of a strong influence from inflow or
+concentration at the mid-bay site \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{(}\DIFaddend TCEQ-13383\DIFdelbegin \DIFdel{, displayed an unusual
+}\DIFdelend \DIFaddbegin \DIFadd{) displayed a }\DIFaddend periodic
+pattern that is indicative of a strong influence from inflow or
 precipitation. The temporal GAMs did not provide evidence of long-term
-trends in any of the water quality constituents at the lower-bay
-TCEQ-13384 site.
+trends in any of the water quality constituents at the lower-bay \DIFdelbegin \DIFdel{TCEQ-13384 site
+}\DIFdelend \DIFaddbegin \DIFadd{site
+(TCEQ-13384)}\DIFaddend .
 
 \begin{figure}
 
@@ -793,25 +843,58 @@ TCEQ-13384 site.
 
 }
 
-\caption{Fitted splines (shaded regions indicate 90\% confidence intervals) from the temporal estuary GAM display the marginal smoothed effect of date on TP (A), NO\textit{\textsubscript{X}} (B), chlorophyll-\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.}\label{fig:fig5}
+\caption{Fitted splines (shaded regions indicate 90\% confidence intervals) from the temporal estuary GAM \DIFaddbeginFL \DIFaddFL{(Table \ref{tab:table3}) }\DIFaddendFL display the marginal smoothed effect of date on TP (A), NO\textit{\textsubscript{X}} (B), chlorophyll-\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.}\label{fig:fig5}
 \end{figure}
 
-Freshwater inflow provided additional explanation for changes in TP and
-NO\textsubscript{\emph{X}} concentration at all of the Lavaca Bay sites
-according to AIC\textsubscript{c} and model probability values
-(Table~\ref{tab:table4}). TCEQ-13563, the site closest to the river
-outlet, was the only site that had improvements in the explanations of
-DO and TKN concentration with the inclusion of inflow. Both TCEQ-13563
-and TCEQ-13383, the mid-bay site, saw improvements in explanations for
-variations in chlorophyll-\emph{a} with the inclusion of freshwater
-inflow. The addition of nutrient loads (both TP and NO\textsubscript{3})
-terms did not provide additional explanation for changes in
-chlorophyll-\emph{a} or DO concentrations. Inclusion of TP loads
-provided additional explanation of TP concentrations at the upper- and
-mid-bay sites, TCEQ-13563 and TCEQ-13383. Inclusion of
-NO\textsubscript{3} loads only provided marginal improvements in the
-explanation of NO\textsubscript{\emph{X}} concentration at the lower-bay
-TCEQ-13384 site.
+Freshwater inflow provided additional explanation for changes in
+\DIFdelbegin \DIFdel{TP and
+NO}\DIFdelend \DIFaddbegin \DIFadd{NO}\DIFaddend \textsubscript{\DIFdelbegin \emph{\DIFdel{X}}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{x}\DIFaddend } \DIFdelbegin \DIFdel{concentration }\DIFdelend \DIFaddbegin \DIFadd{and chlorophyll-}\emph{\DIFadd{a}} \DIFaddend at all of the Lavaca Bay
+sites according to AIC\textsubscript{c} and model probability values
+(Table~\ref{tab:table4}). \DIFdelbegin \DIFdel{TCEQ-13563, the site closest to the river
+outlet, was the only sitethat had improvements in the explanations of DO and TKN }\DIFdelend \DIFaddbegin \DIFadd{Freshwater inflow also explained additional
+variation in TP at the upper- and mid-bay sites but not the lower-bay
+site. Freshwater inflow did not explain additional variation in TKN
+concentrations at any of the sites. The upper- and lower-bay sites saw
+improvements in explanation of DO }\DIFaddend concentration with the inclusion of
+inflow.
+\DIFdelbegin \DIFdel{Both TCEQ-13563
+}\DIFdelend \DIFaddbegin 
+
+\DIFadd{Inclusion of TP loads provided additional explanation of TP
+concentrations at the upper- }\DIFaddend and \DIFdelbegin \DIFdel{TCEQ-13383, the }\DIFdelend mid-bay \DIFdelbegin \DIFdel{site, saw improvements
+in explanations for
+variations in chlorophyll-}\emph{\DIFdel{a}} %DIFAUXCMD
+\DIFdel{with the inclusion of freshwater
+inflow}\DIFdelend \DIFaddbegin \DIFadd{sites. Inclusion of
+NO\textsubscript{3} loads did not provide model explanatory improvements
+at any of the sites}\DIFaddend . The addition of nutrient loads (both TP and
+NO\textsubscript{3}) terms did not provide additional explanation for
+changes in \DIFaddbegin \DIFadd{DO concentrations but did provide model improvement for the
+}\DIFaddend chlorophyll-\emph{a} \DIFdelbegin \DIFdel{or DO concentrations. Inclusion of TP loads
+provided additional explanation of TP
+concentrations }\DIFdelend \DIFaddbegin \DIFadd{model at the mid-bay site.
+}
+
+\DIFadd{Increases in aggregated freshwater inflow resulted in increases in TP at
+the upper- and mid-bay sites and increases in NO\textsubscript{\emph{X}}
+and chlorophyll-}\emph{\DIFadd{a}}\DIFadd{concentration at all three sites
+(Fig.~\ref{fig:fig6}). Linear increases in DO concentration were
+observed with increasing flow at the upper- and lower-bay sites. TKN
+showed no response to changes in inflow at any of the sites.
+}
+
+\DIFadd{Increased TP loads resulted in nearly linear increases of TP
+concentration }\DIFaddend at the upper- and mid-bay sites \DIFdelbegin \DIFdel{, TCEQ-13563 and TCEQ-13383.Inclusion of }\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:fig7}). The
+relative effect size appeared much smaller than the effect of freshwater
+inflow alone. Increased }\DIFaddend NO\textsubscript{3} loads \DIFdelbegin \DIFdel{only provided marginal improvements in the
+explanation of NO}\DIFdelend \DIFaddbegin \DIFadd{did effect
+NO}\DIFaddend \textsubscript{\DIFdelbegin \emph{\DIFdel{X}}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{x}\DIFaddend } \DIFdelbegin \DIFdel{concentration at the lower-bay
+TCEQ-13384 site}\DIFdelend \DIFaddbegin \DIFadd{concentrations at any site. Linear increases in
+chlorophyll-}\emph{\DIFadd{a}} \DIFadd{were observed in response to increased TP loads at
+the mid-bay site, but not the other sites or in response to
+NO\textsubscript{3} loads}\DIFaddend .
 
 \begin{table}
 
@@ -821,65 +904,70 @@ TCEQ-13384 site.
 \toprule
 Parameter & Site & Temporal & Inflow & Inflow + Load\\
 \midrule
- & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & -152.1 (\DIFdelbeginFL \DIFdelFL{0.03}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.02}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{-156.1 (0.24}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-155.1 (0.07}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-158.2 (0.72)}}%%%
-\DIFdelendFL \DIFaddbeginFL \em{\textbf{-160.2 (0.91)}}\DIFaddendFL \\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-152.1 (0.03}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-145.3 (0.01}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{-156.1 (0.24}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-150 (0.12}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-158.2 (0.72)}}%%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{-154 (0.87)}}\DIFaddendFL \\
 
- & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-194.4 (0.03}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-145.3 (0.01}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-200.2 (0.49)}} %%%
-\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-150 (0.12) }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-200.2 (0.49) }\DIFdelendFL \DIFaddbeginFL \em{\textbf{-154 (0.87)}}\DIFaddendFL \\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-194.4 (0.03}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-152.1 (0.02}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-200.2 (0.49)}} %%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-155.1 (0.07) }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-200.2 (0.49) }\DIFdelendFL \DIFaddbeginFL \em{\textbf{-160.2 (0.91)}}\DIFaddendFL \\
 
-\multirow{-3}{*}{\raggedright\arraybackslash TP} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-145.3 (0}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-194.4 (0.39}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{-156.6 (0.41)}\DIFdelendFL \DIFaddbeginFL \em{\textbf{-194 (0.31)}} \DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-157.3 (0.59)}}%%%
+\multirow{-3}{*}{\raggedright\arraybackslash TP} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-145.3 (0}\DIFdelendFL \DIFaddbeginFL \em{\textbf{-194.4 (0.39)}} & \DIFaddFL{-194 (0.31}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{-156.6 (0.41)}%DIFDELCMD < & \em{\textbf{-157.3 (0.59)}}%%%
 \DIFdelendFL \DIFaddbeginFL \DIFaddFL{-194 (0.31)}\DIFaddendFL \\
 \cmidrule{1-5}
- & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & -218.9 (0) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-244.8 (0.5)}} %%%
-\DIFdelendFL \DIFaddbeginFL \em{\textbf{-241.7 (0.5)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-244.8 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-241.7 }\DIFaddendFL (0.5)\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-218.9 (0}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-175.1 (0.01}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-244.8 (0.5)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{-183.8 (0.5)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-244.8 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-183.8 }\DIFaddendFL (0.5)\\
 
- & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-263.4 (0}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-175.1 (0.01}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{-311.7 (0.48)}\DIFdelendFL \DIFaddbeginFL \em{\textbf{-183.8 (0.5)}} \DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-311.9 (0.52)}}%%%
-\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-183.8 (0.5)}\DIFaddendFL \\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-263.4 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-218.9 }\DIFaddendFL (0) & \DIFdelbeginFL \DIFdelFL{-311.7 (0.48)}\DIFdelendFL \DIFaddbeginFL \em{\textbf{-241.7 (0.5)}} \DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-311.9 (0.52)}}%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-241.7 (0.5)}\DIFaddendFL \\
 
-\multirow{-3}{*}{\raggedright\arraybackslash NO\textsubscript{x}} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-175.1 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-263.4 }\DIFaddendFL (0) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-190.2 (0.5)}} & %%%
-\DIFdelFL{-190.2 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-298.1 }\DIFaddendFL (0.5) \DIFaddbeginFL & \em{\textbf{-298.1 (0.5)}}\DIFaddendFL \\
+\multirow{-3}{*}{\raggedright\arraybackslash NO\textsubscript{x}} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-175.1 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-263.4 }\DIFaddendFL (0) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{-190.2 (0.5)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{-298.1 (0.5)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{-190.2 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-298.1 }\DIFaddendFL (0.5)\\
 \cmidrule{1-5}
- & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & 279.7 (\DIFdelbeginFL \DIFdelFL{0.18}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.24}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{278.1 (0.41)}} %%%
-\DIFdelendFL \DIFaddbeginFL \em{\textbf{279.6 (0.26)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{278.1 (0.41}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{278.2 (0.5}\DIFaddendFL )\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{279.7 (0.18}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{289.5 (0.37}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{278.1 (0.41)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{289.5 (0.38)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{278.1 (0.41}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{290.3 (0.25}\DIFaddendFL )\\
 
  & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{268.2 (0.33)}} & %%%
-\DIFdelFL{268.2 (0.33}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{289.5 (0.37}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{268.2 (0.33}\DIFdelendFL \DIFaddbeginFL \em{\textbf{289.5 (0.38)}} & \DIFaddFL{290.3 (0.25}\DIFaddendFL )\\
+\DIFdelFL{268.2 (0.33}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{279.7 (0.24}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{268.2 (0.33) }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{279.6 (0.26) }& \em{\textbf{278.2 (0.5)}}\DIFaddendFL \\
 
-\multirow{-3}{*}{\raggedright\arraybackslash Chlorophyll-\textit{a}} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{289.5 (0.08}\DIFdelendFL \DIFaddbeginFL \em{\textbf{268.2 (0.03)}} & \DIFaddFL{262.7 (0.48}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{286.1 (0.46)}} & %%%
-\DIFdelFL{286.1 (0.46}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{262.7 (0.48}\DIFaddendFL )\\
+\multirow{-3}{*}{\raggedright\arraybackslash Chlorophyll-\textit{a}} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{289.5 (0.08}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{268.2 (0.03}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{286.1 (0.46)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{262.7 (0.48)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{286.1 (0.46}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{262.7 (0.48}\DIFaddendFL )\\
 \cmidrule{1-5}
  & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{42.2 (0.66)}} %%%
-\DIFdelendFL \DIFaddbeginFL \em{\textbf{42.2 (0.5)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{43.5 (0.34}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{42.2 (0.5}\DIFaddendFL ) & -\\
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{31.1 (0.5)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{43.5 (0.34}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{31.1 (0.5}\DIFaddendFL ) & -\\
 
- & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{34.3 (0.57)}} & %%%
-\DIFdelFL{34.8 (0.43}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{31.1 (0.5}\DIFaddendFL ) & \DIFaddbeginFL \em{\textbf{31.1 (0.5)}} & \DIFaddendFL -\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{34.3 (0.57)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{42.2 (0.5)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{34.8 (0.43}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{42.2 (0.5}\DIFaddendFL ) & -\\
 
 \multirow{-3}{*}{\raggedright\arraybackslash TKN} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{31.1 (0.22}\DIFdelendFL \DIFaddbeginFL \em{\textbf{34.3 (0.5)}} & \DIFaddFL{34.3 (0.5}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{28.7 (0.78)}} & %%%
 \DIFdelendFL -\\
 \cmidrule{1-5}
- & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{146.4 (0.34)}} %%%
-\DIFdelendFL \DIFaddbeginFL \em{\textbf{146.4 (0.37)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{146.4 (0.34}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{146.8 (0.29}\DIFaddendFL ) & 146.5 (\DIFdelbeginFL \DIFdelFL{0.32}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.34}\DIFaddendFL )\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13383 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Upper-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{146.4 (0.34)}} & %%%
+\DIFdelFL{146.4 (0.34}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{138.3 (0.17}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{146.5 (0.32}\DIFdelendFL \DIFaddbeginFL \em{\textbf{136.4 (0.42)}} & \DIFaddFL{136.4 (0.42}\DIFaddendFL )\\
 
- & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{135.9 (0.47)}} & %%%
-\DIFdelFL{137 (0.27}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{138.3 (0.17}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{137 (0.27}\DIFdelendFL \DIFaddbeginFL \em{\textbf{136.4 (0.42)}} & \DIFaddFL{136.4 (0.42}\DIFaddendFL )\\
+ & \DIFdelbeginFL \DIFdelFL{TCEQ-13384 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Mid-Bay }\DIFaddendFL & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{135.9 (0.47)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{146.4 (0.37)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{137 (0.27}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{146.8 (0.29}\DIFaddendFL ) & \DIFdelbeginFL \DIFdelFL{137 (0.27}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{146.5 (0.34}\DIFaddendFL )\\
 
-\multirow{-3}{*}{\raggedright\arraybackslash DO} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{138.3 (0.25}\DIFdelendFL \DIFaddbeginFL \em{\textbf{135.9 (0.04)}} & \DIFaddFL{130.6 (0.48}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{137.2 (0.43)}} & %%%
-\DIFdelFL{137.8 (0.32}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{130.6 (0.48}\DIFaddendFL )\\
+\multirow{-3}{*}{\raggedright\arraybackslash DO} & \DIFdelbeginFL \DIFdelFL{TCEQ-13563 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Lower-Bay }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{138.3 (0.25}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{135.9 (0.04}\DIFaddendFL ) & \DIFdelbeginFL %DIFDELCMD < \em{\textbf{137.2 (0.43)}} %%%
+\DIFdelendFL \DIFaddbeginFL \em{\textbf{130.6 (0.48)}} \DIFaddendFL & \DIFdelbeginFL \DIFdelFL{137.8 (0.32}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{130.6 (0.48}\DIFaddendFL )\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Increases in freshwater inflow resulted in nearly linear increases in TP
+\DIFdelbegin \DIFdel{Increases in freshwater inflow resulted in nearly linear increases in TP
 and NO\textsubscript{\emph{X}} concentration at all three sites
 (Fig.~\ref{fig:fig6}). At the upper-bay TCEQ-13563 site, increases in
-freshwater inflow initially increased chlorophyll-\emph{a} and DO
+freshwater inflow initially increased chlorophyll-}\emph{\DIFdel{a}} %DIFAUXCMD
+\DIFdel{and DO
 concentration but concentrations leveled and potentially decreased at
 higher flows. The mid-bay TCEQ-13383 site had nearly linear increases in
-chlorophyll-\emph{a} concentration in response to increased freshwater
+chlorophyll-}\emph{\DIFdel{a}} %DIFAUXCMD
+\DIFdel{concentration in response to increased freshwater
 inflow. There was no evidence of freshwater inflow effects on
-chlorophyll-\emph{a}, TKN, or DO at the lower-bay TCEQ-13384 site.
+chlorophyll-}\emph{\DIFdel{a}}%DIFAUXCMD
+\DIFdel{, TKN, or DO at the lower-bay TCEQ-13384 site.
+}%DIFDELCMD < 
 
-\begin{figure}
+%DIFDELCMD < %%%
+\DIFdelend \begin{figure}
 
 {\centering \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig6} 
 %DIFDELCMD < %%%
@@ -891,7 +979,7 @@ chlorophyll-\emph{a}, TKN, or DO at the lower-bay TCEQ-13384 site.
 \caption{Fitted splines from estuary GAMs display the marginal smoothed effect of freshwater inflow (controlled for season) on TP (A), NO\textit{\textsubscript{X}} (B), chlorophyll-\textit{a} (C), TKN (D), and DO (E) concentrations at each site in Lavaca Bay.}\label{fig:fig6}
 \end{figure}
 
-Increased TP loads resulted in nearly linear increases of TP
+\DIFdelbegin \DIFdel{Increased TP loads resulted in nearly linear increases of TP
 concentration at the upper- and mid-bay sites, TCEQ-13563 and TCEQ-13383
 respectively (Fig.~\ref{fig:fig7}). The relative effect size appeared
 much smaller than the effect of freshwater inflow alone. Increased
@@ -900,8 +988,10 @@ TCEQ-13384 site. The effect was quite small compared to streamflow and
 provided only small improvements to the model (Table~\ref{tab:table4}).
 As noted above, nutrient loadings did not provide any explanation in
 changes in the remaining assessed water quality parameters.
+}%DIFDELCMD < 
 
-\begin{figure}
+%DIFDELCMD < %%%
+\DIFdelend \begin{figure}
 
 {\centering \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\linewidth,]{Schramm-2023-06-PeerJ_files/figure-latex/fig7} 
 %DIFDELCMD < %%%
@@ -910,7 +1000,7 @@ changes in the remaining assessed water quality parameters.
 
 }
 
-\caption{Fitted splines from the nutrient loading GAMs display the marginal smoothed effect of TP and NO\textsubscript{3} loads on TP (A) and NO\textsubscript{\textit{X}} (B) concentrations at each site in Lavaca Bay.}\label{fig:fig7}
+\caption{Fitted splines from the nutrient loading GAMs display the marginal smoothed effect of \DIFaddbeginFL \DIFaddFL{20-day aggregated }\DIFaddendFL TP and NO\textsubscript{3} \DIFaddbeginFL \DIFaddFL{flow-normalized }\DIFaddendFL loads on \DIFdelbeginFL \DIFdelFL{TP }\DIFdelendFL (A) \DIFdelbeginFL \DIFdelFL{and }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{TP, (B) }\DIFaddendFL NO\textsubscript{\textit{X}}\DIFaddbeginFL \DIFaddFL{, and }\DIFaddendFL (\DIFdelbeginFL \DIFdelFL{B}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{C,D}\DIFaddendFL ) \DIFaddbeginFL \DIFaddFL{chlorophyll-}\textit{\DIFaddFL{a}} \DIFaddendFL concentrations at each site in Lavaca Bay.}\label{fig:fig7}
 \end{figure}
 
 \hypertarget{discussion}{%
@@ -935,12 +1025,12 @@ land use alone. Freshwater discharges in the Navidad River are regulated
 by the Palmetto Bend Dam forming Lake Texana at the lower extent of the
 river. Lentic nitrogen uptake and cycling may have regulating effects
 that mask changes in upstream nitrogen loadings. Additional nutrient
-data collection in the contributing tributaries of Lake Texana is needed
-to fully assess the role of Lake Texana in regulating nutrient delivery
-to the Lavaca Bay system. However, these results suggest that there have
-been no changes in the NO\textsubscript{3} or TP loading from the
-Navidad River system at the Lake Texana discharge point when accounting
-for variations in year to year discharge.
+data collection in the \DIFdelbegin \DIFdel{contributing }\DIFdelend tributaries of Lake Texana is needed to fully
+assess the role of Lake Texana in regulating nutrient delivery to the
+Lavaca Bay system. However, these results suggest that there have been
+no changes in the NO\textsubscript{3} or TP loading from the Navidad
+River system at the Lake Texana discharge point when accounting for
+variations in year to year discharge.
 
 The evidence of decreased Lavaca River NO\textsubscript{3} loading,
 although weak, is a potential positive sign for water quality managers
@@ -1114,35 +1204,44 @@ the nitrogen limitation identified in many Texas estuaries
 and the relatively low ambient concentrations observed in Lavaca Bay.
 
 The strong positive effect of freshwater inflow on
-NO\textsubscript{\emph{X}}, TKN, and TP concentration are suggestive of
+NO\textsubscript{\emph{X}} \DIFdelbegin \DIFdel{, TKN, }\DIFdelend and TP concentration are suggestive of
 nonpoint watershed sources, consistent with watershed uses and with
 other studies relating freshwater inflow with nutrient concentrations in
 Lavaca Bay and other estuaries
 \autocite{russell_effect_2006,caffreyHighNutrientPulses2007,peierlsNonmonotonicResponsesPhytoplankton2012,palmerImpactsDroughtsLow2015,ciraPhytoplanktonDynamicsLowinflow2021}.
-Inflow had a non-linear relationship with TKN at the two upstream sites,
-with TKN increasing as freshwater inflow transitioned from low to
-moderate levels. At higher freshwater inflows, the effect was
-attenuated, possibly indicating a flushing effect at higher freshwater
-inflow. No relationship between TKN and freshwater inflow were observed
-at TCEQ-13384 located in the lower reach of Lavaca Bay. The results
-suggest that tidal flushing might dilute TKN and act as a control on the
-effects of freshwater inflow in the lower reaches of Lavaca Bay. The
-results are also consistent with previous work that suggest processing
-of organic loads in the upper Lavaca Bay or tidal portions of the Lavaca
-River reduce transport of nutrients to the lower reaches of Lavaca Bay
+Inflow had a non-linear relationship with \DIFdelbegin \DIFdel{TKN at the two upstream sites, with
+TKN }\DIFdelend \DIFaddbegin \DIFadd{NO\textsubscript{x}, with
+NO\textsubscript{x} }\DIFaddend increasing as freshwater inflow transitioned from
+low to moderate levels. At higher freshwater inflows, the
+\DIFdelbegin \DIFdel{effect was
+attenuated}\DIFdelend \DIFaddbegin \DIFadd{NO\textsubscript{x} decreased at the mid- and lower-bay sites}\DIFaddend , possibly
+indicating a flushing effect at higher freshwater inflow. No
+relationship between TKN and freshwater inflow \DIFdelbegin \DIFdel{were observed at TCEQ-13384 located in the lower reach of
+Lavaca Bay. The results
+suggest that tidal flushing might dilute TKN and act as a control on the effects of freshwater inflow in the lower reaches of Lavaca Bay}\DIFdelend \DIFaddbegin \DIFadd{was observed at any of
+the sites}\DIFaddend . The results \DIFdelbegin \DIFdel{are also consistent }\DIFdelend \DIFaddbegin \DIFadd{coincide }\DIFaddend with previous work that suggest
+processing of organic loads in the \DIFdelbegin \DIFdel{upper Lavaca Bay or }\DIFdelend tidal portions of the Lavaca River
+reduce transport of nutrients to the lower reaches of Lavaca Bay
 \autocite{russell_effect_2006}.
 
-Freshwater inflow also displayed a strong positive effect on
-chlorophyll-\emph{a} at the upper- and mid-bay sites. The upper-bay
-site, TCEQ-13563, showed decreases in chlorophyll-\emph{a} at the
-highest freshwater inflow volumes. Freshwater flushing or increases in
-turbidity are associated with decreases in chlorophyll-\emph{a} in other
-estuaries
+Freshwater inflow also displayed \DIFdelbegin \DIFdel{a strong positive effect }\DIFdelend \DIFaddbegin \DIFadd{positive effects }\DIFaddend on
+chlorophyll-\emph{a} at \DIFdelbegin \DIFdel{the upper- and mid-bay sites. The upper-bay
+site , TCEQ-13563, showed decreases in }\DIFdelend \DIFaddbegin \DIFadd{each site, with the largest effect at the
+lower-bay site. The lower-bay site also showed an attenuation in in
+}\DIFaddend chlorophyll-\emph{a} at the highest freshwater inflow volumes.
+Freshwater flushing or increases in turbidity are associated with
+\DIFaddbegin \DIFadd{limitations or }\DIFaddend decreases in chlorophyll-\emph{a} in other estuaries
 \autocite{peierlsNonmonotonicResponsesPhytoplankton2012,cloernPhytoplanktonPrimaryProduction2014}.
-No relationships between inorganic nitrogen or TP loadings with
-chlorophyll-\emph{a} were observed. Due to the lack of TKN loading
-information, no assessment between organic nitrogen loads and
-chlorophyll-\emph{a} were possible.
+No relationships between inorganic nitrogen \DIFdelbegin \DIFdel{or TP loadings with
+}\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend chlorophyll-\emph{a}
+were observed. \DIFaddbegin \DIFadd{However, a small positive effect between flow-normalized
+TP loads and chlorophyll-}\emph{\DIFadd{a}} \DIFadd{concentrations were detected at the
+mid-bay site. Although, this is not suggestive of a phosphorus
+limitation in the Bay, it is supportive of prior work emphasizing the
+importance of controlling both nitrogen and phosphorus runoff to protect
+water quality }\autocite{conleyControllingEutrophicationNitrogen2009}\DIFadd{.
+}\DIFaddend Due to the lack of TKN loading information, no assessment between
+organic nitrogen loads and chlorophyll-\emph{a} were possible.
 
 Although other studies have identified complex relationships between
 estuary nutrient concentrations, nutrient loading and
@@ -1173,7 +1272,7 @@ be limited by nutrients alone, with high turbidity or nutrient
 processing in upper portions of the Bay or intertidal river limiting
 production \autocite{russell_effect_2006}. Finally, it is reasonable to
 assume that fluctuations in DO may not occur immediately in response to
-nutrient pulses or freshwater inflow. Work \DIFdelbegin \DIFdel{has }\DIFdelend has shown that many water
+nutrient pulses or freshwater inflow. Work has \DIFdelbegin \DIFdel{has }\DIFdelend shown that many water
 quality parameters may have lagged effects lasting days or even months
 following storms and large discharge events
 \autocite{mooneyWatershedExportEvents2012a,wetzExtremeFutureEstuaries2013,bukaveckasInfluenceStormEvents2020,walkerTimescalesMagnitudeWater2021}.
@@ -1191,30 +1290,35 @@ these changes have been largely driven environmental conditions (changes
 in runoff and river discharge). These models also provide evidence that
 estuary NO\textsubscript{\emph{X}} and TP concentrations are strongly
 driven by freshwater inflow and to a lesser extent fluctuation in
-flow-adjusted riverine loadings. Site-specific changes in the
+\DIFdelbegin \DIFdel{flow-adjusted }\DIFdelend \DIFaddbegin \DIFadd{flow-normalized }\DIFaddend riverine loadings. Site-specific changes in the
 relationships between freshwater inflow and responses in both
-chlorophyll-\emph{a} and TKN concentrations are indicative nutrient
-processing and or tidal flushing effects moving from the river discharge
-point to the mouth of Lavaca Bay. This study does not completely explain
-site specific increases in NO\textsubscript{\emph{X}} and TKN
-concentrations in Lavaca Bay. The freshwater study sites did not
-quantify nutrient loadings from tidal contribution areas or ungauaged
-watersheds. Nutrient contributions from wastewater facility discharges,
-septic systems, and stormwater could be considerable contributors to
-nutrient loadings in Lavaca Bay since they are not processed by a tidal
-river reach prior to entering the Bay. The Garcitas-Arenosa Creek,
-Placedo Creek, and Cox Bay subwatersheds are currently undersampled but
-compose approximately 27\% of the watershed area. The contribution of
-nutrient loadings from these undersampled areas is unknown.
+chlorophyll-\emph{a} and \DIFdelbegin \DIFdel{TKN }\DIFdelend \DIFaddbegin \DIFadd{NO\textsubscript{x} }\DIFaddend concentrations are
+indicative \DIFaddbegin \DIFadd{of }\DIFaddend nutrient processing and or tidal flushing effects moving
+from the river discharge point to the mouth of Lavaca Bay. This study
+does not completely explain site specific increases in
+NO\textsubscript{\emph{X}} and TKN concentrations in Lavaca Bay. The
+freshwater study sites did not quantify nutrient loadings from tidal
+contribution areas or ungauaged watersheds. Nutrient contributions from
+wastewater facility discharges, septic systems, and stormwater could be
+considerable contributors to nutrient loadings in Lavaca Bay since they
+are not processed by a tidal river reach prior to entering the Bay. The
+Garcitas-Arenosa Creek, Placedo Creek, and Cox Bay subwatersheds are
+currently undersampled but compose approximately 27\% of the watershed
+area. The contribution of nutrient loadings from these undersampled
+areas is unknown.
 
-\hypertarget{limitations}{%
-\subsection*{Limitations}\label{limitations}}
-\addcontentsline{toc}{subsection}{Limitations}
+\DIFdelbegin %DIFDELCMD < \hypertarget{limitations}{%
+%DIFDELCMD < \subsection*{Limitations}\label{limitations}}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \hypertarget{future-management-and-research-needs}{%
+\subsection*{Future Management and Research
+Needs}\label{future-management-and-research-needs}}
+\DIFaddend \addcontentsline{toc}{subsection}{\DIFdelbegin \DIFdel{Limitations}\DIFdelend \DIFaddbegin \DIFadd{Future Management and Research Needs}\DIFaddend }
 
 The GAM approach proved useful for both estimating loads and assessing
 downstream responses in water quality. Although we did not compare other
 models, it is likely similar estimates of loadings would be obtained by
-methods suggest as LOADEST, WRTDS, or SPARROW given the functionally
+methods \DIFdelbegin \DIFdel{suggest }\DIFdelend \DIFaddbegin \DIFadd{such }\DIFaddend as LOADEST, WRTDS, or SPARROW given the functionally
 similar dependent variable structures. The underlying weakness in the
 estimates of loading in the current study is the reliance on ambient
 water quality data used for statewide water quality assessments.
@@ -1253,7 +1357,7 @@ long-term monitoring programs in and around the Chesapeake Bay, San
 Francisco Bay, and along the Mississippi River have proven extremely
 effective at informing management actions and tracking progress towards
 long-term pollutant reduction goals. Similar coordinated efforts across
-Texas coastal watersheds would provide useful for resource management
+Texas coastal watersheds would \DIFdelbegin \DIFdel{provide }\DIFdelend \DIFaddbegin \DIFadd{prove }\DIFaddend useful for resource management
 efforts intended to protect the biological and water quality integrity
 of Texas's estuaries.
 
@@ -1284,7 +1388,7 @@ concentrations. DO concentrations, dominated by seasonal effects, did
 not show strong direct responses to freshwater flow. Small variances in
 flow-adjusted nutrient loads indicate that (1) there have been limited
 changes in non-point sources of nutrients and (2) that there is not
-strong evidence that those small changes have had effects on
+strong evidence that those small changes have had \DIFaddbegin \DIFadd{extensive }\DIFaddend effects on
 chlorophyll-\emph{a} or dissolved oxygen in Lavaca Bay. Although this
 study did not identify changes in DO or chlorophyll-\emph{a}
 concentrations in Lavaca Bay, site specific increases in
