@@ -2987,7 +2987,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Adc: {{Calculate Antecedant Discharge Conditions}}}
+      \field{title}{{adc}: {{Calculate Antecedant Discharge Conditions}}}
       \field{version}{1.0.0}
       \field{year}{2023}
       \verb{urlraw}
@@ -7033,7 +7033,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Adc: {{Calculate Antecedant Discharge Conditions}}}
+      \field{title}{{adc}: {{Calculate Antecedant Discharge Conditions}}}
       \field{version}{1.0.0}
       \field{year}{2023}
       \verb{urlraw}
