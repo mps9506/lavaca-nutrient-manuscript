@@ -1,0 +1,20 @@
+---
+title: "Lavaca Bay nutrient loading manuscript files"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This repo contains the files used to generate:
+
+Schramm, M. TBD. Linking watershed nutrient loading to estuary water quality with Generalized Additive Models.
+
+
+The rmarkdown files require LaTeX and the [lavaca-nutrients](https://github.com/TxWRI/lavaca-nutrients) repo for targets to work properly. 
+
+```{r}
+renv::diagnostics()
+```
+
