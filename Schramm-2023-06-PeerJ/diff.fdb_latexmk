@@ -1,19 +1,19 @@
 # Fdb version 4
-["biber diff"] 1691867225 "diff.bcf" "diff.bbl" "diff" 1691867241 0
+["biber diff"] 1691867225 "diff.bcf" "diff.bbl" "diff" 1692191349 0
   "./bibliography.bib" 1691867118 56764 09992eee9c0434d6b0ceed7f1be5366b ""
-  "diff.bcf" 1691867241 146399 a43226b826ebe8e1b44ab97bf7b4988e "pdflatex"
+  "diff.bcf" 1692191349 146399 a43226b826ebe8e1b44ab97bf7b4988e "pdflatex"
   (generated)
   "diff.bbl"
   "diff.blg"
   (rewritten before read)
-["pdflatex"] 1691867235 "diff.tex" "diff.pdf" "diff" 1691867241 0
+["pdflatex"] 1692191343 "diff.tex" "diff.pdf" "diff" 1692191349 0
   "Schramm-2023-08-PeerJ_files/figure-latex/fig1.png" 1691780544 2809645 3019592e5636fb26e951e72c761c11a3 ""
-  "Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf" 1691867147 1009408 7a03f27b0f72f96b7c3daad48d05f425 ""
-  "Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf" 1691867159 42259 d8b4ee9271c7f4338bbc52204d8634ec ""
-  "Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf" 1691867161 26982 94a99eaf10aa7eb2f2768271ff34ede5 ""
-  "Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf" 1691867164 73861 9d29ca1f790d547df12b7842359cd7eb ""
-  "Schramm-2023-08-PeerJ_files/figure-latex/fig6.pdf" 1691867167 56424 cc73553837324cc8b5464f9b07ab6631 ""
-  "Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf" 1691867169 44701 6d5de689f361ce1814be7d206d574416 ""
+  "Schramm-2023-08-PeerJ_files/figure-latex/fig2.pdf" 1692191261 1009408 a53fc85d85507e8057271db993b17906 ""
+  "Schramm-2023-08-PeerJ_files/figure-latex/fig3.pdf" 1692191273 42259 589e9d019848e6fd4a675c7961ee5424 ""
+  "Schramm-2023-08-PeerJ_files/figure-latex/fig4.pdf" 1692191275 26982 cb47d4db88bf96842281a8643dbdd248 ""
+  "Schramm-2023-08-PeerJ_files/figure-latex/fig5.pdf" 1692191278 73861 2aca4d8a20ae7f633757e4240bf34455 ""
+  "Schramm-2023-08-PeerJ_files/figure-latex/fig6.pdf" 1692191281 56424 e0b298b272db9e52d2dd46d879b6e7cb ""
+  "Schramm-2023-08-PeerJ_files/figure-latex/fig7.pdf" 1692191283 44701 195c4b48789f92a19b200e96ea828062 ""
   "Schramm-2023-08-PeerJ_files/figure-latex/fig8.pdf" 1691423554 372759 9594efd78208ed3878a675eb5ee76af3 ""
   "c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc" 1688804728 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1688804750 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -203,11 +203,11 @@
   "c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1691760399 490545 6ea0bea292a0013640028e5cb43399af ""
   "c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1691350499 6771603 8747db7d0bcc6fe60dd05cd365820456 ""
   "c:/Users/michael.schramm/AppData/Roaming/TinyTeX/texmf.cnf" 1688804666 903 164c5b127cd0d6dc91abad2f62421ea2 ""
-  "diff.aux" 1691867241 44107 1bae5ddba2f9a5c8a831955c7bc7fb3b "pdflatex"
+  "diff.aux" 1692191349 44107 ff1bbee4b0dda2f7cffa9692c1949cc6 "pdflatex"
   "diff.bbl" 1691867229 341521 8dcbb5731bc4a3e35571765c5c6205c5 "biber diff"
-  "diff.out" 1691867241 2632 660bef2df8bed77cce6f0d16e7c594be "pdflatex"
-  "diff.run.xml" 1691867241 2429 0f596e6f1536eaa1ea56fd6441ccfd1d "pdflatex"
-  "diff.tex" 1691867225 91033 057f5f856d58a5c8d714b60584fa2d95 ""
+  "diff.out" 1692191349 2632 660bef2df8bed77cce6f0d16e7c594be "pdflatex"
+  "diff.run.xml" 1692191349 2429 0f596e6f1536eaa1ea56fd6441ccfd1d "pdflatex"
+  "diff.tex" 1692191331 91235 6f682846d90aa9d465d55cf8644c8e68 ""
   "wlpeerj.cls" 1684956989 6552 2b575ef2611286c23cad2c1e1905691d ""
   (generated)
   "diff.aux"

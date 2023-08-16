@@ -2036,5 +2036,7 @@ flow-biased sampling.
 # Acknowledgements {.unnumbered}
 The author thanks Stephanie deVilleneuve for comments on an early draft and
 members of the Coastal Nutrient Input Repository project committee for
-supporting project development and their valuable input.
+supporting project development and their valuable input. The views expressed 
+herein are those of the author(s) and do not necessarily reflect the views of 
+NOAA, the U.S. Department of Commerce, or any of their subagencies.
 
