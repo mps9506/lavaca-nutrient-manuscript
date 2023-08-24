@@ -1,10 +1,11 @@
 Lavaca Bay nutrient loading manuscript files
 ================
 
-This repo contains the files used to generate:
+This repo contains the rmarkdown manuscript files used to generate the
+following accepted manuscript:
 
-Schramm, M. TBD. Linking watershed nutrient loading to estuary water
-quality with Generalized Additive Models.
+Schramm, M. forthcoming. Linking watershed nutrient loading to estuary
+water quality with Generalized Additive Models. PeerJ
 
 The rmarkdown files require LaTeX and the
 [lavaca-nutrients](https://github.com/TxWRI/lavaca-nutrients) repo for
@@ -80,6 +81,7 @@ renv::diagnostics()
     ## blob                   1.2.4   CRAN      1.2.4   CRAN  [2]   indirect
     ## bookdown                0.34   CRAN       0.34   CRAN  [1]   indirect
     ## boot                1.3-28.1   CRAN       <NA>   <NA>  [2]       <NA>
+    ## brio                   1.1.3   CRAN       <NA>   <NA>  [2]       <NA>
     ## broom                  1.0.5   CRAN      1.0.5   CRAN  [1]   indirect
     ## bslib                  0.5.0   CRAN      0.5.0   CRAN  [1]   indirect
     ## cachem                 1.0.8   CRAN      1.0.8   CRAN  [1]   indirect
@@ -101,7 +103,7 @@ renv::diagnostics()
     ## crayon                 1.5.2   CRAN      1.5.2   CRAN  [2]   indirect
     ## credentials            1.3.2   CRAN       <NA>   <NA>  [2]       <NA>
     ## crul                   1.4.0   CRAN      1.4.0   CRAN  [2]   indirect
-    ## curl                   5.0.1   CRAN      5.0.1   CRAN  [2]   indirect
+    ## curl                   5.0.2   CRAN      5.0.2   CRAN  [2]   indirect
     ## data.table            1.14.8   CRAN     1.14.8   CRAN  [1]   indirect
     ## dataRetrieval         2.7.13   CRAN     2.7.13   CRAN  [1]     direct
     ## datawizard             0.8.0   CRAN      0.8.0   CRAN  [1]   indirect
@@ -109,6 +111,7 @@ renv::diagnostics()
     ## desc                   1.4.2   CRAN       <NA>   <NA>  [2]       <NA>
     ## digest                0.6.33   CRAN     0.6.33   CRAN  [1]   indirect
     ## dlstats                0.1.7   CRAN       <NA>   <NA>  [2]       <NA>
+    ## downlit                0.4.3   CRAN       <NA>   <NA>  [2]       <NA>
     ## dplyr                  1.1.2   CRAN      1.1.2   CRAN  [2]     direct
     ## dtplyr                 1.3.1   CRAN      1.3.1   CRAN  [1]   indirect
     ## e1071                 1.7-13   CRAN     1.7-13   CRAN  [1]   indirect
@@ -354,5 +357,5 @@ renv::diagnostics()
     ## - C:\Program Files\RStudio\resources\app\bin\postback
     ## 
     ## # Cache ==============================
-    ## There are a total of 526 package(s) installed in the renv cache.
+    ## There are a total of 540 package(s) installed in the renv cache.
     ## Cache path: "C:/Users/michael.schramm/AppData/Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32"
