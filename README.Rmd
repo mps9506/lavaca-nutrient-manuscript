@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This repo contains the rmarkdown manuscript files used to generate the following accepted manuscript:
 
-Schramm, M. forthcoming. Linking watershed nutrient loading to estuary water quality with Generalized Additive Models. PeerJ
+Schramm MP. 2023. Linking watershed nutrient loading to estuary water quality with generalized additive models. PeerJ 11:e16073 https://doi.org/10.7717/peerj.16073
 
 
 The rmarkdown files require LaTeX and the [lavaca-nutrients](https://github.com/TxWRI/lavaca-nutrients) repo for targets to work properly. 
